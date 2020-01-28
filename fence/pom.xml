@@ -6,6 +6,7 @@
 
   <groupId>com.manjavacas</groupId>
   <artifactId>fence</artifactId>
+  <packaging>jar</packaging>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>fence</name>
