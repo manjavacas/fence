@@ -1,6 +1,6 @@
 package com.manjavacas.fence.employee;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,8 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 
-	public ArrayList<Employee> getAllEmployees() {
-		return null;
+	public List<Employee> getAllEmployees() {
+		return employeeRepository.findAll();
 	}
 
 	public Employee getEmployee(String dni) {
@@ -34,6 +34,7 @@ public class EmployeeService {
 		currentEmployee.setRole(newEmployee.getRole());
 		currentEmployee.setCountry(newEmployee.getCountry());
 		currentEmployee.setExperience(newEmployee.getExperience());
+		currentEmployee.setTeam(newEmployee.getTeam());
 		currentEmployee.setStc(newEmployee.getStc());
 
 		employeeRepository.save(currentEmployee);

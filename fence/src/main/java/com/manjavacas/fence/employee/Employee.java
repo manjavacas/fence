@@ -17,15 +17,15 @@ public class Employee {
 	private String timezone;
 	private String country;
 	private String experience;
+	private String team;
 	private double stc;
 
 	public Employee() {
 	}
 
-	public Employee(ObjectId _id, String dni, String name, String email, String genre, int age, String role,
-			String timezone, String country, String experience, double stc) {
+	public Employee(String dni, String name, String email, String genre, int age, String role, String timezone,
+			String country, String experience, String team, double stc) {
 		super();
-		this._id = _id;
 		this.dni = dni;
 		this.name = name;
 		this.email = email;
@@ -35,6 +35,7 @@ public class Employee {
 		this.timezone = timezone;
 		this.country = country;
 		this.experience = experience;
+		this.team = team;
 		this.stc = stc;
 	}
 
@@ -116,6 +117,14 @@ public class Employee {
 
 	public void setExperience(String experience) {
 		this.experience = experience;
+	}
+
+	public String getTeam() {
+		return team;
+	}
+
+	public void setTeam(String team) {
+		this.team = team;
 	}
 
 	public double getStc() {
