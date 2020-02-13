@@ -1,4 +1,4 @@
-package com.manjavacas.fence.employee;
+package com.manjavacas.fence.controller;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.manjavacas.fence.model.Employee;
+import com.manjavacas.fence.service.EmployeeService;
 
 @RestController
 public class EmployeeController {

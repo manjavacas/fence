@@ -1,4 +1,4 @@
-package com.manjavacas.fence.employee;
+package com.manjavacas.fence.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
