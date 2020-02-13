@@ -1,6 +1,6 @@
 package com.manjavacas.fence.employee;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,13 +18,13 @@ public class EmployeeController {
 	private EmployeeService employeeService;
 
 	@RequestMapping("/Employees")
-	public ArrayList<Employee> getAllEmployees() {
+	public List<Employee> getAllEmployees() {
 		return employeeService.getAllEmployees();
 	}
 
-	@RequestMapping("/Employees/{id}")
-	public Employee getEmployee(@PathVariable String id) {
-		return null;
+	@RequestMapping("/Employees/{dni}")
+	public Employee getEmployee(@PathVariable String dni) {
+		return employeeService.getEmployee(dni);
 	}
 
 	@PostMapping(value = "/Employees")
@@ -32,13 +32,13 @@ public class EmployeeController {
 		employeeService.addEmployee(Employee);
 	}
 
-	@PutMapping(value = "/Employees/{id}")
-	public void updateEmployee(@PathVariable String id, @RequestBody Employee Employee) {
-		employeeService.updateEmployee(id, Employee);
+	@PutMapping(value = "/Employees/{dni}")
+	public void updateEmployee(@PathVariable String dni, @RequestBody Employee Employee) {
+		employeeService.updateEmployee(dni, Employee);
 	}
 
-	@DeleteMapping("/Employees/{id}")
-	public void deleteEmployee(@PathVariable String id) {
-		employeeService.deleteEmployee(id);
+	@DeleteMapping("/Employees/{dni}")
+	public void deleteEmployee(@PathVariable String dni) {
+		employeeService.deleteEmployee(dni);
 	}
 }

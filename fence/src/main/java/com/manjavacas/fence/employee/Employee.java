@@ -8,6 +8,7 @@ public class Employee {
 
 	private ObjectId _id;
 
+	private String dni;
 	private String name;
 	private String email;
 	private String genre;
@@ -21,10 +22,11 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(ObjectId _id, String name, String email, String genre, int age, String role, String timezone,
-			String country, String experience, double stc) {
+	public Employee(ObjectId _id, String dni, String name, String email, String genre, int age, String role,
+			String timezone, String country, String experience, double stc) {
 		super();
 		this._id = _id;
+		this.dni = dni;
 		this.name = name;
 		this.email = email;
 		this.genre = genre;
@@ -42,6 +44,14 @@ public class Employee {
 
 	public void set_id(ObjectId _id) {
 		this._id = _id;
+	}
+
+	public String getDni() {
+		return dni;
+	}
+
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 	public String getName() {

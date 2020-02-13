@@ -1,5 +1,7 @@
 package com.manjavacas.fence.employee;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -7,6 +9,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
-	@Query("{ '_id' : ?0 }")
-	Employee findBy_Id(String _id);
+	@Query("{ 'dni' : ?0 }")
+	Employee findByDni(String dni);
+
+	@Query("{ 'dni' : ?0}")
+	List<Employee> deleteByDni(String dni);
+
+	@Query("{ 'team' : ?0 }")
+	List<Employee> findByTeam(String team);
+
 }
