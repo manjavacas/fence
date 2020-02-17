@@ -45,12 +45,12 @@ public class TeamController {
 		teamService.addTeam(team);
 	}
 
-	@PutMapping(value = "/Teams/{id}")
-	public void updateTeam(@PathVariable String id, @RequestBody Team team) {
-		teamService.updateTeam(id, team);
+	@PutMapping(value = "/Teams/{name}")
+	public void updateTeam(@PathVariable String name, @RequestBody Team team) {
+		teamService.updateTeam(name, team);
 	}
 
-	@DeleteMapping("/Teams/{dni}")
+	@DeleteMapping("/Teams/{name}")
 	public void deleteTeam(@PathVariable String name) {
 		teamService.deleteTeam(name);
 	}
