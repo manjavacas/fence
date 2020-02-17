@@ -36,8 +36,8 @@ public class EmployeeController {
 	}
 
 	@PutMapping(value = "/Employees/{dni}")
-	public void updateEmployee(@PathVariable String dni, @RequestBody Employee Employee) {
-		employeeService.updateEmployee(dni, Employee);
+	public void updateEmployee(@PathVariable String dni, @RequestBody Employee employee) {
+		employeeService.updateEmployee(dni, employee);
 	}
 
 	@DeleteMapping("/Employees/{dni}")
