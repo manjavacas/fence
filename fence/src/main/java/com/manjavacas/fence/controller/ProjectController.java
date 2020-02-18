@@ -19,7 +19,7 @@ public class ProjectController {
 
 	@Autowired
 	private ProjectService projectService;
-	
+
 	@RequestMapping("/Projects")
 	public List<Project> getAllProjects() {
 		return projectService.getAllProjects();
@@ -44,5 +44,5 @@ public class ProjectController {
 	public void deleteProject(@PathVariable String name) {
 		projectService.deleteProject(name);
 	}
-	
+
 }

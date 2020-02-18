@@ -28,7 +28,7 @@ public class EmployeeService {
 
 	public void updateEmployee(String dni, Employee newEmployee) {
 		Employee currentEmployee = employeeRepository.findByDni(dni);
-		
+
 		currentEmployee.setDni(newEmployee.getDni());
 		currentEmployee.setName(newEmployee.getName());
 		currentEmployee.setEmail(newEmployee.getEmail());

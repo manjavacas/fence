@@ -19,7 +19,7 @@ public class TaskService {
 		return null;
 	}
 
-	public Task getTasksByProject(String project) {
+	public List<Task> getTasksByProject(String project) {
 		// TODO Auto-generated method stub
 		return null;
 	}

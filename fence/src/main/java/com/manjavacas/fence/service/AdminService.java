@@ -4,32 +4,32 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.manjavacas.fence.model.Project;
+import com.manjavacas.fence.model.Admin;
 
 @Service
-public class ProjectService {
+public class AdminService {
 
-	public List<Project> getAllProjects() {
+	public List<Admin> getAllAdmins() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public Project getProject(String name) {
+	public Admin getAdmin(String username) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public void addProject(Project project) {
+	public void addAdmin(Admin admin) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void updateProject(String name, Project project) {
+	public void updateAdmin(String username, Admin admin) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void deleteProject(String name) {
+	public void deleteAdmin(String username) {
 		// TODO Auto-generated method stub
 
 	}

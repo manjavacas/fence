@@ -12,7 +12,6 @@ public class Communication {
 
 	private String starter;
 	private String listener;
-	private String project;
 	private Timestamp time_start;
 	private Timestamp time_end;
 	private String quality;
@@ -20,12 +19,10 @@ public class Communication {
 	public Communication() {
 	}
 
-	public Communication(String starter, String listener, String project, Timestamp time_start,
-			Timestamp time_end, String quality) {
+	public Communication(String starter, String listener, Timestamp time_start, Timestamp time_end, String quality) {
 		super();
 		this.starter = starter;
 		this.listener = listener;
-		this.project = project;
 		this.time_start = time_start;
 		this.time_end = time_end;
 		this.quality = quality;
@@ -53,14 +50,6 @@ public class Communication {
 
 	public void setListener(String listener) {
 		this.listener = listener;
-	}
-
-	public String getProject() {
-		return project;
-	}
-
-	public void setProject(String project) {
-		this.project = project;
 	}
 
 	public Timestamp getTime_start() {

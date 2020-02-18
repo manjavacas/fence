@@ -25,22 +25,22 @@ public class TaskController {
 		return taskService.getAllTasks();
 	}
 
-	@RequestMapping("/Task/{ref}")
+	@RequestMapping("/Tasks/{ref}")
 	public Task getTask(@PathVariable int ref) {
 		return taskService.getTask(ref);
 	}
 
-	@RequestMapping("/Task/project/{project}")
-	public Task getTasksByProject(@PathVariable String project) {
+	@RequestMapping("/Tasks/project/{project}")
+	public List<Task> getTasksByProject(@PathVariable String project) {
 		return taskService.getTasksByProject(project);
 	}
 
-	@RequestMapping("/Task/pending")
+	@RequestMapping("/Tasks/pending")
 	public List<Task> getPendingTasks() {
 		return taskService.getPendingTasks();
 	}
 
-	@RequestMapping("/Task/priority/{level}")
+	@RequestMapping("/Tasks/priority/{level}")
 	public List<Task> getTasksByPriority(@PathVariable String level) {
 		return taskService.getTasksByPriority(level);
 	}

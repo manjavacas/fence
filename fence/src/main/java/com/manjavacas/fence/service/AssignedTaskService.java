@@ -32,19 +32,17 @@ public class AssignedTaskService {
 
 	public void addAssignedTask(AssignedTask assignedTask) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void updateAssignedTask(String id, AssignedTask assignedTask) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void deleteAssignedTask(String id) {
 		// TODO Auto-generated method stub
-		
+
 	}
-
-
 
 }

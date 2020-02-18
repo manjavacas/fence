@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.manjavacas.fence.model.Communication;
-import com.manjavacas.fence.model.Employee;
 import com.manjavacas.fence.service.CommunicationService;
 
 @RestController
@@ -26,24 +25,29 @@ public class CommunicationController {
 	private CommunicationService communicationService;
 
 	@RequestMapping("/Communications")
-	public List<Employee> getAllCommunications() {
+	public List<Communication> getAllCommunications() {
 		return communicationService.getAllCommunications();
+	}
+	
+	@RequestMapping("/Communications/{id}")
+	public Communication getCommunication(@PathVariable ObjectId id) {
+		return communicationService.getCommunication(id);
 	}
 
 	@RequestMapping("/Communications/starter/{dni}")
 	public List<Communication> getCommunicationsByStarter(@PathVariable String dni) {
-		return communicationService.getCommunicationByStarter(dni);
+		return communicationService.getCommunicationsByStarter(dni);
 	}
 
 	@RequestMapping("/Communications/listener/{dni}")
 	public List<Communication> getCommunicationsByListener(@PathVariable String dni) {
-		return communicationService.getCommunicationByListener(dni);
+		return communicationService.getCommunicationsByListener(dni);
 	}
 
 	@RequestMapping("/Communications/{dateStr}")
 	public List<Communication> getCommunicationsByDate(@PathVariable String dateStr) throws ParseException {
 		Date date = new SimpleDateFormat("dd-MM-yyyy").parse(dateStr);
-		return communicationService.getCommunicationByDate(date);
+		return communicationService.getCommunicationsByDate(date);
 	}
 
 	@PostMapping(value = "/Communications")

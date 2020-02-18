@@ -7,46 +7,48 @@ import org.bson.types.ObjectId;
 import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.Communication;
-import com.manjavacas.fence.model.Employee;
 
 @Service
 public class CommunicationService {
 
-	public List<Employee> getAllCommunications() {
+	public List<Communication> getAllCommunications() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Communication> getCommunicationByStarter(String dni) {
+	public Communication getCommunication(ObjectId id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Communication> getCommunicationByListener(String dni) {
+	public List<Communication> getCommunicationsByStarter(String dni) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public List<Communication> getCommunicationByDate(Date date) {
+	public List<Communication> getCommunicationsByListener(String dni) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public List<Communication> getCommunicationsByDate(Date date) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	public void addCommunication(Communication communication) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void updateCommunication(ObjectId id, Communication communication) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void deleteCommunication(ObjectId id) {
 		// TODO Auto-generated method stub
-		
+
 	}
-
-
 
 }

@@ -1,6 +1,5 @@
 package com.manjavacas.fence.controller;
 
-
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -31,7 +30,7 @@ public class AssignedTaskController {
 	public AssignedTask getAssignedTask(@PathVariable ObjectId id) {
 		return assignedTaskService.getAssignedTask(id);
 	}
-	
+
 	@RequestMapping("/AssignedTasks/employee/{dni}")
 	public List<AssignedTask> getAssignedTasksToEmployee(@PathVariable String dni) {
 		return assignedTaskService.getAssignedTasksToEmployee(dni);
@@ -52,4 +51,3 @@ public class AssignedTaskController {
 		assignedTaskService.deleteAssignedTask(id);
 	}
 }
-
