@@ -14,11 +14,11 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
 
 	@Query("{ 'dni' : ?0 }")
 	Employee findByDni(String dni);
+	
+	@Query("{ 'team' : ?0 }")
+	List<Employee> findByTeam(String team);
 
 	@DeleteQuery("{ 'dni' : ?0}")
 	List<Employee> deleteByDni(String dni);
-
-	@Query("{ 'team' : ?0 }")
-	List<Employee> findByTeam(String team);
 
 }

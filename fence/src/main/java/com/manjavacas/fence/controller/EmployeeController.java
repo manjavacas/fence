@@ -29,7 +29,12 @@ public class EmployeeController {
 	public Employee getEmployee(@PathVariable String dni) {
 		return employeeService.getEmployee(dni);
 	}
-
+	
+	@RequestMapping("/Employees/team/{team}")
+	public List<Employee> getEmployeesByTeam(@PathVariable String team) {
+		return employeeService.getEmployeesByTeam(team);
+	}
+	
 	@PostMapping(value = "/Employees")
 	public void addEmployee(@RequestBody Employee Employee) {
 		employeeService.addEmployee(Employee);

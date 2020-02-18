@@ -21,6 +21,10 @@ public class EmployeeService {
 	public Employee getEmployee(String dni) {
 		return employeeRepository.findByDni(dni);
 	}
+	
+	public List<Employee> getEmployeesByTeam(String team) {
+		return employeeRepository.findByTeam(team);
+	}
 
 	public void addEmployee(Employee employee) {
 		employeeRepository.insert(employee);
