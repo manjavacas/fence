@@ -2,38 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="FENCE: a fuzzy sociotechnical congruence measurer">
-    <meta name="author" content="Antonio Manjavacas">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="FENCE: a fuzzy sociotechnical congruence measurer">
+  <meta name="author" content="Antonio Manjavacas">
 
-    <title>Fence</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/login.css">
 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >
-
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="js/login.js"></script>
 
 </head>
 
 <body>
-
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Fence</a>
-    </nav>
-
-    <div class="container-fluid flex-grow-1 d-flex">
-        <div class="row flex-fill flex-column flex-sm-row">
-            <div class="col-sm-3 col-md-2 sidebar flex-shrink-1 bg-dark pt-3" id="Navbar">
-                <ul class="nav flex-sm-column">
-                    <li class="active"><a class="nav-link" href="/"><i class="fas fa-server"></i> Dashboard</a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-file-contract"></i> Reports</a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-project-diagram"></i> Calculate STC</a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-thumbs-up"></i> Recommendations</a></li>
-                    <li><a class="nav-link" href="#"><i class="fas fa-cog"></i> Settings</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  <div class="login-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+      <h2 class="text-center">Fence<img src="images/fence-logo.png" class="img-fluid"></h2>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Username" required="required">
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" required="required">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" id="btnLogin" onkeydown="checkLogin()">Login</button>
+      </div>
+    </form>
+  </div>
 </body>
 
 </html>

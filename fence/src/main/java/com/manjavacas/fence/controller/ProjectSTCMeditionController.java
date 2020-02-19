@@ -34,9 +34,9 @@ public class ProjectSTCMeditionController {
 		return projectSTCMeditionService.getProjectSTCMedition(id);
 	}
 
-	@RequestMapping("/ProjectSTCMeditions/project/{id}")
-	public List<ProjectSTCMedition> getProjectSTCMeditionsByDni(@PathVariable String name) {
-		return projectSTCMeditionService.getProjectSTCMeditionsByDni(name);
+	@RequestMapping("/ProjectSTCMeditions/project/{dni}")
+	public List<ProjectSTCMedition> getProjectSTCMeditionsByDni(@PathVariable String dni) {
+		return projectSTCMeditionService.getProjectSTCMeditionsByDni(dni);
 	}
 
 	@RequestMapping("/ProjectSTCMeditions/date/{dateStr}")

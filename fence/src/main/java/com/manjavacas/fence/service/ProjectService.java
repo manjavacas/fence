@@ -2,36 +2,44 @@ package com.manjavacas.fence.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.Project;
+import com.manjavacas.fence.repository.ProjectRepository;
 
 @Service
 public class ProjectService {
 
+	@Autowired
+	ProjectRepository projectRepository;
+
 	public List<Project> getAllProjects() {
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepository.findAll();
 	}
 
 	public Project getProject(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return projectRepository.findByName(name);
 	}
 
 	public void addProject(Project project) {
-		// TODO Auto-generated method stub
-
+		projectRepository.insert(project);
 	}
 
-	public void updateProject(String name, Project project) {
-		// TODO Auto-generated method stub
+	public void updateProject(String name, Project newProject) {
+		Project currentProject = projectRepository.findByName(name);
 
+		currentProject.setAdmin(newProject.getAdmin());
+		currentProject.setDescription(newProject.getDescription());
+		currentProject.setStart_date(newProject.getStart_date());
+		currentProject.setEnd_date(newProject.getEnd_date());
+		currentProject.setName(newProject.getName());
+
+		projectRepository.save(currentProject);
 	}
 
 	public void deleteProject(String name) {
-		// TODO Auto-generated method stub
-
+		projectRepository.deleteByName(name);
 	}
 
 }

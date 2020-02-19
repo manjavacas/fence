@@ -1,0 +1,3 @@
+function checkLogin() {
+    // TO-DO
+}

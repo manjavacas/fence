@@ -3,46 +3,49 @@ package com.manjavacas.fence.service;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.Language;
+import com.manjavacas.fence.repository.LanguageRepository;
 
 @Service
 public class LanguageService {
 
+	@Autowired
+	LanguageRepository languageRepository;
+
 	public List<Language> getAllLanguages() {
-		// TODO Auto-generated method stub
-		return null;
+		return languageRepository.findAll();
 	}
 
 	public Language getLanguage(ObjectId id) {
-		// TODO Auto-generated method stub
-		return null;
+		return languageRepository.findById(id);
 	}
 
 	public List<Language> getEmployeeLanguages(String dni) {
-		// TODO Auto-generated method stub
-		return null;
+		return languageRepository.findByEmployee(dni);
 	}
 
 	public List<Language> getSpeakers(String language) {
-		// TODO Auto-generated method stub
-		return null;
+		return languageRepository.findByLanguage(language);
 	}
 
 	public void addLanguage(Language language) {
-		// TODO Auto-generated method stub
-
+		languageRepository.insert(language);
 	}
 
-	public void updateLanguage(ObjectId id, Language language) {
-		// TODO Auto-generated method stub
+	public void updateLanguage(ObjectId id, Language newLanguage) {
+		Language currentLanguage = languageRepository.findById(id);
 
+		currentLanguage.setEmployee(newLanguage.getLanguage());
+		currentLanguage.setLanguage(newLanguage.getLanguage());
+
+		languageRepository.save(currentLanguage);
 	}
 
 	public void deleteLanguage(ObjectId id) {
-		// TODO Auto-generated method stub
-
+		languageRepository.deleteById(id);
 	}
 
 }

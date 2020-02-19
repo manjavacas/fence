@@ -2,46 +2,50 @@ package com.manjavacas.fence.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.Team;
+import com.manjavacas.fence.repository.TeamRepository;
 
 @Service
 public class TeamService {
 
+	@Autowired
+	TeamRepository teamRepository;
+
 	public List<Team> getAllTeams() {
-		// TODO Auto-generated method stub
-		return null;
+		return teamRepository.findAll();
 	}
 
 	public Team getTeam(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return teamRepository.findByName(name);
 	}
 
 	public List<Team> getTeamsByLocation(String location) {
-		// TODO Auto-generated method stub
-		return null;
+		return teamRepository.findByLocation(location);
 	}
 
 	public List<Team> getTeamsByProject(String project) {
-		// TODO Auto-generated method stub
-		return null;
+		return teamRepository.findByProject(project);
 	}
 
 	public void addTeam(Team team) {
-		// TODO Auto-generated method stub
-
+		teamRepository.add(team);
 	}
 
-	public void updateTeam(String id, Team team) {
-		// TODO Auto-generated method stub
+	public void updateTeam(String name, Team newTeam) {
+		Team currentTeam = teamRepository.findByName(name);
 
+		currentTeam.setLocation(newTeam.getLocation());
+		currentTeam.setName(newTeam.getName());
+		currentTeam.setProject(newTeam.getProject());
+
+		teamRepository.save(currentTeam);
 	}
 
 	public void deleteTeam(String name) {
-		// TODO Auto-generated method stub
-
+		teamRepository.deleteByName(name);
 	}
 
 }
