@@ -3,46 +3,50 @@ package com.manjavacas.fence.service;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.AssignedTask;
+import com.manjavacas.fence.model.Employee;
+import com.manjavacas.fence.repository.AssignedTaskRepository;
 
 @Service
 public class AssignedTaskService {
 
+	@Autowired
+	AssignedTaskRepository assignedTaskRepository;
+
 	public List<AssignedTask> getAllAssignedTasks() {
-		// TODO Auto-generated method stub
-		return null;
+		return assignedTaskRepository.findAll();
 	}
 
 	public AssignedTask getAssignedTask(ObjectId id) {
-		// TODO Auto-generated method stub
-		return null;
+		return assignedTaskRepository.findById(id);
 	}
 
 	public List<AssignedTask> getAssignedTasksToEmployee(String dni) {
-		// TODO Auto-generated method stub
-		return null;
+		return assignedTaskRepository.findTasksByEmployee(dni);
 	}
 
-	public AssignedTask getAssignedTaskToEmployee(String dni) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Employee> getEmployeesAssignedTo(int ref) {
+		return assignedTaskRepository.findEmployeesByTask(ref);
 	}
 
 	public void addAssignedTask(AssignedTask assignedTask) {
-		// TODO Auto-generated method stub
-
+		assignedTaskRepository.insert(assignedTask);
 	}
 
-	public void updateAssignedTask(String id, AssignedTask assignedTask) {
-		// TODO Auto-generated method stub
+	public void updateAssignedTask(ObjectId id, AssignedTask newAssignedTask) {
+		AssignedTask currentAssignedTask = assignedTaskRepository.findById(id);
 
+		currentAssignedTask.setEmployee(newAssignedTask.getEmployee());
+		currentAssignedTask.setTask(newAssignedTask.getTask());
+
+		assignedTaskRepository.save(currentAssignedTask);
 	}
 
-	public void deleteAssignedTask(String id) {
-		// TODO Auto-generated method stub
-
+	public void deleteAssignedTask(ObjectId id) {
+		assignedTaskRepository.deleteById(id);
 	}
 
 }

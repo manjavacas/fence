@@ -4,46 +4,51 @@ import java.util.Date;
 import java.util.List;
 
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.EmployeeSTCMedition;
+import com.manjavacas.fence.repository.EmployeeSTCMeditionRepository;
 
 @Service
 public class EmployeeSTCMeditionService {
 
+	@Autowired
+	EmployeeSTCMeditionRepository employeeSTCMeditionRepository;
+
 	public List<EmployeeSTCMedition> getAllEmployeeSTCMeditions() {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeSTCMeditionRepository.findAll();
 	}
 
 	public EmployeeSTCMedition getEmployeeSTCMedition(ObjectId id) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeSTCMeditionRepository.findById(id);
 	}
 
 	public List<EmployeeSTCMedition> getEmployeeSTCMeditionsByDni(String dni) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeSTCMeditionRepository.findByDni(dni);
 	}
 
 	public List<EmployeeSTCMedition> getEmployeeSTCMeditionsByDate(Date date) {
-		// TODO Auto-generated method stub
-		return null;
+		return employeeSTCMeditionRepository.findByDate(date);
 	}
 
 	public void addEmployeeSTCMedition(EmployeeSTCMedition employeeSTCMedition) {
-		// TODO Auto-generated method stub
-
+		employeeSTCMeditionRepository.insert(employeeSTCMedition);
 	}
 
-	public void updateEmployeeSTCMedition(ObjectId id, EmployeeSTCMedition employeeSTCMedition) {
-		// TODO Auto-generated method stub
+	public void updateEmployeeSTCMedition(ObjectId id, EmployeeSTCMedition newEmployeeSTCMedition) {
+		EmployeeSTCMedition currentEmployeeSTCMedition = employeeSTCMeditionRepository.findById(id);
+
+		currentEmployeeSTCMedition.setDate(newEmployeeSTCMedition.getDate());
+		currentEmployeeSTCMedition.setEmployee(newEmployeeSTCMedition.getEmployee());
+		currentEmployeeSTCMedition.setStc(newEmployeeSTCMedition.getStc());
+
+		employeeSTCMeditionRepository.save(currentEmployeeSTCMedition);
 
 	}
 
 	public void deleteEmployeeSTCMedition(ObjectId id) {
-		// TODO Auto-generated method stub
-
+		employeeSTCMeditionRepository.deleteById(id);
 	}
 
 }
