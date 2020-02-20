@@ -12,12 +12,12 @@ import com.manjavacas.fence.model.ProjectSTCMedition;
 @Repository
 public interface ProjectSTCMeditionRepository extends MongoRepository<ProjectSTCMedition, String> {
 
-	ProjectSTCMedition findById(ObjectId id);
+	ProjectSTCMedition findBy_id(String id);
 
-	List<ProjectSTCMedition> findByDni(String dni);
+	List<ProjectSTCMedition> findByProject(String project);
 
 	List<ProjectSTCMedition> findByDate(Date date);
 
-	void deleteById(ObjectId id);
+	void deleteBy_id(ObjectId id);
 
 }

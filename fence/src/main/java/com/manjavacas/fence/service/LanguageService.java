@@ -20,7 +20,7 @@ public class LanguageService {
 	}
 
 	public Language getLanguage(ObjectId id) {
-		return languageRepository.findById(id);
+		return languageRepository.findBy_id(id.toString());
 	}
 
 	public List<Language> getEmployeeLanguages(String dni) {
@@ -36,7 +36,7 @@ public class LanguageService {
 	}
 
 	public void updateLanguage(ObjectId id, Language newLanguage) {
-		Language currentLanguage = languageRepository.findById(id);
+		Language currentLanguage = languageRepository.findBy_id(id.toString());
 
 		currentLanguage.setEmployee(newLanguage.getLanguage());
 		currentLanguage.setLanguage(newLanguage.getLanguage());
@@ -45,7 +45,7 @@ public class LanguageService {
 	}
 
 	public void deleteLanguage(ObjectId id) {
-		languageRepository.deleteById(id);
+		languageRepository.deleteBy_id(id.toString());
 	}
 
 }

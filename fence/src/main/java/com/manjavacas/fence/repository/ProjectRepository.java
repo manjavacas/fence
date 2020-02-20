@@ -6,11 +6,10 @@ import org.springframework.stereotype.Service;
 import com.manjavacas.fence.model.Project;
 
 @Service
-public interface ProjectRepository extends MongoRepository<Project, String>{
+public interface ProjectRepository extends MongoRepository<Project, String> {
 
 	Project findByName(String name);
 
 	void deleteByName(String name);
-
 
 }

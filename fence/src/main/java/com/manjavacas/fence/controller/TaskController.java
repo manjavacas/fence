@@ -25,9 +25,9 @@ public class TaskController {
 		return taskService.getAllTasks();
 	}
 
-	@RequestMapping("/Tasks/{ref}")
-	public Task getTask(@PathVariable int ref) {
-		return taskService.getTask(ref);
+	@RequestMapping("/Tasks/{reference}")
+	public Task getTask(@PathVariable int reference) {
+		return taskService.getTask(reference);
 	}
 
 	@RequestMapping("/Tasks/project/{project}")
@@ -50,14 +50,14 @@ public class TaskController {
 		taskService.addTask(task);
 	}
 
-	@PutMapping(value = "/Tasks/{ref}")
-	public void updateTask(@PathVariable int ref, @RequestBody Task task) {
-		taskService.updateTask(ref, task);
+	@PutMapping(value = "/Tasks/{reference}")
+	public void updateTask(@PathVariable int reference, @RequestBody Task task) {
+		taskService.updateTask(reference, task);
 	}
 
-	@DeleteMapping("/Tasks/{ref}")
-	public void deleteTask(@PathVariable int ref) {
-		taskService.deleteTask(ref);
+	@DeleteMapping("/Tasks/{reference}")
+	public void deleteTask(@PathVariable int reference) {
+		taskService.deleteTask(reference);
 	}
 
 }

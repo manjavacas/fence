@@ -21,7 +21,7 @@ public class CommunicationService {
 	}
 
 	public Communication getCommunication(ObjectId id) {
-		return communicationRepository.findById(id);
+		return communicationRepository.findBy_id(id.toString());
 	}
 
 	public List<Communication> getCommunicationsByStarter(String dni) {
@@ -41,7 +41,7 @@ public class CommunicationService {
 	}
 
 	public void updateCommunication(ObjectId id, Communication newCommunication) {
-		Communication currentCommunication = communicationRepository.findById(id);
+		Communication currentCommunication = communicationRepository.findBy_id(id.toString());
 
 		currentCommunication.setListener(newCommunication.getListener());
 		currentCommunication.setQuality(newCommunication.getQuality());
@@ -53,7 +53,7 @@ public class CommunicationService {
 	}
 
 	public void deleteCommunication(ObjectId id) {
-		communicationRepository.deleteById(id);
+		communicationRepository.deleteBy_id(id.toString());
 	}
 
 }

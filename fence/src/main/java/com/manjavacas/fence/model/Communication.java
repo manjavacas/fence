@@ -1,30 +1,36 @@
 package com.manjavacas.fence.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "communications")
 public class Communication {
 
+	@Id
 	private ObjectId _id;
 
 	private String starter;
 	private String listener;
 	private Timestamp time_start;
 	private Timestamp time_end;
+	private Date date;
 	private String quality;
 
 	public Communication() {
 	}
 
-	public Communication(String starter, String listener, Timestamp time_start, Timestamp time_end, String quality) {
+	public Communication(String starter, String listener, Timestamp time_start, Timestamp time_end, Date date,
+			String quality) {
 		super();
 		this.starter = starter;
 		this.listener = listener;
 		this.time_start = time_start;
 		this.time_end = time_end;
+		this.date = date;
 		this.quality = quality;
 	}
 
@@ -66,6 +72,14 @@ public class Communication {
 
 	public void setTime_end(Timestamp time_end) {
 		this.time_end = time_end;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 	public String getQuality() {

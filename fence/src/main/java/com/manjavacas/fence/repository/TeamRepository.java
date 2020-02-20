@@ -16,8 +16,6 @@ public interface TeamRepository extends MongoRepository<Team, String> {
 
 	List<Team> findByProject(String project);
 
-	void add(Team team);
-
 	void deleteByName(String name);
 
 }

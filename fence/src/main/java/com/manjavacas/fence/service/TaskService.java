@@ -18,8 +18,8 @@ public class TaskService {
 		return taskRepository.findAll();
 	}
 
-	public Task getTask(int ref) {
-		return taskRepository.findByRef(ref);
+	public Task getTask(int reference) {
+		return taskRepository.findByReference(reference);
 	}
 
 	public List<Task> getTasksByProject(String project) {
@@ -27,7 +27,7 @@ public class TaskService {
 	}
 
 	public List<Task> getPendingTasks() {
-		return taskRepository.findPendingTasks();
+		return taskRepository.findByDone(false);
 	}
 
 	public List<Task> getTasksByPriority(String level) {
@@ -38,8 +38,8 @@ public class TaskService {
 		taskRepository.insert(task);
 	}
 
-	public void updateTask(int ref, Task newTask) {
-		Task currentTask = taskRepository.findByRef(ref);
+	public void updateTask(int reference, Task newTask) {
+		Task currentTask = taskRepository.findByReference(reference);
 
 		currentTask.setDescription(newTask.getDescription());
 		currentTask.setDone(newTask.isDone());
@@ -52,8 +52,8 @@ public class TaskService {
 		taskRepository.save(newTask);
 	}
 
-	public void deleteTask(int ref) {
-		taskRepository.deleteByRef(ref);
+	public void deleteTask(int reference) {
+		taskRepository.deleteByReference(reference);
 	}
 
 }

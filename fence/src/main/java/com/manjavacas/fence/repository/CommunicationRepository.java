@@ -3,7 +3,6 @@ package com.manjavacas.fence.repository;
 import java.util.Date;
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +11,7 @@ import com.manjavacas.fence.model.Communication;
 @Repository
 public interface CommunicationRepository extends MongoRepository<Communication, String> {
 
-	Communication findById(ObjectId id);
+	Communication findBy_id(String id);
 
 	List<Communication> findByStarter(String dni);
 
@@ -20,6 +19,6 @@ public interface CommunicationRepository extends MongoRepository<Communication, 
 
 	List<Communication> findByDate(Date date);
 
-	void deleteById(ObjectId id);
+	void deleteBy_id(String id);
 
 }

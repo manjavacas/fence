@@ -21,7 +21,7 @@ public class AssignedTaskService {
 	}
 
 	public AssignedTask getAssignedTask(ObjectId id) {
-		return assignedTaskRepository.findById(id);
+		return assignedTaskRepository.findBy_id(id.toString());
 	}
 
 	public List<AssignedTask> getAssignedTasksToEmployee(String dni) {
@@ -37,7 +37,7 @@ public class AssignedTaskService {
 	}
 
 	public void updateAssignedTask(ObjectId id, AssignedTask newAssignedTask) {
-		AssignedTask currentAssignedTask = assignedTaskRepository.findById(id);
+		AssignedTask currentAssignedTask = assignedTaskRepository.findBy_id(id.toString());
 
 		currentAssignedTask.setEmployee(newAssignedTask.getEmployee());
 		currentAssignedTask.setTask(newAssignedTask.getTask());
@@ -46,7 +46,7 @@ public class AssignedTaskService {
 	}
 
 	public void deleteAssignedTask(ObjectId id) {
-		assignedTaskRepository.deleteById(id);
+		assignedTaskRepository.deleteBy_id(id.toString());
 	}
 
 }

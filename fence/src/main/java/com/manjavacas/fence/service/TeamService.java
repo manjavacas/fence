@@ -31,7 +31,7 @@ public class TeamService {
 	}
 
 	public void addTeam(Team team) {
-		teamRepository.add(team);
+		teamRepository.insert(team);
 	}
 
 	public void updateTeam(String name, Team newTeam) {

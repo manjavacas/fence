@@ -2,6 +2,7 @@ package com.manjavacas.fence.service;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,10 @@ public class EmployeeService {
 
 	public Employee getEmployee(String dni) {
 		return employeeRepository.findByDni(dni);
+	}
+	
+	public Employee getEmployeeById(ObjectId id) {
+		return employeeRepository.findBy_id(id.toString());
 	}
 	
 	public List<Employee> getEmployeesByTeam(String team) {

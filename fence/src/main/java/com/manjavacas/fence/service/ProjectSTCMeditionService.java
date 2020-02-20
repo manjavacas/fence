@@ -21,11 +21,11 @@ public class ProjectSTCMeditionService {
 	}
 
 	public ProjectSTCMedition getProjectSTCMedition(ObjectId id) {
-		return projectSTCMeditionRepository.findById(id);
+		return projectSTCMeditionRepository.findBy_id(id.toString());
 	}
 
-	public List<ProjectSTCMedition> getProjectSTCMeditionsByDni(String dni) {
-		return projectSTCMeditionRepository.findByDni(dni);
+	public List<ProjectSTCMedition> getProjectSTCMeditionsByProject(String project) {
+		return projectSTCMeditionRepository.findByProject(project);
 	}
 
 	public List<ProjectSTCMedition> getProjectSTCMeditionsByDate(Date date) {
@@ -37,7 +37,7 @@ public class ProjectSTCMeditionService {
 	}
 
 	public void updateProjectSTCMedition(ObjectId id, ProjectSTCMedition newProjectSTCMedition) {
-		ProjectSTCMedition currentProjectSTCMedition = projectSTCMeditionRepository.findById(id);
+		ProjectSTCMedition currentProjectSTCMedition = projectSTCMeditionRepository.findBy_id(id.toString());
 
 		currentProjectSTCMedition.setDate(newProjectSTCMedition.getDate());
 		currentProjectSTCMedition.setProject(newProjectSTCMedition.getProject());
@@ -47,7 +47,7 @@ public class ProjectSTCMeditionService {
 	}
 
 	public void deleteProjectSTCMedition(ObjectId id) {
-		projectSTCMeditionRepository.deleteById(id);
+		projectSTCMeditionRepository.deleteBy_id(id);
 	}
 
 }

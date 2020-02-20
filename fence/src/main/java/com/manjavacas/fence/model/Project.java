@@ -3,11 +3,13 @@ package com.manjavacas.fence.model;
 import java.util.Date;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "projects")
 public class Project {
 
+	@Id
 	private ObjectId _id;
 
 	private String name;

@@ -2,6 +2,7 @@ package com.manjavacas.fence.controller;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,12 +30,17 @@ public class EmployeeController {
 	public Employee getEmployee(@PathVariable String dni) {
 		return employeeService.getEmployee(dni);
 	}
-	
+
+	@RequestMapping("/Employees/id/{id}")
+	public Employee getEmployeeById(@PathVariable ObjectId id) {
+		return employeeService.getEmployeeById(id);
+	}
+
 	@RequestMapping("/Employees/team/{team}")
 	public List<Employee> getEmployeesByTeam(@PathVariable String team) {
 		return employeeService.getEmployeesByTeam(team);
 	}
-	
+
 	@PostMapping(value = "/Employees")
 	public void addEmployee(@RequestBody Employee Employee) {
 		employeeService.addEmployee(Employee);

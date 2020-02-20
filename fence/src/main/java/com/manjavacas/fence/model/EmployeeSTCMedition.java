@@ -3,23 +3,25 @@ package com.manjavacas.fence.model;
 import java.util.Date;
 
 import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "employees_stc_history")
+@Document(collection = "dnis_stc_history")
 public class EmployeeSTCMedition {
 
+	@Id
 	private ObjectId _id;
 
-	private String employee;
+	private String dni;
 	private Date date;
 	private double stc;
 
 	public EmployeeSTCMedition() {
 	}
 
-	public EmployeeSTCMedition(String employee, Date date, double stc) {
+	public EmployeeSTCMedition(String dni, Date date, double stc) {
 		super();
-		this.employee = employee;
+		this.dni = dni;
 		this.date = date;
 		this.stc = stc;
 	}
@@ -33,11 +35,11 @@ public class EmployeeSTCMedition {
 	}
 
 	public String getEmployee() {
-		return employee;
+		return dni;
 	}
 
-	public void setEmployee(String employee) {
-		this.employee = employee;
+	public void setEmployee(String dni) {
+		this.dni = dni;
 	}
 
 	public Date getDate() {

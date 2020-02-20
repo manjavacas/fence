@@ -21,7 +21,7 @@ public class EmployeeSTCMeditionService {
 	}
 
 	public EmployeeSTCMedition getEmployeeSTCMedition(ObjectId id) {
-		return employeeSTCMeditionRepository.findById(id);
+		return employeeSTCMeditionRepository.findBy_id(id.toString());
 	}
 
 	public List<EmployeeSTCMedition> getEmployeeSTCMeditionsByDni(String dni) {
@@ -37,7 +37,7 @@ public class EmployeeSTCMeditionService {
 	}
 
 	public void updateEmployeeSTCMedition(ObjectId id, EmployeeSTCMedition newEmployeeSTCMedition) {
-		EmployeeSTCMedition currentEmployeeSTCMedition = employeeSTCMeditionRepository.findById(id);
+		EmployeeSTCMedition currentEmployeeSTCMedition = employeeSTCMeditionRepository.findBy_id(id.toString());
 
 		currentEmployeeSTCMedition.setDate(newEmployeeSTCMedition.getDate());
 		currentEmployeeSTCMedition.setEmployee(newEmployeeSTCMedition.getEmployee());
@@ -48,7 +48,7 @@ public class EmployeeSTCMeditionService {
 	}
 
 	public void deleteEmployeeSTCMedition(ObjectId id) {
-		employeeSTCMeditionRepository.deleteById(id);
+		employeeSTCMeditionRepository.deleteBy_id(id.toString());
 	}
 
 }
