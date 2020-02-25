@@ -29,7 +29,7 @@ public class AdminController {
 	public Admin getAdmin(@PathVariable String username) {
 		return adminService.getAdmin(username);
 	}
-
+	
 	@PostMapping(value = "/Admins")
 	public void addAdmin(@RequestBody Admin Admin) {
 		adminService.addAdmin(Admin);
