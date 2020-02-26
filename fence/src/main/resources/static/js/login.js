@@ -19,12 +19,10 @@ function checkLogin() {
         }).done(function (data, textStatus, jqXHR) {
             if (data.type == "OK") {
                 location.href = "views/main.html";
-                console.log("Succesfully logged!");
             } else {
                 location.href = "login.html";
-                console.log("App failed during login!" + data.type);
             }
-        }), 10);
+        }), 1);
 
 }
 

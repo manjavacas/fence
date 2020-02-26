@@ -26,7 +26,6 @@ public class LoginManager {
 		String password = json.get("password");
 		
 		Admin admin = adminController.getAdmin(username);
-		System.out.println(admin.getUsername());
 
 		// Response
 		JSONObject response = new JSONObject();
@@ -34,10 +33,9 @@ public class LoginManager {
 		if(admin.getPassword().equals(password)) {
 			response.put("type", "OK");
 		} else {
-			response.put("type", "BAD");
+			response.put("type", "ERROR");
 		}
 
-		System.out.println(response.toString());
 		return response.toString();
 	}
 }
