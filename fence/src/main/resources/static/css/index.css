@@ -1,0 +1,18 @@
+.front-form {
+    width: 340px;
+    margin: 50px auto;
+}
+
+.center {
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}

@@ -14,26 +14,29 @@ import com.manjavacas.fence.controller.AdminController;
 
 @RestController
 public class LoginManager {
+	
+	// Return codes
+	private final static String SUCCESS_CODE = "SUCCESS";
+	private final static String ERROR_CODE = "ERROR";
 
 	@Autowired
 	AdminController adminController;
 
 	@CrossOrigin(origins = "*")
-	@PostMapping(value = "/login", consumes="application/json", produces = "application/json")
+	@PostMapping(value = "/login", consumes = "application/json", produces = "application/json")
 	public String login(@RequestBody Map<String, String> json) throws Exception {
-		
+
 		String username = json.get("username");
 		String password = json.get("password");
-		
+
 		Admin admin = adminController.getAdmin(username);
 
-		// Response
 		JSONObject response = new JSONObject();
 
-		if(admin.getPassword().equals(password)) {
-			response.put("type", "OK");
+		if (admin != null && admin.getPassword().equals(password)) {
+			response.put("type", SUCCESS_CODE);
 		} else {
-			response.put("type", "ERROR");
+			response.put("type", ERROR_CODE);
 		}
 
 		return response.toString();

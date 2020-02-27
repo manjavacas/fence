@@ -3,12 +3,15 @@ function checkLogin() {
     var user = document.getElementById("tfUsername").value;
     var pass = document.getElementById("tfPassword").value;
 
-    var credentials = { username: user, password: pass };
-    credentials = JSON.stringify(credentials);
+    if (user == "") {
+        alert("Please, enter an username.");
+    } else if (pass == "") {
+        alert("Please, enter a password.");
+    } else {
+        var resource = "http://localhost:8080/login";
+        var credentials = { username: user, password: pass };
+        credentials = JSON.stringify(credentials);
 
-    var resource = "http://localhost:8080/login";
-
-    setTimeout(
         $.ajax({
             url: resource,
             type: "POST",
@@ -17,12 +20,12 @@ function checkLogin() {
                 "Content-Type": "application/json"
             }
         }).done(function (data, textStatus, jqXHR) {
-            if (data.type == "OK") {
-                location.href = "views/main.html";
+            if (data.type == "SUCCESS") {
+                location.href = "../views/main.html";
             } else {
-                location.href = "login.html";
+                alert("Invalid user or password.");
             }
-        }), 1);
-
+        });
+    }
 }
 
