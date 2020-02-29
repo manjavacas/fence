@@ -1,11 +1,11 @@
 
 /* Source: https://mdbootstrap.com/docs/jquery/tables/editable/#! */
 
-const $tableID = $('#tableEmployees');
-const $BTN = $('#export-btn');
-const $EXPORT = $('#export');
+const $tableEmployeesID = $('#tableEmployees');
+const $BTNEmployees = $('#export-btn-Employees');
+const $EXPORTEmployees = $('#export-Employees');
 
-const newTr = `
+const newTrEmp = `
 <tr class="hide">
   <td class="pt-3-half" contenteditable="true">Example</td>
   <td class="pt-3-half" contenteditable="true">Example</td>
@@ -17,28 +17,28 @@ const newTr = `
     <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
   </td>
   <td>
-    <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+    <span class="table-remove-employee"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
   </td>
 </tr>`;
 
-$('.table-add').on('click', 'i', () => {
+$('.table-add-employee').on('click', 'i', () => {
 
-    const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
+    const $clone = $tableEmployeesID.find('tbody tr').last().clone(true).removeClass('hide table-line');
 
-    if ($tableID.find('tbody tr').length === 0) {
+    if ($tableEmployeesID.find('tbody tr').length === 0) {
 
-        $('tbody').append(newTr);
+        $('tbody').append(newTrEmp);
     }
 
-    $tableID.find('table').append($clone);
+    $tableEmployeesID.find('table').append($clone);
 });
 
-$tableID.on('click', '.table-remove', function () {
+$tableEmployeesID.on('click', '.table-remove-employee', function () {
 
     $(this).parents('tr').detach();
 });
 
-$tableID.on('click', '.table-up', function () {
+$tableEmployeesID.on('click', '.table-up', function () {
 
     const $row = $(this).parents('tr');
 
@@ -49,7 +49,7 @@ $tableID.on('click', '.table-up', function () {
     $row.prev().before($row.get(0));
 });
 
-$tableID.on('click', '.table-down', function () {
+$tableEmployeesID.on('click', '.table-down', function () {
 
     const $row = $(this).parents('tr');
     $row.next().after($row.get(0));
@@ -59,9 +59,9 @@ $tableID.on('click', '.table-down', function () {
 jQuery.fn.pop = [].pop;
 jQuery.fn.shift = [].shift;
 
-$BTN.on('click', () => {
+$BTNEmployees.on('click', () => {
 
-    const $rows = $tableID.find('tr:not(:hidden)');
+    const $rows = $tableEmployeesID.find('tr:not(:hidden)');
     const headers = [];
     const data = [];
 
@@ -86,5 +86,5 @@ $BTN.on('click', () => {
     });
 
     // Output the result
-    $EXPORT.text(JSON.stringify(data));
+    $EXPORTEmployees.text(JSON.stringify(data));
 });
