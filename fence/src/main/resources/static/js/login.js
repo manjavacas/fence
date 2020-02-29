@@ -21,7 +21,7 @@ function checkLogin() {
             }
         }).done(function (data, textStatus, jqXHR) {
             if (data.type == "SUCCESS") {
-                location.href = "../views/main.html";
+                location.href = "../views/main-dashboard.html";
             } else {
                 alert("Invalid user or password.");
             }
