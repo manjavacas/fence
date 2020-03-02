@@ -27,7 +27,7 @@ $('.table-add-employee').on('click', 'i', () => {
 
     if ($tableEmployeesID.find('tbody tr').length === 0) {
 
-        $('tbody').append(newTrEmp);
+        $('#tableEmployees tbody').append(newTrEmp);
     }
 
     $tableEmployeesID.find('table').append($clone);

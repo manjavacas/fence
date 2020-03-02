@@ -26,7 +26,7 @@ $('.table-add-communication').on('click', 'i', () => {
 
     if ($tableCommunicationsID.find('tbody tr').length === 0) {
 
-        $('tbody').append(newTrCom);
+        $('#tableCommunications tbody').append(newTrCom);
     }
 
     $tableCommunicationsID.find('table').append($clone);

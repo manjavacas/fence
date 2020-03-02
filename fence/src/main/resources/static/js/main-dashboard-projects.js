@@ -24,7 +24,7 @@ $('.table-add-project').on('click', 'i', () => {
 
     if ($tableProjectsID.find('tbody tr').length === 0) {
 
-        $('tbody').append(newTrProj);
+        $('#tableProjects tbody').append(newTrProj);
     }
 
     $tableProjectsID.find('table').append($clone);

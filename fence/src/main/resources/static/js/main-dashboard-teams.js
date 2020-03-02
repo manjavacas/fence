@@ -25,7 +25,7 @@ $('.table-add-team').on('click', 'i', () => {
 
     if ($tableTeamsID.find('tbody tr').length === 0) {
 
-        $('tbody').append(newTrTeam);
+        $('#tableTeams tbody').append(newTrTeam);
     }
 
     $tableTeamsID.find('table').append($clone);
