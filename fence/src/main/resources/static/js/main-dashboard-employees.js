@@ -26,16 +26,12 @@ const newTrEmp = `
 
 // Add employee
 $('.table-add-employee').on('click', 'i', () => {
-
     $('#tableEmployees tbody').append(newTrEmp);
-    $tableEmployeesID.find('table').append($clone);
 });
 
 // Remove employee
 $tableEmployeesID.on('click', '.table-remove-employee', function () {
-
     $(this).parents('tr').detach();
-
 });
 
 // Move up
