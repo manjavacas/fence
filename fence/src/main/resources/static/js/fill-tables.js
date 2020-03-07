@@ -11,7 +11,7 @@ function loadData(element) {
         }
     }).done(function (data, textStatus, jqXHR) {
 
-        // Fill table if data is not null
+        // Fill table
         var bodyRef = "#data" + element + " > tbody";
         var tableBody = document.querySelector(bodyRef);
 
@@ -23,7 +23,7 @@ function loadData(element) {
         var rows = "";
 
         // Load records
-        for (let i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
             rows +=
                 `<tr class="hide">
                     <td class="pt-3-half" contenteditable="true">` + data[i]["dni"] + `</td>
@@ -50,13 +50,37 @@ function loadData(element) {
 }
 
 // Save data
-function saveData(resource) {
+function saveData(element) {
 
-    var resource = "http://localhost:8080/" + resource;
+    var resource = "http://localhost:8080/" + element;
 
-    // Get data from resource
-    // Check differences with table
-    // If differences: add to DB
+    var bodyRef = "#data" + element + " > tbody";
+    var tableBody = document.querySelector(bodyRef);
+
+    var headings = ['dni', 'name', 'email', 'genre', 'age',
+        'role', 'timezone', 'country', 'experience', 'team'];
+
+    for (var i = 0, row; row = tableBody.rows[i]; i++) {
+        
+        var obj = {};
+        
+        for (var j = 0; j < headings.length; j++) {
+            obj[headings[j]] = row.cells[j].innerText;
+        }
+
+        // Update data
+        var putResource = resource + "/" + obj["dni"];
+        var putData = JSON.stringify(obj);
+        $.ajax({
+            url: putResource,
+            type: "PUT",
+            data: putData,
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+    }
 }
 
 

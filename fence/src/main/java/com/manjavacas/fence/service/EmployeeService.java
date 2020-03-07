@@ -22,11 +22,11 @@ public class EmployeeService {
 	public Employee getEmployee(String dni) {
 		return employeeRepository.findByDni(dni);
 	}
-	
+
 	public Employee getEmployeeById(ObjectId id) {
 		return employeeRepository.findBy_id(id.toString());
 	}
-	
+
 	public List<Employee> getEmployeesByTeam(String team) {
 		return employeeRepository.findByTeam(team);
 	}
@@ -37,6 +37,10 @@ public class EmployeeService {
 
 	public void updateEmployee(String dni, Employee newEmployee) {
 		Employee currentEmployee = employeeRepository.findByDni(dni);
+
+		if (currentEmployee == null) {
+			currentEmployee = new Employee();
+		}
 
 		currentEmployee.setDni(newEmployee.getDni());
 		currentEmployee.setName(newEmployee.getName());
