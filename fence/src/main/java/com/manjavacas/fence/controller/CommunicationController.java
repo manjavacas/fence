@@ -34,14 +34,14 @@ public class CommunicationController {
 		return communicationService.getCommunication(id);
 	}
 
-	@RequestMapping("/Communications/starter/{dni}")
-	public List<Communication> getCommunicationsByStarter(@PathVariable String dni) {
-		return communicationService.getCommunicationsByStarter(dni);
+	@RequestMapping("/Communications/user1/{dni}")
+	public List<Communication> getCommunicationsByUser1(@PathVariable String dni) {
+		return communicationService.getCommunicationsByUser1(dni);
 	}
 
-	@RequestMapping("/Communications/listener/{dni}")
-	public List<Communication> getCommunicationsByListener(@PathVariable String dni) {
-		return communicationService.getCommunicationsByListener(dni);
+	@RequestMapping("/Communications/user2/{dni}")
+	public List<Communication> getCommunicationsByUser2(@PathVariable String dni) {
+		return communicationService.getCommunicationsByUser2(dni);
 	}
 
 	@RequestMapping("/Communications/{dateStr}")

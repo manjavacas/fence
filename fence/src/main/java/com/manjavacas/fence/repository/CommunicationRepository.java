@@ -13,9 +13,9 @@ public interface CommunicationRepository extends MongoRepository<Communication, 
 
 	Communication findBy_id(String id);
 
-	List<Communication> findByStarter(String dni);
+	List<Communication> findByUser1(String dni);
 
-	List<Communication> findByListener(String dni);
+	List<Communication> findByUser2(String dni);
 
 	List<Communication> findByDate(Date date);
 

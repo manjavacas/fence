@@ -1,89 +1,78 @@
 
-/* Source: https://mdbootstrap.com/docs/jquery/tables/editable/#! */
-
 const $tableCommunicationsID = $('#tableCommunications');
-const $BTNCommunications = $('#export-btn-Communications');
-const $EXPORTCommunications = $('#export-Communications');
+const $tabCommunications = $('#tabCommunications');
 
-const newTrCom = `
-<tr class="hide">
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half">
-    <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-    <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-  </td>
-  <td>
-    <span class="table-remove-communication"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+const newTrComm = `
+<tr class='hide'>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half'>
+    <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
+    <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
   </td>
 </tr>`;
 
-$('.table-add-communication').on('click', 'i', () => {
-
-    const $clone = $tableCommunicationsID.find('tbody tr').last().clone(true).removeClass('hide table-line');
-
-    if ($tableCommunicationsID.find('tbody tr').length === 0) {
-
-        $('#tableCommunications tbody').append(newTrCom);
-    }
-
-    $tableCommunicationsID.find('table').append($clone);
-});
-
-$tableCommunicationsID.on('click', '.table-remove-communication', function () {
-
-    $(this).parents('tr').detach();
-});
-
+// Move up
 $tableCommunicationsID.on('click', '.table-up', function () {
 
     const $row = $(this).parents('tr');
 
-    if ($row.index() === 1) {
+    if ($row.index() === 0) {
         return;
     }
 
     $row.prev().before($row.get(0));
 });
 
+// Move down
 $tableCommunicationsID.on('click', '.table-down', function () {
-
     const $row = $(this).parents('tr');
     $row.next().after($row.get(0));
 });
 
-// A few jQuery helpers for exporting only
-jQuery.fn.pop = [].pop;
-jQuery.fn.shift = [].shift;
+// Load communications
+$tabCommunications.on('click', function () {
 
-$BTNCommunications.on('click', () => {
+    const resource = mainResource + 'Communications/';
 
-    const $rows = $tableCommunicationsID.find('tr:not(:hidden)');
-    const headers = [];
-    const data = [];
+    $.ajax({
+        url: resource,
+        type: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).done(function (data, textStatus, jqXHR) {
 
-    // Get the headers (add special header logic here)
-    $($rows.shift()).find('th:not(:empty)').each(function () {
+        // Fill table
+        const bodyRef = '#dataCommunications > tbody';
+        const tableBody = document.querySelector(bodyRef);
 
-        headers.push($(this).text().toLowerCase());
+        // Clear table
+        while (tableBody.firstChild) {
+            tableBody.removeChild(tableBody.firstChild);
+        }
+
+        var rows = '';
+
+        // Load records
+        for (let i = 0; i < data.length; i++) {
+            rows +=
+                `<tr class='hide'>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['user1'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['user2'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['duration'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['date'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['quality'] + `</td>
+                    <td class='pt-3-half'>
+                        <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
+                        <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
+                    </td>
+                </tr>`;
+        }
+        $(tableBody).append(rows);
     });
 
-    // Turn all existing rows into a loopable array
-    $rows.each(function () {
-        const $td = $(this).find('td');
-        const h = {};
-
-        // Use the headers from earlier to name our hash keys
-        headers.forEach((header, i) => {
-
-            h[header] = $td.eq(i).text();
-        });
-
-        data.push(h);
-    });
-
-    // Output the result
-    $EXPORTCommunications.text(JSON.stringify(data));
 });

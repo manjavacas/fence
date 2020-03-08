@@ -37,8 +37,12 @@ public class TeamService {
 	public void updateTeam(String name, Team newTeam) {
 		Team currentTeam = teamRepository.findByName(name);
 
-		currentTeam.setLocation(newTeam.getLocation());
+		if (currentTeam == null) {
+			currentTeam = new Team();
+		}
+
 		currentTeam.setName(newTeam.getName());
+		currentTeam.setLocation(newTeam.getLocation());
 		currentTeam.setProject(newTeam.getProject());
 
 		teamRepository.save(currentTeam);

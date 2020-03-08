@@ -24,12 +24,12 @@ public class CommunicationService {
 		return communicationRepository.findBy_id(id.toString());
 	}
 
-	public List<Communication> getCommunicationsByStarter(String dni) {
-		return communicationRepository.findByStarter(dni);
+	public List<Communication> getCommunicationsByUser1(String dni) {
+		return communicationRepository.findByUser1(dni);
 	}
 
-	public List<Communication> getCommunicationsByListener(String dni) {
-		return communicationRepository.findByListener(dni);
+	public List<Communication> getCommunicationsByUser2(String dni) {
+		return communicationRepository.findByUser2(dni);
 	}
 
 	public List<Communication> getCommunicationsByDate(Date date) {
@@ -43,11 +43,15 @@ public class CommunicationService {
 	public void updateCommunication(ObjectId id, Communication newCommunication) {
 		Communication currentCommunication = communicationRepository.findBy_id(id.toString());
 
-		currentCommunication.setListener(newCommunication.getListener());
+		if (currentCommunication == null) {
+			currentCommunication = new Communication();
+		}
+
+		currentCommunication.setUser1(newCommunication.getUser1());
+		currentCommunication.setUser2(newCommunication.getUser2());
+		currentCommunication.setDate(newCommunication.getDate());
 		currentCommunication.setQuality(newCommunication.getQuality());
-		currentCommunication.setStarter(newCommunication.getStarter());
-		currentCommunication.setTime_end(newCommunication.getTime_end());
-		currentCommunication.setTime_start(newCommunication.getTime_start());
+		currentCommunication.setDuration(newCommunication.getDuration());
 
 		communicationRepository.save(currentCommunication);
 	}

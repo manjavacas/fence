@@ -29,6 +29,10 @@ public class ProjectService {
 	public void updateProject(String name, Project newProject) {
 		Project currentProject = projectRepository.findByName(name);
 
+		if (currentProject == null) {
+			currentProject = new Project();
+		}
+
 		currentProject.setAdmin(newProject.getAdmin());
 		currentProject.setDescription(newProject.getDescription());
 		currentProject.setStart_date(newProject.getStart_date());

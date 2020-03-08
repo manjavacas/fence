@@ -1,87 +1,146 @@
 
-/* Source: https://mdbootstrap.com/docs/jquery/tables/editable/#! */
-
 const $tableProjectsID = $('#tableProjects');
-const $BTNProjects = $('#export-btn-Projects');
-const $EXPORTProjects = $('#export-Projects');
+const $tabProjects = $('#tabProjects');
 
 const newTrProj = `
-<tr class="hide">
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half" contenteditable="true">Example</td>
-  <td class="pt-3-half">
-    <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-    <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
+<tr class='hide'>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half'>
+    <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
+    <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
   </td>
   <td>
-    <span class="table-remove-project"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
+    <span class='table-remove-project'><button type='button' class='btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light'>Remove</button></span>
   </td>
 </tr>`;
 
+// Add project
 $('.table-add-project').on('click', 'i', () => {
-
-    const $clone = $tableProjectsID.find('tbody tr').last().clone(true).removeClass('hide table-line');
-
-    if ($tableProjectsID.find('tbody tr').length === 0) {
-
-        $('#tableProjects tbody').append(newTrProj);
-    }
-
-    $tableProjectsID.find('table').append($clone);
+    $('#tableProjects tbody').append(newTrProj);
 });
 
+// Remove project
 $tableProjectsID.on('click', '.table-remove-project', function () {
+
+    const resource = mainResource + 'Projects/';
+
+    const headings = ['name', 'description'];
+
+    var obj = {};
+
+    for (let i = 0; i < headings.length; i++) {
+        obj[headings[i]] = $(this).parents('tr')[0].cells[i].innerText;
+    }
+
+    const removeResource = resource + obj['name'];
+    const removeData = JSON.stringify(obj);
+    $.ajax({
+        url: removeResource,
+        type: 'DELETE',
+        data: removeData,
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
 
     $(this).parents('tr').detach();
 });
 
+// Move up
 $tableProjectsID.on('click', '.table-up', function () {
 
     const $row = $(this).parents('tr');
 
-    if ($row.index() === 1) {
+    if ($row.index() === 0) {
         return;
     }
 
     $row.prev().before($row.get(0));
 });
 
+// Move down
 $tableProjectsID.on('click', '.table-down', function () {
-
     const $row = $(this).parents('tr');
     $row.next().after($row.get(0));
 });
 
-// A few jQuery helpers for exporting only
-jQuery.fn.pop = [].pop;
-jQuery.fn.shift = [].shift;
+// Load projects
+$tabProjects.on('click', function () {
 
-$BTNProjects.on('click', () => {
+    const resource = mainResource + 'Projects/';
 
-    const $rows = $tableProjectsID.find('tr:not(:hidden)');
-    const headers = [];
-    const data = [];
+    $.ajax({
+        url: resource,
+        type: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).done(function (data, textStatus, jqXHR) {
 
-    // Get the headers (add special header logic here)
-    $($rows.shift()).find('th:not(:empty)').each(function () {
+        // Fill table
+        const bodyRef = '#dataProjects > tbody';
+        const tableBody = document.querySelector(bodyRef);
 
-        headers.push($(this).text().toLowerCase());
+        // Clear table
+        while (tableBody.firstChild) {
+            tableBody.removeChild(tableBody.firstChild);
+        }
+
+        var rows = '';
+
+        // Load records
+        for (let i = 0; i < data.length; i++) {
+            rows +=
+                `<tr class='hide'>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['name'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['description'] + `</td>
+                    <td class='pt-3-half'>
+                        <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
+                        <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
+                    </td>
+                    <td>
+                        <span class='table-remove-project'><button type='button' class='btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light'>Remove</button></span>
+                    </td>
+                </tr>`;
+        }
+        $(tableBody).append(rows);
     });
 
-    // Turn all existing rows into a loopable array
-    $rows.each(function () {
-        const $td = $(this).find('td');
-        const h = {};
+});
 
-        // Use the headers from earlier to name our hash keys
-        headers.forEach((header, i) => {
+// Update projects
+$('.table-update-projects').on('click', 'i', () => {
 
-            h[header] = $td.eq(i).text();
+    const resource = mainResource + 'Projects/';
+
+    const bodyRef = '#dataProjects > tbody';
+    const tableBody = document.querySelector(bodyRef);
+
+    const headings = ['name', 'description'];
+
+    for (let i = 0, row; row = tableBody.rows[i]; i++) {
+
+        var obj = {};
+
+        for (let j = 0; j < headings.length; j++) {
+            obj[headings[j]] = row.cells[j].innerText;
+        }
+
+        // Update data
+        const putResource = resource + obj['name'];
+        const putData = JSON.stringify(obj);
+        $.ajax({
+            url: putResource,
+            type: 'PUT',
+            data: putData,
+            headers: {
+                'Content-Type': 'application/json'
+            }
         });
 
-        data.push(h);
-    });
+    }
 
-    // Output the result
-    $EXPORTProjects.text(JSON.stringify(data));
+    alert("Succesfully saved!");
+
 });

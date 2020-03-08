@@ -48,6 +48,7 @@ public class EmployeeService {
 		currentEmployee.setGenre(newEmployee.getGenre());
 		currentEmployee.setAge(newEmployee.getAge());
 		currentEmployee.setRole(newEmployee.getRole());
+		currentEmployee.setTimezone(newEmployee.getTimezone());
 		currentEmployee.setCountry(newEmployee.getCountry());
 		currentEmployee.setExperience(newEmployee.getExperience());
 		currentEmployee.setTeam(newEmployee.getTeam());

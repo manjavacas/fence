@@ -1,6 +1,5 @@
 package com.manjavacas.fence.model;
 
-import java.sql.Timestamp;
 import java.util.Date;
 
 import org.bson.types.ObjectId;
@@ -13,23 +12,21 @@ public class Communication {
 	@Id
 	private ObjectId _id;
 
-	private String starter;
-	private String listener;
-	private Timestamp time_start;
-	private Timestamp time_end;
+	private String user1;
+	private String user2;
+	private String duration;
 	private Date date;
 	private String quality;
 
 	public Communication() {
 	}
 
-	public Communication(String starter, String listener, Timestamp time_start, Timestamp time_end, Date date,
-			String quality) {
+	public Communication(ObjectId _id, String user1, String user2, String duration, Date date, String quality) {
 		super();
-		this.starter = starter;
-		this.listener = listener;
-		this.time_start = time_start;
-		this.time_end = time_end;
+		this._id = _id;
+		this.user1 = user1;
+		this.user2 = user2;
+		this.duration = duration;
 		this.date = date;
 		this.quality = quality;
 	}
@@ -42,36 +39,28 @@ public class Communication {
 		this._id = _id;
 	}
 
-	public String getStarter() {
-		return starter;
+	public String getUser1() {
+		return user1;
 	}
 
-	public void setStarter(String starter) {
-		this.starter = starter;
+	public void setUser1(String user1) {
+		this.user1 = user1;
 	}
 
-	public String getListener() {
-		return listener;
+	public String getUser2() {
+		return user2;
 	}
 
-	public void setListener(String listener) {
-		this.listener = listener;
+	public void setUser2(String user2) {
+		this.user2 = user2;
 	}
 
-	public Timestamp getTime_start() {
-		return time_start;
+	public String getDuration() {
+		return duration;
 	}
 
-	public void setTime_start(Timestamp time_start) {
-		this.time_start = time_start;
-	}
-
-	public Timestamp getTime_end() {
-		return time_end;
-	}
-
-	public void setTime_end(Timestamp time_end) {
-		this.time_end = time_end;
+	public void setDuration (String duration) {
+		this.duration = duration;
 	}
 
 	public Date getDate() {
