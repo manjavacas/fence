@@ -6,7 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "dnis_stc_history")
+@Document(collection = "employees_stc_history")
 public class EmployeeSTCMedition {
 
 	@Id
@@ -34,11 +34,11 @@ public class EmployeeSTCMedition {
 		this._id = _id;
 	}
 
-	public String getEmployee() {
+	public String getDni() {
 		return dni;
 	}
 
-	public void setEmployee(String dni) {
+	public void setDni(String dni) {
 		this.dni = dni;
 	}
 

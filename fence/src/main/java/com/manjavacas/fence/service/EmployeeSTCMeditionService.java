@@ -40,7 +40,7 @@ public class EmployeeSTCMeditionService {
 		EmployeeSTCMedition currentEmployeeSTCMedition = employeeSTCMeditionRepository.findBy_id(id.toString());
 
 		currentEmployeeSTCMedition.setDate(newEmployeeSTCMedition.getDate());
-		currentEmployeeSTCMedition.setEmployee(newEmployeeSTCMedition.getEmployee());
+		currentEmployeeSTCMedition.setDni(newEmployeeSTCMedition.getDni());
 		currentEmployeeSTCMedition.setStc(newEmployeeSTCMedition.getStc());
 
 		employeeSTCMeditionRepository.save(currentEmployeeSTCMedition);

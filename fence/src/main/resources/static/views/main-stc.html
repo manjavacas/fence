@@ -58,7 +58,8 @@
             </div>
 
             <div class="container">
-                <button type="button" class="btn btn-success btn-lg" style="float: right;">Calculate STC</button>
+                <button id="btn-calculate-stc" type="button" class="btn btn-success btn-lg"
+                    style="float:right;">Calculate STC</button>
             </div>
 
             <div class="container">
@@ -67,7 +68,7 @@
                     <div class="col-sm-6">
                         <div class="container">
                             <h3>Employees STC levels</h3>
-                            <table class="table table-bordered">
+                            <table id="table-stc-employees" class="table table-bordered text-center">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>Employee</th>
@@ -75,11 +76,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <!-- Fill with data-->
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    <!-- DATA-->
                                 </tbody>
                             </table>
                         </div>
@@ -88,7 +85,7 @@
                     <div class="col-sm-6">
                         <div class="container">
                             <h3>Projects STC levels</h3>
-                            <table class="table table-bordered">
+                            <table id="table-stc-projects" class="table table-bordered text-center">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th>Project</th>
@@ -96,11 +93,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <!-- Fill with data -->
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    <!-- DATA -->
                                 </tbody>
                             </table>
                         </div>
@@ -111,5 +104,7 @@
         </div>
 
 </body>
+
+<script src='../js/calculate-stc.js'></script>
 
 </html>
