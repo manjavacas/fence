@@ -2,7 +2,6 @@ package com.manjavacas.fence.service;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,24 +14,15 @@ public class EmployeeService {
 	@Autowired
 	EmployeeRepository employeeRepository;
 
+	@Autowired
+	TeamService teamService;
+
 	public List<Employee> getAllEmployees() {
 		return employeeRepository.findAll();
 	}
 
 	public Employee getEmployee(String dni) {
 		return employeeRepository.findByDni(dni);
-	}
-
-	public Employee getEmployeeById(ObjectId id) {
-		return employeeRepository.findBy_id(id.toString());
-	}
-
-	public List<Employee> getEmployeesByTeam(String team) {
-		return employeeRepository.findByTeam(team);
-	}
-
-	public void addEmployee(Employee employee) {
-		employeeRepository.insert(employee);
 	}
 
 	public void updateEmployee(String dni, Employee newEmployee) {
@@ -51,8 +41,10 @@ public class EmployeeService {
 		currentEmployee.setTimezone(newEmployee.getTimezone());
 		currentEmployee.setCountry(newEmployee.getCountry());
 		currentEmployee.setExperience(newEmployee.getExperience());
+		currentEmployee.setLanguages(newEmployee.getLanguages());
 		currentEmployee.setTeam(newEmployee.getTeam());
-		currentEmployee.setStc(newEmployee.getStc());
+
+		teamService.addEmployeeToTeam(currentEmployee.getDni(), currentEmployee.getTeam());
 
 		employeeRepository.save(currentEmployee);
 	}

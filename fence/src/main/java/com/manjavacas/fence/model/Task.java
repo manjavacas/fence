@@ -1,5 +1,8 @@
 package com.manjavacas.fence.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -10,26 +13,45 @@ public class Task {
 	@Id
 	private ObjectId _id;
 
-	private int reference;
+	private String reference;
 	private String description;
 	private double duration_days;
 	private String priority;
 	private boolean done;
 	private String project;
+	private List<String> depends_on;
+	private String type;
+	private List<String> assigned_to;
 
 	public Task() {
 	}
 
-	public Task(ObjectId _id, int reference, String description, double duration_days, String priority, boolean done,
-			String project) {
+	public Task(String reference, String description, double duration_days, String priority, boolean done,
+			String project, List<String> depends_on, String type, List<String> assigned_to) {
 		super();
-		this._id = _id;
 		this.reference = reference;
 		this.description = description;
 		this.duration_days = duration_days;
 		this.priority = priority;
 		this.done = done;
 		this.project = project;
+		this.depends_on = depends_on;
+		this.type = type;
+		this.assigned_to = assigned_to;
+	}
+
+	public Task(String reference, String description, double duration_days, String priority, boolean done,
+			String project, String type) {
+		super();
+		this.reference = reference;
+		this.description = description;
+		this.duration_days = duration_days;
+		this.priority = priority;
+		this.done = done;
+		this.project = project;
+		this.depends_on = new ArrayList<String>();
+		this.type = type;
+		this.assigned_to = new ArrayList<String>();
 	}
 
 	public ObjectId get_id() {
@@ -40,11 +62,11 @@ public class Task {
 		this._id = _id;
 	}
 
-	public int getReference() {
+	public String getReference() {
 		return reference;
 	}
 
-	public void setReference(int reference) {
+	public void setReference(String reference) {
 		this.reference = reference;
 	}
 
@@ -86,6 +108,30 @@ public class Task {
 
 	public void setProject(String project) {
 		this.project = project;
+	}
+
+	public List<String> getDepends_on() {
+		return depends_on;
+	}
+
+	public void setDepends_on(List<String> depends_on) {
+		this.depends_on = depends_on;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public List<String> getAssigned_to() {
+		return assigned_to;
+	}
+
+	public void setAssigned_to(List<String> assigned_to) {
+		this.assigned_to = assigned_to;
 	}
 
 }

@@ -14,19 +14,18 @@ public class Communication {
 
 	private String user1;
 	private String user2;
-	private String duration;
+	private String duration_sec;
 	private Date date;
 	private String quality;
 
 	public Communication() {
 	}
 
-	public Communication(ObjectId _id, String user1, String user2, String duration, Date date, String quality) {
+	public Communication(String user1, String user2, String duration_sec, Date date, String quality) {
 		super();
-		this._id = _id;
 		this.user1 = user1;
 		this.user2 = user2;
-		this.duration = duration;
+		this.duration_sec = duration_sec;
 		this.date = date;
 		this.quality = quality;
 	}
@@ -55,12 +54,12 @@ public class Communication {
 		this.user2 = user2;
 	}
 
-	public String getDuration() {
-		return duration;
+	public String getDuration_sec() {
+		return duration_sec;
 	}
 
-	public void setDuration (String duration) {
-		this.duration = duration;
+	public void setDuration_sec (String duration_sec) {
+		this.duration_sec = duration_sec;
 	}
 
 	public Date getDate() {

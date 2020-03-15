@@ -18,7 +18,7 @@ public class TaskService {
 		return taskRepository.findAll();
 	}
 
-	public Task getTask(int reference) {
+	public Task getTask(String reference) {
 		return taskRepository.findByReference(reference);
 	}
 
@@ -34,25 +34,31 @@ public class TaskService {
 		return taskRepository.findByPriority(level);
 	}
 
-	public void addTask(Task task) {
-		taskRepository.insert(task);
+	public List<Task> getTasksByType(String type) {
+		return taskRepository.findByType(type);
 	}
 
-	public void updateTask(int reference, Task newTask) {
+	public void updateTask(String reference, Task newTask) {
 		Task currentTask = taskRepository.findByReference(reference);
 
+		if (currentTask == null) {
+			currentTask = new Task();
+		}
+
+		currentTask.setReference(newTask.getReference());
 		currentTask.setDescription(newTask.getDescription());
-		currentTask.setDone(newTask.isDone());
-		;
 		currentTask.setDuration_days(newTask.getDuration_days());
 		currentTask.setPriority(newTask.getPriority());
+		currentTask.setDone(newTask.isDone());
 		currentTask.setProject(newTask.getProject());
-		currentTask.setReference(newTask.getReference());
+		currentTask.setDepends_on(newTask.getDepends_on());
+		currentTask.setType(newTask.getType());
+		currentTask.setAssigned_to(newTask.getAssigned_to());
 
 		taskRepository.save(newTask);
 	}
 
-	public void deleteTask(int reference) {
+	public void deleteTask(String reference) {
 		taskRepository.deleteByReference(reference);
 	}
 

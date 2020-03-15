@@ -61,6 +61,7 @@
                 <button class='tablinks' id='tabEmployees' onclick="openTable(event, 'Employees')">Employees</button>
                 <button class='tablinks' id='tabTeams' onclick="openTable(event, 'Teams')">Teams</button>
                 <button class='tablinks' id='tabProjects' onclick="openTable(event, 'Projects')">Projects</button>
+                <button class='tablinks' id='tabTasks' onclick="openTable(event, 'Tasks')">Tasks</button>
                 <button class='tablinks' id='tabCommunications'
                     onclick="openTable(event, 'Communications')">Communications</button>
             </div>
@@ -170,6 +171,43 @@
 
             </div>
 
+            <!-- TAB TASKS -->
+            <div id='Tasks' class='tabcontent'>
+
+                <!-- Editable table -->
+                <div class='card'>
+                    <h3 class='card-header text-center font-weight-bold text-uppercase py-4'>Tasks</h3>
+                    <div class='card-body'>
+                        <div id='tableTasks' class='table-editable'>
+                            <span class='table-add-task float-right mb-3 mr-2'><a href='#!' class='text-success'><i
+                                        class='fas fa-plus fa-2x' aria-hidden='true'></i></a></span>
+                            <span class='table-update-tasks float-right mb-3 mr-1'><a href='#!'><i
+                                        class='fas fa-save fa-2x' aria-hidden='true'></i></a></span>
+                            <table class='table table-bordered table-responsive-md table-striped text-center'
+                                id='dataTasks'>
+                                <thead>
+                                    <tr>
+                                        <th class='text-center'>Reference</th>
+                                        <th class='text-center'>Description</th>
+                                        <th class='text-center'>Days</th>
+                                        <th class='text-center'>Priority</th>
+                                        <th class='text-center'>Done</th>
+                                        <th class='text-center'>Type</th>
+                                        <th class='text-center'>Project</th>
+                                        <th class='text-center'>Sort</th>
+                                        <th class='text-center'>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- DATA -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <!-- TAB COMMUNICATIONS -->
             <div id='Communications' class='tabcontent'>
 
@@ -205,6 +243,7 @@
 <script src='../js/main-dashboard-employees.js'></script>
 <script src='../js/main-dashboard-teams.js'></script>
 <script src='../js/main-dashboard-projects.js'></script>
+<script src='../js/main-dashboard-tasks.js'></script>
 <script src='../js/main-dashboard-communications.js'></script>
 
 <script src='../js/dashboard-tabs.js'></script>

@@ -1,3 +1,3 @@
 function enter() {
-    location.href = "views/login.html";
+    location.href = "views/main-dashboard.html";
 }

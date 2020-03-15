@@ -1,6 +1,8 @@
 package com.manjavacas.fence.model;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -16,18 +18,27 @@ public class Project {
 	private String description;
 	private Date start_date;
 	private Date end_date;
-	private String admin;
+	private List<String> teams;
 
 	public Project() {
 	}
 
-	public Project(String name, String description, Date start_date, Date end_date, String admin) {
+	public Project(String name, String description, Date start_date, Date end_date, List<String> teams) {
 		super();
 		this.name = name;
 		this.description = description;
 		this.start_date = start_date;
 		this.end_date = end_date;
-		this.admin = admin;
+		this.teams = teams;
+	}
+
+	public Project(String name, String description, Date start_date, Date end_date) {
+		super();
+		this.name = name;
+		this.description = description;
+		this.start_date = start_date;
+		this.end_date = end_date;
+		this.teams = new ArrayList<String>();
 	}
 
 	public ObjectId get_id() {
@@ -70,12 +81,12 @@ public class Project {
 		this.end_date = end_date;
 	}
 
-	public String getAdmin() {
-		return admin;
+	public List<String> getTeams() {
+		return teams;
 	}
 
-	public void setAdmin(String admin) {
-		this.admin = admin;
+	public void setTeams(List<String> teams) {
+		this.teams = teams;
 	}
 
 }

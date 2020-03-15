@@ -6,24 +6,24 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "employees_stc_history")
-public class EmployeeSTCMedition {
+@Document(collection = "projects_stc_history")
+public class ProjectSTC {
 
 	@Id
 	private ObjectId _id;
 
-	private String dni;
-	private Date date;
+	private String project;
 	private double stc;
+	private Date date;
 
-	public EmployeeSTCMedition() {
+	public ProjectSTC() {
 	}
 
-	public EmployeeSTCMedition(String dni, Date date, double stc) {
+	public ProjectSTC(String project, double stc, Date date) {
 		super();
-		this.dni = dni;
-		this.date = date;
+		this.project = project;
 		this.stc = stc;
+		this.date = date;
 	}
 
 	public ObjectId get_id() {
@@ -34,20 +34,12 @@ public class EmployeeSTCMedition {
 		this._id = _id;
 	}
 
-	public String getDni() {
-		return dni;
+	public String getProject() {
+		return project;
 	}
 
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
+	public void setProject(String project) {
+		this.project = project;
 	}
 
 	public double getStc() {
@@ -56,6 +48,14 @@ public class EmployeeSTCMedition {
 
 	public void setStc(double stc) {
 		this.stc = stc;
+	}
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
 	}
 
 }

@@ -1,17 +1,19 @@
 package com.manjavacas.fence.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.manjavacas.fence.model.Employee;
 import com.manjavacas.fence.model.Task;
+import com.manjavacas.fence.service.EmployeeService;
 import com.manjavacas.fence.service.TaskService;
 
 @RestController
@@ -20,13 +22,16 @@ public class TaskController {
 	@Autowired
 	private TaskService taskService;
 
+	@Autowired
+	private EmployeeService employeeService;
+
 	@RequestMapping("/Tasks")
 	public List<Task> getAllTasks() {
 		return taskService.getAllTasks();
 	}
 
 	@RequestMapping("/Tasks/{reference}")
-	public Task getTask(@PathVariable int reference) {
+	public Task getTask(@PathVariable String reference) {
 		return taskService.getTask(reference);
 	}
 
@@ -35,28 +40,44 @@ public class TaskController {
 		return taskService.getTasksByProject(project);
 	}
 
-	@RequestMapping("/Tasks/pending")
+	@RequestMapping("/Tasks/pending/")
 	public List<Task> getPendingTasks() {
 		return taskService.getPendingTasks();
 	}
 
-	@RequestMapping("/Tasks/priority/{level}")
-	public List<Task> getTasksByPriority(@PathVariable String level) {
-		return taskService.getTasksByPriority(level);
+	@RequestMapping("/Tasks/{reference}/responsibles/")
+	public List<Employee> getResponsiblesOf(@PathVariable String reference) {
+
+		List<String> responsiblesIds = taskService.getTask(reference).getAssigned_to();
+		List<Employee> responsibles = new ArrayList<Employee>();
+
+		for (String dni : responsiblesIds) {
+			responsibles.add(employeeService.getEmployee(dni));
+		}
+
+		return responsibles;
 	}
 
-	@PostMapping(value = "/Tasks")
-	public void addTask(@RequestBody Task task) {
-		taskService.addTask(task);
+	@RequestMapping("/Tasks/{reference}/dependencies/")
+	public List<Task> getDependenciesOf(@PathVariable String reference) {
+
+		List<String> dependenciesRefs = taskService.getTask(reference).getDepends_on();
+		List<Task> dependencies = new ArrayList<Task>();
+
+		for (String ref : dependenciesRefs) {
+			dependencies.add(taskService.getTask(ref));
+		}
+
+		return dependencies;
 	}
 
 	@PutMapping(value = "/Tasks/{reference}")
-	public void updateTask(@PathVariable int reference, @RequestBody Task task) {
+	public void updateTask(@PathVariable String reference, @RequestBody Task task) {
 		taskService.updateTask(reference, task);
 	}
 
 	@DeleteMapping("/Tasks/{reference}")
-	public void deleteTask(@PathVariable int reference) {
+	public void deleteTask(@PathVariable String reference) {
 		taskService.deleteTask(reference);
 	}
 

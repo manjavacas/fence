@@ -10,7 +10,7 @@ import com.manjavacas.fence.model.Task;
 @Repository
 public interface TaskRepository extends MongoRepository<Task, String> {
 
-	Task findByReference(int reference);
+	Task findByReference(String reference);
 
 	List<Task> findByProject(String project);
 
@@ -18,6 +18,8 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
 	List<Task> findByPriority(String level);
 
-	void deleteByReference(int reference);
+	List<Task> findByType(String type);
+
+	void deleteByReference(String reference);
 
 }

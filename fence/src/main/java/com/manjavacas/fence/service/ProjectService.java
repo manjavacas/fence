@@ -22,10 +22,6 @@ public class ProjectService {
 		return projectRepository.findByName(name);
 	}
 
-	public void addProject(Project project) {
-		projectRepository.insert(project);
-	}
-
 	public void updateProject(String name, Project newProject) {
 		Project currentProject = projectRepository.findByName(name);
 
@@ -33,11 +29,11 @@ public class ProjectService {
 			currentProject = new Project();
 		}
 
-		currentProject.setAdmin(newProject.getAdmin());
+		currentProject.setName(newProject.getName());
 		currentProject.setDescription(newProject.getDescription());
 		currentProject.setStart_date(newProject.getStart_date());
 		currentProject.setEnd_date(newProject.getEnd_date());
-		currentProject.setName(newProject.getName());
+		currentProject.setTeams(newProject.getTeams());
 
 		projectRepository.save(currentProject);
 	}
