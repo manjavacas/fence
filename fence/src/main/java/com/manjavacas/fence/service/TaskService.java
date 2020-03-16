@@ -55,7 +55,7 @@ public class TaskService {
 		currentTask.setType(newTask.getType());
 		currentTask.setAssigned_to(newTask.getAssigned_to());
 
-		taskRepository.save(newTask);
+		taskRepository.save(currentTask);
 	}
 
 	public void deleteTask(String reference) {
