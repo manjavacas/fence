@@ -1,13 +1,16 @@
 package com.manjavacas.fence.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.manjavacas.fence.model.Communication;
+import com.manjavacas.fence.model.CommunicationNeeding;
 import com.manjavacas.fence.model.Employee;
 import com.manjavacas.fence.model.Task;
 
@@ -77,11 +80,32 @@ public class STCMeasurer {
 			}
 			CR.put(employee, communicationNeedings);
 		}
-		
-		
+
+		// LACK OF COORDINATION MATRIX (G)
+		Hashtable<Employee, List<CommunicationNeeding>> G = new Hashtable<Employee, List<CommunicationNeeding>>();
+		for (Employee employee : employees) {
+
+			ArrayList<CommunicationNeeding> Gij = new ArrayList<CommunicationNeeding>();
+
+			List<Employee> communicationNeedings = CR.get(employee);
+			List<Employee> actualCommunications = CA.get(employee);
+
+			// Get unique employees
+			List<Employee> partners = communicationNeedings.stream().distinct().collect(Collectors.toList());
+
+			for (Employee partner : partners) {
+				double CRij = Collections.frequency(communicationNeedings, partner);
+				double CAij = Collections.frequency(actualCommunications, partner);
+
+				Gij.add(new CommunicationNeeding(partner, CRij - CAij));
+
+			}
+
+			G.put(employee, Gij);
+		}
+
 		// CALCULATE EMPLOYEES STC
 		
-
 		return employeesSTC;
 
 	}
