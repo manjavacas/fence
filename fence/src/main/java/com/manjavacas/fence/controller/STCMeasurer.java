@@ -91,6 +91,7 @@ public class STCMeasurer {
 
 			// Compute weight and save in matrix
 			for (TaskDependency taskDependency : taskDependencies) {
+				// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
 				double weight = taskDependency.getValue() / sumValues;
 				taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
 			}
