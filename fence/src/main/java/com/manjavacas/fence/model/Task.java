@@ -19,15 +19,16 @@ public class Task {
 	private String priority;
 	private boolean done;
 	private String project;
-	private List<String> depends_on;
 	private String type;
 	private List<String> assigned_to;
+
+	private double priorityNum;
 
 	public Task() {
 	}
 
 	public Task(String reference, String description, double duration_days, String priority, boolean done,
-			String project, List<String> depends_on, String type, List<String> assigned_to) {
+			String project, String type, List<String> assigned_to) {
 		super();
 		this.reference = reference;
 		this.description = description;
@@ -35,7 +36,6 @@ public class Task {
 		this.priority = priority;
 		this.done = done;
 		this.project = project;
-		this.depends_on = depends_on;
 		this.type = type;
 		this.assigned_to = assigned_to;
 	}
@@ -49,7 +49,6 @@ public class Task {
 		this.priority = priority;
 		this.done = done;
 		this.project = project;
-		this.depends_on = new ArrayList<String>();
 		this.type = type;
 		this.assigned_to = new ArrayList<String>();
 	}
@@ -90,6 +89,24 @@ public class Task {
 		return priority;
 	}
 
+	public double getPriorityNum() {
+		switch (this.priority) {
+		case "HIGH":
+			this.priorityNum = 2;
+			break;
+		case "NORMAL":
+			this.priorityNum = 1.5;
+			break;
+		case "LOW":
+			this.priorityNum = 1;
+			break;
+		default:
+			this.priorityNum = 1;
+		}
+
+		return this.priorityNum;
+	}
+
 	public void setPriority(String priority) {
 		this.priority = priority;
 	}
@@ -108,14 +125,6 @@ public class Task {
 
 	public void setProject(String project) {
 		this.project = project;
-	}
-
-	public List<String> getDepends_on() {
-		return depends_on;
-	}
-
-	public void setDepends_on(List<String> depends_on) {
-		this.depends_on = depends_on;
 	}
 
 	public String getType() {

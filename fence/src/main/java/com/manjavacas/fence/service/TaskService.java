@@ -26,8 +26,8 @@ public class TaskService {
 		return taskRepository.findByProject(project);
 	}
 
-	public List<Task> getPendingTasks() {
-		return taskRepository.findByDone(false);
+	public List<Task> getPendingTasksByProject(String project) {
+		return taskRepository.findPendingTasksInProject(project);
 	}
 
 	public List<Task> getTasksByPriority(String level) {
@@ -51,7 +51,6 @@ public class TaskService {
 		currentTask.setPriority(newTask.getPriority());
 		currentTask.setDone(newTask.isDone());
 		currentTask.setProject(newTask.getProject());
-		currentTask.setDepends_on(newTask.getDepends_on());
 		currentTask.setType(newTask.getType());
 		currentTask.setAssigned_to(newTask.getAssigned_to());
 

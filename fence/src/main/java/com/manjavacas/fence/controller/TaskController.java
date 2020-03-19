@@ -40,9 +40,9 @@ public class TaskController {
 		return taskService.getTasksByProject(project);
 	}
 
-	@RequestMapping("/Tasks/pending")
-	public List<Task> getPendingTasks() {
-		return taskService.getPendingTasks();
+	@RequestMapping("/Tasks/pending/{project}")
+	public List<Task> getPendingTasksByProject(@PathVariable String project) {
+		return taskService.getPendingTasksByProject(project);
 	}
 
 	@RequestMapping("/Tasks/{reference}/responsibles")
@@ -56,19 +56,6 @@ public class TaskController {
 		}
 
 		return responsibles;
-	}
-
-	@RequestMapping("/Tasks/{reference}/dependencies")
-	public List<Task> getDependenciesOf(@PathVariable String reference) {
-
-		List<String> dependenciesRefs = taskService.getTask(reference).getDepends_on();
-		List<Task> dependencies = new ArrayList<Task>();
-
-		for (String ref : dependenciesRefs) {
-			dependencies.add(taskService.getTask(ref));
-		}
-
-		return dependencies;
 	}
 
 	@PutMapping(value = "/Tasks/{reference}")

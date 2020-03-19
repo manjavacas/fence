@@ -25,6 +25,8 @@ public class Employee {
 	private List<String> languages;
 	private String team;
 
+	private double experienceNum;
+
 	public Employee() {
 	}
 
@@ -134,6 +136,23 @@ public class Employee {
 
 	public String getExperience() {
 		return experience;
+	}
+
+	public double getExperienceNum() {
+		switch (this.experience) {
+		case "VERY HIGH":
+			this.experienceNum = 1;
+		case "HIGH":
+			this.experienceNum = .75;
+		case "NORMAL":
+			this.experienceNum = .5;
+		case "LOW":
+			this.experienceNum = .25;
+		default: // "VERY LOW"
+			this.experienceNum = 0;
+		}
+
+		return this.experienceNum;
 	}
 
 	public void setExperience(String experience) {
