@@ -17,6 +17,10 @@ public class CommunicationService {
 	public List<Communication> getAllCommunications() {
 		return communicationRepository.findAll();
 	}
+	
+	public List<Communication> getCommunicationsByProject(String project) {
+		return communicationRepository.findByProject(project);
+	}
 
 	public List<Communication> getCommunicationsByUser1(String dni) {
 		return communicationRepository.findByUser1(dni);

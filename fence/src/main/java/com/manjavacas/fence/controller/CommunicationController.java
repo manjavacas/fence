@@ -22,6 +22,11 @@ public class CommunicationController {
 	public List<Communication> getAllCommunications() {
 		return communicationService.getAllCommunications();
 	}
+	
+	@RequestMapping("/Communications/{project}")
+	public List<Communication> getCommunicationsByProject(@PathVariable String project) {
+		return communicationService.getCommunicationsByProject(project);
+	}
 
 	@RequestMapping("/Communications/user1/{dni}")
 	public List<Communication> getCommunicationsByUser1(@PathVariable String dni) {

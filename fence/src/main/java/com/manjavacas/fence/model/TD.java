@@ -1,19 +1,27 @@
 package com.manjavacas.fence.model;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * 
  * Task dependency
  *
  */
+
+@Document(collection = "TD")
 public class TD {
 
+	@Id
+	private ObjectId _id;
+	
 	private String task1;
 	private String task2;
 	private String project;
 	private double weight;
 
 	public TD() {
-
 	}
 
 	public TD(String task1, String task2, String project, double weight) {

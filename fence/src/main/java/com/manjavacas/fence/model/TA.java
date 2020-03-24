@@ -1,11 +1,20 @@
 package com.manjavacas.fence.model;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 /**
  * 
  * Task assignment
  *
  */
+
+@Document(collection = "TA")
 public class TA {
+	
+	@Id
+	private ObjectId _id;
 
 	private String user;
 	private String task;
@@ -13,7 +22,6 @@ public class TA {
 	private double weight;
 
 	public TA() {
-
 	}
 
 	public TA(String user, String task, String project, double weight) {

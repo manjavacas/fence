@@ -17,17 +17,24 @@ public class Communication {
 	private String duration_sec;
 	private Date date;
 	private String quality;
+	private String project;
+	private String source;
+	private String taskRef;
 
 	public Communication() {
 	}
 
-	public Communication(String user1, String user2, String duration_sec, Date date, String quality) {
+	public Communication(String user1, String user2, String duration_sec, Date date, String quality, String project,
+			String source, String taskRef) {
 		super();
 		this.user1 = user1;
 		this.user2 = user2;
 		this.duration_sec = duration_sec;
 		this.date = date;
 		this.quality = quality;
+		this.project = project;
+		this.source = source;
+		this.taskRef = taskRef;
 	}
 
 	public ObjectId get_id() {
@@ -58,7 +65,7 @@ public class Communication {
 		return duration_sec;
 	}
 
-	public void setDuration_sec (String duration_sec) {
+	public void setDuration_sec(String duration_sec) {
 		this.duration_sec = duration_sec;
 	}
 
@@ -76,6 +83,30 @@ public class Communication {
 
 	public void setQuality(String quality) {
 		this.quality = quality;
+	}
+
+	public String getProject() {
+		return project;
+	}
+
+	public void setProject(String project) {
+		this.project = project;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getTaskRef() {
+		return taskRef;
+	}
+
+	public void setTaskRef(String taskRef) {
+		this.taskRef = taskRef;
 	}
 
 }
