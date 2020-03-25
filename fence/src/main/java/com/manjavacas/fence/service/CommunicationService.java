@@ -17,7 +17,7 @@ public class CommunicationService {
 	public List<Communication> getAllCommunications() {
 		return communicationRepository.findAll();
 	}
-	
+
 	public List<Communication> getCommunicationsByProject(String project) {
 		return communicationRepository.findByProject(project);
 	}
@@ -28,6 +28,15 @@ public class CommunicationService {
 
 	public List<Communication> getCommunicationsByUser2(String dni) {
 		return communicationRepository.findByUser2(dni);
+	}
+
+	public List<Communication> getCommunicationsBetween(String dni1, String dni2) {
+		List<Communication> communications = communicationRepository.findByUser1AndUser2(dni1, dni2);
+		if (communications.size() == 0) {
+			return communicationRepository.findByUser1AndUser2(dni2, dni1);
+		} else {
+			return communications;
+		}
 	}
 
 	public void addCommunication(Communication communication) {

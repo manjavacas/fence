@@ -9,14 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import com.manjavacas.fence.model.CA;
+import com.manjavacas.fence.model.CG;
 import com.manjavacas.fence.model.CR;
+import com.manjavacas.fence.model.Communication;
 import com.manjavacas.fence.model.Employee;
 import com.manjavacas.fence.model.TA;
 import com.manjavacas.fence.model.TD;
 import com.manjavacas.fence.model.Task;
 import com.manjavacas.fence.model.TaskDependency;
-import com.manjavacas.fence.model.Team;
 import com.manjavacas.fence.service.CAservice;
+import com.manjavacas.fence.service.CGservice;
 import com.manjavacas.fence.service.CRservice;
 import com.manjavacas.fence.service.CommunicationService;
 import com.manjavacas.fence.service.EmployeeService;
@@ -25,7 +27,7 @@ import com.manjavacas.fence.service.TDservice;
 import com.manjavacas.fence.service.TaskDependencyService;
 import com.manjavacas.fence.service.TaskService;
 
-public class STCMeasurer {
+public class EmployeesSTCMeasurer {
 
 	@Autowired
 	TaskService taskService;
@@ -54,6 +56,9 @@ public class STCMeasurer {
 	@Autowired
 	CRservice crService;
 
+	@Autowired
+	CGservice cgService;
+
 	@PutMapping(value = "/STC/{project}/employees")
 	public Hashtable<Employee, Double> getEmployeesSTC(@PathVariable String project) {
 
@@ -61,8 +66,9 @@ public class STCMeasurer {
 
 		List<TA> taMatrix = calculateTAMatrix(project);
 		List<TD> tdMatrix = calculateTDMatrix(project);
-		calculateCRMatrix(project, taMatrix, tdMatrix);
-		calculateCAMatrix(project);
+		List<CR> crMatrix = calculateCRMatrix(project, taMatrix, tdMatrix);
+		List<CA> caMatrix = calculateCAMatrix(project, crMatrix);
+		List<CG> cgMatrix = calculateCGMatrix(caMatrix, crMatrix);
 
 		return employeesSTC;
 
@@ -164,7 +170,7 @@ public class STCMeasurer {
 						double weight = weightTA1 * weightTA2 * weightTD;
 
 						// Apply Global Software Development distances
-						weight = computeGlobalFactors(weight, employeeService.getEmployee(user1), user2);
+						weight = computeGlobalFactorsCR(weight, employeeService.getEmployee(user1), user2);
 
 						if (weight > 1) {
 							weight = 1;
@@ -187,14 +193,149 @@ public class STCMeasurer {
 		return coordinationRequirementsMatrix;
 	}
 
-	private List<CA> calculateCAMatrix(String project) {
+	private List<CA> calculateCAMatrix(String project, List<CR> crMatrix) {
 
 		List<CA> actualCommunicationMatrix = new ArrayList<CA>();
+
+		// Get different employees from CR matrix
+		List<String> users = new ArrayList<String>();
+		for (CR cr : crMatrix) {
+			if (!users.contains(cr.getUser1()))
+				users.add(cr.getUser1());
+			if (!users.contains(cr.getUser2()))
+				users.add(cr.getUser2());
+		}
+
+		// Check communications for each employee
+		for (String user : users) {
+			double weightCA = 0;
+
+			// Get tasks assigned to user
+			List<Task> userTasks = new ArrayList<Task>();
+			for (Task task : taskService.getPendingTasksByProject(project)) {
+				if (task.getAssigned_to().contains(user)) {
+					userTasks.add(task);
+				}
+			}
+
+			// Get user communications
+			List<Communication> userCommunications = communicationService.getCommunicationsByUser1(user);
+
+			for (Communication communication : userCommunications) {
+
+				String user2 = communication.getUser2();
+
+				// Get user tasks dependencies
+				List<Task> userDependencies = new ArrayList<Task>();
+				List<TaskDependency> taskDependencies = new ArrayList<TaskDependency>();
+				Task dependency = null;
+				for (Task task : userTasks) {
+					taskDependencies = taskDependencyService.getTaskDependenciesOf(task.getReference());
+					for (TaskDependency td : taskDependencies) {
+						dependency = taskService.getTask(td.getTask2());
+						if (dependency.getAssigned_to().contains(user2)) {
+							userDependencies.add(dependency);
+						}
+					}
+				}
+
+				int totalDependencies = userDependencies.size();
+
+				if (totalDependencies > 0) {
+
+					// Communications between user1 and user 2
+					List<Communication> communications = communicationService.getCommunicationsBetween(user, user2);
+					int totalCommunications = communications.size();
+
+					// Communications for the given task
+					int taskCommunications = 0;
+					for (Communication com : communications) {
+						if (com.getTaskRef().equals(communication.getTaskRef())) {
+							taskCommunications++;
+						}
+					}
+
+					if (taskCommunications > 0) {
+
+						double frequency;
+
+						// Task communications frequency
+						if (taskCommunications >= 10) {
+							frequency = 1; // VERY HIGH
+						} else if (taskCommunications >= 8) {
+							frequency = 0.8; // HIGH
+						} else if (taskCommunications >= 6) {
+							frequency = 0.6; // NORMAL
+						} else if (taskCommunications >= 4) {
+							frequency = 0.4; // LOW
+						} else {
+							frequency = 0.2; // VERY LOW
+						}
+
+						// Weight calculation
+						weightCA += (frequency * 1 / totalDependencies) / totalCommunications;
+
+						// Apply GSD increments
+						weightCA = computeGlobalFactorsCA(weightCA, communication);
+
+						actualCommunicationMatrix
+								.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
+					}
+
+				}
+
+			}
+		}
+
+		caService.updateCA(actualCommunicationMatrix);
 
 		return actualCommunicationMatrix;
 	}
 
-	private double computeGlobalFactors(double weight, Employee user1, Employee user2) {
+	private List<CG> calculateCGMatrix(List<CA> caMatrix, List<CR> crMatrix) {
+
+		List<CG> coordinationGapMatrix = new ArrayList<CG>();
+
+		double weightCA;
+		double weightCR;
+		double weightCG;
+
+		for (CR cr : crMatrix) {
+
+			// Find a CA that covers the current CR
+			List<CA> caList = caService.getCA(cr.getUser1(), cr.getUser2(), cr.getProject(), cr.getTask());
+
+			if (caList.size() > 0) {
+
+				weightCA = 0;
+				for (CA ca : caList) {
+					weightCA += ca.getWeight();
+				}
+
+				weightCR = cr.getWeight();
+
+				// Compute CG weight
+				weightCG = weightCR - weightCA;
+
+				if (weightCG > 0) {
+					coordinationGapMatrix
+							.add(new CG(cr.getUser1(), cr.getUser2(), cr.getTask(), cr.getProject(), weightCG));
+				}
+
+			} else {
+				coordinationGapMatrix
+						.add(new CG(cr.getUser1(), cr.getUser2(), cr.getTask(), cr.getProject(), cr.getWeight()));
+			}
+
+		}
+
+		// Update collection
+		cgService.updateCG(coordinationGapMatrix);
+
+		return coordinationGapMatrix;
+	}
+
+	private double computeGlobalFactorsCR(double weight, Employee user1, Employee user2) {
 
 		// Addition coefficient that will be applied
 		double coefficient = 0;
@@ -240,15 +381,8 @@ public class STCMeasurer {
 		return weight + coefficient;
 	}
 
-	// Get list of STC level by team
-	@PutMapping(value = "/STC/{project}/teams")
-	public Hashtable<Team, Double> getProjectTotalSTC(@PathVariable String project) {
-		return null;
+	private double computeGlobalFactorsCA(double weight, Communication communication) {
+		return 0;
 	}
 
-	// Get total project STC level
-	@PutMapping(value = "/STC/{project}")
-	public double getProjectSTC(@PathVariable String project) {
-		return 99999;
-	}
 }

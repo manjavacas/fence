@@ -6,31 +6,31 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  * 
- * Coordination requirement
+ * Coordination gap
  *
  */
 
-@Document(collection = "CR")
-public class CR {
+@Document(collection = "CG")
+public class CG {
 
 	@Id
 	private ObjectId _id;
 
 	private String user1;
 	private String user2;
-	private String project;
 	private String task;
+	private String project;
 	private double weight;
 
-	public CR() {
+	public CG() {
 	}
 
-	public CR(String user1, String user2, String project, String task, double weight) {
+	public CG(String user1, String user2, String task, String project, double weight) {
 		super();
 		this.user1 = user1;
 		this.user2 = user2;
-		this.project = project;
 		this.task = task;
+		this.project = project;
 		this.weight = weight;
 	}
 
@@ -50,20 +50,20 @@ public class CR {
 		this.user2 = user2;
 	}
 
-	public String getProject() {
-		return project;
-	}
-
-	public void setProject(String project) {
-		this.project = project;
-	}
-
 	public String getTask() {
 		return task;
 	}
 
 	public void setTask(String task) {
 		this.task = task;
+	}
+
+	public String getProject() {
+		return project;
+	}
+
+	public void setProject(String project) {
+		this.project = project;
 	}
 
 	public double getWeight() {
