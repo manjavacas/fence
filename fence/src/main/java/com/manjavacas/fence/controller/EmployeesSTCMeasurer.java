@@ -1,7 +1,7 @@
 package com.manjavacas.fence.controller;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,19 +13,25 @@ import com.manjavacas.fence.model.CG;
 import com.manjavacas.fence.model.CR;
 import com.manjavacas.fence.model.Communication;
 import com.manjavacas.fence.model.Employee;
+import com.manjavacas.fence.model.EmployeeSTC;
+import com.manjavacas.fence.model.ProjectSTC;
 import com.manjavacas.fence.model.TA;
 import com.manjavacas.fence.model.TD;
 import com.manjavacas.fence.model.Task;
 import com.manjavacas.fence.model.TaskDependency;
+import com.manjavacas.fence.model.Team;
+import com.manjavacas.fence.model.TeamSTC;
 import com.manjavacas.fence.service.CAservice;
 import com.manjavacas.fence.service.CGservice;
 import com.manjavacas.fence.service.CRservice;
 import com.manjavacas.fence.service.CommunicationService;
+import com.manjavacas.fence.service.EmployeeSTCService;
 import com.manjavacas.fence.service.EmployeeService;
 import com.manjavacas.fence.service.TAservice;
 import com.manjavacas.fence.service.TDservice;
 import com.manjavacas.fence.service.TaskDependencyService;
 import com.manjavacas.fence.service.TaskService;
+import com.manjavacas.fence.service.TeamService;
 
 public class EmployeesSTCMeasurer {
 
@@ -45,6 +51,9 @@ public class EmployeesSTCMeasurer {
 	CommunicationService communicationService;
 
 	@Autowired
+	TeamService teamService;
+
+	@Autowired
 	TAservice taService;
 
 	@Autowired
@@ -58,19 +67,22 @@ public class EmployeesSTCMeasurer {
 
 	@Autowired
 	CGservice cgService;
+	
+	@Autowired
+	EmployeeSTCService employeeSTCservice;
 
 	@PutMapping(value = "/STC/{project}/employees")
-	public Hashtable<Employee, Double> getEmployeesSTC(@PathVariable String project) {
-
-		Hashtable<Employee, Double> employeesSTC = new Hashtable<Employee, Double>();
+	public void calculateSTC(@PathVariable String project) {
 
 		List<TA> taMatrix = calculateTAMatrix(project);
 		List<TD> tdMatrix = calculateTDMatrix(project);
 		List<CR> crMatrix = calculateCRMatrix(project, taMatrix, tdMatrix);
 		List<CA> caMatrix = calculateCAMatrix(project, crMatrix);
 		List<CG> cgMatrix = calculateCGMatrix(caMatrix, crMatrix);
-
-		return employeesSTC;
+		
+		List<EmployeeSTC> employeesSTC = calculateSTCEmployees(project, crMatrix, cgMatrix);
+		List<TeamSTC> teamsSTC = calculateSTCTeams(project, employeesSTC);
+		List<ProjectSTC> projectSTC = calculateSTCProjects(project, teamsSTC);
 
 	}
 
@@ -218,75 +230,79 @@ public class EmployeesSTCMeasurer {
 				}
 			}
 
-			// Get user communications
-			List<Communication> userCommunications = communicationService.getCommunicationsByUser1(user);
+			if (userTasks.size() > 0) {
 
-			for (Communication communication : userCommunications) {
+				// Get user communications
+				List<Communication> userCommunications = communicationService.getCommunicationsByUser1(user);
 
-				String user2 = communication.getUser2();
+				for (Communication communication : userCommunications) {
 
-				// Get user tasks dependencies
-				List<Task> userDependencies = new ArrayList<Task>();
-				List<TaskDependency> taskDependencies = new ArrayList<TaskDependency>();
-				Task dependency = null;
-				for (Task task : userTasks) {
-					taskDependencies = taskDependencyService.getTaskDependenciesOf(task.getReference());
-					for (TaskDependency td : taskDependencies) {
-						dependency = taskService.getTask(td.getTask2());
-						if (dependency.getAssigned_to().contains(user2)) {
-							userDependencies.add(dependency);
-						}
-					}
-				}
+					String user2 = communication.getUser2();
 
-				int totalDependencies = userDependencies.size();
-
-				if (totalDependencies > 0) {
-
-					// Communications between user1 and user 2
-					List<Communication> communications = communicationService.getCommunicationsBetween(user, user2);
-					int totalCommunications = communications.size();
-
-					// Communications for the given task
-					int taskCommunications = 0;
-					for (Communication com : communications) {
-						if (com.getTaskRef().equals(communication.getTaskRef())) {
-							taskCommunications++;
+					// Get user tasks dependencies for which user1 and user2 must communicate
+					List<Task> userDependencies = new ArrayList<Task>();
+					List<TaskDependency> taskDependencies = new ArrayList<TaskDependency>();
+					Task dependency = null;
+					for (Task task : userTasks) {
+						taskDependencies = taskDependencyService.getTaskDependenciesOf(task.getReference());
+						for (TaskDependency td : taskDependencies) {
+							dependency = taskService.getTask(td.getTask2());
+							if (dependency.getAssigned_to().contains(user2)) {
+								userDependencies.add(dependency);
+							}
 						}
 					}
 
-					if (taskCommunications > 0) {
+					int totalDependencies = userDependencies.size();
 
-						double frequency;
+					if (totalDependencies > 0) {
 
-						// Task communications frequency
-						if (taskCommunications >= 10) {
-							frequency = 1; // VERY HIGH
-						} else if (taskCommunications >= 8) {
-							frequency = 0.8; // HIGH
-						} else if (taskCommunications >= 6) {
-							frequency = 0.6; // NORMAL
-						} else if (taskCommunications >= 4) {
-							frequency = 0.4; // LOW
-						} else {
-							frequency = 0.2; // VERY LOW
+						// Communications between user1 and user 2
+						List<Communication> communications = communicationService.getCommunicationsBetween(user, user2);
+						int totalCommunications = communications.size();
+
+						// Communications for the given task
+						int taskCommunications = 0;
+						for (Communication com : communications) {
+							if (com.getTaskRef().equals(communication.getTaskRef())) {
+								taskCommunications++;
+							}
 						}
 
-						// Weight calculation
-						weightCA += (frequency * 1 / totalDependencies) / totalCommunications;
+						if (taskCommunications > 0) {
 
-						// Apply GSD increments
-						weightCA = computeGlobalFactorsCA(weightCA, communication);
+							double frequency;
 
-						actualCommunicationMatrix
-								.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
+							// Task communications frequency
+							if (taskCommunications >= 10) {
+								frequency = 1; // VERY HIGH
+							} else if (taskCommunications >= 8) {
+								frequency = 0.8; // HIGH
+							} else if (taskCommunications >= 6) {
+								frequency = 0.6; // NORMAL
+							} else if (taskCommunications >= 4) {
+								frequency = 0.4; // LOW
+							} else {
+								frequency = 0.2; // VERY LOW
+							}
+
+							// Weight calculation
+							weightCA += (frequency * 1 / totalDependencies) / totalCommunications;
+
+							// Apply GSD increments
+							weightCA = computeGlobalFactorsCA(weightCA, communication);
+
+							actualCommunicationMatrix
+									.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
+						}
+
 					}
-
 				}
 
 			}
 		}
 
+		// Update collection
 		caService.updateCA(actualCommunicationMatrix);
 
 		return actualCommunicationMatrix;
@@ -307,6 +323,7 @@ public class EmployeesSTCMeasurer {
 
 			if (caList.size() > 0) {
 
+				// Sum communications
 				weightCA = 0;
 				for (CA ca : caList) {
 					weightCA += ca.getWeight();
@@ -335,6 +352,72 @@ public class EmployeesSTCMeasurer {
 		return coordinationGapMatrix;
 	}
 
+	private List<EmployeeSTC> calculateSTCEmployees(String project, List<CR> crMatrix, List<CG> cgMatrix) {
+
+		List<EmployeeSTC> stcEmployees = new ArrayList<EmployeeSTC>();
+
+		// Get employees in project
+		List<Employee> allProjectEmployees = new ArrayList<Employee>();
+		List<Employee> allEmployees = employeeService.getAllEmployees();
+		List<Team> allProjectTeams = teamService.getTeamsByProject(project);
+		Team team = null;
+		for (Employee employee : allEmployees) {
+			team = teamService.getTeam(employee.getTeam());
+			if (allProjectTeams.contains(team)) {
+				allProjectEmployees.add(employee);
+			}
+		}
+
+		List<CR> employeeCRs = null;
+		List<CG> employeeCGs = null;
+		
+		// Calculate STC level by employee
+		for (Employee employee : allProjectEmployees) {
+
+			employeeCRs = crService.getCRByUser1(employee.getDni());
+			employeeCGs = cgService.getCGByUser1(employee.getDni());
+
+			// Get CR sum
+			double employeeCRsum = 0;
+			for (CR cr : employeeCRs) {
+				employeeCRsum += cr.getWeight();
+			}
+
+			// Get CG sum
+			double employeeCGsum = 0;
+			for (CG cg : employeeCGs) {
+				employeeCGsum += cg.getWeight();
+			}
+			
+			// Calculate STC
+			if(employeeCGsum <= 0) {
+				stcEmployees.add(new EmployeeSTC(employee.getDni(), 100, new Date()));
+			} else {
+				double stcUser = 1 - employeeCGsum/employeeCRsum;
+				stcEmployees.add(new EmployeeSTC(employee.getDni(), stcUser * 100, new Date()));
+			}
+
+		}
+		
+		// Save in database
+		for(EmployeeSTC stcEmployee : stcEmployees) {
+			employeeSTCservice.addEmployeeSTC(stcEmployee);
+		}
+
+		return stcEmployees;
+	}
+
+
+	private List<TeamSTC> calculateSTCTeams(String project, List<EmployeeSTC> employeesSTC) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	private List<ProjectSTC> calculateSTCProjects(String project, List<TeamSTC> teamsSTC) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	private double computeGlobalFactorsCR(double weight, Employee user1, Employee user2) {
 
 		// Addition coefficient that will be applied

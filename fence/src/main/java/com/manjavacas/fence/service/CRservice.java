@@ -15,6 +15,10 @@ public class CRservice {
 	public List<CR> getAllCR() {
 		return crRepository.findAll();
 	}
+	
+	public List<CR> getCRByUser1(String dni) {
+		return crRepository.findByUser1(dni);
+	}
 
 	public void updateCR(List<CR> listCR) {
 		crRepository.deleteAll();

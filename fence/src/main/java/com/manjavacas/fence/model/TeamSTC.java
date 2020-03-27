@@ -6,32 +6,33 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "employees_stc_history")
-public class EmployeeSTC {
+@Document(collection = "teams_stc_history")
+public class TeamSTC {
 
 	@Id
 	private ObjectId _id;
 
-	private String employee;
+	private String team;
 	private double stc;
 	private Date date;
 
-	public EmployeeSTC() {
+	public TeamSTC() {
+
 	}
 
-	public EmployeeSTC(String employee, double stc, Date date) {
+	public TeamSTC(String team, double stc, Date date) {
 		super();
-		this.employee = employee;
+		this.team = team;
 		this.stc = stc;
 		this.date = date;
 	}
 
-	public String getEmployee() {
-		return employee;
+	public String getTeam() {
+		return team;
 	}
 
-	public void setEmployee(String employee) {
-		this.employee = employee;
+	public void setTeam(String team) {
+		this.team = team;
 	}
 
 	public double getStc() {

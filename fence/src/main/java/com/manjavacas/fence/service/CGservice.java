@@ -15,6 +15,10 @@ public class CGservice {
 	public List<CG> getAllCG() {
 		return cgRepository.findAll();
 	}
+	
+	public List<CG> getCGByUser1(String dni) {
+		return cgRepository.findByUser1(dni);
+	}
 
 	public void updateCG(List<CG> listCG) {
 		cgRepository.deleteAll();
