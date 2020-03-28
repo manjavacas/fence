@@ -25,6 +25,10 @@ public class EmployeeService {
 		return employeeRepository.findByDni(dni);
 	}
 
+	public List<Employee> getByTeam(String team) {
+		return employeeRepository.findByTeam(team);
+	}
+
 	public void updateEmployee(String dni, Employee newEmployee) {
 		Employee currentEmployee = employeeRepository.findByDni(dni);
 

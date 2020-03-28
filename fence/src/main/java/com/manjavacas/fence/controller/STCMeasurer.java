@@ -27,13 +27,15 @@ import com.manjavacas.fence.service.CRservice;
 import com.manjavacas.fence.service.CommunicationService;
 import com.manjavacas.fence.service.EmployeeSTCService;
 import com.manjavacas.fence.service.EmployeeService;
+import com.manjavacas.fence.service.ProjectSTCService;
 import com.manjavacas.fence.service.TAservice;
 import com.manjavacas.fence.service.TDservice;
 import com.manjavacas.fence.service.TaskDependencyService;
 import com.manjavacas.fence.service.TaskService;
+import com.manjavacas.fence.service.TeamSTCService;
 import com.manjavacas.fence.service.TeamService;
 
-public class EmployeesSTCMeasurer {
+public class STCMeasurer {
 
 	@Autowired
 	TaskService taskService;
@@ -67,9 +69,15 @@ public class EmployeesSTCMeasurer {
 
 	@Autowired
 	CGservice cgService;
-	
+
 	@Autowired
 	EmployeeSTCService employeeSTCservice;
+
+	@Autowired
+	TeamSTCService teamSTCservice;
+
+	@Autowired
+	ProjectSTCService projectSTCservice;
 
 	@PutMapping(value = "/STC/{project}/employees")
 	public void calculateSTC(@PathVariable String project) {
@@ -79,10 +87,10 @@ public class EmployeesSTCMeasurer {
 		List<CR> crMatrix = calculateCRMatrix(project, taMatrix, tdMatrix);
 		List<CA> caMatrix = calculateCAMatrix(project, crMatrix);
 		List<CG> cgMatrix = calculateCGMatrix(caMatrix, crMatrix);
-		
-		List<EmployeeSTC> employeesSTC = calculateSTCEmployees(project, crMatrix, cgMatrix);
-		List<TeamSTC> teamsSTC = calculateSTCTeams(project, employeesSTC);
-		List<ProjectSTC> projectSTC = calculateSTCProjects(project, teamsSTC);
+
+		calculateSTCEmployees(project, crMatrix, cgMatrix);
+		calculateSTCTeams(project, crMatrix, cgMatrix);
+		calculateSTCProjects(project, crMatrix, cgMatrix);
 
 	}
 
@@ -352,7 +360,7 @@ public class EmployeesSTCMeasurer {
 		return coordinationGapMatrix;
 	}
 
-	private List<EmployeeSTC> calculateSTCEmployees(String project, List<CR> crMatrix, List<CG> cgMatrix) {
+	private void calculateSTCEmployees(String project, List<CR> crMatrix, List<CG> cgMatrix) {
 
 		List<EmployeeSTC> stcEmployees = new ArrayList<EmployeeSTC>();
 
@@ -370,7 +378,7 @@ public class EmployeesSTCMeasurer {
 
 		List<CR> employeeCRs = null;
 		List<CG> employeeCGs = null;
-		
+
 		// Calculate STC level by employee
 		for (Employee employee : allProjectEmployees) {
 
@@ -388,36 +396,108 @@ public class EmployeesSTCMeasurer {
 			for (CG cg : employeeCGs) {
 				employeeCGsum += cg.getWeight();
 			}
-			
+
 			// Calculate STC
-			if(employeeCGsum <= 0) {
+			if (employeeCGsum <= 0) {
 				stcEmployees.add(new EmployeeSTC(employee.getDni(), 100, new Date()));
 			} else {
-				double stcUser = 1 - employeeCGsum/employeeCRsum;
+				double stcUser = 1 - employeeCGsum / employeeCRsum;
 				stcEmployees.add(new EmployeeSTC(employee.getDni(), stcUser * 100, new Date()));
 			}
 
 		}
-		
+
 		// Save in database
-		for(EmployeeSTC stcEmployee : stcEmployees) {
+		for (EmployeeSTC stcEmployee : stcEmployees) {
 			employeeSTCservice.addEmployeeSTC(stcEmployee);
 		}
 
-		return stcEmployees;
 	}
 
+	private void calculateSTCTeams(String project, List<CR> crMatrix, List<CG> cgMatrix) {
 
-	private List<TeamSTC> calculateSTCTeams(String project, List<EmployeeSTC> employeesSTC) {
-		// TODO Auto-generated method stub
-		return null;
+		List<TeamSTC> stcTeams = new ArrayList<TeamSTC>();
+
+		List<Team> allProjectTeams = teamService.getTeamsByProject(project);
+
+		// Get different employees from CR matrix
+		List<String> users = new ArrayList<String>();
+		for (CR cr : crMatrix) {
+			if (!users.contains(cr.getUser1()))
+				users.add(cr.getUser1());
+			if (!users.contains(cr.getUser2()))
+				users.add(cr.getUser2());
+		}
+
+		for (Team team : allProjectTeams) {
+
+			double teamCRsum = 0;
+			double teamCGsum = 0;
+
+			// Get users in the current team
+			List<Employee> teamUsers = employeeService.getByTeam(team.getName());
+
+			// Sum CRs and CGs weights
+			for (Employee employee : teamUsers) {
+
+				List<CR> employeeCRs = crService.getCRByUser1(employee.getDni());
+				for (CR cr : employeeCRs) {
+					teamCRsum += cr.getWeight();
+				}
+
+				List<CG> employeeCGs = cgService.getCGByUser1(employee.getDni());
+				for (CG cg : employeeCGs) {
+					teamCGsum += cg.getWeight();
+				}
+
+			}
+
+			// Calculate STC
+			if (teamCGsum <= 0) {
+				stcTeams.add(new TeamSTC(team.getName(), 100, new Date()));
+			} else {
+				double stcTeam = 1 - teamCGsum / teamCRsum;
+				stcTeams.add(new TeamSTC(team.getName(), stcTeam * 100, new Date()));
+			}
+
+		}
+
+		// Save in database
+		for (TeamSTC stcTeam : stcTeams) {
+			teamSTCservice.addTeamSTC(stcTeam);
+		}
+
 	}
-	
-	private List<ProjectSTC> calculateSTCProjects(String project, List<TeamSTC> teamsSTC) {
-		// TODO Auto-generated method stub
-		return null;
+
+	private void calculateSTCProjects(String project, List<CR> crMatrix, List<CG> cgMatrix) {
+
+		ProjectSTC stcProject;
+
+		// Sum CR weights
+		double sumCRproject = 0;
+		for (CR cr : crMatrix) {
+			sumCRproject += cr.getWeight();
+		}
+
+		// Sum CG weights
+		double sumCGproject = 0;
+		for (CG cg : cgMatrix) {
+			sumCGproject += cg.getWeight();
+		}
+
+		// Calculate STC
+		if (sumCGproject <= 0) {
+			stcProject = new ProjectSTC(project, 100, new Date());
+		} else {
+			double stc = 1 - sumCGproject / sumCRproject;
+			stcProject = new ProjectSTC(project, stc * 100, new Date());
+		}
+
+		// Save in database
+		projectSTCservice.addProjectSTC(stcProject);
+
 	}
-	
+
 	private double computeGlobalFactorsCR(double weight, Employee user1, Employee user2) {
 
 		// Addition coefficient that will be applied
