@@ -4,12 +4,6 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * 
- * Coordination gap
- *
- */
-
 @Document(collection = "CG")
 public class CG {
 

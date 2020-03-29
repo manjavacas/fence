@@ -3,10 +3,12 @@ package com.manjavacas.fence.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.manjavacas.fence.model.TaskDependency;
 import com.manjavacas.fence.repository.TaskDependencyRepository;
 
+@Service
 public class TaskDependencyService {
 
 	@Autowired

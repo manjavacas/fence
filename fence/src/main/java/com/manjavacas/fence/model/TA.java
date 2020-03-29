@@ -4,15 +4,9 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * 
- * Task assignment
- *
- */
-
 @Document(collection = "TA")
 public class TA {
-	
+
 	@Id
 	private ObjectId _id;
 
