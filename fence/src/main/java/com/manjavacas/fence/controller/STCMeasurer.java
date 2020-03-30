@@ -143,12 +143,12 @@ public class STCMeasurer {
 			List<TaskDependency> taskDependencies = taskDependencyService.getTaskDependenciesOf(task.getReference());
 
 			// Compute dependency values summatory
-			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValue).sum();
+			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getWeight).sum();
 
 			// Compute weight and save in matrix
 			for (TaskDependency taskDependency : taskDependencies) {
 				// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
-				double weight = taskDependency.getValue() / sumValues;
+				double weight = taskDependency.getWeight() / sumValues;
 				taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
 			}
 
@@ -522,6 +522,7 @@ public class STCMeasurer {
 			coefficient += 0.2;
 		}
 
+		// TODO: Check sign: UTC+1, UTC-6, etc.
 		// Temporal distance (UTC+XY)
 		int hour1 = Integer.parseInt(user1.getTimezone().substring(4, user1.getTimezone().length()));
 		int hour2 = Integer.parseInt(user2.getTimezone().substring(4, user2.getTimezone().length()));

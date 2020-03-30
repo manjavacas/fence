@@ -14,7 +14,7 @@ public class Communication {
 
 	private String user1;
 	private String user2;
-	private String duration_sec;
+	private double duration;
 	private Date date;
 	private String quality;
 	private String project;
@@ -24,12 +24,12 @@ public class Communication {
 	public Communication() {
 	}
 
-	public Communication(String user1, String user2, String duration_sec, Date date, String quality, String project,
+	public Communication(String user1, String user2, double duration, Date date, String quality, String project,
 			String source, String taskRef) {
 		super();
 		this.user1 = user1;
 		this.user2 = user2;
-		this.duration_sec = duration_sec;
+		this.duration = duration;
 		this.date = date;
 		this.quality = quality;
 		this.project = project;
@@ -61,12 +61,12 @@ public class Communication {
 		this.user2 = user2;
 	}
 
-	public String getDuration_sec() {
-		return duration_sec;
+	public double getDuration() {
+		return duration;
 	}
 
-	public void setDuration_sec(String duration_sec) {
-		this.duration_sec = duration_sec;
+	public void setDuration(double duration) {
+		this.duration = duration;
 	}
 
 	public Date getDate() {

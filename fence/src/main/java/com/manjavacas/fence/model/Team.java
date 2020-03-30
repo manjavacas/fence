@@ -1,8 +1,5 @@
 package com.manjavacas.fence.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,25 +13,16 @@ public class Team {
 	private String name;
 	private String location;
 	private String project;
-	private List<String> employees;
+
 
 	public Team() {
 	}
 
-	public Team(String name, String location, String project, List<String> employees) {
-		super();
-		this.name = name;
-		this.location = location;
-		this.project = project;
-		this.employees = employees;
-	}
-	
 	public Team(String name, String location, String project) {
 		super();
 		this.name = name;
 		this.location = location;
 		this.project = project;
-		this.employees = new ArrayList<String>();
 	}
 
 	public ObjectId get_id() {
@@ -67,14 +55,6 @@ public class Team {
 
 	public void setProject(String project) {
 		this.project = project;
-	}
-
-	public List<String> getEmployees() {
-		return employees;
-	}
-
-	public void setEmployees(List<String> employees) {
-		this.employees = employees;
 	}
 
 }

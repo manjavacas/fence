@@ -40,23 +40,12 @@ public class TeamService {
 		currentTeam.setName(newTeam.getName());
 		currentTeam.setLocation(newTeam.getLocation());
 		currentTeam.setProject(newTeam.getProject());
-		currentTeam.setEmployees(newTeam.getEmployees());
-
+		
 		teamRepository.save(currentTeam);
 	}
 
 	public void deleteTeam(String name) {
 		teamRepository.deleteByName(name);
-	}
-
-	public void addEmployeeToTeam(String dni, String teamId) {
-		Team currentTeam = teamRepository.findByName(teamId);
-
-		if (currentTeam == null) {
-			currentTeam = new Team(teamId, "", "");
-		}
-
-		currentTeam.getEmployees().add(dni);
 	}
 
 }

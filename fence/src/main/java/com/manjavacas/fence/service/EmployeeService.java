@@ -48,8 +48,6 @@ public class EmployeeService {
 		currentEmployee.setLanguages(newEmployee.getLanguages());
 		currentEmployee.setTeam(newEmployee.getTeam());
 
-		teamService.addEmployeeToTeam(currentEmployee.getDni(), currentEmployee.getTeam());
-
 		employeeRepository.save(currentEmployee);
 	}
 
