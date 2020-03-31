@@ -26,4 +26,19 @@ public class TeamSTCService {
 		teamSTCRepository.insert(teamSTC);
 	}
 
+	public TeamSTC getLatestMedition(String name) {
+		List<TeamSTC> allSTCMeditions = teamSTCRepository.findByTeam(name);
+
+		TeamSTC latest = null;
+		for (TeamSTC teamSTC : allSTCMeditions) {
+			if (latest == null) {
+				latest = teamSTC;
+			} else if (teamSTC.getDate().compareTo(latest.getDate()) > 0) {
+				latest = teamSTC;
+			}
+		}
+
+		return latest;
+	}
+
 }

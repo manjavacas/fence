@@ -26,4 +26,19 @@ public class EmployeeSTCService {
 		employeeSTCRepository.insert(employeeSTC);
 	}
 
+	public EmployeeSTC getLatestMedition(String dni) {
+		List<EmployeeSTC> allSTCMeditions = employeeSTCRepository.findByEmployee(dni);
+
+		EmployeeSTC latest = null;
+		for (EmployeeSTC empSTC : allSTCMeditions) {
+			if (latest == null) {
+				latest = empSTC;
+			} else if (empSTC.getDate().compareTo(latest.getDate()) > 0) {
+				latest = empSTC;
+			}
+		}
+
+		return latest;
+	}
+
 }

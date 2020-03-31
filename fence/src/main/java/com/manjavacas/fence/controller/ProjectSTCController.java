@@ -24,8 +24,13 @@ public class ProjectSTCController {
 	}
 
 	@RequestMapping("/ProjectsSTC/{project}")
-	public List<ProjectSTC> getProjectSTC(@PathVariable String project) {
+	public List<ProjectSTC> getProjectSTCMeditions(@PathVariable String project) {
 		return projectSTCService.getProjectSTC(project);
+	}
+
+	@RequestMapping("/ProjectSTC/{project}")
+	public ProjectSTC getProjectSTC(@PathVariable String project) {
+		return projectSTCService.getLatestMedition(project);
 	}
 
 	@PostMapping(value = "/ProjectsSTC")

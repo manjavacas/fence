@@ -19,11 +19,26 @@ public class ProjectSTCService {
 	}
 
 	public List<ProjectSTC> getProjectSTC(String project) {
-		return projectSTCRepository.findByProject(project);
+		return projectSTCRepository.findByName(project);
 	}
 
 	public void addProjectSTC(ProjectSTC projectSTC) {
 		projectSTCRepository.insert(projectSTC);
+	}
+
+	public ProjectSTC getLatestMedition(String project) {
+		List<ProjectSTC> allSTCMeditions = projectSTCRepository.findByName(project);
+
+		ProjectSTC latest = null;
+		for (ProjectSTC projectSTC : allSTCMeditions) {
+			if (latest == null) {
+				latest = projectSTC;
+			} else if (projectSTC.getDate().compareTo(latest.getDate()) > 0) {
+				latest = projectSTC;
+			}
+		}
+
+		return latest;
 	}
 
 }
