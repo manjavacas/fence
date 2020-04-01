@@ -12,14 +12,14 @@ import com.manjavacas.fence.repository.ProjectSTCRepository;
 public class ProjectSTCService {
 
 	@Autowired
-	ProjectSTCRepository projectSTCRepository;
+	private ProjectSTCRepository projectSTCRepository;
 
 	public List<ProjectSTC> getAllProjectSTCs() {
 		return projectSTCRepository.findAll();
 	}
 
 	public List<ProjectSTC> getProjectSTC(String project) {
-		return projectSTCRepository.findByName(project);
+		return projectSTCRepository.findByProject(project);
 	}
 
 	public void addProjectSTC(ProjectSTC projectSTC) {
@@ -27,7 +27,7 @@ public class ProjectSTCService {
 	}
 
 	public ProjectSTC getLatestMedition(String project) {
-		List<ProjectSTC> allSTCMeditions = projectSTCRepository.findByName(project);
+		List<ProjectSTC> allSTCMeditions = projectSTCRepository.findByProject(project);
 
 		ProjectSTC latest = null;
 		for (ProjectSTC projectSTC : allSTCMeditions) {

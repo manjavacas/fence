@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
     <link rel="stylesheet" href="../css/stc-tab.css">
 
+    <script src='../js/load-projects.js'></script>
+
 </head>
 
-<body>
+<body onload="loadProjects();">
 
     <div class="sidebar-container">
         <div class="sidebar-logo">
@@ -59,12 +61,11 @@
 
             <div class="container" style="margin-bottom:2cm;">
                 <button id="btn-calculate-stc" type="button" class="btn btn-success btn-lg">Calculate STC</button>
-                <select id="select-project" style="margin-left:1cm;" class="mdb-select md-form colorful-select dropdown-primary">
+                <select id="select-project" style="margin-left:1cm;"
+                    class="mdb-select md-form colorful-select dropdown-primary">
                     <!-- PROJECTS -->
-                    <option value="1">Select project...</option>
-                    <option value="2">FENCE</option>
-                    <option value="3">OTHER</option>
                 </select>
+                <label id="loading-label" style="margin-left:1cm;"> </label>
             </div>
 
             <div class="container">

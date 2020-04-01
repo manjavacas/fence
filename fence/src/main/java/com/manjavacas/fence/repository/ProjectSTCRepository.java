@@ -10,6 +10,6 @@ import com.manjavacas.fence.model.ProjectSTC;
 @Repository
 public interface ProjectSTCRepository extends MongoRepository<ProjectSTC, String> {
 
-	List<ProjectSTC> findByName(String project);
+	List<ProjectSTC> findByProject(String project);
 
 }

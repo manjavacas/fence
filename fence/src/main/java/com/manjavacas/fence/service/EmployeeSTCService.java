@@ -12,7 +12,7 @@ import com.manjavacas.fence.repository.EmployeeSTCRepository;
 public class EmployeeSTCService {
 
 	@Autowired
-	EmployeeSTCRepository employeeSTCRepository;
+	private EmployeeSTCRepository employeeSTCRepository;
 
 	public List<EmployeeSTC> getAllEmployeeSTC() {
 		return employeeSTCRepository.findAll();

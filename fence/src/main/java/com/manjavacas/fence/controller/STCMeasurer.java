@@ -6,7 +6,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.manjavacas.fence.model.CA;
 import com.manjavacas.fence.model.CG;
@@ -35,6 +36,7 @@ import com.manjavacas.fence.service.TaskService;
 import com.manjavacas.fence.service.TeamSTCService;
 import com.manjavacas.fence.service.TeamService;
 
+@RestController
 public class STCMeasurer {
 
 	@Autowired
@@ -79,19 +81,27 @@ public class STCMeasurer {
 	@Autowired
 	ProjectSTCService projectSTCservice;
 
-	@PutMapping(value = "/STC/{project}/employees")
-	public void calculateSTC(@PathVariable String project) {
+	@RequestMapping("/STC/{project}")
+	public boolean calculateSTC(@PathVariable String project) {
 
-		List<TA> taMatrix = calculateTAMatrix(project);
-		List<TD> tdMatrix = calculateTDMatrix(project);
-		List<CR> crMatrix = calculateCRMatrix(project, taMatrix, tdMatrix);
-		List<CA> caMatrix = calculateCAMatrix(project, crMatrix);
-		List<CG> cgMatrix = calculateCGMatrix(caMatrix, crMatrix);
+		boolean success = true;
 
-		calculateSTCEmployees(project, crMatrix, cgMatrix);
-		calculateSTCTeams(project, crMatrix, cgMatrix);
-		calculateSTCProjects(project, crMatrix, cgMatrix);
+		try {
+			List<TA> taMatrix = calculateTAMatrix(project);
+			List<TD> tdMatrix = calculateTDMatrix(project);
+			List<CR> crMatrix = calculateCRMatrix(project, taMatrix, tdMatrix);
+			List<CA> caMatrix = calculateCAMatrix(project, crMatrix);
+			List<CG> cgMatrix = calculateCGMatrix(caMatrix, crMatrix);
 
+			calculateSTCEmployees(project, crMatrix, cgMatrix);
+			calculateSTCTeams(project, crMatrix, cgMatrix);
+			calculateSTCProjects(project, crMatrix, cgMatrix);
+		} catch (Exception e) {
+			e.printStackTrace();
+			success = false;
+		}
+
+		return success;
 	}
 
 	private List<TA> calculateTAMatrix(String project) {

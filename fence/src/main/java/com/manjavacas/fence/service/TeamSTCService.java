@@ -12,7 +12,7 @@ import com.manjavacas.fence.repository.TeamSTCRepository;
 public class TeamSTCService {
 
 	@Autowired
-	TeamSTCRepository teamSTCRepository;
+	private TeamSTCRepository teamSTCRepository;
 
 	public List<TeamSTC> getAllTeamSTC() {
 		return teamSTCRepository.findAll();

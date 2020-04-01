@@ -2,15 +2,47 @@ const mainResource = 'http://localhost:8080/';
 
 document.getElementById('btn-calculate-stc').addEventListener('click', function () {
 
-    const resSTCEmployees = mainResource + 'EmployeeSTCMeditions/';
-    const restSTCProjects = mainResource + 'ProjectSTCMeditions/';
+    project = 'FENCE'; // TODO: GET PROJECT
+
+    // Calculate STC
+    document.getElementById('loading-label').innerHTML = 'Calculating STC...';
+
+    const resSTC = mainResource + 'STC/' + project;
+    calculateSTC(resSTC);
+
+    // Retrieve data
+    const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
+    const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;
+    const restSTCProjects = mainResource + 'ProjectSTC/' + project;
 
     getDataSTCEmployees(resSTCEmployees, 'table-stc-employees');
     getDataSTCTeams(resSTCTeams, 'table-stc-teams');
-    getDataSTCProjects(restSTCProjects, 'table-stc-projects');
+    getDataSTCProject(restSTCProjects, 'table-stc-projects');
 
+    document.getElementById('loading-label').innerHTML = '';
+    document.getElementById('loading-label').style.color='black';
 });
 
+// Petition to STC measurer
+function calculateSTC(resource) {
+    $.ajax({
+        url: resource,
+        type: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).done(function (data, textStatus, jqXHR) {
+        if (data == true) {
+            document.getElementById('loading-label').innerHTML = 'Done!';
+            document.getElementById('loading-label').style.color='green';
+        } else {
+            document.getElementById('loading-label').innerHTML = 'Error!';
+            document.getElementById('loading-label').style.color='red';
+        }
+    });
+}
+
+// Get employees STC registers and fill table
 function getDataSTCEmployees(resource, tableId) {
 
     $.ajax({
@@ -45,6 +77,7 @@ function getDataSTCEmployees(resource, tableId) {
 
 }
 
+// Get teams STC registers and fill table
 function getDataSTCTeams(resource, tableId) {
 
     $.ajax({
@@ -79,7 +112,8 @@ function getDataSTCTeams(resource, tableId) {
 
 }
 
-function getDataSTCProjects(resource, tableId) {
+// Get project STC registers and fill table
+function getDataSTCProject(resource, tableId) {
 
     $.ajax({
         url: resource,
@@ -112,3 +146,4 @@ function getDataSTCProjects(resource, tableId) {
     });
 
 }
+
