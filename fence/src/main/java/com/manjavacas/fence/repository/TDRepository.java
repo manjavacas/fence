@@ -5,14 +5,16 @@ import java.util.List;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.manjavacas.fence.model.TaskDependency;
+import com.manjavacas.fence.model.TD;
 
 @Repository
-public interface TaskDependencyRepository extends MongoRepository<TaskDependency, String> {
+public interface TDRepository extends MongoRepository<TD, String>{
 
-	TaskDependency findByTask1AndTask2(String task1, String task2);
+	List<TD> findByTask1(String task);
+	
+	TD findByTask1AndTask2(String task1, String task2);
 
-	List<TaskDependency> findByTask1(String task);
+	List<TD> findByProject(String project);
 
 	void deleteByTask1AndTask2(String task1, String task2);
 

@@ -52,7 +52,6 @@ public class TaskService {
 		currentTask.setDone(newTask.isDone());
 		currentTask.setProject(newTask.getProject());
 		currentTask.setType(newTask.getType());
-		currentTask.setAssigned_to(newTask.getAssigned_to());
 
 		taskRepository.save(currentTask);
 	}

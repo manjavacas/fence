@@ -12,33 +12,36 @@ import com.manjavacas.fence.repository.TaskDependencyRepository;
 public class TaskDependencyService {
 
 	@Autowired
-	private TaskDependencyRepository taskDependencyRepository;
+	TaskDependencyRepository taskDependencyRepository;
 
 	public List<TaskDependency> getAllTaskDependencies() {
 		return taskDependencyRepository.findAll();
 	}
 
-	public List<TaskDependency> getTaskDependenciesOf(String reference) {
-		return taskDependencyRepository.findByTask1(reference);
+	public List<TaskDependency> getDependenciesOf(String task) {
+		return taskDependencyRepository.findByTask1(task);
 	}
 
-	public void updateTaskDependency(String reference, TaskDependency newTask) {
-		TaskDependency currentTaskDependency = taskDependencyRepository.findByReference(reference);
+	public TaskDependency getTaskDependency(String task1, String task2) {
+		return taskDependencyRepository.findByTask1AndTask2(task1, task2);
+	}
+
+	public void updateTaskDependency(String task1, String task2, TaskDependency newTaskDependency) {
+		TaskDependency currentTaskDependency = taskDependencyRepository.findByTask1AndTask2(task1, task2);
 
 		if (currentTaskDependency == null) {
 			currentTaskDependency = new TaskDependency();
 		}
 
-		currentTaskDependency.setReference(newTask.getReference());
-		currentTaskDependency.setTask1(newTask.getTask1());
-		currentTaskDependency.setTask2(newTask.getTask2());
-		currentTaskDependency.setProject(newTask.getProject());
-		currentTaskDependency.setWeight(newTask.getWeight());
+		currentTaskDependency.setTask1(newTaskDependency.getTask1());
+		currentTaskDependency.setTask2(newTaskDependency.getTask2());
+		currentTaskDependency.setProject(newTaskDependency.getProject());
 
 		taskDependencyRepository.save(currentTaskDependency);
 	}
 
-	public void deleteTaskDependency(String reference) {
-		taskDependencyRepository.deleteByReference(reference);
+	public void deleteTaskDependency(String task1, String task2) {
+		taskDependencyRepository.deleteByTask1AndTask2(task1, task2);
 	}
+
 }

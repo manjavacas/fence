@@ -10,23 +10,20 @@ public class TaskDependency {
 	@Id
 	private ObjectId _id;
 
-	private String reference;
 	private String task1;
 	private String task2;
 	private String project;
-	private double weight;
+	private String value;
 
 	public TaskDependency() {
-
 	}
 
-	public TaskDependency(String reference, String task1, String task2, String project, double weight) {
+	public TaskDependency(String task1, String task2, String project, String value) {
 		super();
-		this.reference = reference;
 		this.task1 = task1;
 		this.task2 = task2;
 		this.project = project;
-		this.weight = weight;
+		this.value = value;
 	}
 
 	public ObjectId get_id() {
@@ -35,14 +32,6 @@ public class TaskDependency {
 
 	public void set_id(ObjectId _id) {
 		this._id = _id;
-	}
-	
-	public String getReference() {
-		return reference;
-	}
-	
-	public void setReference(String reference) {
-		this.reference = reference;
 	}
 
 	public String getTask1() {
@@ -69,12 +58,27 @@ public class TaskDependency {
 		this.project = project;
 	}
 
-	public double getWeight() {
-		return weight;
+	public String getValueTag() {
+		return value;
 	}
 
-	public void setWeight(double weight) {
-		this.weight = weight;
+	public void setValueTag(String value) {
+		this.value = value;
+	}
+
+	public double getValue() {
+		switch (this.value) {
+		case "VERY HIGH":
+			return 1;
+		case "HIGH":
+			return 0.75;
+		case "MEDIUM":
+			return 0.5;
+		case "LOW":
+			return 0.25;
+		default: // VERY LOW
+			return 0;
+		}
 	}
 
 }

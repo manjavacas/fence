@@ -4,8 +4,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "TA")
-public class TA {
+@Document(collection = "task_assignments")
+public class TaskAssignment {
 
 	@Id
 	private ObjectId _id;
@@ -13,17 +13,15 @@ public class TA {
 	private String user;
 	private String task;
 	private String project;
-	private double weight;
 
-	public TA() {
+	public TaskAssignment() {
 	}
 
-	public TA(String user, String task, String project, double weight) {
+	public TaskAssignment(String user, String task, String project) {
 		super();
 		this.user = user;
 		this.task = task;
 		this.project = project;
-		this.weight = weight;
 	}
 
 	public ObjectId get_id() {
@@ -56,14 +54,6 @@ public class TA {
 
 	public void setProject(String project) {
 		this.project = project;
-	}
-
-	public double getWeight() {
-		return weight;
-	}
-
-	public void setWeight(double weight) {
-		this.weight = weight;
 	}
 
 }

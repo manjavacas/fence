@@ -29,8 +29,9 @@ import com.manjavacas.fence.service.CommunicationService;
 import com.manjavacas.fence.service.EmployeeSTCService;
 import com.manjavacas.fence.service.EmployeeService;
 import com.manjavacas.fence.service.ProjectSTCService;
-import com.manjavacas.fence.service.TAservice;
-import com.manjavacas.fence.service.TDservice;
+import com.manjavacas.fence.service.TAService;
+import com.manjavacas.fence.service.TDService;
+import com.manjavacas.fence.service.TaskAssignmentService;
 import com.manjavacas.fence.service.TaskDependencyService;
 import com.manjavacas.fence.service.TaskService;
 import com.manjavacas.fence.service.TeamSTCService;
@@ -49,19 +50,16 @@ public class STCMeasurer {
 	EmployeeService employeeService;
 
 	@Autowired
-	TaskDependencyService taskDependencyService;
-
-	@Autowired
 	CommunicationService communicationService;
 
 	@Autowired
 	TeamService teamService;
 
 	@Autowired
-	TAservice taService;
+	TAService taService;
 
 	@Autowired
-	TDservice tdService;
+	TDService tdService;
 
 	@Autowired
 	CAservice caService;
@@ -80,6 +78,12 @@ public class STCMeasurer {
 
 	@Autowired
 	ProjectSTCService projectSTCservice;
+
+	@Autowired
+	TaskAssignmentService taskAssignmentService;
+
+	@Autowired
+	TaskDependencyService taskDependencyService;
 
 	@RequestMapping("/STC/{project}")
 	public boolean calculateSTC(@PathVariable String project) {
@@ -112,10 +116,7 @@ public class STCMeasurer {
 		for (Task task : tasks) {
 
 			// Get employees assigned to task
-			List<Employee> users = new ArrayList<Employee>();
-			for (String id : task.getAssigned_to()) {
-				users.add(employeeService.getEmployee(id));
-			}
+			List<Employee> users = taskAssignmentService.getEmployeesAssignedTo(task.getReference());
 
 			// Compute experience summatory
 			double sumExp = users.stream().mapToDouble(Employee::getExperienceNum).sum();
@@ -137,7 +138,7 @@ public class STCMeasurer {
 		}
 
 		// Update collection
-		taService.updateTA(taskAssignmentMatrix);
+		taService.updateTAs(taskAssignmentMatrix);
 
 		return taskAssignmentMatrix;
 	}
@@ -150,22 +151,22 @@ public class STCMeasurer {
 		for (Task task : tasks) {
 
 			// Get tasks dependencies within a project
-			List<TaskDependency> taskDependencies = taskDependencyService.getTaskDependenciesOf(task.getReference());
+			List<TaskDependency> taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
 
 			// Compute dependency values summatory
-			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getWeight).sum();
+			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValue).sum();
 
 			// Compute weight and save in matrix
 			for (TaskDependency taskDependency : taskDependencies) {
 				// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
-				double weight = taskDependency.getWeight() / sumValues;
+				double weight = taskDependency.getValue() / sumValues;
 				taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
 			}
 
 		}
 
 		// Update collection
-		tdService.updateTD(taskDependenciesMatrix);
+		tdService.updateTDs(taskDependenciesMatrix);
 
 		return taskDependenciesMatrix;
 	}
@@ -179,12 +180,12 @@ public class STCMeasurer {
 			String user1 = ta.getUser();
 
 			// Get task dependencies of the assignated task
-			List<TaskDependency> dependencies = taskDependencyService.getTaskDependenciesOf(ta.getTask());
+			List<TaskDependency> dependencies = taskDependencyService.getDependenciesOf(ta.getTask());
 
 			for (TaskDependency td : dependencies) {
 
 				// Get responsibles of each dependency with the assignated task
-				List<Employee> responsibles = taskController.getResponsiblesOf(td.getTask2());
+				List<Employee> responsibles = taskAssignmentService.getEmployeesAssignedTo(td.getTask2());
 
 				for (Employee user2 : responsibles) {
 
@@ -241,12 +242,7 @@ public class STCMeasurer {
 			double weightCA = 0;
 
 			// Get tasks assigned to user
-			List<Task> userTasks = new ArrayList<Task>();
-			for (Task task : taskService.getPendingTasksByProject(project)) {
-				if (task.getAssigned_to().contains(user)) {
-					userTasks.add(task);
-				}
-			}
+			List<Task> userTasks = taskAssignmentService.getTasksAssignedTo(user);
 
 			if (userTasks.size() > 0) {
 
@@ -260,13 +256,11 @@ public class STCMeasurer {
 					// Get user tasks dependencies for which user1 and user2 must communicate
 					List<Task> userDependencies = new ArrayList<Task>();
 					List<TaskDependency> taskDependencies = new ArrayList<TaskDependency>();
-					Task dependency = null;
 					for (Task task : userTasks) {
-						taskDependencies = taskDependencyService.getTaskDependenciesOf(task.getReference());
+						taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
 						for (TaskDependency td : taskDependencies) {
-							dependency = taskService.getTask(td.getTask2());
-							if (dependency.getAssigned_to().contains(user2)) {
-								userDependencies.add(dependency);
+							if (taskAssignmentService.getEmployeesIdsAssignedTo(td.getTask2()).contains(user2)) {
+								userDependencies.add(taskService.getTask(td.getTask2()));
 							}
 						}
 					}

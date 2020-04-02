@@ -1,8 +1,5 @@
 package com.manjavacas.fence.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -20,24 +17,10 @@ public class Task {
 	private boolean done;
 	private String project;
 	private String type;
-	private List<String> assigned_to;
 
 	private double priorityNum;
 
 	public Task() {
-	}
-
-	public Task(String reference, String description, double duration_days, String priority, boolean done,
-			String project, String type, List<String> assigned_to) {
-		super();
-		this.reference = reference;
-		this.description = description;
-		this.duration_days = duration_days;
-		this.priority = priority;
-		this.done = done;
-		this.project = project;
-		this.type = type;
-		this.assigned_to = assigned_to;
 	}
 
 	public Task(String reference, String description, double duration_days, String priority, boolean done,
@@ -50,7 +33,6 @@ public class Task {
 		this.done = done;
 		this.project = project;
 		this.type = type;
-		this.assigned_to = new ArrayList<String>();
 	}
 
 	public ObjectId get_id() {
@@ -133,14 +115,6 @@ public class Task {
 
 	public void setType(String type) {
 		this.type = type;
-	}
-
-	public List<String> getAssigned_to() {
-		return assigned_to;
-	}
-
-	public void setAssigned_to(List<String> assigned_to) {
-		this.assigned_to = assigned_to;
 	}
 
 }
