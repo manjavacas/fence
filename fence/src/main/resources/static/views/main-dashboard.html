@@ -62,6 +62,8 @@
                 <button class='tablinks' id='tabTeams' onclick="openTable(event, 'Teams')">Teams</button>
                 <button class='tablinks' id='tabProjects' onclick="openTable(event, 'Projects')">Projects</button>
                 <button class='tablinks' id='tabTasks' onclick="openTable(event, 'Tasks')">Tasks</button>
+                <button class='tablinks' id='tabTaskAssignments' onclick="openTable(event, 'TaskAssignments')">Task
+                    assignments</button>
                 <button class='tablinks' id='tabTaskDependencies' onclick="openTable(event, 'TaskDependencies')">Task
                     dependencies</button>
                 <button class='tablinks' id='tabCommunications'
@@ -210,6 +212,39 @@
 
             </div>
 
+            <!-- TAB TASK ASSIGNMENTS -->
+            <div id='TaskAssignments' class='tabcontent'>
+
+                <!-- Editable table -->
+                <div class='card'>
+                    <h3 class='card-header text-center font-weight-bold text-uppercase py-4'>Task assignments</h3>
+                    <div class='card-body'>
+                        <div id='tableTaskAssignments' class='table-editable'>
+                            <span class='table-add-taskAssignment float-right mb-3 mr-2'><a href='#!'
+                                    class='text-success'><i class='fas fa-plus fa-2x' aria-hidden='true'></i></a></span>
+                            <span class='table-update-taskAssignment float-right mb-3 mr-1'><a href='#!'><i
+                                        class='fas fa-save fa-2x' aria-hidden='true'></i></a></span>
+                            <table class='table table-bordered table-responsive-md table-striped text-center'
+                                id='dataTaskAssignments'>
+                                <thead>
+                                    <tr>
+                                        <th class='text-center'>Task</th>
+                                        <th class='text-center'>User</th>
+                                        <th class='text-center'>Project</th>
+                                        <th class='text-center'>Sort</th>
+                                        <th class='text-center'>Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- DATA -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <!-- TAB TASK DEPENDENCIES -->
             <div id='TaskDependencies' class='tabcontent'>
 
@@ -218,19 +253,18 @@
                     <h3 class='card-header text-center font-weight-bold text-uppercase py-4'>Task dependencies</h3>
                     <div class='card-body'>
                         <div id='tableTaskDependencies' class='table-editable'>
-                            <span class='table-add-taskDependency float-right mb-3 mr-2'><a href='#!' class='text-success'><i
-                                        class='fas fa-plus fa-2x' aria-hidden='true'></i></a></span>
+                            <span class='table-add-taskDependency float-right mb-3 mr-2'><a href='#!'
+                                    class='text-success'><i class='fas fa-plus fa-2x' aria-hidden='true'></i></a></span>
                             <span class='table-update-taskDependency float-right mb-3 mr-1'><a href='#!'><i
                                         class='fas fa-save fa-2x' aria-hidden='true'></i></a></span>
                             <table class='table table-bordered table-responsive-md table-striped text-center'
                                 id='dataTaskDependencies'>
                                 <thead>
                                     <tr>
-                                        <th class='text-center'>Reference</th>
-                                        <th class='text-center'>Task 1</th>
-                                        <th class='text-center'>Task 2</th>
+                                        <th class='text-center'>Task</th>
+                                        <th class='text-center'>Depends on</th>
+                                        <th class='text-center'>Value</th>
                                         <th class='text-center'>Project</th>
-                                        <th class='text-center'>Weight</th>
                                         <th class='text-center'>Sort</th>
                                         <th class='text-center'>Remove</th>
                                     </tr>
@@ -281,6 +315,7 @@
 <script src='../js/main-dashboard-teams.js'></script>
 <script src='../js/main-dashboard-projects.js'></script>
 <script src='../js/main-dashboard-tasks.js'></script>
+<script src='../js/main-dashboard-task-assignments.js'></script>
 <script src='../js/main-dashboard-task-dependencies.js'></script>
 <script src='../js/main-dashboard-communications.js'></script>
 

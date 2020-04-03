@@ -8,7 +8,6 @@ const newTrTaskDependencies = `
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half'>
     <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
     <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
@@ -28,15 +27,15 @@ $tableTaskDependenciesID.on('click', '.table-remove-taskDependency', function ()
 
     const resource = mainResource + 'TaskDependencies/';
 
-    const headings = ['reference', 'task1', 'task2', 'project', 'weight'];
+    const headings = ['task1', 'task2', 'value', 'project'];
 
     var obj = {};
 
     for (let i = 0; i < headings.length; i++) {
-        obj[headings[i]] = $(this).parents('tr')[0].cells[i].innerText;
+        obj[headings[i]] = $(this).parents('tr')[0].cells[i].textContent;
     }
 
-    const removeResource = resource + obj['reference'];
+    const removeResource = resource + obj['task1'] + '/' + obj['task2'];
     const removeData = JSON.stringify(obj);
     $.ajax({
         url: removeResource,
@@ -80,7 +79,7 @@ $tabTaskDependencies.on('click', function () {
             'Content-Type': 'application/json'
         }
     }).done(function (data, textStatus, jqXHR) {
-
+        
         // Fill table
         const bodyRef = '#dataTaskDependencies > tbody';
         const tableBody = document.querySelector(bodyRef);
@@ -96,11 +95,10 @@ $tabTaskDependencies.on('click', function () {
         for (let i = 0; i < data.length; i++) {
             rows +=
                 `<tr class='hide'>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['reference'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['task1'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['task2'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['value'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['project'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['weight'] + `</td>
                     <td class='pt-3-half'>
                         <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
                         <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
@@ -123,19 +121,20 @@ $('.table-update-taskDependency').on('click', 'i', () => {
     const bodyRef = '#dataTaskDependencies > tbody';
     const tableBody = document.querySelector(bodyRef);
 
-    const headings = ['reference', 'task1', 'task2', 'project', 'weight'];
+    const headings = ['task1', 'task2', 'value', 'project'];
 
     for (let i = 0, row; row = tableBody.rows[i]; i++) {
 
         var obj = {};
 
         for (let j = 0; j < headings.length; j++) {
-            obj[headings[j]] = row.cells[j].innerText;
+            obj[headings[j]] = row.cells[j].textContent;
         }
 
         // Update data
-        const putResource = resource + obj['reference'];
+        const putResource = resource + obj['task1'] + '/' + obj['task2'];
         const putData = JSON.stringify(obj);
+
         $.ajax({
             url: putResource,
             type: 'PUT',

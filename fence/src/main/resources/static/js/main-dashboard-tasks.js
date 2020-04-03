@@ -35,7 +35,7 @@ $tableTasksID.on('click', '.table-remove-task', function () {
     var obj = {};
 
     for (let i = 0; i < headings.length; i++) {
-        obj[headings[i]] = $(this).parents('tr')[0].cells[i].innerText;
+        obj[headings[i]] = $(this).parents('tr')[0].cells[i].textContent;
     }
 
     const removeResource = resource + obj['reference'];
@@ -134,7 +134,7 @@ $('.table-update-tasks').on('click', 'i', () => {
         var obj = {};
 
         for (let j = 0; j < headings.length; j++) {
-            obj[headings[j]] = row.cells[j].innerText;
+            obj[headings[j]] = row.cells[j].textContent;
         }
 
         // Update data

@@ -8,10 +8,10 @@ import org.springframework.stereotype.Repository;
 import com.manjavacas.fence.model.TD;
 
 @Repository
-public interface TDRepository extends MongoRepository<TD, String>{
+public interface TDRepository extends MongoRepository<TD, String> {
 
 	List<TD> findByTask1(String task);
-	
+
 	TD findByTask1AndTask2(String task1, String task2);
 
 	List<TD> findByProject(String project);

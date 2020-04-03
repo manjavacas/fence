@@ -16,10 +16,10 @@ public class TaskAssignmentService {
 
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@Autowired
 	TaskService taskService;
-	
+
 	@Autowired
 	TaskAssignmentRepository taskAssignmentRepository;
 
@@ -39,7 +39,7 @@ public class TaskAssignmentService {
 		}
 		return employees;
 	}
-	
+
 	public List<String> getEmployeesIdsAssignedTo(String task) {
 		List<TaskAssignment> taAssignments = taskAssignmentRepository.findByTask(task);
 		List<String> employeesIds = new ArrayList<String>();
@@ -48,7 +48,7 @@ public class TaskAssignmentService {
 		}
 		return employeesIds;
 	}
-	
+
 	public List<Task> getTasksAssignedTo(String user) {
 		List<TaskAssignment> taAssignments = taskAssignmentRepository.findByUser(user);
 		List<Task> tasks = new ArrayList<Task>();

@@ -25,18 +25,18 @@ public class TaskAssignmentController {
 	}
 
 	@RequestMapping("/TaskAssignments/{task}/{user}")
-	public TaskAssignment getTaskAssignment(@PathVariable String task, String user) {
+	public TaskAssignment getTaskAssignment(@PathVariable("task") String task, @PathVariable("user") String user) {
 		return taskAssignmentService.getTaskAssignment(task, user);
 	}
 
 	@PutMapping(value = "/TaskAssignments/{task}/{user}")
-	public void updateTaskAssignment(@PathVariable String task, String user,
+	public void updateTaskAssignment(@PathVariable("task") String task, @PathVariable("user") String user,
 			@RequestBody TaskAssignment taskAssignment) {
 		taskAssignmentService.updateTaskAssignment(task, user, taskAssignment);
 	}
 
 	@DeleteMapping("/TaskAssignments/{task}/{user}")
-	public void deleteTaskAssignment(@PathVariable String task, String user) {
+	public void deleteTaskAssignment(@PathVariable("task") String task, @PathVariable("user") String user) {
 		taskAssignmentService.deleteTaskAssignment(task, user);
 	}
 

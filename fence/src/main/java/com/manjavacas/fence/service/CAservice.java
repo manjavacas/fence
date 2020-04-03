@@ -26,5 +26,5 @@ public class CAservice {
 	public List<CA> getCA(String user1, String user2, String project, String task) {
 		return caRepository.findCustom(user1, user2, project, task);
 	}
-	
+
 }

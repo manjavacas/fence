@@ -41,7 +41,7 @@ $tableEmployeesID.on('click', '.table-remove-employee', function () {
   var obj = {};
 
   for (let i = 0; i < headings.length; i++) {
-    obj[headings[i]] = $(this).parents('tr')[0].cells[i].innerText;
+    obj[headings[i]] = $(this).parents('tr')[0].cells[i].textContent;
   }
 
   const removeResource = resource + obj['dni'];
@@ -144,7 +144,7 @@ $('.table-update-employees').on('click', 'i', () => {
     var obj = {};
 
     for (let j = 0; j < headings.length; j++) {
-      obj[headings[j]] = row.cells[j].innerText;
+      obj[headings[j]] = row.cells[j].textContent;
     }
 
     // Update data

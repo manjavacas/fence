@@ -1,8 +1,8 @@
 
-const $tableTeamsID = $('#tableTeams');
-const $tabTeams = $('#tabTeams');
+const $tableTaskAssignmentsID = $('#tableTaskAssignments');
+const $tabTaskAssignments = $('#tabTaskAssignments');
 
-const newTrTeam = `
+const newTrTaskAssignments = `
 <tr class='hide'>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
@@ -12,21 +12,21 @@ const newTrTeam = `
     <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
   </td>
   <td>
-    <span class='table-remove-team'><button type='button' class='btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light'>Remove</button></span>
+    <span class='table-remove-taskAssignment'><button type='button' class='btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light'>Remove</button></span>
   </td>
 </tr>`;
 
-// Add team
-$('.table-add-team').on('click', 'i', () => {
-    $('#tableTeams tbody').append(newTrTeam);
+// Add taskAssignments
+$('.table-add-taskAssignment').on('click', 'i', () => {
+    $('#tableTaskAssignments tbody').append(newTrTaskAssignments);
 });
 
-// Remove team
-$tableTeamsID.on('click', '.table-remove-team', function () {
+// Remove task assignment
+$tableTaskAssignmentsID.on('click', '.table-remove-taskAssignment', function () {
 
-    const resource = mainResource + 'Teams/';
+    const resource = mainResource + 'TaskAssignments/';
 
-    const headings = ['name', 'location', 'project'];
+    const headings = ['task', 'user', 'project'];
 
     var obj = {};
 
@@ -34,7 +34,7 @@ $tableTeamsID.on('click', '.table-remove-team', function () {
         obj[headings[i]] = $(this).parents('tr')[0].cells[i].textContent;
     }
 
-    const removeResource = resource + obj['name'];
+    const removeResource = resource + obj['task'] + '/' + obj['user'];
     const removeData = JSON.stringify(obj);
     $.ajax({
         url: removeResource,
@@ -49,7 +49,7 @@ $tableTeamsID.on('click', '.table-remove-team', function () {
 });
 
 // Move up
-$tableTeamsID.on('click', '.table-up', function () {
+$tableTaskAssignmentsID.on('click', '.table-up', function () {
 
     const $row = $(this).parents('tr');
 
@@ -61,15 +61,15 @@ $tableTeamsID.on('click', '.table-up', function () {
 });
 
 // Move down
-$tableTeamsID.on('click', '.table-down', function () {
+$tableTaskAssignmentsID.on('click', '.table-down', function () {
     const $row = $(this).parents('tr');
     $row.next().after($row.get(0));
 });
 
-// Load teams
-$tabTeams.on('click', function () {
+// Load task assignments
+$tabTaskAssignments.on('click', function () {
 
-    const resource = mainResource + 'Teams/';
+    const resource = mainResource + 'TaskAssignments/';
 
     $.ajax({
         url: resource,
@@ -80,7 +80,7 @@ $tabTeams.on('click', function () {
     }).done(function (data, textStatus, jqXHR) {
 
         // Fill table
-        const bodyRef = '#dataTeams > tbody';
+        const bodyRef = '#dataTaskAssignments > tbody';
         const tableBody = document.querySelector(bodyRef);
 
         // Clear table
@@ -94,15 +94,15 @@ $tabTeams.on('click', function () {
         for (let i = 0; i < data.length; i++) {
             rows +=
                 `<tr class='hide'>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['name'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['location'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['task'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + data[i]['user'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['project'] + `</td>
                     <td class='pt-3-half'>
                         <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
                         <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
                     </td>
                     <td>
-                        <span class='table-remove-team'><button type='button' class='btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light'>Remove</button></span>
+                        <span class='table-remove-taskAssignment'><button type='button' class='btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light'>Remove</button></span>
                     </td>
                 </tr>`;
         }
@@ -111,15 +111,15 @@ $tabTeams.on('click', function () {
 
 });
 
-// Update teams
-$('.table-update-teams').on('click', 'i', () => {
+// Update task assignments
+$('.table-update-taskAssignment').on('click', 'i', () => {
 
-    const resource = mainResource + 'Teams/';
+    const resource = mainResource + 'TaskAssignments/';
 
-    const bodyRef = '#dataTeams > tbody';
+    const bodyRef = '#dataTaskAssignments > tbody';
     const tableBody = document.querySelector(bodyRef);
 
-    const headings = ['name', 'location', 'project'];
+    const headings = ['task', 'user', 'project'];
 
     for (let i = 0, row; row = tableBody.rows[i]; i++) {
 
@@ -130,8 +130,9 @@ $('.table-update-teams').on('click', 'i', () => {
         }
 
         // Update data
-        const putResource = resource + obj['name'];
+        const putResource = resource + obj['task'] + '/' + obj['user'];
         const putData = JSON.stringify(obj);
+
         $.ajax({
             url: putResource,
             type: 'PUT',

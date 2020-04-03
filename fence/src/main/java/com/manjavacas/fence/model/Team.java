@@ -14,7 +14,6 @@ public class Team {
 	private String location;
 	private String project;
 
-
 	public Team() {
 	}
 

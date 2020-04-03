@@ -13,7 +13,7 @@ public interface CommunicationRepository extends MongoRepository<Communication, 
 	List<Communication> findByUser1(String dni);
 
 	List<Communication> findByUser2(String dni);
-	
+
 	List<Communication> findByUser1AndUser2(String dni1, String dni2);
 
 	List<Communication> findByProject(String project);

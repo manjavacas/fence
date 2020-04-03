@@ -17,10 +17,10 @@ public class TaskAssignment {
 	public TaskAssignment() {
 	}
 
-	public TaskAssignment(String user, String task, String project) {
+	public TaskAssignment(String task, String user, String project) {
 		super();
-		this.user = user;
 		this.task = task;
+		this.user = user;
 		this.project = project;
 	}
 

@@ -12,18 +12,18 @@ public class TaskDependency {
 
 	private String task1;
 	private String task2;
-	private String project;
 	private String value;
+	private String project;
 
 	public TaskDependency() {
 	}
 
-	public TaskDependency(String task1, String task2, String project, String value) {
+	public TaskDependency(String task1, String task2, String value, String project) {
 		super();
 		this.task1 = task1;
 		this.task2 = task2;
-		this.project = project;
 		this.value = value;
+		this.project = project;
 	}
 
 	public ObjectId get_id() {
@@ -58,15 +58,15 @@ public class TaskDependency {
 		this.project = project;
 	}
 
-	public String getValueTag() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValueTag(String value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 
-	public double getValue() {
+	public double getValueWeight() {
 		switch (this.value) {
 		case "VERY HIGH":
 			return 1;

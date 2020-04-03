@@ -40,7 +40,7 @@ public class TeamService {
 		currentTeam.setName(newTeam.getName());
 		currentTeam.setLocation(newTeam.getLocation());
 		currentTeam.setProject(newTeam.getProject());
-		
+
 		teamRepository.save(currentTeam);
 	}
 

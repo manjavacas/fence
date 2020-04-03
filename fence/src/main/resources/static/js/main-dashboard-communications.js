@@ -4,11 +4,11 @@ const $tabCommunications = $('#tabCommunications');
 
 const newTrComm = `
 <tr class='hide'>
-  <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
   <td class='pt-3-half'>
     <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
     <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
@@ -61,11 +61,11 @@ $tabCommunications.on('click', function () {
         for (let i = 0; i < data.length; i++) {
             rows +=
                 `<tr class='hide'>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['user1'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['user2'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['duration'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['date'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['quality'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['user1'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['user2'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['duration'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['date'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['quality'] + `</td>
                     <td class='pt-3-half'>
                         <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
                         <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>

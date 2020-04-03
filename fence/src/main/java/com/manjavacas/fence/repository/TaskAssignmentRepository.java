@@ -11,12 +11,11 @@ import com.manjavacas.fence.model.TaskAssignment;
 public interface TaskAssignmentRepository extends MongoRepository<TaskAssignment, String> {
 
 	TaskAssignment findByTaskAndUser(String task, String user);
-	
+
 	List<TaskAssignment> findByTask(String task);
 
 	List<TaskAssignment> findByUser(String user);
 
 	void deleteByTaskAndUser(String task, String user);
-
 
 }

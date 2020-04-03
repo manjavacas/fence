@@ -17,7 +17,7 @@ public class CRservice {
 	public List<CR> getAllCR() {
 		return crRepository.findAll();
 	}
-	
+
 	public List<CR> getCRByUser1(String dni) {
 		return crRepository.findByUser1(dni);
 	}
@@ -26,5 +26,5 @@ public class CRservice {
 		crRepository.deleteAll();
 		crRepository.saveAll(listCR);
 	}
-	
+
 }

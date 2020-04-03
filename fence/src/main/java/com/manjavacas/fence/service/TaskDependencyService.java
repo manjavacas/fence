@@ -35,6 +35,7 @@ public class TaskDependencyService {
 
 		currentTaskDependency.setTask1(newTaskDependency.getTask1());
 		currentTaskDependency.setTask2(newTaskDependency.getTask2());
+		currentTaskDependency.setValue(newTaskDependency.getValue());
 		currentTaskDependency.setProject(newTaskDependency.getProject());
 
 		taskDependencyRepository.save(currentTaskDependency);

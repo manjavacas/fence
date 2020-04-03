@@ -30,18 +30,18 @@ public class TaskDependencyController {
 	}
 
 	@RequestMapping("/TaskDependencies/{task1}/{task2}")
-	public TaskDependency getTaskDependency(@PathVariable String task1, String task2) {
+	public TaskDependency getTaskDependency(@PathVariable String task1, @PathVariable String task2) {
 		return taskDependencyService.getTaskDependency(task1, task2);
 	}
 
 	@PutMapping(value = "/TaskDependencies/{task1}/{task2}")
-	public void updateTaskDependency(@PathVariable String task1, String task2,
+	public void updateTaskDependency(@PathVariable String task1, @PathVariable String task2,
 			@RequestBody TaskDependency taskDependency) {
 		taskDependencyService.updateTaskDependency(task1, task2, taskDependency);
 	}
 
 	@DeleteMapping("/TaskDependencies/{task1}/{task2}")
-	public void deleteTaskDependency(@PathVariable String task1, String task2) {
+	public void deleteTaskDependency(@PathVariable String task1, @PathVariable String task2) {
 		taskDependencyService.deleteTaskDependency(task1, task2);
 	}
 

@@ -154,12 +154,12 @@ public class STCMeasurer {
 			List<TaskDependency> taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
 
 			// Compute dependency values summatory
-			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValue).sum();
+			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValueWeight).sum();
 
 			// Compute weight and save in matrix
 			for (TaskDependency taskDependency : taskDependencies) {
 				// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
-				double weight = taskDependency.getValue() / sumValues;
+				double weight = taskDependency.getValueWeight() / sumValues;
 				taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
 			}
 
