@@ -11,7 +11,8 @@ import com.manjavacas.fence.model.CA;
 @Repository
 public interface CArepository extends MongoRepository<CA, String> {
 
-	@Query("{ 'user1' : ?0, 'user2' : ?1, 'project' : ?3, 'task' : ?4}")
-	List<CA> findCustom(String user1, String user2, String project, String task);
+	@Query("{ 'user1' : ?0, 'user2' : ?1, 'project' : ?2, 'task' : ?3}")
+	List<CA> findCA(String user1, String user2, String project, String task);
+
 
 }

@@ -118,21 +118,27 @@ public class STCMeasurer {
 			// Get employees assigned to task
 			List<Employee> users = taskAssignmentService.getEmployeesAssignedTo(task.getReference());
 
-			// Compute experience summatory
-			double sumExp = users.stream().mapToDouble(Employee::getExperienceNum).sum();
-
-			// Compute weight and save in matrix
-			for (Employee user : users) {
-				// WEIGHT = (USER_EXPERIENCE / USERS_EXPERIENCE_SUM) * TASK_PRIORITY
-				// Every employee contributes to the task according to his/her USER_EXPERIENCE
-				// The TASK_PRIORITY affects to this contribution percentage
-				double weight = (user.getExperienceNum() / sumExp) * task.getPriorityNum();
-
-				if (weight > 1) {
-					weight = 1;
+			if (users.size() > 0) {
+				
+				// Compute experience summatory
+				double sumExp = 0;
+				for (Employee user : users) {
+					sumExp += user.getExperienceNum();
 				}
 
-				taskAssignmentMatrix.add(new TA(user.getDni(), task.getReference(), project, weight));
+				// Compute weight and save in matrix
+				for (Employee user : users) {
+					// WEIGHT = (USER_EXPERIENCE / USERS_EXPERIENCE_SUM) * TASK_PRIORITY
+					// Every employee contributes to the task according to his/her USER_EXPERIENCE
+					// The TASK_PRIORITY affects to this contribution percentage
+					double weight = (user.getExperienceNum() / sumExp) * task.getPriorityNum();
+
+					if (weight > 1) {
+						weight = 1;
+					}
+
+					taskAssignmentMatrix.add(new TA(user.getDni(), task.getReference(), project, weight));
+				}
 			}
 
 		}
@@ -508,18 +514,18 @@ public class STCMeasurer {
 		double coefficient = 0;
 
 		// Common languages
-		int common = 0;
-		for (String l1 : user1.getLanguages()) {
-			for (String l2 : user2.getLanguages()) {
-				if (l1 == l2) {
-					common++;
-				}
-			}
-		}
-
-		if (common < 1) {
-			coefficient += 0.2;
-		}
+		//		int common = 0;
+		//		for (String l1 : user1.getLanguages()) {
+		//			for (String l2 : user2.getLanguages()) {
+		//				if (l1 == l2) {
+		//					common++;
+		//				}
+		//			}
+		//		}
+		//
+		//		if (common < 1) {
+		//			coefficient += 0.2;
+		//		}
 
 		// Geographical distance
 		if (!user1.getCountry().equals(user2.getCountry())) {
@@ -528,18 +534,18 @@ public class STCMeasurer {
 
 		// TODO: Check sign: UTC+1, UTC-6, etc.
 		// Temporal distance (UTC+XY)
-		int hour1 = Integer.parseInt(user1.getTimezone().substring(4, user1.getTimezone().length()));
-		int hour2 = Integer.parseInt(user2.getTimezone().substring(4, user2.getTimezone().length()));
-
-		double temporalDistance = Math.sqrt(Math.pow(hour1, 2) - Math.pow(hour2, 2));
-
-		if (temporalDistance > 8) {
-			coefficient += 0.3;
-		} else if (temporalDistance > 5) {
-			coefficient += 0.2;
-		} else if (temporalDistance > 3) {
-			coefficient += 0.1;
-		}
+		// int hour1 = Integer.parseInt(user1.getTimezone().substring(4, user1.getTimezone().length()));
+		// int hour2 = Integer.parseInt(user2.getTimezone().substring(4, user2.getTimezone().length()));
+		//
+		// double temporalDistance = Math.sqrt(Math.pow(hour1, 2) - Math.pow(hour2, 2));
+		//
+		//		if (temporalDistance > 8) {
+		//			coefficient += 0.3;
+		//		} else if (temporalDistance > 5) {
+		//			coefficient += 0.2;
+		//		} else if (temporalDistance > 3) {
+		//			coefficient += 0.1;
+		//		}
 
 		// TO-DO
 		// Sociocultural distance

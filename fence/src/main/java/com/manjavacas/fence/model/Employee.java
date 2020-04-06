@@ -144,7 +144,7 @@ public class Employee {
 			this.experienceNum = 1;
 		case "HIGH":
 			this.experienceNum = .75;
-		case "NORMAL":
+		case "MEDIUM":
 			this.experienceNum = .5;
 		case "LOW":
 			this.experienceNum = .25;
