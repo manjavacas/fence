@@ -142,12 +142,16 @@ public class Employee {
 		switch (this.experience) {
 		case "VERY HIGH":
 			this.experienceNum = 1;
+			break;
 		case "HIGH":
 			this.experienceNum = .75;
+			break;
 		case "MEDIUM":
 			this.experienceNum = .5;
+			break;
 		case "LOW":
 			this.experienceNum = .25;
+			break;
 		default: // "VERY LOW"
 			this.experienceNum = 0;
 		}

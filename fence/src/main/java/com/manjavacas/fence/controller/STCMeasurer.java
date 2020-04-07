@@ -110,6 +110,8 @@ public class STCMeasurer {
 
 	private List<TA> calculateTAMatrix(String project) {
 
+		System.out.println("[STC] Calculating task assingments...");
+
 		List<TA> taskAssignmentMatrix = new ArrayList<TA>();
 		List<Task> tasks = taskService.getPendingTasksByProject(project);
 
@@ -119,7 +121,7 @@ public class STCMeasurer {
 			List<Employee> users = taskAssignmentService.getEmployeesAssignedTo(task.getReference());
 
 			if (users.size() > 0) {
-				
+
 				// Compute experience summatory
 				double sumExp = 0;
 				for (Employee user : users) {
@@ -151,6 +153,8 @@ public class STCMeasurer {
 
 	private List<TD> calculateTDMatrix(String project) {
 
+		System.out.println("[STC] Calculating task dependencies...");
+
 		List<TD> taskDependenciesMatrix = new ArrayList<TD>();
 		List<Task> tasks = taskService.getPendingTasksByProject(project);
 
@@ -179,13 +183,15 @@ public class STCMeasurer {
 
 	private List<CR> calculateCRMatrix(String project, List<TA> taMatrix, List<TD> tdMatrix) {
 
+		System.out.println("[STC] Calculating coordination requirements...");
+
 		List<CR> coordinationRequirementsMatrix = new ArrayList<CR>();
 
 		for (TA ta : taMatrix) {
 
 			String user1 = ta.getUser();
 
-			// Get task dependencies of the assignated task
+			// Get task dependencies of the assigned task
 			List<TaskDependency> dependencies = taskDependencyService.getDependenciesOf(ta.getTask());
 
 			for (TaskDependency td : dependencies) {
@@ -231,6 +237,8 @@ public class STCMeasurer {
 	}
 
 	private List<CA> calculateCAMatrix(String project, List<CR> crMatrix) {
+
+		System.out.println("[STC] Calculating actual coordination...");
 
 		List<CA> actualCommunicationMatrix = new ArrayList<CA>();
 
@@ -328,6 +336,8 @@ public class STCMeasurer {
 
 	private List<CG> calculateCGMatrix(List<CA> caMatrix, List<CR> crMatrix) {
 
+		System.out.println("[STC] Calculating coordination gaps...");
+
 		List<CG> coordinationGapMatrix = new ArrayList<CG>();
 
 		double weightCA;
@@ -378,11 +388,12 @@ public class STCMeasurer {
 		List<Employee> allProjectEmployees = new ArrayList<Employee>();
 		List<Employee> allEmployees = employeeService.getAllEmployees();
 		List<Team> allProjectTeams = teamService.getTeamsByProject(project);
-		Team team = null;
 		for (Employee employee : allEmployees) {
-			team = teamService.getTeam(employee.getTeam());
-			if (allProjectTeams.contains(team)) {
-				allProjectEmployees.add(employee);
+			for (Team team : allProjectTeams) {
+				if (team.getName().equals(employee.getTeam())) {
+					allProjectEmployees.add(employee);
+					break;
+				}
 			}
 		}
 
@@ -391,6 +402,8 @@ public class STCMeasurer {
 
 		// Calculate STC level by employee
 		for (Employee employee : allProjectEmployees) {
+
+			System.out.println("[EMPLOYEE STC] Calculating " + employee.getName() + " STC...");
 
 			employeeCRs = crService.getCRByUser1(employee.getDni());
 			employeeCGs = cgService.getCGByUser1(employee.getDni());
@@ -441,6 +454,8 @@ public class STCMeasurer {
 
 		for (Team team : allProjectTeams) {
 
+			System.out.println("[TEAM STC] Calculating " + team.getName() + " team STC...");
+
 			double teamCRsum = 0;
 			double teamCGsum = 0;
 
@@ -481,6 +496,8 @@ public class STCMeasurer {
 
 	private void calculateSTCProjects(String project, List<CR> crMatrix, List<CG> cgMatrix) {
 
+		System.out.println("[PROJECT STC] Calculating " + project + " project STC...");
+
 		ProjectSTC stcProject;
 
 		// Sum CR weights
@@ -514,18 +531,18 @@ public class STCMeasurer {
 		double coefficient = 0;
 
 		// Common languages
-		//		int common = 0;
-		//		for (String l1 : user1.getLanguages()) {
-		//			for (String l2 : user2.getLanguages()) {
-		//				if (l1 == l2) {
-		//					common++;
-		//				}
-		//			}
-		//		}
+		// int common = 0;
+		// for (String l1 : user1.getLanguages()) {
+		// for (String l2 : user2.getLanguages()) {
+		// if (l1 == l2) {
+		// common++;
+		// }
+		// }
+		// }
 		//
-		//		if (common < 1) {
-		//			coefficient += 0.2;
-		//		}
+		// if (common < 1) {
+		// coefficient += 0.2;
+		// }
 
 		// Geographical distance
 		if (!user1.getCountry().equals(user2.getCountry())) {
@@ -534,18 +551,20 @@ public class STCMeasurer {
 
 		// TODO: Check sign: UTC+1, UTC-6, etc.
 		// Temporal distance (UTC+XY)
-		// int hour1 = Integer.parseInt(user1.getTimezone().substring(4, user1.getTimezone().length()));
-		// int hour2 = Integer.parseInt(user2.getTimezone().substring(4, user2.getTimezone().length()));
+		// int hour1 = Integer.parseInt(user1.getTimezone().substring(4,
+		// user1.getTimezone().length()));
+		// int hour2 = Integer.parseInt(user2.getTimezone().substring(4,
+		// user2.getTimezone().length()));
 		//
 		// double temporalDistance = Math.sqrt(Math.pow(hour1, 2) - Math.pow(hour2, 2));
 		//
-		//		if (temporalDistance > 8) {
-		//			coefficient += 0.3;
-		//		} else if (temporalDistance > 5) {
-		//			coefficient += 0.2;
-		//		} else if (temporalDistance > 3) {
-		//			coefficient += 0.1;
-		//		}
+		// if (temporalDistance > 8) {
+		// coefficient += 0.3;
+		// } else if (temporalDistance > 5) {
+		// coefficient += 0.2;
+		// } else if (temporalDistance > 3) {
+		// coefficient += 0.1;
+		// }
 
 		// TO-DO
 		// Sociocultural distance

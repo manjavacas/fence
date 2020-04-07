@@ -73,16 +73,19 @@ public class Task {
 
 	public double getPriorityNum() {
 		switch (this.priority) {
-		case "HIGH":
+		case "VERY HIGH":
 			this.priorityNum = 2;
 			break;
-		case "NORMAL":
+		case "HIGH":
+			this.priorityNum = 1.75;
+			break;
+		case "MEDIUM":
 			this.priorityNum = 1.5;
 			break;
 		case "LOW":
-			this.priorityNum = 1;
+			this.priorityNum = 1.25;
 			break;
-		default:
+		default: // VERY LOW
 			this.priorityNum = 1;
 		}
 

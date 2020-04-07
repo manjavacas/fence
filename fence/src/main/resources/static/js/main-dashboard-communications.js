@@ -9,6 +9,8 @@ const newTrComm = `
   <td class='pt-3-half' contenteditable='false'></td>
   <td class='pt-3-half' contenteditable='false'></td>
   <td class='pt-3-half' contenteditable='false'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
+  <td class='pt-3-half' contenteditable='false'></td>
   <td class='pt-3-half'>
     <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
     <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
@@ -64,7 +66,9 @@ $tabCommunications.on('click', function () {
                     <td class='pt-3-half' contenteditable='false'>` + data[i]['user1'] + `</td>
                     <td class='pt-3-half' contenteditable='false'>` + data[i]['user2'] + `</td>
                     <td class='pt-3-half' contenteditable='false'>` + data[i]['duration'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['taskRef'] + `</td>
                     <td class='pt-3-half' contenteditable='false'>` + data[i]['date'] + `</td>
+                    <td class='pt-3-half' contenteditable='false'>` + data[i]['source'] + `</td>
                     <td class='pt-3-half' contenteditable='false'>` + data[i]['quality'] + `</td>
                     <td class='pt-3-half'>
                         <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
