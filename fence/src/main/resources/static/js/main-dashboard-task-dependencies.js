@@ -75,9 +75,6 @@ $tabTaskDependencies.on('click', function () {
     $.ajax({
         url: resource,
         type: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        }
     }).done(function (data, textStatus, jqXHR) {
         
         // Fill table

@@ -28,7 +28,7 @@ public class ProjectSTCService {
 
 	public ProjectSTC getLatestMedition(String project) {
 		List<ProjectSTC> allSTCMeditions = projectSTCRepository.findByProject(project);
-
+		
 		ProjectSTC latest = null;
 		for (ProjectSTC projectSTC : allSTCMeditions) {
 			if (latest == null) {
