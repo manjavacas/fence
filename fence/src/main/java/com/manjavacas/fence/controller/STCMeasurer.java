@@ -110,7 +110,7 @@ public class STCMeasurer {
 
 	private List<TA> calculateTAMatrix(String project) {
 
-		System.out.println("[STC] Calculating task assingments...");
+		System.out.println("[STC] Calculating task assignments...");
 
 		List<TA> taskAssignmentMatrix = new ArrayList<TA>();
 		List<Task> tasks = taskService.getPendingTasksByProject(project);
@@ -202,7 +202,7 @@ public class STCMeasurer {
 				for (Employee user2 : responsibles) {
 
 					// Ignore self-communication
-					if (user2.getDni() != user1) {
+					if (!user2.getDni().equals(user1)) {
 
 						// Compute weights
 						double weightTA1 = ta.getWeight();
@@ -212,8 +212,8 @@ public class STCMeasurer {
 						// CR.weight = TA[user1][task] * TA[user2][dependency] * TD[task][dependency]
 						double weight = weightTA1 * weightTA2 * weightTD;
 
-						// Apply Global Software Development distances
-						weight = computeGlobalFactorsCR(weight, employeeService.getEmployee(user1), user2);
+						// TODO: Apply Global Software Development distances
+						// weight = computeGlobalFactorsCR(weight, employeeService.getEmployee(user1), user2);
 
 						if (weight > 1) {
 							weight = 1;
@@ -260,12 +260,18 @@ public class STCMeasurer {
 
 			if (userTasks.size() > 0) {
 
-				// Get user communications
-				List<Communication> userCommunications = communicationService.getCommunicationsByUser1(user);
+				// Get user communications (bidirectional)
+				List<Communication> userCommunications = communicationService.getCommunicationsByUser1OrUser2(user);
 
 				for (Communication communication : userCommunications) {
 
-					String user2 = communication.getUser2();
+					// Get second user
+					String user2 = null;
+					if(communication.getUser1().equals(user)) {
+						user2 = communication.getUser2();
+					} else {
+						user2 = communication.getUser1();
+					}
 
 					// Get user tasks dependencies for which user1 and user2 must communicate
 					List<Task> userDependencies = new ArrayList<Task>();
@@ -315,8 +321,8 @@ public class STCMeasurer {
 							// Weight calculation
 							weightCA += (frequency * 1 / totalDependencies) / totalCommunications;
 
-							// Apply GSD increments
-							weightCA = computeGlobalFactorsCA(weightCA, communication);
+							// TODO: Apply GSD increments
+							// weightCA = computeGlobalFactorsCA(weightCA, communication);
 
 							actualCommunicationMatrix
 									.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
@@ -346,7 +352,7 @@ public class STCMeasurer {
 
 		for (CR cr : crMatrix) {
 
-			// Find a CA that covers the current CR
+			// Find CAs that cover the current CR
 			List<CA> caList = caService.getCA(cr.getUser1(), cr.getUser2(), cr.getProject(), cr.getTask());
 
 			if (caList.size() > 0) {
@@ -403,7 +409,7 @@ public class STCMeasurer {
 		// Calculate STC level by employee
 		for (Employee employee : allProjectEmployees) {
 
-			System.out.println("[EMPLOYEE STC] Calculating " + employee.getName() + " STC...");
+			System.out.println("[EMPLOYEE STC] Calculating " + employee.getDni() + " STC...");
 
 			employeeCRs = crService.getCRByUser1(employee.getDni());
 			employeeCGs = cgService.getCGByUser1(employee.getDni());
@@ -422,10 +428,10 @@ public class STCMeasurer {
 
 			// Calculate STC
 			if (employeeCGsum <= 0) {
-				stcEmployees.add(new EmployeeSTC(employee.getDni(), 100, new Date()));
+				stcEmployees.add(new EmployeeSTC(employee.getDni(), 100.0, new Date()));
 			} else {
 				double stcUser = 1 - employeeCGsum / employeeCRsum;
-				stcEmployees.add(new EmployeeSTC(employee.getDni(), stcUser * 100, new Date()));
+				stcEmployees.add(new EmployeeSTC(employee.getDni(), Math.round(stcUser * 100.0) / 100.0, new Date()));
 			}
 
 		}
@@ -479,10 +485,10 @@ public class STCMeasurer {
 
 			// Calculate STC
 			if (teamCGsum <= 0) {
-				stcTeams.add(new TeamSTC(team.getName(), 100, new Date()));
+				stcTeams.add(new TeamSTC(team.getName(), 100.0, new Date()));
 			} else {
 				double stcTeam = 1 - teamCGsum / teamCRsum;
-				stcTeams.add(new TeamSTC(team.getName(), stcTeam * 100, new Date()));
+				stcTeams.add(new TeamSTC(team.getName(), Math.round(stcTeam * 100.0) / 100.0, new Date()));
 			}
 
 		}
@@ -514,10 +520,10 @@ public class STCMeasurer {
 
 		// Calculate STC
 		if (sumCGproject <= 0) {
-			stcProject = new ProjectSTC(project, 100, new Date());
+			stcProject = new ProjectSTC(project, 100.0, new Date());
 		} else {
 			double stc = 1 - sumCGproject / sumCRproject;
-			stcProject = new ProjectSTC(project, stc * 100, new Date());
+			stcProject = new ProjectSTC(project, Math.round(stc * 100.0) / 100.0, new Date());
 		}
 
 		// Save in database

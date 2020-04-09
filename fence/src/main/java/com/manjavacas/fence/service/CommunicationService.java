@@ -29,6 +29,10 @@ public class CommunicationService {
 	public List<Communication> getCommunicationsByUser2(String dni) {
 		return communicationRepository.findByUser2(dni);
 	}
+	
+	public List<Communication> getCommunicationsByUser1OrUser2(String dni) {
+		return communicationRepository.findByUser1OrUser2(dni, dni);
+	}
 
 	public List<Communication> getCommunicationsBetween(String dni1, String dni2) {
 		List<Communication> communications = communicationRepository.findByUser1AndUser2(dni1, dni2);
