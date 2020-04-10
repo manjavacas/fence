@@ -1,8 +1,5 @@
 package com.manjavacas.fence.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,28 +19,11 @@ public class Employee {
 	private String timezone;
 	private String country;
 	private String experience;
-	private List<String> languages;
 	private String team;
 
 	private double experienceNum;
 
 	public Employee() {
-	}
-
-	public Employee(String dni, String name, String email, String genre, int age, String role, String timezone,
-			String country, String experience, List<String> languages, String team) {
-		super();
-		this.dni = dni;
-		this.name = name;
-		this.email = email;
-		this.genre = genre;
-		this.age = age;
-		this.role = role;
-		this.timezone = timezone;
-		this.country = country;
-		this.experience = experience;
-		this.languages = languages;
-		this.team = team;
 	}
 
 	public Employee(String dni, String name, String email, String genre, int age, String role, String timezone,
@@ -58,7 +38,6 @@ public class Employee {
 		this.timezone = timezone;
 		this.country = country;
 		this.experience = experience;
-		this.languages = new ArrayList<String>();
 		this.team = team;
 	}
 
@@ -161,14 +140,6 @@ public class Employee {
 
 	public void setExperience(String experience) {
 		this.experience = experience;
-	}
-
-	public List<String> getLanguages() {
-		return languages;
-	}
-
-	public void setLanguages(List<String> languages) {
-		this.languages = languages;
 	}
 
 	public String getTeam() {

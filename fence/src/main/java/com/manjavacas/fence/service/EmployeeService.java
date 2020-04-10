@@ -45,7 +45,6 @@ public class EmployeeService {
 		currentEmployee.setTimezone(newEmployee.getTimezone());
 		currentEmployee.setCountry(newEmployee.getCountry());
 		currentEmployee.setExperience(newEmployee.getExperience());
-		currentEmployee.setLanguages(newEmployee.getLanguages());
 		currentEmployee.setTeam(newEmployee.getTeam());
 
 		employeeRepository.save(currentEmployee);

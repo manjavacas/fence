@@ -536,20 +536,6 @@ public class STCMeasurer {
 		// Addition coefficient that will be applied
 		double coefficient = 0;
 
-		// Common languages
-		// int common = 0;
-		// for (String l1 : user1.getLanguages()) {
-		// for (String l2 : user2.getLanguages()) {
-		// if (l1 == l2) {
-		// common++;
-		// }
-		// }
-		// }
-		//
-		// if (common < 1) {
-		// coefficient += 0.2;
-		// }
-
 		// Geographical distance
 		if (!user1.getCountry().equals(user2.getCountry())) {
 			coefficient += 0.2;

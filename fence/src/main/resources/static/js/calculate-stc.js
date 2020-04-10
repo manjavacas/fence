@@ -1,40 +1,43 @@
 const mainResource = 'http://localhost:8080/';
 
 document.getElementById('btn-calculate-stc').addEventListener('click', function () {
-
-    project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
-
     // Calculate STC
     const resSTC = mainResource + 'STC/' + project;
     calculateSTC(resSTC);
-
-    // Retrieve data
-    const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
-    const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;
-    const restSTCProjects = mainResource + 'ProjectsSTC/project/' + project;
-
-    getDataSTCEmployees(resSTCEmployees, 'table-stc-employees');
-    getDataSTCTeams(resSTCTeams, 'table-stc-teams');
-    getDataSTCProject(restSTCProjects, 'table-stc-projects');
-
-
 });
 
 // Petition to STC measurer
 function calculateSTC(resource) {
-    document.getElementById('loading-label').innerHTML = 'Calculating STC...';
+
     $.ajax({
         url: resource,
         type: 'GET',
-        async: false,
+        beforeSend: function () {
+            document.getElementById('loading-label').innerHTML = 'Calculating STC...';
+            document.body.style.cursor = 'wait';
+        }
     }).done(function (data, textStatus, jqXHR) {
         if (data == true) {
+
             document.getElementById('loading-label').innerHTML = 'Done!';
             document.getElementById('loading-label').style.color = 'green';
+
+            // Retrieve data
+            project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
+
+            const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
+            const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;
+            const restSTCProjects = mainResource + 'ProjectsSTC/project/' + project;
+
+            getDataSTCEmployees(resSTCEmployees, 'table-stc-employees');
+            getDataSTCTeams(resSTCTeams, 'table-stc-teams');
+            getDataSTCProject(restSTCProjects, 'table-stc-projects');
+
         } else {
             document.getElementById('loading-label').innerHTML = 'Error!';
             document.getElementById('loading-label').style.color = 'red';
         }
+        document.body.style.cursor = 'default';
     });
 }
 
@@ -115,7 +118,9 @@ function getDataSTCProject(resource, tableId) {
         const tableBody = document.querySelector(bodyRef);
 
         // Clear table
-        tableBody.removeChild(tableBody.firstChild);
+        while (tableBody.firstChild) {
+            tableBody.removeChild(tableBody.firstChild);
+        }
 
         // Load records
         var row =
