@@ -37,7 +37,7 @@ function loadSTCData() {
         });
 
         // Load latests meditions
-        project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
+        var project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
 
         const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
         const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;

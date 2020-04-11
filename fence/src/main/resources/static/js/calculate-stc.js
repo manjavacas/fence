@@ -1,6 +1,9 @@
 const mainResource = 'http://localhost:8080/';
 
 document.getElementById('btn-calculate-stc').addEventListener('click', function () {
+    
+    var project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
+    
     // Calculate STC
     const resSTC = mainResource + 'STC/' + project;
     calculateSTC(resSTC);
@@ -23,7 +26,7 @@ function calculateSTC(resource) {
             document.getElementById('loading-label').style.color = 'green';
 
             // Retrieve data
-            project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
+            var project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
 
             const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
             const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;

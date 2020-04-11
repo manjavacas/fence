@@ -17,7 +17,6 @@ public class TeamSTC {
 	private Date date;
 
 	public TeamSTC() {
-
 	}
 
 	public TeamSTC(String team, double stc, Date date) {
