@@ -1,0 +1,209 @@
+
+FUNCTION_BLOCK recommender
+
+/////////////////// VARIABLES DECLARATION ///////////////////
+
+VAR_INPUT
+	coordination : REAL;
+	culturalDist : REAL;
+	overlap : REAL;
+	age1 : REAL;
+	age2 : REAL;
+	experience1 : REAL;
+	experience2 : REAL;
+END_VAR
+
+VAR_OUTPUT
+	// Three levels
+	risk : REAL;
+	communicationIssue : REAL;
+	sync : REAL;
+	async: REAL;
+	
+	// Two levels
+	mediator : REAL;
+	training : REAL;
+	solution1 : REAL;
+	solution2 : REAL;
+	solution3 : REAL;
+	solution4 : REAL;
+	solution5 : REAL;
+	solution6 : REAL;
+END_VAR
+
+/////////////////// FUZZIFY VARIABLES ///////////////////
+
+FUZZIFY coordination // Gap weight
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY culturalDist // Cultural distance
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY overlap // Time overlap
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY age1 // User1's age
+	TERM low := trian 16 16 36;
+	TERM medium := trian 26 36 46;
+	TERM high := trian 36 67 67;
+END_FUZZIFY
+
+FUZZIFY age2 // User2's age
+	TERM low := trian 16 16 36;
+	TERM medium := trian 36 36 46;
+	TERM high := trian 46 67 67;
+END_FUZZIFY
+
+FUZZIFY experience1 // User1's experience
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY experience2 // User2's experience
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+/////////////////// DEFUZZIFY VARIABLES ///////////////////
+
+DEFUZZIFY risk // STC risk
+	TERM low := trape 0 0 0.3 0.4;
+	TERM medium := trape 0.3 0.4 0.6 0.7;
+	TERM high := trape 0.6 0.7 1 1;
+	METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY communicationIssue // Communication issue
+	TERM yes := 1;
+	TERM no := 0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY mediator // Communication mediator
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY training // Communication training
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY sync // Sync communication
+	TERM veryRecommended := trian 0 0.25 0.5;
+	TERM recommended := trian 0.25 0.5 0.75;
+	TERM notRecommended := trian 0.5 0.75 1;
+	METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY async // Async communication
+	TERM veryRecommended := trian 0 0.25 0.5;
+	TERM recommended := trian 0.25 0.5 0.75;
+	TERM notRecommended := trian 0.5 0.75 1;
+	METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution1
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution2
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution3
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution4
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution5
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution6
+	TERM recommended := 1;
+	TERM notRecommended :=0;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+/////////////////// RULES ///////////////////
+
+RULEBLOCK rules
+	
+	RULE 0: IF coordination IS veryLow THEN risk IS high;
+	RULE 1: IF coordination IS low THEN risk IS high;
+	RULE 2: IF coordination IS medium THEN risk IS high;
+	RULE 3: IF coordination IS high THEN risk IS medium;
+	RULE 4: IF coordination IS veryHigh THEN risk IS low;
+	
+	RULE 5: IF risk IS high OR risk IS medium THEN communicationIssue IS yes;
+	
+	RULE 6: IF communicationIssue IS yes AND culturalDist IS veryHigh THEN mediator IS recommended;
+	RULE 7: IF communicationIssue IS yes AND culturalDist IS high THEN training IS recommended;
+	
+	RULE 8: IF communicationIssue IS yes AND overlap IS medium THEN sync IS recommended;
+	RULE 9: IF communicationIssue IS yes AND overlap IS high THEN sync IS veryRecommended;
+	RULE 10: IF communicationIssue IS yes AND overlap IS veryHigh THEN sync IS veryRecommended;
+	RULE 11: IF communicationIssue IS yes AND overlap IS low THEN async IS recommended;
+	RULE 12: IF communicationIssue IS yes AND overlap IS veryLow THEN async IS veryRecommended;
+	
+	RULE 13: IF (age1 IS high OR age2 IS high) AND (async IS recommended OR async IS veryRecommended) THEN solution1 IS recommended;
+	RULE 14: IF (age1 IS high OR age2 IS high) AND (sync IS recommended OR sync IS veryRecommended) THEN solution2 IS recommended;
+	
+	RULE 15: IF (age1 IS low OR age2 IS medium) AND (age2 IS low OR age2 IS medium) AND (async IS recommended OR async IS veryRecommended) THEN solution3 IS recommended;
+	RULE 16: IF (age1 IS low OR age2 IS medium) AND (age2 IS low OR age2 IS medium) AND (sync IS recommended OR sync IS veryRecommended) THEN solution4 IS recommended;
+	
+	RULE 17: IF (experience1 IS low OR experience1 IS veryLow) THEN solution5 IS recommended;
+	RULE 18: IF (experience2 IS low OR experience2 IS veryLow) THEN solution6 IS recommended;
+
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

@@ -12,4 +12,6 @@ public interface CGrepository extends MongoRepository<CG, String> {
 
 	List<CG> findByUser1(String dni);
 
+	List<CG> findByProject(String project);
+
 }
