@@ -123,13 +123,13 @@ public class Employee {
 			this.experienceNum = 1;
 			break;
 		case "HIGH":
-			this.experienceNum = .75;
+			this.experienceNum = .7;
 			break;
 		case "MEDIUM":
 			this.experienceNum = .5;
 			break;
 		case "LOW":
-			this.experienceNum = .25;
+			this.experienceNum = .3;
 			break;
 		default: // "VERY LOW"
 			this.experienceNum = 0;
