@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.manjavacas.fence.model.CG;
+import com.manjavacas.fence.model.Country;
 import com.manjavacas.fence.model.Employee;
 import com.manjavacas.fence.model.Recommendation;
 import com.manjavacas.fence.service.CGservice;
+import com.manjavacas.fence.service.CountryService;
 import com.manjavacas.fence.service.EmployeeService;
 import com.manjavacas.fence.service.RecommendationService;
 
@@ -33,6 +35,9 @@ public class ExpertSystemController {
 
 	@Autowired
 	private EmployeeService employeeService;
+
+	@Autowired
+	private CountryService countryService;
 
 	@RequestMapping("/Recommendations")
 	public List<Recommendation> getRecommendations() {
@@ -129,9 +134,23 @@ public class ExpertSystemController {
 
 	}
 
-	private double parseCulturalDist(String country1, String country2) {
-		// TODO Auto-generated method stub
-		return 0;
+	private double parseCulturalDist(String name1, String name2) {
+
+		Country country1 = countryService.getCountry(name1);
+		Country country2 = countryService.getCountry(name2);
+
+		// Compute distances for each dimension
+		int pdiDif = Math.abs(country1.getPdi() - country2.getPdi());
+		int idvDif = Math.abs(country1.getIdv() - country2.getIdv());
+		int masDif = Math.abs(country1.getMas() - country2.getMas());
+		int uaiDif = Math.abs(country1.getUai() - country2.getUai());
+		int ltowvsDif = Math.abs(country1.getLtowvs() - country2.getLtowvs());
+		int ivrDif = Math.abs(country1.getIvr() - country2.getIvr());
+
+		// Calculate cultural distance as the mean of all distances
+		double culturalDistance = (pdiDif + idvDif + masDif + uaiDif + ltowvsDif + ivrDif) / 6;
+
+		return culturalDistance;
 	}
 
 	private double parseOverlap(String timezone1, String timezone2) {
