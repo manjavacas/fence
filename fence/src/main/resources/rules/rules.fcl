@@ -9,8 +9,6 @@ VAR_INPUT
 	overlap : REAL;
 	age1 : REAL;
 	age2 : REAL;
-	experience1 : REAL;
-	experience2 : REAL;
 END_VAR
 
 VAR_OUTPUT
@@ -27,8 +25,6 @@ VAR_OUTPUT
 	solution2 : REAL;
 	solution3 : REAL;
 	solution4 : REAL;
-	solution5 : REAL;
-	solution6 : REAL;
 END_VAR
 
 /////////////////// FUZZIFY VARIABLES ///////////////////
@@ -69,22 +65,6 @@ FUZZIFY age2 // User2's age
 	TERM high := trian 46 67 67;
 END_FUZZIFY
 
-FUZZIFY experience1 // User1's experience
-	TERM veryLow := trape 0 0 0.1 0.3;
-	TERM low := trian 0.1 0.3 0.5;
-	TERM medium := trian 0.3 0.5 0.7;
-	TERM high := trian 0.5 0.7 0.9;
-	TERM veryHigh := trape 0.7 0.9 1 1;
-END_FUZZIFY
-
-FUZZIFY experience2 // User2's experience
-	TERM veryLow := trape 0 0 0.1 0.3;
-	TERM low := trian 0.1 0.3 0.5;
-	TERM medium := trian 0.3 0.5 0.7;
-	TERM high := trian 0.5 0.7 0.9;
-	TERM veryHigh := trape 0.7 0.9 1 1;
-END_FUZZIFY
-
 /////////////////// DEFUZZIFY VARIABLES ///////////////////
 
 DEFUZZIFY risk // STC risk
@@ -104,7 +84,7 @@ END_DEFUZZIFY
 
 DEFUZZIFY mediator // Communication mediator
 	TERM recommended := 1;
-	TERM notRecommended :=0;
+	TERM notRecommended := 0;
 	METHOD : COGS;
 	DEFAULT := 0;
 END_DEFUZZIFY
@@ -160,20 +140,6 @@ DEFUZZIFY solution4
 	DEFAULT := 0;
 END_DEFUZZIFY
 
-DEFUZZIFY solution5
-	TERM recommended := 1;
-	TERM notRecommended :=0;
-	METHOD : COGS;
-	DEFAULT := 0;
-END_DEFUZZIFY
-
-DEFUZZIFY solution6
-	TERM recommended := 1;
-	TERM notRecommended :=0;
-	METHOD : COGS;
-	DEFAULT := 0;
-END_DEFUZZIFY
-
 /////////////////// RULES ///////////////////
 
 RULEBLOCK rules
@@ -200,9 +166,6 @@ RULEBLOCK rules
 	
 	RULE 15: IF (age1 IS low OR age2 IS medium) AND (age2 IS low OR age2 IS medium) AND (async IS recommended OR async IS veryRecommended) THEN solution3 IS recommended;
 	RULE 16: IF (age1 IS low OR age2 IS medium) AND (age2 IS low OR age2 IS medium) AND (sync IS recommended OR sync IS veryRecommended) THEN solution4 IS recommended;
-	
-	RULE 17: IF (experience1 IS low OR experience1 IS veryLow) THEN solution5 IS recommended;
-	RULE 18: IF (experience2 IS low OR experience2 IS veryLow) THEN solution6 IS recommended;
 
 END_RULEBLOCK
 

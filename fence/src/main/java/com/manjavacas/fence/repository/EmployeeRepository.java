@@ -13,6 +13,8 @@ public interface EmployeeRepository extends MongoRepository<Employee, String> {
 	Employee findByDni(String dni);
 
 	List<Employee> findByTeam(String team);
+	
+	List<Employee> findByTeamAndExperience(String team, String string);
 
 	void deleteByDni(String dni);
 

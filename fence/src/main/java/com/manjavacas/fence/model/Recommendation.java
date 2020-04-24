@@ -9,7 +9,7 @@ public class Recommendation {
 
 	@Id
 	private ObjectId _id;
-	
+
 	private String user1;
 	private String user2;
 	private String text;
@@ -20,6 +20,11 @@ public class Recommendation {
 		this.text = text;
 	}
 
+	public Recommendation(String user, String text) {
+		this.user1 = user;
+		this.text = text;
+	}
+
 	public String getUser1() {
 		return user1;
 	}
@@ -27,7 +32,7 @@ public class Recommendation {
 	public void setUser1(String user1) {
 		this.user1 = user1;
 	}
-	
+
 	public String getUser2() {
 		return user2;
 	}
@@ -46,7 +51,11 @@ public class Recommendation {
 
 	@Override
 	public String toString() {
-		return "Recommendation for " + user1 + " and " + user2 + ": " + text;
+		if (user2 == null) {
+			return "Recommendation for " + user1 + ": " + text;
+		} else {
+			return "Recommendation for " + user1 + " and " + user2 + ": " + text;
+		}
 	}
 
 }
