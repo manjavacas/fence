@@ -56,16 +56,23 @@ public class ExpertSystemController {
 	private CountryService countryService;
 
 	@RequestMapping("/Recommendations")
-	public List<Recommendation> getRecommendations() {
-		return recommendationService.getAllRecommendations();
+	public List<String> getRecommendations() {
+		List<Recommendation> recommendations = recommendationService.getAllRecommendations();
+
+		ArrayList<String> formattedRecommendations = new ArrayList<String>();
+		for (Recommendation recommendation : recommendations) {
+			formattedRecommendations.add(recommendation.toString());
+		}
+
+		return formattedRecommendations;
 	}
 
 	@RequestMapping("/Recommendations/calculate")
-	public List<Recommendation> calculateRecommendations() {
+	public List<String> calculateRecommendations() {
 		return runRecommender();
 	}
 
-	public List<Recommendation> runRecommender() {
+	public List<String> runRecommender() {
 
 		List<Recommendation> recommendations = new ArrayList<Recommendation>();
 
@@ -158,7 +165,13 @@ public class ExpertSystemController {
 		// Update database
 		recommendationService.updateRecommendations(recommendations);
 
-		return recommendations;
+		// Return recommendations with format
+		ArrayList<String> formattedRecommendations = new ArrayList<String>();
+		for (Recommendation recommendation : recommendations) {
+			formattedRecommendations.add(recommendation.toString());
+		}
+
+		return formattedRecommendations;
 
 	}
 

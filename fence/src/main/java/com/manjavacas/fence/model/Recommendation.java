@@ -24,6 +24,10 @@ public class Recommendation {
 		this.user1 = user;
 		this.text = text;
 	}
+	
+	public Recommendation() {
+		
+	}
 
 	public String getUser1() {
 		return user1;
