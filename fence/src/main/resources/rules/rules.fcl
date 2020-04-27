@@ -143,6 +143,10 @@ END_DEFUZZIFY
 /////////////////// RULES ///////////////////
 
 RULEBLOCK rules
+
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX;
 	
 	RULE 0: IF coordination IS veryLow THEN risk IS high;
 	RULE 1: IF coordination IS low THEN risk IS high;

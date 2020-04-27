@@ -1,9 +1,13 @@
 package com.manjavacas.fence.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,8 +27,8 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 @RestController
 public class ExpertSystemController {
 
-	private final static String FILE = "/fence/src/main/resources/rules/rules.fcl";
-	private final static String BLOCK = "recommender";
+	private final static String RULES_RESOURCE = "classpath:rules/rules.fcl";
+	private final static String RULES_BLOCK = "recommender";
 
 	private final static int N_COMMUNICATION_SOLUTIONS = 4;
 
@@ -55,9 +59,12 @@ public class ExpertSystemController {
 	@Autowired
 	private CountryService countryService;
 
-	@RequestMapping("/Recommendations")
-	public List<String> getRecommendations() {
-		List<Recommendation> recommendations = recommendationService.getAllRecommendations();
+	@Autowired
+	private ResourceLoader resourceLoader;
+
+	@RequestMapping("/Recommendations/{project}")
+	public List<String> getRecommendations(@PathVariable String project) {
+		List<Recommendation> recommendations = recommendationService.getRecommendationsByProject(project);
 
 		ArrayList<String> formattedRecommendations = new ArrayList<String>();
 		for (Recommendation recommendation : recommendations) {
@@ -67,23 +74,24 @@ public class ExpertSystemController {
 		return formattedRecommendations;
 	}
 
-	@RequestMapping("/Recommendations/calculate")
-	public List<String> calculateRecommendations() {
-		return runRecommender();
+	@RequestMapping("/Recommendations/calculate/{project}")
+	public List<String> calculateRecommendations(@PathVariable String project) throws IOException {
+		return runRecommender(project);
 	}
 
-	public List<String> runRecommender() {
+	public List<String> runRecommender(String project) throws IOException {
 
 		List<Recommendation> recommendations = new ArrayList<Recommendation>();
 
 		// Get all coordination gaps
-		List<CG> gaps = cgService.getAllCG();
+		List<CG> gaps = cgService.getCGByProject(project);
 
 		// Load fuzzy inference system
-		FIS fis = FIS.load(FILE);
+		Resource resource = resourceLoader.getResource(RULES_RESOURCE);
+		FIS fis = FIS.load(resource.getFile().getAbsolutePath());
 
 		// Get the recommender function block
-		FunctionBlock fb = fis.getFunctionBlock(BLOCK);
+		FunctionBlock fb = fis.getFunctionBlock(RULES_BLOCK);
 
 		// JFuzzyChart.get().chart(fb);
 
@@ -94,19 +102,16 @@ public class ExpertSystemController {
 			Employee user2 = employeeService.getEmployee(gap.getUser2());
 
 			// Set variables
-			fis.setVariable("age1", user1.getAge());
-			fis.setVariable("age2", user2.getAge());
+			fb.setVariable("age1", user1.getAge());
+			fb.setVariable("age2", user2.getAge());
 
-			fis.setVariable("experience1", user1.getExperienceNum());
-			fis.setVariable("experience2", user2.getExperienceNum());
+			fb.setVariable("coordination", gap.getWeight());
 
-			fis.setVariable("coordination", gap.getWeight());
-
-			fis.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
-			fis.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
+			fb.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
+			fb.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
 
 			// Evaluate
-			fis.evaluate();
+			fb.evaluate();
 
 			// Get recommended solution
 			String recommended = null;
@@ -137,26 +142,28 @@ public class ExpertSystemController {
 					break;
 				}
 
-				recommendations.add(new Recommendation(user1.getName(), user2.getName(), solutionText));
+				recommendations.add(new Recommendation(user1.getName(), user2.getName(), solutionText, project));
 
 				// Get mediator solution
-				if (fb.getVariable("mediator").getValue() == 1) {
-					recommendations.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_MEDIATOR));
+				if (fb.getVariable("mediator").getValue() != 0) {
+					recommendations
+							.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_MEDIATOR, project));
 				}
 
 				// Get training solution
-				if (fb.getVariable("training").getValue() == 1) {
-					recommendations.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_TRAINING));
+				if (fb.getVariable("training").getValue() != 0) {
+					recommendations
+							.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_TRAINING, project));
 				}
 
 				// Get supervisor solutions
 				if (user1.getExperience().equals("LOW") || user1.getExperience().equals("VERY LOW")) {
 					String supervisor = employeeService.getSupervisor(user1.getTeam());
-					recommendations.add(new Recommendation(user1.getName(), SOLUTION_SUPERVISOR + supervisor));
+					recommendations.add(new Recommendation(user1.getName(), SOLUTION_SUPERVISOR + supervisor, project));
 				}
 				if (user2.getExperience().equals("LOW") || user2.getExperience().equals("VERY LOW")) {
 					String supervisor = employeeService.getSupervisor(user2.getTeam());
-					recommendations.add(new Recommendation(user2.getName(), SOLUTION_SUPERVISOR + supervisor));
+					recommendations.add(new Recommendation(user2.getName(), SOLUTION_SUPERVISOR + supervisor, project));
 				}
 			}
 

@@ -5,10 +5,43 @@ window.onload = function () {
     setPage();
 }
 
-// Load latest recommendations
+// Load projects
 function setPage() {
 
-    const resource = mainResource + 'Recommendations/';
+    const resProjects = mainResource + 'Projects/';
+
+    $.ajax({
+        url: resProjects,
+        type: 'GET',
+        beforeSend: function () {
+            document.body.style.cursor = 'wait';
+        }
+    }).done(function (data, textStatus, jqXHR) {
+
+        var options = [];
+
+        for (let i = 0; i < data.length; i++) {
+            options[i] = data[i]['name'];
+        }
+
+        var sel = document.getElementById('select-project-recommendations');
+
+        options.forEach(function (element, key) {
+            sel[key] = new Option(element, key);
+        });
+
+        var project = document.getElementById('select-project-recommendations').options[document.getElementById('select-project-recommendations').selectedIndex].text;
+
+        loadRecommendations(project);
+
+    });
+
+}
+
+// Load latests recommendations
+function loadRecommendations(project) {
+
+    const resource = mainResource + 'Recommendations/' + project;
 
     $.ajax({
         url: resource,
@@ -27,5 +60,6 @@ function setPage() {
         $(list).append(text);
         document.body.style.cursor = 'default';
     });
+
 }
 

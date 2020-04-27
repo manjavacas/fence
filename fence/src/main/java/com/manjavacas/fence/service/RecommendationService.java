@@ -17,6 +17,10 @@ public class RecommendationService {
 	public List<Recommendation> getAllRecommendations() {
 		return recommendationRepository.findAll();
 	}
+	
+	public List<Recommendation> getRecommendationsByProject(String project) {
+		return recommendationRepository.findByProject(project);
+	}
 
 	public void updateRecommendations(List<Recommendation> listRecommendations) {
 		recommendationRepository.deleteAll();

@@ -13,16 +13,19 @@ public class Recommendation {
 	private String user1;
 	private String user2;
 	private String text;
+	private String project;
 
-	public Recommendation(String user1, String user2, String text) {
+	public Recommendation(String user1, String user2, String text, String project) {
 		this.user1 = user1;
 		this.user2 = user2;
 		this.text = text;
+		this.project = project;
 	}
 
-	public Recommendation(String user, String text) {
+	public Recommendation(String user, String text, String project) {
 		this.user1 = user;
 		this.text = text;
+		this.project = project;
 	}
 	
 	public Recommendation() {
@@ -51,6 +54,14 @@ public class Recommendation {
 
 	public void setText(String text) {
 		this.text = text;
+	}
+	
+	public String getProject() {
+		return project;
+	}
+
+	public void setProject(String project) {
+		this.project = project;
 	}
 
 	@Override
