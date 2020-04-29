@@ -30,6 +30,7 @@ public class ExpertSystemController {
 	private final static String RULES_RESOURCE = "classpath:rules/rules.fcl";
 	private final static String RULES_BLOCK = "recommender";
 
+	private final static double MIN_GAP = 0.5;
 	private final static int N_COMMUNICATION_SOLUTIONS = 4;
 
 	// Solutions provided by the expert system
@@ -98,72 +99,75 @@ public class ExpertSystemController {
 		// Input
 		for (CG gap : gaps) {
 
-			Employee user1 = employeeService.getEmployee(gap.getUser1());
-			Employee user2 = employeeService.getEmployee(gap.getUser2());
+			if (gap.getWeight() >= MIN_GAP) {
 
-			// Set variables
-			fb.setVariable("age1", user1.getAge());
-			fb.setVariable("age2", user2.getAge());
+				Employee user1 = employeeService.getEmployee(gap.getUser1());
+				Employee user2 = employeeService.getEmployee(gap.getUser2());
 
-			fb.setVariable("coordination", gap.getWeight());
+				// Set variables
+				fb.setVariable("age1", user1.getAge());
+				fb.setVariable("age2", user2.getAge());
 
-			fb.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
-			fb.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
+				fb.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
+				fb.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
 
-			// Evaluate
-			fb.evaluate();
+				// Evaluate
+				fb.evaluate();
 
-			// Get recommended solution
-			String recommended = null;
-			for (int i = 1; i <= N_COMMUNICATION_SOLUTIONS; i++) {
-				Variable solution = fb.getVariable("solution" + i);
-				// JFuzzyChart.get().chart(solution, risk.getDefuzzifier(), true);
-				if (solution.getValue() != 0) {
-					recommended = solution.getName();
-				}
-			}
-
-			if (recommended != null) {
-
-				// Get communication solution
-				String solutionText = "";
-				switch (recommended) {
-				case "solution1":
-					solutionText += SOLUTION_COMMUNICATION_1;
-					break;
-				case "solution2":
-					solutionText += SOLUTION_COMMUNICATION_2;
-					break;
-				case "solution3":
-					solutionText += SOLUTION_COMMUNICATION_3;
-					break;
-				case "solution4":
-					solutionText += SOLUTION_COMMUNICATION_4;
-					break;
+				// Get recommended solution
+				String recommended = null;
+				for (int i = 1; i <= N_COMMUNICATION_SOLUTIONS; i++) {
+					Variable solution = fb.getVariable("solution" + i);
+					// JFuzzyChart.get().chart(solution, solution.getDefuzzifier(), true);
+					if (solution.getValue() != 0) {
+						recommended = solution.getName();
+					}
 				}
 
-				recommendations.add(new Recommendation(user1.getName(), user2.getName(), solutionText, project));
+				if (recommended != null) {
 
-				// Get mediator solution
-				if (fb.getVariable("mediator").getValue() != 0) {
-					recommendations
-							.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_MEDIATOR, project));
-				}
+					// Get communication solution
+					String solutionText = "";
+					switch (recommended) {
+					case "solution1":
+						solutionText += SOLUTION_COMMUNICATION_1;
+						break;
+					case "solution2":
+						solutionText += SOLUTION_COMMUNICATION_2;
+						break;
+					case "solution3":
+						solutionText += SOLUTION_COMMUNICATION_3;
+						break;
+					case "solution4":
+						solutionText += SOLUTION_COMMUNICATION_4;
+						break;
+					}
 
-				// Get training solution
-				if (fb.getVariable("training").getValue() != 0) {
-					recommendations
-							.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_TRAINING, project));
-				}
+					recommendations.add(new Recommendation(user1.getName(), user2.getName(), solutionText, project));
 
-				// Get supervisor solutions
-				if (user1.getExperience().equals("LOW") || user1.getExperience().equals("VERY LOW")) {
-					String supervisor = employeeService.getSupervisor(user1.getTeam());
-					recommendations.add(new Recommendation(user1.getName(), SOLUTION_SUPERVISOR + supervisor, project));
-				}
-				if (user2.getExperience().equals("LOW") || user2.getExperience().equals("VERY LOW")) {
-					String supervisor = employeeService.getSupervisor(user2.getTeam());
-					recommendations.add(new Recommendation(user2.getName(), SOLUTION_SUPERVISOR + supervisor, project));
+					// Get mediator solution
+					if (fb.getVariable("mediator").getValue() != 0) {
+						recommendations
+								.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_MEDIATOR, project));
+					}
+
+					// Get training solution
+					if (fb.getVariable("training").getValue() != 0) {
+						recommendations
+								.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_TRAINING, project));
+					}
+
+					// Get supervisor solutions
+					if (user1.getExperience().equals("LOW") || user1.getExperience().equals("VERY LOW")) {
+						String supervisor = employeeService.getSupervisor(user1.getTeam());
+						recommendations
+								.add(new Recommendation(user1.getName(), SOLUTION_SUPERVISOR + supervisor, project));
+					}
+					if (user2.getExperience().equals("LOW") || user2.getExperience().equals("VERY LOW")) {
+						String supervisor = employeeService.getSupervisor(user2.getTeam());
+						recommendations
+								.add(new Recommendation(user2.getName(), SOLUTION_SUPERVISOR + supervisor, project));
+					}
 				}
 			}
 
