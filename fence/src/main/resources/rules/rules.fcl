@@ -52,7 +52,7 @@ END_FUZZIFY
 /////////////////// DEFUZZIFY VARIABLES ///////////////////
 
 DEFUZZIFY mediator // Communication mediator
-		TERM notRecommended := 0;
+	TERM notRecommended := 0;
 	TERM recommended := 1;
 	METHOD : COGS;
 	DEFAULT := 0;
@@ -66,30 +66,30 @@ DEFUZZIFY training // Communication training
 END_DEFUZZIFY
 
 DEFUZZIFY solution1
-	TERM notRecommended := trian 0 0.25 0.5;
-	TERM recommended := trian 0.5 0.75 1;
-	METHOD : COG;
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
 	DEFAULT := 0;
 END_DEFUZZIFY
 
 DEFUZZIFY solution2
-	TERM notRecommended := trian 0 0.25 0.5;
-	TERM recommended := trian 0.5 0.75 1;
-	METHOD : COG;
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
 	DEFAULT := 0;
 END_DEFUZZIFY
 
 DEFUZZIFY solution3
-	TERM notRecommended := trian 0 0.25 0.5;
-	TERM recommended := trian 0.5 0.75 1;
-	METHOD : COG;
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
 	DEFAULT := 0;
 END_DEFUZZIFY
 
 DEFUZZIFY solution4
-	TERM notRecommended := trian 0 0.25 0.5;
-	TERM recommended := trian 0.5 0.75 1;
-	METHOD : COG;
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
 	DEFAULT := 0;
 END_DEFUZZIFY
 

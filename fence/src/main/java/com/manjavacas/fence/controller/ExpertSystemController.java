@@ -22,13 +22,14 @@ import com.manjavacas.fence.service.RecommendationService;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
+import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 @RestController
 public class ExpertSystemController {
 
 	private final static String RULES_RESOURCE = "classpath:rules/rules.fcl";
-	private final static String RULES_BLOCK = "recommender";
+	private final static String FUNCTION_BLOCK = "recommender";
 
 	private final static double MIN_GAP = 0.5;
 	private final static int N_COMMUNICATION_SOLUTIONS = 4;
@@ -92,9 +93,7 @@ public class ExpertSystemController {
 		FIS fis = FIS.load(resource.getFile().getAbsolutePath());
 
 		// Get the recommender function block
-		FunctionBlock fb = fis.getFunctionBlock(RULES_BLOCK);
-
-		// JFuzzyChart.get().chart(fb);
+		FunctionBlock fb = fis.getFunctionBlock(FUNCTION_BLOCK);
 
 		// Input
 		for (CG gap : gaps) {
@@ -111,6 +110,8 @@ public class ExpertSystemController {
 				fb.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
 				fb.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
 
+				// JFuzzyChart.get().chart(fb);
+				
 				// Evaluate
 				fb.evaluate();
 
@@ -210,7 +211,15 @@ public class ExpertSystemController {
 		int num1 = Integer.parseInt(timezone1.substring(3, timezone1.length()));
 		int num2 = Integer.parseInt(timezone2.substring(3, timezone2.length()));
 
-		return Math.abs(num1 - num2);
+		double timeDif = 0;
+		if (num1 >= num2) {
+			timeDif = num1 - num2;
+		} else {
+			timeDif = num2 - num1;
+		}
+
+		// Being 26 the maximum time difference in the world
+		return 1 - (timeDif / 26);
 	}
 
 }

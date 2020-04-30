@@ -54,7 +54,7 @@ function loadRecommendations(project) {
 
         text = '';
         for (let i = 0; i < data.length; i++) {
-            text += `<li class="list-group-item">` + data[i] + `</li>`;
+            text += `<li class="list-group-item"><i class="fas fa-exclamation-triangle"></i> ` + data[i] + `</li>`;
         }
 
         $(list).append(text);
