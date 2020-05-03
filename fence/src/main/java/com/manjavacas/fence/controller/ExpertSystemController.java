@@ -36,13 +36,15 @@ public class ExpertSystemController {
 
 	// Solutions provided by the expert system
 	private final static String SOLUTION_COMMUNICATION_1 = "given the poor time overlap between users, "
-			+ "asynchronous methods are recommended. At the same time, the following (high) age-appropriate communication methods are proposed: ";
+			+ "asynchronous methods are recommended. At the same time, the following communication methods are proposed: "
+			+ "the communication media with which the elderly user is most familiar, as well as Wikis to transfer knowledge by the more experienced user.";
 	private final static String SOLUTION_COMMUNICATION_2 = "since there is an acceptable time overlap, "
-			+ "synchronous media are proposed. These media are adjusted to the users' age (high): ";
+			+ "synchronous media are proposed. These media are adjusted to the users' age: phone.";
 	private final static String SOLUTION_COMMUNICATION_3 = "given the poor time overlap between users, "
-			+ "asynchronous methods are recommended. At the same time, the following (low/medium) age-appropriate communication methods are proposed: ";
+			+ "asynchronous methods are recommended. At the same time, the following age-appropriate communication methods are proposed: "
+			+ "applications that allow video calls and mainly chat converstions (i.e. Teams, Skype, Jira).";
 	private final static String SOLUTION_COMMUNICATION_4 = "since there is an acceptable time overlap, "
-			+ "synchronous media are proposed. These media are adjusted to the users' age (low/medium): ";
+			+ "synchronous media are proposed. These media are adjusted to the users' age: any video call application such as Zoom, Teams, Skype, Hangouts, etc.";
 	private final static String SOLUTION_MEDIATOR = "given the high cultural differences between users, "
 			+ "a mediator is recommended to intercede between the two in order to ensure proper communication.";
 	private final static String SOLUTION_TRAINING = "socio-cultural training is recommended to reinforce communication between users: manuals, "

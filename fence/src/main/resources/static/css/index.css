@@ -1,5 +1,5 @@
 .front-form {
-    width: 340px;
+    width: 500px;
     margin: 50px auto;
 }
 
@@ -13,6 +13,19 @@
 }
 
 .btn {        
-    font-size: 15px;
+    font-size: 20px;
+    padding: 14px 52px;
     font-weight: bold;
+}
+
+p.info {
+    margin-top: 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+p.author {
+    margin-top: 50px;
+    font-size: 15px;
+    text-align: center;
 }

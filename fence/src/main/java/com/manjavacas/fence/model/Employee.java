@@ -18,6 +18,7 @@ public class Employee {
 	private String role;
 	private String timezone;
 	private String country;
+	private String englishLevel;
 	private String experience;
 	private String team;
 
@@ -27,7 +28,7 @@ public class Employee {
 	}
 
 	public Employee(String dni, String name, String email, String genre, int age, String role, String timezone,
-			String country, String experience, String team) {
+			String country, String englishLevel, String experience, String team) {
 		super();
 		this.dni = dni;
 		this.name = name;
@@ -37,6 +38,7 @@ public class Employee {
 		this.role = role;
 		this.timezone = timezone;
 		this.country = country;
+		this.englishLevel = englishLevel;
 		this.experience = experience;
 		this.team = team;
 	}
@@ -111,6 +113,14 @@ public class Employee {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public String getEnglishLevel() {
+		return englishLevel;
+	}
+
+	public void setEnglishLevel(String englishLevel) {
+		this.englishLevel = englishLevel;
 	}
 
 	public String getExperience() {
