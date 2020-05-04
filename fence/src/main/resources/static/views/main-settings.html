@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/settings.css">
 </head>
 
 <body>
@@ -31,7 +32,7 @@
                     <i class="fas fa-project-diagram" aria-hidden="true"></i> Calculate STC
                 </a>
             </li>
-			<li>
+            <li>
                 <a href="./main-reports.html">
                     <i class="fas fa-file-contract" aria-hidden="true"></i> Reports
                 </a>
@@ -58,15 +59,54 @@
 
         <div class="container-fluid">
 
-            <!-- Main component for a primary marketing message or call to action -->
             <div class="jumbotron">
                 <h1>Settings</h1>
+            </div>
+
+            <!-- CUSTOM GAP WEIGHT FOR RECOMMENDATIONS -->
+            <div>
+                <p style="font-size:30px;">Default gap weight threshold for recommendations</p>
+                <div style="margin-left:30px;">
+                    <p>Gap weight threshold: </p>
+                    <div class="slidecontainer">
+                        <input type="range" id="sldr-default-threshold" value="50" min="0" max="100" oninput="document.getElementById('default-threshold').innerHTML = this.value" />
+                        <label id="default-threshold"></label>
+                    </div>
+                </div>
+            </div>
+
+            <!--- CUSTOM GAP WEIGHT BETWEEN TWO USERS -->
+            <div>
+                <p style="font-size:30px;">Customize gap weight threshold for recommendations</p>
+                
+                <div style="margin-left:30px;">
+                    <label for="select-user1">User 1: </label>
+                    <select id="select-user1" class="mdb-select md-form colorful-select dropdown-primary">
+                        <!-- USERS -->
+                    </select>
+                </div>
+    
+                <div style="margin-left:30px;">
+                    <label for="select-user1">User 2: </label>
+                    <select id="select-user2" class="mdb-select md-form colorful-select dropdown-primary">
+                        <!-- USERS -->
+                    </select>
+                </div>
+    
+                <div style="margin-left:30px;">
+                    <label for="select-project">Custom gap weight threshold: </label>
+                    <div class="slidecontainer">
+                        <input type="range" id="sldr-users-threshold" value="50" min="0" max="100" oninput="document.getElementById('users-threshold').innerHTML = this.value" />
+                        <label id="users-threshold"></label>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 
-
 </body>
+
+<script src="../js/settings.js"></script>
 
 </html>

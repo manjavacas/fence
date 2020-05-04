@@ -18,37 +18,45 @@ import com.manjavacas.fence.model.Recommendation;
 import com.manjavacas.fence.service.CGservice;
 import com.manjavacas.fence.service.CountryService;
 import com.manjavacas.fence.service.EmployeeService;
+import com.manjavacas.fence.service.MinGapService;
 import com.manjavacas.fence.service.RecommendationService;
 
 import net.sourceforge.jFuzzyLogic.FIS;
 import net.sourceforge.jFuzzyLogic.FunctionBlock;
-import net.sourceforge.jFuzzyLogic.plot.JFuzzyChart;
 import net.sourceforge.jFuzzyLogic.rule.Variable;
 
 @RestController
 public class ExpertSystemController {
 
-	private final static String RULES_RESOURCE = "classpath:rules/rules.fcl";
+	private final static String RULES_RESOURCE = "classpath:rules/rules-communication.fcl";
 	private final static String FUNCTION_BLOCK = "recommender";
 
-	private final static double MIN_GAP = 0.5;
-	private final static int N_COMMUNICATION_SOLUTIONS = 4;
+	private final static int N_COMMUNICATION_SOLUTIONS = 9;
 
 	// Solutions provided by the expert system
-	private final static String SOLUTION_COMMUNICATION_1 = "given the poor time overlap between users, "
-			+ "asynchronous methods are recommended. At the same time, the following communication methods are proposed: "
-			+ "the communication media with which the elderly user is most familiar, as well as Wikis to transfer knowledge by the more experienced user.";
-	private final static String SOLUTION_COMMUNICATION_2 = "since there is an acceptable time overlap, "
-			+ "synchronous media are proposed. These media are adjusted to the users' age: phone.";
-	private final static String SOLUTION_COMMUNICATION_3 = "given the poor time overlap between users, "
-			+ "asynchronous methods are recommended. At the same time, the following age-appropriate communication methods are proposed: "
-			+ "applications that allow video calls and mainly chat converstions (i.e. Teams, Skype, Jira).";
-	private final static String SOLUTION_COMMUNICATION_4 = "since there is an acceptable time overlap, "
-			+ "synchronous media are proposed. These media are adjusted to the users' age: any video call application such as Zoom, Teams, Skype, Hangouts, etc.";
-	private final static String SOLUTION_MEDIATOR = "given the high cultural differences between users, "
-			+ "a mediator is recommended to intercede between the two in order to ensure proper communication.";
-	private final static String SOLUTION_TRAINING = "socio-cultural training is recommended to reinforce communication between users: manuals, "
-			+ "training or any other awareness solution.";
+	private final static String SOLUTION_COMMUNICATION_1 = "asynchronous means are recommended given a low time overlap. "
+			+ "The communication is adapted to the age of the users and their level of English, proposing as main means of communication e-mail and conventional documentation.";
+	private final static String SOLUTION_COMMUNICATION_2 = "asynchronous means are recommended given the low time overlap. "
+			+ "Given an average fluency in English, Wikis and e-mail are encouraged as the main means of communication, with the possibility of relying on conventional documentation.";
+	private final static String SOLUTION_COMMUNICATION_3 = "asynchronous means adapted to low time overlap are recommended. "
+			+ "Given the high level of English of both users, email, chats and Wikis are recommended as the main means of communication, depending on the circumstances.";
+	private final static String SOLUTION_COMMUNICATION_4 = "synchronous means are advisable in view of the high time overlap. "
+			+ "Given the high level of English of the users, the use of the conventional phone calls is recommended.";
+	private final static String SOLUTION_COMMUNICATION_5 = "synchronous media that encourage communication at low levels of English, "
+			+ "such as chat rooms, are recommended.";
+	private final static String SOLUTION_COMMUNICATION_6 = "asynchronous means are recommended given the low time overlap. "
+			+ "As there is a common command of English, corporate chats are recommended as the main means of communication (e.g. Teams or Jira).";
+	private final static String SOLUTION_COMMUNICATION_7 = "asynchronous means are recommended to suit the low level of English of the users. "
+			+ "Recommended media capable of meeting these requirements are Slack and Github.";
+	private final static String SOLUTION_COMMUNICATION_8 = "synchronous means are recommended as the time overlap is high. "
+			+ "Given the high level of English of the users, video calls through applications such as Zoom, Teams, Skype, Hangouts, etc. are recommended.";
+	private final static String SOLUTION_COMMUNICATION_9 = "synchronous media adapted to a low level of English are recommended, "
+			+ "such as synchronous chats from tools like Zoom, Teams, Skype, WhatsApp, Telegram, etc.";
+
+	private final static String SOLUTION_MEDIATOR = "given the high cultural differences between users, a mediator is recommended "
+			+ "to intercede between them in order to ensure proper communication.";
+	private final static String SOLUTION_TRAINING = "socio-cultural training is recommended to reinforce communication between users: "
+			+ "manuals, training or any other awareness solution.";
 	private final static String SOLUTION_SUPERVISOR = "given the low user's experience, the assignment of the following supervisor is proposed: ";
 
 	@Autowired
@@ -62,6 +70,9 @@ public class ExpertSystemController {
 
 	@Autowired
 	private CountryService countryService;
+
+	@Autowired
+	private MinGapService minGapService;
 
 	@Autowired
 	private ResourceLoader resourceLoader;
@@ -100,7 +111,7 @@ public class ExpertSystemController {
 		// Input
 		for (CG gap : gaps) {
 
-			if (gap.getWeight() >= MIN_GAP) {
+			if (gap.getWeight() >= minGapService.getMinGapWeight(gap.getUser1(), gap.getUser2(), project)) {
 
 				Employee user1 = employeeService.getEmployee(gap.getUser1());
 				Employee user2 = employeeService.getEmployee(gap.getUser2());
@@ -109,11 +120,16 @@ public class ExpertSystemController {
 				fb.setVariable("age1", user1.getAge());
 				fb.setVariable("age2", user2.getAge());
 
+				fb.setVariable("englishLevel", (user1.getEnglishLevelNum() + user2.getEnglishLevelNum()) / 2);
+
+				fb.setVariable("experience1", user1.getExperienceNum());
+				fb.setVariable("experience2", user2.getExperienceNum());
+
 				fb.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
 				fb.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
 
 				// JFuzzyChart.get().chart(fb);
-				
+
 				// Evaluate
 				fb.evaluate();
 
@@ -144,6 +160,21 @@ public class ExpertSystemController {
 					case "solution4":
 						solutionText += SOLUTION_COMMUNICATION_4;
 						break;
+					case "solution5":
+						solutionText += SOLUTION_COMMUNICATION_5;
+						break;
+					case "solution6":
+						solutionText += SOLUTION_COMMUNICATION_6;
+						break;
+					case "solution7":
+						solutionText += SOLUTION_COMMUNICATION_7;
+						break;
+					case "solution8":
+						solutionText += SOLUTION_COMMUNICATION_8;
+						break;
+					case "solution9":
+						solutionText += SOLUTION_COMMUNICATION_9;
+						break;
 					}
 
 					recommendations.add(new Recommendation(user1.getName(), user2.getName(), solutionText, project));
@@ -161,12 +192,12 @@ public class ExpertSystemController {
 					}
 
 					// Get supervisor solutions
-					if (user1.getExperience().equals("LOW") || user1.getExperience().equals("VERY LOW")) {
+					if (fb.getVariable("supervisor1").getValue() != 0) {
 						String supervisor = employeeService.getSupervisor(user1.getTeam());
 						recommendations
 								.add(new Recommendation(user1.getName(), SOLUTION_SUPERVISOR + supervisor, project));
 					}
-					if (user2.getExperience().equals("LOW") || user2.getExperience().equals("VERY LOW")) {
+					if (fb.getVariable("supervisor2").getValue() != 0) {
 						String supervisor = employeeService.getSupervisor(user2.getTeam());
 						recommendations
 								.add(new Recommendation(user2.getName(), SOLUTION_SUPERVISOR + supervisor, project));
@@ -205,7 +236,8 @@ public class ExpertSystemController {
 		// Calculate cultural distance as the mean of all distances
 		double culturalDistance = (pdiDif + idvDif + masDif + uaiDif + ltowvsDif + ivrDif) / 6;
 
-		return culturalDistance;
+		// Return normalized
+		return culturalDistance / 100;
 	}
 
 	private double parseOverlap(String timezone1, String timezone2) {

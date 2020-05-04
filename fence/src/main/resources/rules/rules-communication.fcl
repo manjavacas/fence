@@ -1,0 +1,208 @@
+
+FUNCTION_BLOCK recommender
+
+/////////////////// VARIABLES DECLARATION ///////////////////
+
+VAR_INPUT
+	culturalDist : REAL;
+	overlap : REAL;
+	age1 : REAL;
+	age2 : REAL;
+	englishLevel : REAL;
+	experience1 : REAL;
+	experience2 : REAL;
+END_VAR
+
+VAR_OUTPUT
+	mediator : REAL;
+	training : REAL;
+	supervisor1 : REAL;
+	supervisor2 : REAL;
+	solution1 : REAL;
+	solution2 : REAL;
+	solution3 : REAL;
+	solution4 : REAL;
+	solution5 : REAL;
+	solution6 : REAL;
+	solution7 : REAL;
+	solution8 : REAL;
+	solution9 : REAL;
+END_VAR
+
+/////////////////// FUZZIFY VARIABLES ///////////////////
+
+FUZZIFY culturalDist // Cultural distance
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY overlap // Time overlap
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY age1 // User1's age
+	TERM low := trian 16 16 36;
+	TERM medium := trian 26 36 50;
+	TERM high := trian 40 67 67;
+END_FUZZIFY
+
+FUZZIFY age2 // User2's age
+	TERM low := trian 16 16 36;
+	TERM medium := trian 26 36 50;
+	TERM high := trian 40 67 67;
+END_FUZZIFY
+
+FUZZIFY englishLevel // English level
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY experience1 // Experience of user1
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY experience2 // Experience of user2
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+/////////////////// DEFUZZIFY VARIABLES ///////////////////
+
+DEFUZZIFY mediator // Communication mediator
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY training // Communication training
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY supervisor1 // Supervisor for user1
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY supervisor2 // Supervisor for user2
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution1
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution2
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution3
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution4
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution5
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution6
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution7
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution8
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+DEFUZZIFY solution9
+	TERM notRecommended := 0;
+	TERM recommended := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+/////////////////// RULES ///////////////////
+
+RULEBLOCK rules
+
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX;
+
+	RULE 0: IF (age1 IS high OR age2 IS high) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel is low OR englishLevel is veryLow) THEN solution1 IS recommended;
+	RULE 1: IF (age1 IS high OR age2 IS high) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel is medium) THEN solution2 IS recommended;
+	RULE 2: IF (age1 IS high OR age2 IS high) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel is high OR englishLevel is veryHigh) THEN solution3 IS recommended;
+	
+	RULE 3: IF (age1 IS high OR age2 IS high) AND (overlap IS medium OR overlap IS high OR overlap is veryHigh) AND (englishLevel IS veryHigh OR englishLevel IS high OR englishLevel IS medium) THEN solution4 IS recommended;
+	RULE 4: IF (age1 IS high OR age2 IS high) AND (overlap IS medium OR overlap IS high OR overlap is veryHigh) AND (englishLevel IS veryLow OR englishLevel IS low) THEN solution5 IS recommended;
+	
+	RULE 5: IF (age1 IS low OR age1 IS medium) AND (age2 IS low OR age2 IS medium) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN solution6 IS recommended;
+	RULE 6: IF (age1 IS low OR age1 IS medium) AND (age2 IS low OR age2 IS medium) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel IS low OR englishLevel IS veryLow) THEN solution7 IS recommended;
+	
+	RULE 7: IF (age1 IS low OR age1 IS medium) AND (age2 IS low OR age2 IS medium) AND (overlap IS medium OR overlap IS high OR overlap IS veryHigh) AND (englishLevel IS veryHigh OR englishLevel IS high OR englishLevel IS medium) THEN solution8 IS recommended;
+	RULE 8: IF (age1 IS low OR age1 IS medium) AND (age2 IS low OR age2 IS medium) AND (overlap IS medium OR overlap IS high OR overlap IS veryHigh) AND (englishLevel IS veryLow OR englishLevel IS low) THEN solution9 IS recommended;
+	
+	RULE 9: IF (culturalDist IS veryHigh) THEN mediator IS recommended;
+	RULE 10: IF (culturalDist IS high) THEN training IS recommended;
+	
+	RULE 11: IF (experience1 IS low OR experience1 IS veryLow) THEN supervisor1 IS recommended;
+	RULE 12: IF (experience2 IS low OR experience2 IS veryLow) THEN supervisor2 IS recommended;
+	
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

@@ -22,8 +22,6 @@ public class Employee {
 	private String experience;
 	private String team;
 
-	private double experienceNum;
-
 	public Employee() {
 	}
 
@@ -127,27 +125,6 @@ public class Employee {
 		return experience;
 	}
 
-	public double getExperienceNum() {
-		switch (this.experience) {
-		case "VERY HIGH":
-			this.experienceNum = 1;
-			break;
-		case "HIGH":
-			this.experienceNum = .7;
-			break;
-		case "MEDIUM":
-			this.experienceNum = .5;
-			break;
-		case "LOW":
-			this.experienceNum = .3;
-			break;
-		default: // "VERY LOW"
-			this.experienceNum = 0;
-		}
-
-		return this.experienceNum;
-	}
-
 	public void setExperience(String experience) {
 		this.experience = experience;
 	}
@@ -158,6 +135,54 @@ public class Employee {
 
 	public void setTeam(String team) {
 		this.team = team;
+	}
+
+	public double getExperienceNum() {
+
+		double experienceNum = 0;
+
+		switch (this.experience) {
+		case "VERY HIGH":
+			experienceNum = 1;
+			break;
+		case "HIGH":
+			experienceNum = .7;
+			break;
+		case "MEDIUM":
+			experienceNum = .5;
+			break;
+		case "LOW":
+			experienceNum = .3;
+			break;
+		default: // "VERY LOW"
+			experienceNum = 0;
+		}
+
+		return experienceNum;
+	}
+
+	public double getEnglishLevelNum() {
+
+		double englishLevelNum = 0;
+
+		switch (this.englishLevel) {
+		case "VERY HIGH":
+			englishLevelNum = 1;
+			break;
+		case "HIGH":
+			englishLevelNum = .7;
+			break;
+		case "MEDIUM":
+			englishLevelNum = .5;
+			break;
+		case "LOW":
+			englishLevelNum = .3;
+			break;
+		default: // "VERY LOW"
+			englishLevelNum = 0;
+		}
+
+		return englishLevelNum;
 	}
 
 }
