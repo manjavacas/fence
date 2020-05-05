@@ -38,15 +38,18 @@ function loadSTCData() {
 
         // Load latests meditions
         var project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
-
-        const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
-        const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;
-        const restSTCProjects = mainResource + 'ProjectsSTC/project/' + project;
-    
-        getDataSTCEmployees(resSTCEmployees, 'table-stc-employees');
-        getDataSTCTeams(resSTCTeams, 'table-stc-teams');
-        getDataSTCProject(restSTCProjects, 'table-stc-projects');
+        loadLatestMeditions(project);
 
         document.body.style.cursor = 'default';
     });
+}
+
+function loadLatestMeditions(project) {
+    const resSTCEmployees = mainResource + 'EmployeesSTC/project/' + project;
+    const resSTCTeams = mainResource + 'TeamsSTC/project/' + project;
+    const restSTCProjects = mainResource + 'ProjectsSTC/project/' + project;
+
+    getDataSTCEmployees(resSTCEmployees, 'table-stc-employees');
+    getDataSTCTeams(resSTCTeams, 'table-stc-teams');
+    getDataSTCProject(restSTCProjects, 'table-stc-projects');
 }

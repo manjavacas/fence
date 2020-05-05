@@ -13,12 +13,12 @@ public class MinGap {
 	private String user1;
 	private String user2;
 	private String project;
-	private int customWeight;
+	private double customWeight;
 
 	public MinGap() {
 	}
 
-	public MinGap(String user1, String user2, String project, int customWeight) {
+	public MinGap(String user1, String user2, String project, double customWeight) {
 		super();
 		this.user1 = user1;
 		this.user2 = user2;
@@ -58,11 +58,11 @@ public class MinGap {
 		this.project = project;
 	}
 
-	public int getCustomWeight() {
+	public double getCustomWeight() {
 		return customWeight;
 	}
 
-	public void setCustomWeight(int customWeight) {
+	public void setCustomWeight(double customWeight) {
 		this.customWeight = customWeight;
 	}
 

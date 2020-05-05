@@ -33,7 +33,7 @@ function setPage() {
         var project = document.getElementById('select-project-recommendations').options[document.getElementById('select-project-recommendations').selectedIndex].text;
 
         loadRecommendations(project);
-
+        document.body.style.cursor = 'default';
     });
 
 }

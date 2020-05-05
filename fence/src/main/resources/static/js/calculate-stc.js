@@ -137,3 +137,8 @@ function getDataSTCProject(resource, tableId) {
 
 }
 
+document.getElementById('select-project').addEventListener('change', function () {
+    var project = document.getElementById('select-project').options[document.getElementById('select-project').selectedIndex].text;
+    loadLatestMeditions(project);
+});
+
