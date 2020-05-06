@@ -20,8 +20,6 @@ public interface TaskRepository extends MongoRepository<Task, String> {
 
 	List<Task> findByPriority(String level);
 
-	List<Task> findByType(String type);
-
 	void deleteByReference(String reference);
 
 }

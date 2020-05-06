@@ -67,18 +67,27 @@ public class TaskDependency {
 	}
 
 	public double getValueWeight() {
+
+		double valueWeight = 0;
+
 		switch (this.value) {
 		case "VERY HIGH":
-			return 1;
+			valueWeight = 1;
+			break;
 		case "HIGH":
-			return 0.75;
+			valueWeight = .8;
+			break;
 		case "MEDIUM":
-			return 0.5;
+			valueWeight = .6;
+			break;
 		case "LOW":
-			return 0.25;
-		default: // VERY LOW
-			return 0;
+			valueWeight = .4;
+			break;
+		default: // "VERY LOW"
+			valueWeight = .2;
 		}
+
+		return valueWeight;
 	}
 
 }

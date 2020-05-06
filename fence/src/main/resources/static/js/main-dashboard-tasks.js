@@ -10,7 +10,6 @@ const newTrTask = `
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half'>
     <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
     <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
@@ -30,7 +29,7 @@ $tableTasksID.on('click', '.table-remove-task', function () {
 
     const resource = mainResource + 'Tasks/';
 
-    const headings = ['reference', 'description', 'duration_days', 'priority', 'done', 'type', 'project'];
+    const headings = ['reference', 'description', 'duration_days', 'priority', 'done', 'project'];
 
     var obj = {};
 
@@ -100,7 +99,6 @@ $tabTasks.on('click', function () {
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['duration_days'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['priority'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['done'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['type'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['project'] + `</td>
                     <td class='pt-3-half'>
                         <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
@@ -124,7 +122,7 @@ $('.table-update-tasks').on('click', 'i', () => {
     const bodyRef = '#dataTasks > tbody';
     const tableBody = document.querySelector(bodyRef);
 
-    const headings = ['reference', 'description', 'duration_days', 'priority', 'done', 'type', 'project'];
+    const headings = ['reference', 'description', 'duration_days', 'priority', 'done', 'project'];
 
     for (let i = 0, row; row = tableBody.rows[i]; i++) {
 

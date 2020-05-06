@@ -90,6 +90,7 @@ public class STCMeasurer {
 
 		boolean success = true;
 
+		System.out.println("[STC] Starting STC measurement...");
 		try {
 			List<TA> taMatrix = calculateTAMatrix(project);
 			List<TD> tdMatrix = calculateTDMatrix(project);
@@ -105,6 +106,7 @@ public class STCMeasurer {
 			success = false;
 		}
 
+		System.out.println("[STC] Done!");
 		return success;
 	}
 
@@ -123,10 +125,7 @@ public class STCMeasurer {
 			if (users.size() > 0) {
 
 				// Compute experience summatory
-				double sumExp = 0;
-				for (Employee user : users) {
-					sumExp += user.getExperienceNum();
-				}
+				double sumExp = users.stream().mapToDouble(Employee::getExperienceNum).sum();
 
 				// Compute weight and save in matrix
 				for (Employee user : users) {
@@ -163,14 +162,19 @@ public class STCMeasurer {
 			// Get tasks dependencies within a project
 			List<TaskDependency> taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
 
-			// Compute dependency values summatory
-			double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValueWeight).sum();
+			if (taskDependencies.size() != 0) {
+				
+				// Compute dependency values summatory
+				double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValueWeight).sum();
 
-			// Compute weight and save in matrix
-			for (TaskDependency taskDependency : taskDependencies) {
-				// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
-				double weight = taskDependency.getValueWeight() / sumValues;
-				taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
+				// Compute weight and save in matrix
+				for (TaskDependency taskDependency : taskDependencies) {
+					
+					// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
+					double weight = taskDependency.getValueWeight() / sumValues;
+					
+					taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
+				}
 			}
 
 		}
@@ -211,9 +215,9 @@ public class STCMeasurer {
 
 						// CR.weight = TA[user1][task] * TA[user2][dependency] * TD[task][dependency]
 						double weight = weightTA1 * weightTA2 * weightTD;
-
-						// TODO: Apply Global Software Development distances
-						// weight = computeGlobalFactorsCR(weight, employeeService.getEmployee(user1), user2);
+						
+						// Apply sociocultural factors
+						weight += computeGlobalFactors(employeeService.getEmployee(user1), user2);
 
 						if (weight > 1) {
 							weight = 1;
@@ -253,82 +257,80 @@ public class STCMeasurer {
 
 		// Check communications for each employee
 		for (String user : users) {
+
 			double weightCA = 0;
 
 			// Get tasks assigned to user
 			List<Task> userTasks = taskAssignmentService.getTasksAssignedTo(user);
 
-			if (userTasks.size() > 0) {
+			// Get user communications (bidirectional)
+			List<Communication> userCommunications = communicationService.getCommunicationsByUser1OrUser2(user);
 
-				// Get user communications (bidirectional)
-				List<Communication> userCommunications = communicationService.getCommunicationsByUser1OrUser2(user);
+			for (Communication communication : userCommunications) {
 
-				for (Communication communication : userCommunications) {
+				// Get second user
+				String user2 = null;
+				if (communication.getUser1().equals(user)) {
+					user2 = communication.getUser2();
+				} else {
+					user2 = communication.getUser1();
+				}
 
-					// Get second user
-					String user2 = null;
-					if(communication.getUser1().equals(user)) {
-						user2 = communication.getUser2();
-					} else {
-						user2 = communication.getUser1();
+				// Get the number of tasks dependencies for which user1 and user2 must
+				// communicate
+				int totalDependencies = 0;
+				List<TaskDependency> taskDependencies = new ArrayList<TaskDependency>();
+				for (Task task : userTasks) {
+					taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
+					for (TaskDependency td : taskDependencies) {
+						if (taskAssignmentService.getEmployeesIdsAssignedTo(td.getTask2()).contains(user2)) {
+							totalDependencies++;
+						}
 					}
+				}
 
-					// Get user tasks dependencies for which user1 and user2 must communicate
-					List<Task> userDependencies = new ArrayList<Task>();
-					List<TaskDependency> taskDependencies = new ArrayList<TaskDependency>();
-					for (Task task : userTasks) {
-						taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
-						for (TaskDependency td : taskDependencies) {
-							if (taskAssignmentService.getEmployeesIdsAssignedTo(td.getTask2()).contains(user2)) {
-								userDependencies.add(taskService.getTask(td.getTask2()));
-							}
+				if (totalDependencies > 0) {
+
+					// Communications between user1 and user 2
+					List<Communication> communications = communicationService.getCommunicationsBetween(user, user2);
+					int totalCommunications = communications.size();
+
+					// Communications for the given tasks
+					int taskCommunications = 0;
+					for (Communication com : communications) {
+						if (com.getTaskRef().equals(communication.getTaskRef())) {
+							taskCommunications++;
 						}
 					}
 
-					int totalDependencies = userDependencies.size();
+					if (taskCommunications > 0) {
 
-					if (totalDependencies > 0) {
+						double frequency;
 
-						// Communications between user1 and user 2
-						List<Communication> communications = communicationService.getCommunicationsBetween(user, user2);
-						int totalCommunications = communications.size();
-
-						// Communications for the given task
-						int taskCommunications = 0;
-						for (Communication com : communications) {
-							if (com.getTaskRef().equals(communication.getTaskRef())) {
-								taskCommunications++;
-							}
+						// Task communications frequency
+						if (taskCommunications >= 10) {
+							frequency = 1; // VERY HIGH
+						} else if (taskCommunications >= 8) {
+							frequency = 0.8; // HIGH
+						} else if (taskCommunications >= 6) {
+							frequency = 0.6; // NORMAL
+						} else if (taskCommunications >= 4) {
+							frequency = 0.4; // LOW
+						} else {
+							frequency = 0.2; // VERY LOW
 						}
 
-						if (taskCommunications > 0) {
+						// Weight calculation
+						weightCA += (frequency * 1 / totalDependencies) / totalCommunications;
 
-							double frequency;
+						// Apply sociocultural factors
+						weightCA -= computeGlobalFactors(employeeService.getEmployee(user),
+								employeeService.getEmployee(user2));
 
-							// Task communications frequency
-							if (taskCommunications >= 10) {
-								frequency = 1; // VERY HIGH
-							} else if (taskCommunications >= 8) {
-								frequency = 0.8; // HIGH
-							} else if (taskCommunications >= 6) {
-								frequency = 0.6; // NORMAL
-							} else if (taskCommunications >= 4) {
-								frequency = 0.4; // LOW
-							} else {
-								frequency = 0.2; // VERY LOW
-							}
-
-							// Weight calculation
-							weightCA += (frequency * 1 / totalDependencies) / totalCommunications;
-
-							// TODO: Apply GSD increments
-							// weightCA = computeGlobalFactorsCA(weightCA, communication);
-
-							actualCommunicationMatrix
-									.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
-						}
-
+						actualCommunicationMatrix
+								.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
 					}
+
 				}
 
 			}
@@ -346,10 +348,6 @@ public class STCMeasurer {
 
 		List<CG> coordinationGapMatrix = new ArrayList<CG>();
 
-		double weightCA;
-		double weightCR;
-		double weightCG;
-
 		for (CR cr : crMatrix) {
 
 			// Find CAs that cover the current CR
@@ -358,15 +356,13 @@ public class STCMeasurer {
 			if (caList.size() > 0) {
 
 				// Sum communications
-				weightCA = 0;
-				for (CA ca : caList) {
-					weightCA += ca.getWeight();
-				}
+				double weightCA = caList.stream().mapToDouble(CA::getWeight).sum();
 
-				weightCR = cr.getWeight();
+				// Get coordination needed
+				double weightCR = cr.getWeight();
 
-				// Compute CG weight
-				weightCG = weightCR - weightCA;
+				// Compute gap weight
+				double weightCG = weightCR - weightCA;
 
 				if (weightCG > 0) {
 					coordinationGapMatrix
@@ -394,6 +390,7 @@ public class STCMeasurer {
 		List<Employee> allProjectEmployees = new ArrayList<Employee>();
 		List<Employee> allEmployees = employeeService.getAllEmployees();
 		List<Team> allProjectTeams = teamService.getTeamsByProject(project);
+		
 		for (Employee employee : allEmployees) {
 			for (Team team : allProjectTeams) {
 				if (team.getName().equals(employee.getTeam())) {
@@ -415,23 +412,17 @@ public class STCMeasurer {
 			employeeCGs = cgService.getCGByUser1(employee.getDni());
 
 			// Get CR sum
-			double employeeCRsum = 0;
-			for (CR cr : employeeCRs) {
-				employeeCRsum += cr.getWeight();
-			}
+			double employeeCRsum = employeeCRs.stream().mapToDouble(CR::getWeight).sum();
 
 			// Get CG sum
-			double employeeCGsum = 0;
-			for (CG cg : employeeCGs) {
-				employeeCGsum += cg.getWeight();
-			}
+			double employeeCGsum = employeeCGs.stream().mapToDouble(CG::getWeight).sum();
 
 			// Calculate STC
 			if (employeeCGsum <= 0) {
 				stcEmployees.add(new EmployeeSTC(employee.getDni(), 100.0, new Date()));
 			} else {
-				double stcUser = 1 - employeeCGsum / employeeCRsum;
-				stcEmployees.add(new EmployeeSTC(employee.getDni(), Math.round(stcUser * 100.0) / 100.0, new Date()));
+				double stcUser = Math.round((1 - employeeCGsum / employeeCRsum) * 100.0) / 100.0;
+				stcEmployees.add(new EmployeeSTC(employee.getDni(), stcUser * 100, new Date()));
 			}
 
 		}
@@ -471,15 +462,13 @@ public class STCMeasurer {
 			// Sum CRs and CGs weights
 			for (Employee employee : teamUsers) {
 
+				// Sum CR weights
 				List<CR> employeeCRs = crService.getCRByUser1(employee.getDni());
-				for (CR cr : employeeCRs) {
-					teamCRsum += cr.getWeight();
-				}
+				teamCRsum = employeeCRs.stream().mapToDouble(CR::getWeight).sum();
 
+				// Sum CG weights
 				List<CG> employeeCGs = cgService.getCGByUser1(employee.getDni());
-				for (CG cg : employeeCGs) {
-					teamCGsum += cg.getWeight();
-				}
+				teamCGsum = employeeCGs.stream().mapToDouble(CG::getWeight).sum();
 
 			}
 
@@ -487,8 +476,8 @@ public class STCMeasurer {
 			if (teamCGsum <= 0) {
 				stcTeams.add(new TeamSTC(team.getName(), 100.0, new Date()));
 			} else {
-				double stcTeam = 1 - teamCGsum / teamCRsum;
-				stcTeams.add(new TeamSTC(team.getName(), Math.round(stcTeam * 100.0) / 100.0, new Date()));
+				double stcTeam = Math.round((1 - teamCGsum / teamCRsum) * 100.0) / 100.0;
+				stcTeams.add(new TeamSTC(team.getName(), stcTeam * 100, new Date()));
 			}
 
 		}
@@ -507,23 +496,17 @@ public class STCMeasurer {
 		ProjectSTC stcProject;
 
 		// Sum CR weights
-		double sumCRproject = 0;
-		for (CR cr : crMatrix) {
-			sumCRproject += cr.getWeight();
-		}
+		double sumCRproject = crMatrix.stream().mapToDouble(CR::getWeight).sum();
 
 		// Sum CG weights
-		double sumCGproject = 0;
-		for (CG cg : cgMatrix) {
-			sumCGproject += cg.getWeight();
-		}
+		double sumCGproject = cgMatrix.stream().mapToDouble(CG::getWeight).sum();
 
 		// Calculate STC
 		if (sumCGproject <= 0) {
 			stcProject = new ProjectSTC(project, 100.0, new Date());
 		} else {
-			double stc = 1 - sumCGproject / sumCRproject;
-			stcProject = new ProjectSTC(project, Math.round(stc * 100.0) / 100.0, new Date());
+			double stc = Math.round((1 - sumCGproject / sumCRproject) * 100.0) / 100.0;
+			stcProject = new ProjectSTC(project, stc * 100, new Date());
 		}
 
 		// Save in database
@@ -531,42 +514,7 @@ public class STCMeasurer {
 
 	}
 
-	private double computeGlobalFactorsCR(double weight, Employee user1, Employee user2) {
-
-		// Addition coefficient that will be applied
-		double coefficient = 0;
-
-		// Geographical distance
-		if (!user1.getCountry().equals(user2.getCountry())) {
-			coefficient += 0.2;
-		}
-
-		// TODO: Check sign: UTC+1, UTC-6, etc.
-		// Temporal distance (UTC+XY)
-		// int hour1 = Integer.parseInt(user1.getTimezone().substring(4,
-		// user1.getTimezone().length()));
-		// int hour2 = Integer.parseInt(user2.getTimezone().substring(4,
-		// user2.getTimezone().length()));
-		//
-		// double temporalDistance = Math.sqrt(Math.pow(hour1, 2) - Math.pow(hour2, 2));
-		//
-		// if (temporalDistance > 8) {
-		// coefficient += 0.3;
-		// } else if (temporalDistance > 5) {
-		// coefficient += 0.2;
-		// } else if (temporalDistance > 3) {
-		// coefficient += 0.1;
-		// }
-
-		// TO-DO
-		// Sociocultural distance
-		// double scDistance = computeSocioculturalDistance(user1.getCountry(),
-		// user2.getCountry());
-
-		return weight + coefficient;
-	}
-
-	private double computeGlobalFactorsCA(double weight, Communication communication) {
+	private double computeGlobalFactors(Employee user1, Employee user2) {
 		return 0;
 	}
 

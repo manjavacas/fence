@@ -16,7 +16,6 @@ public class Task {
 	private String priority;
 	private boolean done;
 	private String project;
-	private String type;
 
 	private double priorityNum;
 
@@ -24,7 +23,7 @@ public class Task {
 	}
 
 	public Task(String reference, String description, double duration_days, String priority, boolean done,
-			String project, String type) {
+			String project) {
 		super();
 		this.reference = reference;
 		this.description = description;
@@ -32,7 +31,7 @@ public class Task {
 		this.priority = priority;
 		this.done = done;
 		this.project = project;
-		this.type = type;
+
 	}
 
 	public ObjectId get_id() {
@@ -77,15 +76,9 @@ public class Task {
 			this.priorityNum = 2;
 			break;
 		case "HIGH":
-			this.priorityNum = 1.75;
-			break;
-		case "MEDIUM":
 			this.priorityNum = 1.5;
 			break;
-		case "LOW":
-			this.priorityNum = 1.25;
-			break;
-		default: // VERY LOW
+		default: // MEDIUM, LOW, VERY LOW
 			this.priorityNum = 1;
 		}
 
@@ -110,14 +103,6 @@ public class Task {
 
 	public void setProject(String project) {
 		this.project = project;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
 	}
 
 }

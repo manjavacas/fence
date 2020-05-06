@@ -34,10 +34,6 @@ public class TaskService {
 		return taskRepository.findByPriority(level);
 	}
 
-	public List<Task> getTasksByType(String type) {
-		return taskRepository.findByType(type);
-	}
-
 	public void updateTask(String reference, Task newTask) {
 		Task currentTask = taskRepository.findByReference(reference);
 
@@ -51,7 +47,6 @@ public class TaskService {
 		currentTask.setPriority(newTask.getPriority());
 		currentTask.setDone(newTask.isDone());
 		currentTask.setProject(newTask.getProject());
-		currentTask.setType(newTask.getType());
 
 		taskRepository.save(currentTask);
 	}
