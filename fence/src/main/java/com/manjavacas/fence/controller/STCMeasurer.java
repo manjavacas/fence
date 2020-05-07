@@ -1,5 +1,6 @@
 package com.manjavacas.fence.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -41,10 +42,10 @@ import com.manjavacas.fence.service.TeamService;
 public class STCMeasurer {
 
 	@Autowired
-	TaskService taskService;
+	ExpertSystemController expertSystemController;
 
 	@Autowired
-	TaskController taskController;
+	TaskService taskService;
 
 	@Autowired
 	EmployeeService employeeService;
@@ -163,16 +164,16 @@ public class STCMeasurer {
 			List<TaskDependency> taskDependencies = taskDependencyService.getDependenciesOf(task.getReference());
 
 			if (taskDependencies.size() != 0) {
-				
+
 				// Compute dependency values summatory
 				double sumValues = taskDependencies.stream().mapToDouble(TaskDependency::getValueWeight).sum();
 
 				// Compute weight and save in matrix
 				for (TaskDependency taskDependency : taskDependencies) {
-					
+
 					// WEIGHT = TASK_DEPENDENCY_VALUE / DEPENDENCY_VALUES_SUM
 					double weight = taskDependency.getValueWeight() / sumValues;
-					
+
 					taskDependenciesMatrix.add(new TD(task.getReference(), taskDependency.getTask2(), project, weight));
 				}
 			}
@@ -215,7 +216,7 @@ public class STCMeasurer {
 
 						// CR.weight = TA[user1][task] * TA[user2][dependency] * TD[task][dependency]
 						double weight = weightTA1 * weightTA2 * weightTD;
-						
+
 						// Apply sociocultural factors
 						weight += computeGlobalFactors(employeeService.getEmployee(user1), user2);
 
@@ -308,16 +309,12 @@ public class STCMeasurer {
 						double frequency;
 
 						// Task communications frequency
-						if (taskCommunications >= 10) {
-							frequency = 1; // VERY HIGH
-						} else if (taskCommunications >= 8) {
-							frequency = 0.8; // HIGH
-						} else if (taskCommunications >= 6) {
-							frequency = 0.6; // NORMAL
-						} else if (taskCommunications >= 4) {
-							frequency = 0.4; // LOW
+						if (taskCommunications >= 5) {
+							frequency = 1; // HIGH
+						} else if (taskCommunications >= 3) {
+							frequency = 0.6; // MEDIUM
 						} else {
-							frequency = 0.2; // VERY LOW
+							frequency = 0.3; // LOW
 						}
 
 						// Weight calculation
@@ -326,6 +323,10 @@ public class STCMeasurer {
 						// Apply sociocultural factors
 						weightCA -= computeGlobalFactors(employeeService.getEmployee(user),
 								employeeService.getEmployee(user2));
+
+						if (weightCA < 0) {
+							weightCA = 0;
+						}
 
 						actualCommunicationMatrix
 								.add(new CA(user, user2, communication.getTaskRef(), project, weightCA));
@@ -390,7 +391,7 @@ public class STCMeasurer {
 		List<Employee> allProjectEmployees = new ArrayList<Employee>();
 		List<Employee> allEmployees = employeeService.getAllEmployees();
 		List<Team> allProjectTeams = teamService.getTeamsByProject(project);
-		
+
 		for (Employee employee : allEmployees) {
 			for (Team team : allProjectTeams) {
 				if (team.getName().equals(employee.getTeam())) {
@@ -515,7 +516,12 @@ public class STCMeasurer {
 	}
 
 	private double computeGlobalFactors(Employee user1, Employee user2) {
-		return 0;
+		try {
+			return expertSystemController.runWeightModifier(user1, user2);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 
 }

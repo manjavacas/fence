@@ -28,9 +28,12 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 @RestController
 public class ExpertSystemController {
 
-	// Expert system constants
-	private final static String RULES_RESOURCE = "classpath:rules/rules-communication.fcl";
-	private final static String FUNCTION_BLOCK = "recommender";
+	// Expert systems constants
+	private final static String RULES_RESOURCE_RECOMMENDER = "classpath:rules/rules-communication.fcl";
+	private final static String FUNCTION_BLOCK_RECOMMENDER = "recommender";
+
+	private final static String RULES_RESOURCE_STC = "classpath:rules/rules-stc.fcl";
+	private final static String FUNCTION_BLOCK_STC = "fitter";
 
 	private final static int N_COMMUNICATION_SOLUTIONS = 9;
 
@@ -104,11 +107,11 @@ public class ExpertSystemController {
 		List<CG> gaps = cgService.getCGByProject(project);
 
 		// Load fuzzy inference system
-		Resource resource = resourceLoader.getResource(RULES_RESOURCE);
+		Resource resource = resourceLoader.getResource(RULES_RESOURCE_RECOMMENDER);
 		FIS fis = FIS.load(resource.getFile().getAbsolutePath());
 
 		// Get the recommender function block
-		FunctionBlock fb = fis.getFunctionBlock(FUNCTION_BLOCK);
+		FunctionBlock fb = fis.getFunctionBlock(FUNCTION_BLOCK_RECOMMENDER);
 
 		// Input
 		for (CG gap : gaps) {
@@ -122,7 +125,7 @@ public class ExpertSystemController {
 				fb.setVariable("age1", user1.getAge());
 				fb.setVariable("age2", user2.getAge());
 
-				fb.setVariable("englishLevel", (user1.getEnglishLevelNum() + user2.getEnglishLevelNum()) / 2);
+				fb.setVariable("englishLevel", parseEnglishLevel(user1.getEnglishLevel(), user2.getEnglishLevel()));
 
 				fb.setVariable("experience1", user1.getExperienceNum());
 				fb.setVariable("experience2", user2.getExperienceNum());
@@ -239,6 +242,30 @@ public class ExpertSystemController {
 
 	}
 
+	public double runWeightModifier(Employee user1, Employee user2) throws IOException {
+
+		// Load fuzzy inference system
+		Resource resource = resourceLoader.getResource(RULES_RESOURCE_STC);
+		FIS fis = FIS.load(resource.getFile().getAbsolutePath());
+
+		// Get the fitter function block
+		FunctionBlock fb = fis.getFunctionBlock(FUNCTION_BLOCK_STC);
+
+		// Set variables
+		fb.setVariable("culturalDist", parseCulturalDist(user1.getCountry(), user2.getCountry()));
+		fb.setVariable("overlap", parseOverlap(user1.getTimezone(), user2.getTimezone()));
+		fb.setVariable("englishLevel", parseEnglishLevel(user1.getEnglishLevel(), user2.getEnglishLevel()));
+
+		// JFuzzyChart.get().chart(fb);
+
+		// Evaluate
+		fb.evaluate();
+
+		Variable modifier = fb.getVariable("modifier");
+
+		return modifier.getValue();
+	}
+
 	private double parseCulturalDist(String name1, String name2) {
 
 		Country country1 = countryService.getCountry(name1);
@@ -275,4 +302,27 @@ public class ExpertSystemController {
 		return 1 - (timeDif / 26);
 	}
 
+	private double parseEnglishLevel(String level1, String level2) {
+
+		if ((level1.equals("VERY HIGH") || level1.equals("HIGH"))
+				&& (level2.equals("VERY HIGH") || level2.equals("HIGH"))) {
+			return 1; // high common level
+		} else if ((level1.equals("VERY HIGH") || level1.equals("HIGH")) && (level2.equals("MEDIUM"))) {
+			return .7; // medium-high common level
+		} else if ((level2.equals("VERY HIGH") || level2.equals("HIGH")) && (level1.equals("MEDIUM"))) {
+			return .7; // medium-high common level
+		} else if ((level1.equals("MEDIUM")) && (level2.equals("MEDIUM"))) {
+			return .5; // medium-high common level
+		} else if ((level1.equals("VERY LOW") || level1.equals("LOW")) && (level2.equals("MEDIUM"))) {
+			return .3; // medium-low common level
+		} else if ((level2.equals("VERY LOW") || level2.equals("LOW")) && (level1.equals("MEDIUM"))) {
+			return .3; // medium-low common level
+		} else if ((level1.equals("VERY LOW") || level1.equals("LOW"))
+				&& (level2.equals("VERY LOW") || level2.equals("LOW"))) {
+			return 0; // low common level
+		} else {
+			return 0; // very different levels (i.e. VERY HIGH and VERY LOW)
+		}
+
+	}
 }

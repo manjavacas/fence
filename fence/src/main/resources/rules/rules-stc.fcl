@@ -1,0 +1,80 @@
+
+FUNCTION_BLOCK fitter
+
+/////////////////// VARIABLES DECLARATION ///////////////////
+
+VAR_INPUT
+	culturalDist : REAL;
+	overlap : REAL;
+	englishLevel : REAL;
+	experience1 : REAL;
+	experience2 : REAL;
+END_VAR
+
+VAR_OUTPUT
+	modifier : REAL;
+END_VAR
+
+
+/////////////////// FUZZIFY VARIABLES ///////////////////
+
+FUZZIFY culturalDist // Cultural distance
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY overlap // Time overlap
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+FUZZIFY englishLevel // English level
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+END_FUZZIFY
+
+/////////////////// DEFUZZIFY VARIABLES ///////////////////
+
+DEFUZZIFY modifier // Weight modifier
+	TERM veryLow := trape 0 0 0.1 0.3;
+	TERM low := trian 0.1 0.3 0.5;
+	TERM medium := trian 0.3 0.5 0.7;
+	TERM high := trian 0.5 0.7 0.9;
+	TERM veryHigh := trape 0.7 0.9 1 1;
+	METHOD : COG;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+/////////////////// RULES ///////////////////
+
+RULEBLOCK rules
+
+	AND : MIN;
+	ACT : MIN;
+	ACCU : MAX;
+
+	RULE 1: IF (culturalDist IS low OR culturalDist IS veryLow) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel IS low OR englishLevel IS veryLow) THEN modifier IS medium;
+	RULE 2: IF (culturalDist IS low OR culturalDist IS veryLow) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN modifier IS medium;
+	RULE 3: IF (culturalDist IS low OR culturalDist IS veryLow) AND (overlap IS medium) AND (englishLevel IS low OR englishLevel IS veryLow) THEN modifier IS low;
+	RULE 4: IF (culturalDist IS low OR culturalDist IS veryLow) AND (overlap IS medium) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN modifier IS medium;
+	RULE 5: IF (culturalDist IS low OR culturalDist IS veryLow) AND (overlap IS high OR overlap IS veryHigh) AND (englishLevel IS low OR englishLevel IS veryLow) THEN modifier IS veryLow;
+	RULE 6: IF (culturalDist IS low OR culturalDist IS veryLow) AND (overlap IS high OR overlap IS veryHigh) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN modifier IS veryLow;
+	RULE 7: IF (culturalDist IS medium OR culturalDist IS high OR culturalDist IS veryHigh) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel IS low OR englishLevel is veryLow) THEN modifier IS veryHigh;
+	RULE 8: IF (culturalDist IS medium OR culturalDist IS high OR culturalDist IS veryHigh) AND (overlap IS low OR overlap IS veryLow) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN modifier IS high;
+	RULE 9: IF (culturalDist IS medium OR  culturalDist IS high OR culturalDist IS veryHigh) AND (overlap IS medium) AND (englishLevel IS low OR englishLevel is veryLow) THEN modifier IS veryHigh;
+	RULE 10: IF (culturalDist IS medium OR culturalDist IS high OR culturalDist IS veryHigh) AND (overlap IS medium) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN modifier IS medium;
+	RULE 11: IF (culturalDist IS medium OR culturalDist IS high OR culturalDist IS veryHigh) AND (overlap IS high OR overlap IS veryHigh) AND (englishLevel IS low OR englishLevel is veryLow) THEN modifier IS high;
+	RULE 12: IF (culturalDist IS medium OR culturalDist IS high OR culturalDist IS veryHigh) AND (overlap IS high OR overlap IS veryHigh) AND (englishLevel IS medium OR englishLevel IS high OR englishLevel IS veryHigh) THEN modifier IS medium;
+	
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

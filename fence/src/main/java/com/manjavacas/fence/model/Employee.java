@@ -161,28 +161,4 @@ public class Employee {
 		return experienceNum;
 	}
 
-	public double getEnglishLevelNum() {
-
-		double englishLevelNum = 0;
-
-		switch (this.englishLevel) {
-		case "VERY HIGH":
-			englishLevelNum = 1;
-			break;
-		case "HIGH":
-			englishLevelNum = .7;
-			break;
-		case "MEDIUM":
-			englishLevelNum = .5;
-			break;
-		case "LOW":
-			englishLevelNum = .3;
-			break;
-		default: // "VERY LOW"
-			englishLevelNum = 0;
-		}
-
-		return englishLevelNum;
-	}
-
 }
