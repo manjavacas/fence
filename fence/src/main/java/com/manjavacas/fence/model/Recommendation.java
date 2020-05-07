@@ -27,9 +27,9 @@ public class Recommendation {
 		this.text = text;
 		this.project = project;
 	}
-	
+
 	public Recommendation() {
-		
+
 	}
 
 	public String getUser1() {
@@ -55,7 +55,7 @@ public class Recommendation {
 	public void setText(String text) {
 		this.text = text;
 	}
-	
+
 	public String getProject() {
 		return project;
 	}
@@ -71,6 +71,28 @@ public class Recommendation {
 		} else {
 			return "Recommendation for " + user1 + " and " + user2 + ": " + text;
 		}
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((project == null) ? 0 : project.hashCode());
+		result = prime * result + ((text == null) ? 0 : text.hashCode());
+		result = prime * result + ((user1 == null) ? 0 : user1.hashCode());
+		result = prime * result + ((user2 == null) ? 0 : user2.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Recommendation other = (Recommendation) obj;
+		return (this.user1.equals(other.user1) && this.user2.equals(other.user2) && this.text.equals(other.text))
+				|| (this.user2.equals(other.user1) && this.user1.equals(other.user2) && this.text.equals(other.text));
+
 	}
 
 }

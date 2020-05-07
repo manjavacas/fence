@@ -66,10 +66,13 @@ function getDataSTCEmployees(resource, tableId) {
         // Load records
         for (let i = 0; i < data.length; i++) {
             if (data[i] !== null) {
+
+                stc = parseFloat(data[i]['stc']);
+
                 rows +=
                     `<tr class='hide'>
                     <td class='pt-3-half'>` + data[i]['employee'] + `</td>
-                    <td class='pt-3-half'>` + data[i]['stc'] + `</td>
+                    <td class='pt-3-half'>` + stc.toFixed(2) + `</td>
                     </tr>`;
             }
         }
@@ -100,10 +103,13 @@ function getDataSTCTeams(resource, tableId) {
         // Load records
         for (let i = 0; i < data.length; i++) {
             if (data[i] !== null) {
+
+                stc = parseFloat(data[i]['stc']);
+
                 rows +=
                     `<tr class='hide'>
                     <td class='pt-3-half'>` + data[i]['team'] + `</td>
-                    <td class='pt-3-half'>` + data[i]['stc'] + `</td>
+                    <td class='pt-3-half'>` + stc.toFixed(2) + `</td>
                 </tr>`;
             }
         }
@@ -136,10 +142,13 @@ function getDataSTCProject(resource, tableId) {
         // Load records
         if (data !== null) {
             if (data['project'] !== undefined && data['stc'] !== undefined) {
+
+                stc = parseFloat(data['stc']);
+
                 row +=
                     `<tr class='hide'>
                 <td class='pt-3-half'>` + data['project'] + `</td>
-                <td class='pt-3-half'>` + data['stc'] + `</td>
+                <td class='pt-3-half'>` + stc.toFixed(2) + `</td>
                 </tr>`;
             }
         }

@@ -28,6 +28,7 @@ import net.sourceforge.jFuzzyLogic.rule.Variable;
 @RestController
 public class ExpertSystemController {
 
+	// Expert system constants
 	private final static String RULES_RESOURCE = "classpath:rules/rules-communication.fcl";
 	private final static String FUNCTION_BLOCK = "recommender";
 
@@ -97,8 +98,9 @@ public class ExpertSystemController {
 	public List<String> runRecommender(String project) throws IOException {
 
 		List<Recommendation> recommendations = new ArrayList<Recommendation>();
+		ArrayList<String> alreadySupervised = new ArrayList<String>();
 
-		// Get all coordination gaps
+		// Get different tuples of users in CG
 		List<CG> gaps = cgService.getCGByProject(project);
 
 		// Load fuzzy inference system
@@ -177,30 +179,47 @@ public class ExpertSystemController {
 						break;
 					}
 
-					recommendations.add(new Recommendation(user1.getName(), user2.getName(), solutionText, project));
+					// Save communication solution
+					Recommendation newRecommendation = new Recommendation(user1.getName(), user2.getName(),
+							solutionText, project);
+					if (!recommendations.contains(newRecommendation)) {
+						recommendations.add(newRecommendation);
+					}
 
 					// Get mediator solution
 					if (fb.getVariable("mediator").getValue() != 0) {
-						recommendations
-								.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_MEDIATOR, project));
+						Recommendation newRecommendationMediator = new Recommendation(user1.getName(), user2.getName(),
+								SOLUTION_MEDIATOR, project);
+						if (!recommendations.contains(newRecommendationMediator)) {
+							recommendations.add(newRecommendationMediator);
+						}
 					}
 
 					// Get training solution
 					if (fb.getVariable("training").getValue() != 0) {
-						recommendations
-								.add(new Recommendation(user1.getName(), user2.getName(), SOLUTION_TRAINING, project));
+						Recommendation newRecommendationTraining = new Recommendation(user1.getName(), user2.getName(),
+								SOLUTION_TRAINING, project);
+						if (!recommendations.contains(newRecommendationTraining)) {
+							recommendations.add(newRecommendationTraining);
+						}
 					}
 
-					// Get supervisor solutions
-					if (fb.getVariable("supervisor1").getValue() != 0) {
+					// Get supervisor1 solution
+					if ((fb.getVariable("supervisor1").getValue() != 0)
+							&& (!alreadySupervised.contains(user1.getDni()))) {
 						String supervisor = employeeService.getSupervisor(user1.getTeam());
 						recommendations
 								.add(new Recommendation(user1.getName(), SOLUTION_SUPERVISOR + supervisor, project));
+						alreadySupervised.add(user1.getDni());
 					}
-					if (fb.getVariable("supervisor2").getValue() != 0) {
+
+					// Get supervisor2 solution
+					if ((fb.getVariable("supervisor2").getValue() != 0)
+							&& (!alreadySupervised.contains(user2.getDni()))) {
 						String supervisor = employeeService.getSupervisor(user2.getTeam());
 						recommendations
 								.add(new Recommendation(user2.getName(), SOLUTION_SUPERVISOR + supervisor, project));
+						alreadySupervised.add(user2.getDni());
 					}
 				}
 			}

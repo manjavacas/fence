@@ -421,7 +421,7 @@ public class STCMeasurer {
 			if (employeeCGsum <= 0) {
 				stcEmployees.add(new EmployeeSTC(employee.getDni(), 100.0, new Date()));
 			} else {
-				double stcUser = Math.round((1 - employeeCGsum / employeeCRsum) * 100.0) / 100.0;
+				double stcUser = 1 - (double) employeeCGsum / employeeCRsum;
 				stcEmployees.add(new EmployeeSTC(employee.getDni(), stcUser * 100, new Date()));
 			}
 
@@ -476,7 +476,7 @@ public class STCMeasurer {
 			if (teamCGsum <= 0) {
 				stcTeams.add(new TeamSTC(team.getName(), 100.0, new Date()));
 			} else {
-				double stcTeam = Math.round((1 - teamCGsum / teamCRsum) * 100.0) / 100.0;
+				double stcTeam = 1 - (double) teamCGsum / teamCRsum;
 				stcTeams.add(new TeamSTC(team.getName(), stcTeam * 100, new Date()));
 			}
 
@@ -505,7 +505,7 @@ public class STCMeasurer {
 		if (sumCGproject <= 0) {
 			stcProject = new ProjectSTC(project, 100.0, new Date());
 		} else {
-			double stc = Math.round((1 - sumCGproject / sumCRproject) * 100.0) / 100.0;
+			double stc = 1 - (double) sumCGproject / sumCRproject;
 			stcProject = new ProjectSTC(project, stc * 100, new Date());
 		}
 
