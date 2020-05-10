@@ -68,7 +68,6 @@ public class EmployeeService {
 		currentEmployee.setDni(newEmployee.getDni());
 		currentEmployee.setName(newEmployee.getName());
 		currentEmployee.setEmail(newEmployee.getEmail());
-		currentEmployee.setGenre(newEmployee.getGenre());
 		currentEmployee.setAge(newEmployee.getAge());
 		currentEmployee.setRole(newEmployee.getRole());
 		currentEmployee.setTimezone(newEmployee.getTimezone());

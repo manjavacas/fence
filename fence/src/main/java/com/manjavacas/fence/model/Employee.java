@@ -13,7 +13,6 @@ public class Employee {
 	private String dni;
 	private String name;
 	private String email;
-	private String genre;
 	private int age;
 	private String role;
 	private String timezone;
@@ -25,13 +24,12 @@ public class Employee {
 	public Employee() {
 	}
 
-	public Employee(String dni, String name, String email, String genre, int age, String role, String timezone,
+	public Employee(String dni, String name, String email, int age, String role, String timezone,
 			String country, String englishLevel, String experience, String team) {
 		super();
 		this.dni = dni;
 		this.name = name;
 		this.email = email;
-		this.genre = genre;
 		this.age = age;
 		this.role = role;
 		this.timezone = timezone;
@@ -71,14 +69,6 @@ public class Employee {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getGenre() {
-		return genre;
-	}
-
-	public void setGenre(String genre) {
-		this.genre = genre;
 	}
 
 	public int getAge() {

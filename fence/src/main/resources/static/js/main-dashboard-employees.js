@@ -16,7 +16,6 @@ const newTrEmp = `
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half'>
     <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
     <span class='table-down'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-down' aria-hidden='true'></i></a></span>
@@ -36,7 +35,7 @@ $tableEmployeesID.on('click', '.table-remove-employee', function () {
 
   const resource = mainResource + 'Employees/';
 
-  const headings = ['dni', 'name', 'email', 'genre', 'age',
+  const headings = ['dni', 'name', 'email', 'age',
     'role', 'timezone', 'country', 'englishLevel', 'experience', 'team'];
 
   var obj = {};
@@ -105,7 +104,6 @@ $tabEmployees.on('click', function () {
           <td class='pt-3-half' contenteditable='true'>` + data[i]['dni'] + `</td>
           <td class='pt-3-half' contenteditable='true'>` + data[i]['name'] + `</td>
           <td class='pt-3-half' contenteditable='true'>` + data[i]['email'] + `</td>
-          <td class='pt-3-half' contenteditable='true'>` + data[i]['genre'] + `</td>
           <td class='pt-3-half' contenteditable='true'>` + data[i]['age'] + `</td>
           <td class='pt-3-half' contenteditable='true'>` + data[i]['role'] + `</td>
           <td class='pt-3-half' contenteditable='true'>` + data[i]['timezone'] + `</td>
@@ -135,7 +133,7 @@ $('.table-update-employees').on('click', 'i', () => {
   const bodyRef = '#dataEmployees > tbody';
   const tableBody = document.querySelector(bodyRef);
 
-  const headings = ['dni', 'name', 'email', 'genre', 'age',
+  const headings = ['dni', 'name', 'email', 'age',
     'role', 'timezone', 'country', 'englishLevel', 'experience', 'team'];
 
   for (let i = 0, row; row = tableBody.rows[i]; i++) {
