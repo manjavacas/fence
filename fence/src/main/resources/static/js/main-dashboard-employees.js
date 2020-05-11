@@ -10,7 +10,7 @@ const newTrEmp = `
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
-  <td class='pt-3-half' contenteditable='true'></td>
+  <td class='pt-3-half mdb-select md-form colorful-select dropdown-primary' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>
   <td class='pt-3-half' contenteditable='true'></td>

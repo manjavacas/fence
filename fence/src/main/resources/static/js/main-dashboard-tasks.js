@@ -92,13 +92,20 @@ $tabTasks.on('click', function () {
 
         // Load records
         for (let i = 0; i < data.length; i++) {
+
+            if (data[i]['done'] == 'true') {
+                doneText = 'YES';
+            } else {
+                doneText = 'NO';
+            }
+
             rows +=
                 `<tr class='hide'>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['reference'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['description'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['duration_days'] + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['priority'] + `</td>
-                    <td class='pt-3-half' contenteditable='true'>` + data[i]['done'] + `</td>
+                    <td class='pt-3-half' contenteditable='true'>` + doneText + `</td>
                     <td class='pt-3-half' contenteditable='true'>` + data[i]['project'] + `</td>
                     <td class='pt-3-half'>
                         <span class='table-up'><a href='#!' class='indigo-text'><i class='fas fa-long-arrow-alt-up' aria-hidden='true'></i></a></span>
@@ -129,7 +136,15 @@ $('.table-update-tasks').on('click', 'i', () => {
         var obj = {};
 
         for (let j = 0; j < headings.length; j++) {
-            obj[headings[j]] = row.cells[j].textContent;
+            if (headings[j] == 'done') {
+                if (row.cells[j].textContent == 'YES') {
+                    obj[headings[j]] = 'true';
+                } else {
+                    obj[headings[j]] = 'false';
+                }
+            } else {
+                obj[headings[j]] = row.cells[j].textContent;
+            }
         }
 
         // Update data

@@ -1,0 +1,12 @@
+#btn-update-recommendations { 
+    display:inline-block;
+    margin-right:1cm;
+    margin-bottom:1cm;
+    vertical-align:middle;
+}
+
+#select-project-recommendations {
+    display:inline-block;
+    margin-bottom:1cm;
+    vertical-align:middle;
+}

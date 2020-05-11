@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/settings.css">
 
-    <script src="../js/set-page-settings.js"></script>
 </head>
 
 <body>
@@ -67,9 +66,10 @@
 
             <!-- CUSTOM GAP WEIGHT FOR RECOMMENDATIONS -->
             <div>
-                <p style="font-size:30px;">Default gap weight threshold for recommendations</p>
+                <p style="font-size:30px;"> Default gap weight threshold for recommendations</p>
+                <p> Define here the default coordination gap weight for providing recommendations between two users.</p>
                 <div style="margin-left:30px;">
-                    <p>Gap weight threshold: </p>
+                    <p> Gap weight threshold: </p>
                     <div class="slidecontainer">
                         <input type="range" id="sldr-default-threshold" value="50" min="0" max="1" step="0.01"
                             oninput="document.getElementById('default-threshold').innerHTML = this.value" />
@@ -78,33 +78,35 @@
                 </div>
             </div>
 
+            <hr>
+
             <!--- CUSTOM GAP WEIGHT BETWEEN TWO USERS -->
             <div>
-                <p style="font-size:30px;">Customize gap weight threshold for recommendations</p>
-
+                <p style="font-size:30px;"> Customize gap weight threshold for recommendations</p>
+                <p> Set the weight of the minimum communication gap so that recommendations are given among the users selected in a project.</p>
                 <div style="margin-left:30px;">
-                    <label for="select-user1">User 1: </label>
+                    <label for="select-user1"> User 1: </label>
                     <select id="select-user1" class="mdb-select md-form colorful-select dropdown-primary">
                         <!-- USERS -->
                     </select>
                 </div>
 
                 <div style="margin-left:30px;">
-                    <label for="select-user2">User 2: </label>
+                    <label for="select-user2"> User 2: </label>
                     <select id="select-user2" class="mdb-select md-form colorful-select dropdown-primary">
                         <!-- USERS -->
                     </select>
                 </div>
 
                 <div style="margin-left:30px;">
-                    <label for="select-project">Project: </label>
+                    <label for="select-project"> Project: </label>
                     <select id="select-project" class="mdb-select md-form colorful-select dropdown-primary">
                         <!-- PROJECTS -->
                     </select>
                 </div>
 
                 <div style="margin-left:30px;">
-                    <p>Custom gap weight threshold: </p>
+                    <p> Custom gap weight threshold: </p>
                     <div class="slidecontainer">
                         <input type="range" id="sldr-users-threshold" value="50" min="0" max="1" step="0.01"
                             oninput="document.getElementById('users-threshold').innerHTML = this.value" />
@@ -114,9 +116,12 @@
 
             </div>
 
+            <hr>
+
             <!-- RESET MIN GAP WEIGHTS -->
             <div>
-                <p style="font-size:30px;">Set all gap weights to default</p>
+                <p style="font-size:30px;"> Set all threshold weights to default</p>
+                <p> Restore default weights for recommendations. </p>
                 <div style="margin-left:30px;">
                     <button id="btn-reset-mingaps" type="button" class="btn btn-success btn-lg" style="margin-right:1cm;">Set default weight</button>
                     <select id="select-project-reset" class="mdb-select md-form colorful-select dropdown-primary">
@@ -131,5 +136,6 @@
 </body>
 
 <script src="../js/settings.js"></script>
+<script src="../js/set-page-settings.js"></script>
 
 </html>

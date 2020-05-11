@@ -58,6 +58,11 @@ function fillSelectors() {
             selUser2[key] = new Option(element, key);
         });
 
+        selUser1.options.selectedIndex = 0;
+        selUser2.options.selectedIndex = 1;
+
+        getUsersMinGap();
+
         document.body.style.cursor = 'default';
 
     });
