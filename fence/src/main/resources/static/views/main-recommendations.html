@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/settings.css">
+    <link rel="stylesheet" href="../css/recommendations.css">
 
     <script src='../js/set-page-recommendations.js'></script>
 </head>
@@ -31,7 +31,7 @@
             </li>
             <li>
                 <a href="./main-stc.html">
-                    <i class="fas fa-project-diagram" aria-hidden="true"></i> Calculate STC
+                    <i class="fas fa-calculator" aria-hidden="true"></i> Calculate STC
                 </a>
             </li>
             <li>
@@ -66,16 +66,18 @@
                 <h1>Recommendations</h1>
             </div>
 
-            <button id="btn-update-recommendations" type="button" class="btn btn-success btn-lg">Update</button>
+            <div class="container">
+                <button id="btn-update-recommendations" type="button" class="btn btn-success btn-lg">Update</button>
 
-            <select id="select-project-recommendations">
+                <select class="select-css" id="select-project-recommendations">
                 <!-- Projects-->
             </select>
 
-            <div>
-                <ul class="list-group" id="recommendationsText">
-                    <!-- Recommendations -->
-                </ul>
+                <div>
+                    <ul class="list-group" id="recommendationsText">
+                        <!-- Recommendations -->
+                    </ul>
+                </div>
             </div>
 
         </div>

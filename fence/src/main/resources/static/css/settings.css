@@ -1,12 +1,52 @@
-#btn-update-recommendations { 
-    display:inline-block;
-    margin-right:1cm;
-    margin-bottom:1cm;
-    vertical-align:middle;
+#btn-reset-mingaps {
+    display: inline-block;
+    margin-right: 1cm;
+    margin-bottom: 1cm;
+    vertical-align: middle;
 }
 
-#select-project-recommendations {
-    display:inline-block;
-    margin-bottom:1cm;
-    vertical-align:middle;
+#select-project-reset {
+    display: inline-block;
+    margin-bottom: 1cm;
+    vertical-align: middle;
+}
+
+#lbl1 {
+    display: inline-block;
+    margin-right: 0.5cm;
+}
+
+#lbl2 {
+    display: inline-block;
+    margin-right: 0.5cm;
+}
+
+#lbl3 {
+    display: inline-block;
+    margin-right: 0.43cm;
+}
+
+#select-user1 {
+    display: inline-block;
+}
+
+#select-user2 {
+    display: inline-block;
+}
+
+#select-project {
+    display: inline-block;
+}
+
+.fa-info-circle {
+    color: steelblue;
+}
+
+.container {
+    margin-left: 0.5cm;
+}
+
+h3 {
+    margin-bottom: 0.5cm;
+    font-weight: bold;
 }

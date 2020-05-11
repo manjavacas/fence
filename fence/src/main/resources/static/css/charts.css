@@ -1,3 +1,38 @@
 .card {
-    margin-bottom:100px;
+    margin-bottom: 100px;
+}
+
+.container {
+    margin-left: 2cm;
+}
+
+.fas {
+    color: steelblue;
+}
+
+#sel-employee {
+    display: inline-block;
+    margin-left: 2cm;
+}
+
+#sel-team {
+    display: inline-block;
+    margin-left: 2cm;
+}
+
+#sel-project {
+    display: inline-block;
+    margin-left: 2cm;
+}
+
+#title1 {
+    display: inline-block;
+}
+
+#title2 {
+    display: inline-block;
+}
+
+#title3 {
+    display: inline-block;
 }

@@ -30,7 +30,7 @@
             </li>
             <li>
                 <a href="./main-stc.html">
-                    <i class="fas fa-project-diagram" aria-hidden="true"></i> Calculate STC
+                    <i class="fas fa-calculator" aria-hidden="true"></i> Calculate STC
                 </a>
             </li>
             <li>
@@ -64,74 +64,76 @@
                 <h1>Settings</h1>
             </div>
 
-            <!-- CUSTOM GAP WEIGHT FOR RECOMMENDATIONS -->
-            <div>
-                <p style="font-size:30px;"> Default gap weight threshold for recommendations</p>
-                <p> Define here the default coordination gap weight for providing recommendations between two users.</p>
-                <div style="margin-left:30px;">
-                    <p> Gap weight threshold: </p>
-                    <div class="slidecontainer">
-                        <input type="range" id="sldr-default-threshold" value="50" min="0" max="1" step="0.01"
-                            oninput="document.getElementById('default-threshold').innerHTML = this.value" />
-                        <label id="default-threshold"></label>
-                    </div>
-                </div>
-            </div>
+            <div class="container">
 
-            <hr>
-
-            <!--- CUSTOM GAP WEIGHT BETWEEN TWO USERS -->
-            <div>
-                <p style="font-size:30px;"> Customize gap weight threshold for recommendations</p>
-                <p> Set the weight of the minimum communication gap so that recommendations are given among the users selected in a project.</p>
-                <div style="margin-left:30px;">
-                    <label for="select-user1"> User 1: </label>
-                    <select id="select-user1" class="mdb-select md-form colorful-select dropdown-primary">
-                        <!-- USERS -->
-                    </select>
-                </div>
-
-                <div style="margin-left:30px;">
-                    <label for="select-user2"> User 2: </label>
-                    <select id="select-user2" class="mdb-select md-form colorful-select dropdown-primary">
-                        <!-- USERS -->
-                    </select>
-                </div>
-
-                <div style="margin-left:30px;">
-                    <label for="select-project"> Project: </label>
-                    <select id="select-project" class="mdb-select md-form colorful-select dropdown-primary">
-                        <!-- PROJECTS -->
-                    </select>
-                </div>
-
-                <div style="margin-left:30px;">
-                    <p> Custom gap weight threshold: </p>
-                    <div class="slidecontainer">
-                        <input type="range" id="sldr-users-threshold" value="50" min="0" max="1" step="0.01"
-                            oninput="document.getElementById('users-threshold').innerHTML = this.value" />
-                        <label id="users-threshold"></label>
+                <!-- CUSTOM GAP WEIGHT FOR RECOMMENDATIONS -->
+                <div>
+                    <h3>Default gap weight threshold for recommendations</h3>
+                    <p><i class="fas fa-info-circle"></i> Define here the default coordination gap weight for providing recommendations between two users.</p>
+                    <div class="container">
+                        <p id="lbl0"> Gap weight threshold: </p>
+                        <div class="slidecontainer">
+                            <input type="range" id="sldr-default-threshold" value="50" min="0" max="1" step="0.01" oninput="document.getElementById('default-threshold').innerHTML = this.value" />
+                            <label id="default-threshold"></label>
+                        </div>
                     </div>
                 </div>
 
-            </div>
+                <hr>
 
-            <hr>
+                <!--- CUSTOM GAP WEIGHT BETWEEN TWO USERS -->
+                <div>
+                    <h3> Customize gap weight threshold for recommendations</h3>
+                    <p><i class="fas fa-info-circle"></i> Set the weight of the minimum communication gap so that recommendations are given among the users selected in a project.</p>
 
-            <!-- RESET MIN GAP WEIGHTS -->
-            <div>
-                <p style="font-size:30px;"> Set all threshold weights to default</p>
-                <p> Restore default weights for recommendations. </p>
-                <div style="margin-left:30px;">
-                    <button id="btn-reset-mingaps" type="button" class="btn btn-success btn-lg" style="margin-right:1cm;">Set default weight</button>
-                    <select id="select-project-reset" class="mdb-select md-form colorful-select dropdown-primary">
+                    <div class="container">
+                        <div style="margin-left:30px;">
+                            <label id="lbl1" for="select-user1"> User 1: </label>
+                            <select id="select-user1" class="select-css mdb-select md-form colorful-select dropdown-primary">
+                                <!-- USERS -->
+                            </select>
+                        </div>
+
+                        <div style="margin-left:30px;">
+                            <label id="lbl2" for="select-user2"> User 2: </label>
+                            <select id="select-user2" class="select-css mdb-select md-form colorful-select dropdown-primary">
+                                <!-- USERS -->
+                            </select>
+                        </div>
+
+                        <div style="margin-left:30px;">
+                            <label id="lbl3" for="select-project"> Project: </label>
+                            <select id="select-project" class="select-css mdb-select md-form colorful-select dropdown-primary">
+                                <!-- PROJECTS -->
+                            </select>
+                        </div>
+
+                        <div style="margin-left:30px;">
+                            <p id="lbl4"> Custom gap weight threshold: </p>
+                            <div class="slidecontainer">
+                                <input type="range" id="sldr-users-threshold" value="50" min="0" max="1" step="0.01" oninput="document.getElementById('users-threshold').innerHTML = this.value" />
+                                <label id="users-threshold"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- RESET MIN GAP WEIGHTS -->
+                <div>
+                    <h3> Set all threshold weights to default</h3>
+                    <p><i class="fas fa-info-circle"></i> Restore default weights for recommendations. </p>
+                    <div style="margin-left:30px;">
+                        <button id="btn-reset-mingaps" type="button" class="btn btn-success btn-lg" style="margin-right:1cm;">Set default weight</button>
+                        <select id="select-project-reset" class="select-css mdb-select md-form colorful-select dropdown-primary">
                         <!-- PROJECTS -->
                     </select>
+                    </div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
 
 </body>
 
