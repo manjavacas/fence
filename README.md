@@ -26,5 +26,5 @@ This project is under the GNU GPLv3 license. See [LICENSE.md](LICENSE.md) for mo
 
 ## Acknowledgements 🎁
 
-* Tool developed as final grade project for the Computer Science Faculty of Ciudad Real (UCLM).
+* Tool developed as final grade project for the University College of Computer Science of Ciudad Real (UCLM).
 * Special thanks to Aurora Vizcaíno and José Ángel Olivas for their collaboration and mentorship.
