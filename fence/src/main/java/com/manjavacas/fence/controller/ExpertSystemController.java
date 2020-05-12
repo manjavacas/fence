@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -107,8 +106,7 @@ public class ExpertSystemController {
 		List<CG> gaps = cgService.getCGByProject(project);
 
 		// Load fuzzy inference system
-		Resource resource = resourceLoader.getResource(RULES_RESOURCE_RECOMMENDER);
-		FIS fis = FIS.load(resource.getFile().getAbsolutePath());
+		FIS fis = FIS.load(resourceLoader.getResource(RULES_RESOURCE_RECOMMENDER).getInputStream(), false);
 
 		// Get the recommender function block
 		FunctionBlock fb = fis.getFunctionBlock(FUNCTION_BLOCK_RECOMMENDER);
@@ -245,8 +243,8 @@ public class ExpertSystemController {
 	public double runWeightModifier(Employee user1, Employee user2) throws IOException {
 
 		// Load fuzzy inference system
-		Resource resource = resourceLoader.getResource(RULES_RESOURCE_STC);
-		FIS fis = FIS.load(resource.getFile().getAbsolutePath());
+		// Load fuzzy inference system
+		FIS fis = FIS.load(resourceLoader.getResource(RULES_RESOURCE_STC).getInputStream(), false);
 
 		// Get the fitter function block
 		FunctionBlock fb = fis.getFunctionBlock(FUNCTION_BLOCK_STC);

@@ -29,7 +29,7 @@ public class CommunicationService {
 	public List<Communication> getCommunicationsByUser2(String dni) {
 		return communicationRepository.findByUser2(dni);
 	}
-	
+
 	public List<Communication> getCommunicationsByUser1OrUser2(String dni) {
 		return communicationRepository.findByUser1OrUser2(dni, dni);
 	}
@@ -45,6 +45,10 @@ public class CommunicationService {
 
 	public void addCommunication(Communication communication) {
 		communicationRepository.insert(communication);
+	}
+
+	public void deleteCommunications() {
+		communicationRepository.deleteAll();
 	}
 
 }
