@@ -16,7 +16,7 @@ FENCE is a tool dedicated to the measurement and improvement of STC within an or
 
 ## Authorship ✒️
 
-_This project has been developed by:_
+This project has been developed by:
 
 * **Antonio Manjavacas** / [manjavacas](https://github.com/manjavacas) / antonio.manjavacas@alu.uclm.es
 
