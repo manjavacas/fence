@@ -1,4 +1,6 @@
-# FENCE: a fuzzy sociotechnical congruence measurer (v.1.0.0)
+# FENCE: a fuzzy sociotechnical congruence measurer
+![version-badge](https://img.shields.io/badge/version-v1.0.0-blue)
+![license-badge](https://img.shields.io/badge/license-GPLv3-blue)
 
 <p align="center">
   <img src="https://github.com/manjavacas/fence/blob/master/fence/src/main/resources/static/images/fence-front.png">
