@@ -1,7 +1,7 @@
 # FENCE: a fuzzy sociotechnical congruence measurer (v.1.0.0)
 
 <p align="center">
-  <img src="https://github.com/manjavacas/fence/blob/master/fence/src/main/resources/static/images/fence-logo.png">
+  <img src="https://github.com/manjavacas/fence/blob/master/fence/src/main/resources/static/images/fence-front.png">
 </p>
 
 _Socio-Technical Congruence (STC) is a metric used to measure task dependencies among people, as well as the fit between these task dependencies and the coordination activities performed by individuals._
