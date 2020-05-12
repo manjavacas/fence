@@ -1,4 +1,3 @@
-
 const $tableTasksID = $('#tableTasks');
 const $tabTasks = $('#tabTasks');
 
@@ -25,7 +24,7 @@ $('.table-add-task').on('click', 'i', () => {
 });
 
 // Remove task
-$tableTasksID.on('click', '.table-remove-task', function () {
+$tableTasksID.on('click', '.table-remove-task', function() {
 
     const resource = mainResource + 'Tasks/';
 
@@ -52,7 +51,7 @@ $tableTasksID.on('click', '.table-remove-task', function () {
 });
 
 // Move up
-$tableTasksID.on('click', '.table-up', function () {
+$tableTasksID.on('click', '.table-up', function() {
 
     const $row = $(this).parents('tr');
 
@@ -64,20 +63,20 @@ $tableTasksID.on('click', '.table-up', function () {
 });
 
 // Move down
-$tableTasksID.on('click', '.table-down', function () {
+$tableTasksID.on('click', '.table-down', function() {
     const $row = $(this).parents('tr');
     $row.next().after($row.get(0));
 });
 
 // Load tasks
-$tabTasks.on('click', function () {
+$tabTasks.on('click', function() {
 
     const resource = mainResource + 'Tasks/';
 
     $.ajax({
         url: resource,
         type: 'GET',
-    }).done(function (data, textStatus, jqXHR) {
+    }).done(function(data, textStatus, jqXHR) {
 
         // Fill table
         const bodyRef = '#dataTasks > tbody';
@@ -92,11 +91,10 @@ $tabTasks.on('click', function () {
 
         // Load records
         for (let i = 0; i < data.length; i++) {
-
-            if (data[i]['done'] == 'true') {
-                doneText = 'YES';
-            } else {
+            if (data[i]['done'] == false) {
                 doneText = 'NO';
+            } else {
+                doneText = 'YES';
             }
 
             rows +=
@@ -138,14 +136,16 @@ $('.table-update-tasks').on('click', 'i', () => {
         for (let j = 0; j < headings.length; j++) {
             if (headings[j] == 'done') {
                 if (row.cells[j].textContent == 'YES') {
-                    obj[headings[j]] = 'true';
+                    obj[headings[j]] = true;
                 } else {
-                    obj[headings[j]] = 'false';
+                    obj[headings[j]] = false;
                 }
             } else {
                 obj[headings[j]] = row.cells[j].textContent;
             }
         }
+
+        console.log(obj);
 
         // Update data
         const putResource = resource + obj['reference'];
