@@ -6,7 +6,9 @@
     margin-left: 2cm;
 }
 
-.fas {
+.fa-briefcase,
+.fa-user,
+.fa-users {
     color: steelblue;
 }
 

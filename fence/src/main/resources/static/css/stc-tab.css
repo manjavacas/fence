@@ -143,7 +143,9 @@
     font-weight: normal;
 }
 
-.fas {
+.fa-briefcase,
+.fa-user,
+.fa-users {
     color: steelblue;
 }
 

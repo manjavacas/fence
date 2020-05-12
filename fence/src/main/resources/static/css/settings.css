@@ -1,3 +1,11 @@
+#sldr-default-threshold {
+    cursor: pointer;
+}
+
+#sldr-users-threshold {
+    cursor: pointer;
+}
+
 #btn-reset-mingaps {
     display: inline-block;
     margin-right: 1cm;
