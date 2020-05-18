@@ -91,7 +91,7 @@ public class STCMeasurer {
 
 		boolean success = true;
 
-		System.out.println("[STC] Starting STC measurement...");
+		// System.out.println("[STC] Starting STC measurement...");
 		try {
 			List<TA> taMatrix = calculateTAMatrix(project);
 			List<TD> tdMatrix = calculateTDMatrix(project);
@@ -107,13 +107,13 @@ public class STCMeasurer {
 			success = false;
 		}
 
-		System.out.println("[STC] Done!");
+		// System.out.println("[STC] Done!");
 		return success;
 	}
 
 	private List<TA> calculateTAMatrix(String project) {
 
-		System.out.println("[STC] Calculating task assignments...");
+		// System.out.println("[STC] Calculating task assignments...");
 
 		List<TA> taskAssignmentMatrix = new ArrayList<TA>();
 		List<Task> tasks = taskService.getPendingTasksByProject(project);
@@ -153,7 +153,7 @@ public class STCMeasurer {
 
 	private List<TD> calculateTDMatrix(String project) {
 
-		System.out.println("[STC] Calculating task dependencies...");
+		// System.out.println("[STC] Calculating task dependencies...");
 
 		List<TD> taskDependenciesMatrix = new ArrayList<TD>();
 		List<Task> tasks = taskService.getPendingTasksByProject(project);
@@ -188,7 +188,7 @@ public class STCMeasurer {
 
 	private List<CR> calculateCRMatrix(String project, List<TA> taMatrix, List<TD> tdMatrix) {
 
-		System.out.println("[STC] Calculating coordination requirements...");
+		// System.out.println("[STC] Calculating coordination requirements...");
 
 		List<CR> coordinationRequirementsMatrix = new ArrayList<CR>();
 
@@ -243,7 +243,7 @@ public class STCMeasurer {
 
 	private List<CA> calculateCAMatrix(String project, List<CR> crMatrix) {
 
-		System.out.println("[STC] Calculating actual coordination...");
+		// System.out.println("[STC] Calculating actual coordination...");
 
 		List<CA> actualCommunicationMatrix = new ArrayList<CA>();
 
@@ -345,7 +345,7 @@ public class STCMeasurer {
 
 	private List<CG> calculateCGMatrix(List<CA> caMatrix, List<CR> crMatrix) {
 
-		System.out.println("[STC] Calculating coordination gaps...");
+		// System.out.println("[STC] Calculating coordination gaps...");
 
 		List<CG> coordinationGapMatrix = new ArrayList<CG>();
 
@@ -407,7 +407,8 @@ public class STCMeasurer {
 		// Calculate STC level by employee
 		for (Employee employee : allProjectEmployees) {
 
-			System.out.println("[EMPLOYEE STC] Calculating " + employee.getDni() + " STC...");
+			// System.out.println("[EMPLOYEE STC] Calculating " + employee.getDni() + "
+			// STC...");
 
 			employeeCRs = crService.getCRByUser1(employee.getDni());
 			employeeCGs = cgService.getCGByUser1(employee.getDni());
@@ -452,7 +453,8 @@ public class STCMeasurer {
 
 		for (Team team : allProjectTeams) {
 
-			System.out.println("[TEAM STC] Calculating " + team.getName() + " team STC...");
+			// System.out.println("[TEAM STC] Calculating " + team.getName() + " team
+			// STC...");
 
 			double teamCRsum = 0;
 			double teamCGsum = 0;
@@ -465,11 +467,11 @@ public class STCMeasurer {
 
 				// Sum CR weights
 				List<CR> employeeCRs = crService.getCRByUser1(employee.getDni());
-				teamCRsum = employeeCRs.stream().mapToDouble(CR::getWeight).sum();
+				teamCRsum += employeeCRs.stream().mapToDouble(CR::getWeight).sum();
 
 				// Sum CG weights
 				List<CG> employeeCGs = cgService.getCGByUser1(employee.getDni());
-				teamCGsum = employeeCGs.stream().mapToDouble(CG::getWeight).sum();
+				teamCGsum += employeeCGs.stream().mapToDouble(CG::getWeight).sum();
 
 			}
 
@@ -492,7 +494,8 @@ public class STCMeasurer {
 
 	private void calculateSTCProjects(String project, List<CR> crMatrix, List<CG> cgMatrix) {
 
-		System.out.println("[PROJECT STC] Calculating " + project + " project STC...");
+		// System.out.println("[PROJECT STC] Calculating " + project + " project
+		// STC...");
 
 		ProjectSTC stcProject;
 
