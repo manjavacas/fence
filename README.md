@@ -12,7 +12,7 @@ FENCE is a tool dedicated to the measurement and improvement of STC within an or
 
 ## Main tools used 🛠️
 
-* [Spring MVC](https://spring.io/projects/spring-framework) - development framework
+* [Spring Framework](https://spring.io/projects/spring-framework) - development framework
 * [Maven](https://maven.apache.org/) - dependency manager
 * [jFuzzyLogic](http://jfuzzylogic.sourceforge.net/html/index.html) - fuzzy logic library
 * [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) - cloud storage
