@@ -1,0 +1,7 @@
+PWD E:\OneDrive - Universidad de Castilla-La Mancha\4º curso\2º cuatrimestre\TFG\mem\TFG_ESI_UCLM-master
+INPUT C:\Users\antom\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
+INPUT Resumen.tex
+OUTPUT Resumen.log
+OUTPUT Resumen.pdf
+INPUT C:\Users\antom\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmti10.tfm

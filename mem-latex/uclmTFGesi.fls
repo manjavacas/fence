@@ -1,0 +1,1030 @@
+PWD E:\OneDrive - Universidad de Castilla-La Mancha\4º curso\2º cuatrimestre\TFG\mem\TFG_ESI_UCLM-master
+INPUT C:\Users\antom\AppData\Local\MiKTeX\2.9\miktex\data\le\pdftex\pdflatex.fmt
+INPUT uclmTFGesi.tex
+OUTPUT uclmTFGesi.log
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\book.cls
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\book.cls
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\bk11.clo
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\bk11.clo
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\cm\cmr10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\inputenx\inputenx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\inputenx\inputenx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\inputenx\ix-alias.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\inputenx\ix-alias.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\inputenc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\omsenc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ot1enc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1enc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1enc.dfu
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\babel.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\babel\txtbabel.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\arabi\bblopts.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-english\english.ldf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-english\english.ldf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\babel-spanish\spanish.ldf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\keyval.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifvtex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifvtex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\iftex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\iftex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\geometry\geometry.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amstext.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amscls\amsthm.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\libertine.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\libertine.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifxetex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifxetex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifluatex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\iftex\ifluatex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xkeyval\xkeyval.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkeyval.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xkeyval\xkvutils.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\textcomp.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontaxes\fontaxes.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fontaxes\fontaxes.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\LinLibertine_I.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\LinLibertine_I.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\newtxmath.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\newtxmath.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\etoolbox\etoolbox.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\centernot.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\oberdiek\centernot.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\binhex\binhex.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\binhex\binhex.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\marvosym\marvosym.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\pifont.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\pifont.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\upzd.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\upzd.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\zapfding\pzdr.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\upsy.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\psnfss\upsy.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\adobe\symbol\psyr.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ccicons\ccicons.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ccicons\ccicons.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\fontenc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\t1linuxlibertinet-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\t1linuxlibertinet-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype-pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\microtype.cfg
+INPUT uclmTFGesi.sty
+INPUT uclmTFGesi.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\parskip\parskip.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\parskip\parskip.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\kvoptions\kvoptions.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\ltxcmds\ltxcmds.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\kvsetkeys\kvsetkeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\color.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\colortbl\colortbl.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\array.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\svgnam.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\svgnam.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\x11nam.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xcolor\x11nam.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\url\url.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\titlesec\titlesec.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\sectsty\sectsty.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\frontendlayer\tikz.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgf.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfrcs.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-common-lists.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfutil-latex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everyshi.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ms\everyshi.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfrcs.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\pgf.revision.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\pgf.revision.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\basiclayer\pgfcore.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphicx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\graphics.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\trig.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\systemlayer\pgfsys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeysfiltered.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgf.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsys-common-pdf.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsyssoftpath.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\systemlayer\pgfsysprotocol.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcore.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathcalc.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathutil.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathparser.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.basic.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.trigonometric.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.random.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.comparison.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.base.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.round.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.misc.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfunctions.integerarithmetics.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmathfloat.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfint.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepoints.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathconstruct.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathusage.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorescopes.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoregraphicstate.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransformations.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorequick.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreobjects.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepathprocessing.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorearrows.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreshade.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreimage.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoreexternal.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorelayers.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcoretransparency.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorepatterns.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\basiclayer\pgfcorerdf.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleshapes.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modules\pgfmoduleplot.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-0-65.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\compatibility\pgfcomp-version-1-18.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgffor.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\utilities\pgfkeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgfkeys.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pgf\math\pgfmath.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\utilities\pgffor.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\math\pgfmath.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\tikz.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryplothandlers.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\modules\pgfmodulematrix.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarytopaths.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\multicol.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\csquotes\csquotes.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftexcmds\pdftexcmds.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdftexcmds\pdftexcmds.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\infwarerr\infwarerr.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\infwarerr\infwarerr.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\kvdefinekeys\kvdefinekeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\kvdefinekeys\kvdefinekeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pdfescape\pdfescape.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pdfescape\pdfescape.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hycolor\hycolor.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hycolor\hycolor.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\letltxmacro\letltxmacro.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\letltxmacro\letltxmacro.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\auxhook\auxhook.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\auxhook\auxhook.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\intcalc\intcalc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\intcalc\intcalc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\etexcmds\etexcmds.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\etexcmds\etexcmds.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bitset\bitset.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bitset\bitset.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bigintcalc\bigintcalc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\bigintcalc\bigintcalc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\atbegshi\atbegshi.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\atbegshi\atbegshi.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\atveryend\atveryend.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\atveryend\atveryend.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\rerunfilecheck\rerunfilecheck.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\uniquecounter\uniquecounter.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pdfpages.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ifthen.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\calc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\eso-pic\eso-pic.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdfpages\pppdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstmisc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\listings.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\algorithm2e\algorithm2e.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\xspace.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\relsize\relsize.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\relsize\relsize.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshadows.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshadows.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfadings.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryfadings.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryfadings.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\pgflibraryfadings.code.tex
+OUTPUT uclmTFGesi.pdf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\subcaption.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\caption\caption3.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\rotating.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\rotating.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\tabularx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\tools\tabularx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\booktabs\booktabs.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\multirow\multirow.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\logreq\logreq.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-dm.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-dm.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-compat.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\blx-compat.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-ieee\ieee.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex-ieee\ieee.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric-comp.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric-comp.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\numeric.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\standard.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\bbx\standard.bbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\cbx\numeric-comp.cbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\cbx\numeric-comp.cbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\biblatex.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\makeidx.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\makeidx.sty
+OUTPUT uclmTFGesi.idx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\menukeys\menukeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\menukeys\menukeys.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3kernel\expl3.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3backend\l3backend-pdfmode.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse-generic.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\l3packages\xparse\xparse-generic.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xstring\xstring.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\xstring\xstring.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\xstring\xstring.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibrarycalc.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.symbols.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\frontendlayer\tikz\libraries\tikzlibraryshapes.symbols.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes.symbols.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\pgf\libraries\shapes\pgflibraryshapes.symbols.code.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\adjustbox.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\adjustbox.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\adjcalc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\adjcalc.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\trimclip.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\trimclip.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\collectbox\collectbox.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\collectbox\collectbox.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\tc-pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\adjustbox\tc-pdftex.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\varwidth\varwidth.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\varwidth\varwidth.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\varwidth\varwidth.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\catoptions\catoptions.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\catoptions\catoptions.sty
+INPUT uclmTFGesi.aux
+INPUT uclmTFGesi.aux
+INPUT Introduccion.aux
+INPUT Introduccion.aux
+INPUT Objetivo.aux
+INPUT Objetivo.aux
+INPUT Metodologia.aux
+INPUT Metodologia.aux
+INPUT Resultados.aux
+INPUT Resultados.aux
+INPUT Conclusiones.aux
+INPUT Conclusiones.aux
+INPUT AnexoA.aux
+INPUT AnexoA.aux
+OUTPUT uclmTFGesi.aux
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\omlnxlmi.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\omlnxlmi.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxexa.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxexa.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\lmsntxsy.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\lmsntxsy.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\lmxntxexx.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\lmxntxexx.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\context\base\mkii\supp-pdf.mkii
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\epstopdf-pkg\epstopdf-base.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\hyperref\nameref.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\refcount\refcount.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\refcount\refcount.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\gettitlestring\gettitlestring.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\generic\gettitlestring\gettitlestring.sty
+INPUT uclmTFGesi.out
+INPUT uclmTFGesi.out
+INPUT uclmTFGesi.out
+INPUT uclmTFGesi.out
+INPUT .\uclmTFGesi.out
+INPUT .\uclmTFGesi.out
+OUTPUT uclmTFGesi.out
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdflscape\pdflscape.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\pdflscape\pdflscape.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\lscape.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\graphics\lscape.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\spanish.lbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\spanish.lbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\biblatex\lbx\english.lbx
+OUTPUT uclmTFGesi.bcf
+INPUT uclmTFGesi.bbl
+INPUT uclmTFGesi.bbl
+INPUT uclmTFGesi.bbl
+INPUT figs\IngInformatica_color.png
+INPUT .\figs\IngInformatica_color.png
+INPUT .\figs\IngInformatica_color.png
+INPUT .\figs\IngInformatica_color.png
+INPUT .\figs\IngInformatica_color.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\MiKTeX\2.9\pdftex\config\pdftex.map
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT figs\IngInformatica_color.png
+INPUT .\figs\IngInformatica_color.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
+INPUT Creditos.tex
+INPUT Creditos.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\ts1linuxlibertinet-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\ts1linuxlibertinet-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\t1linuxbiolinumt-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\t1linuxbiolinumt-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\ot1linuxlibertinet-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\ot1linuxlibertinet-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msa.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb.cfg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxmia.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxmia.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxsym.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxsym.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxsyc.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\newtx\untxsyc.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1.tfm
+INPUT figs\by-nc-sa.png
+INPUT .\figs\by-nc-sa.png
+INPUT .\figs\by-nc-sa.png
+INPUT .\figs\by-nc-sa.png
+INPUT .\figs\by-nc-sa.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-ts1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTI-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTI-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-sc-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-sc-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-sc-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-sc-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-sc-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-sc-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTI-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTI-tlf-t1--base.tfm
+INPUT Resumen.tex
+INPUT Resumen.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-sc-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-sc-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-sc-t1--base.tfm
+INPUT Agradecimientos.tex
+INPUT Agradecimientos.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1.tfm
+INPUT Indices.tex
+INPUT Indices.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1--base.tfm
+INPUT uclmTFGesi.toc
+INPUT uclmTFGesi.toc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-sc-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-sc-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-sc-t1--base.tfm
+OUTPUT uclmTFGesi.toc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-sc-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumT-tlf-sc-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-sc-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1--base.tfm
+INPUT uclmTFGesi.lof
+INPUT uclmTFGesi.lof
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmi.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathMI.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\NewTXMI.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmi7.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathMI7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\NewTXMI7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\stxscr.tfm
+OUTPUT uclmTFGesi.lof
+INPUT uclmTFGesi.lot
+INPUT uclmTFGesi.lot
+OUTPUT uclmTFGesi.lot
+INPUT uclmTFGesi.lol
+INPUT uclmTFGesi.lol
+OUTPUT uclmTFGesi.lol
+INPUT uclmTFGesi.loa
+INPUT uclmTFGesi.loa
+OUTPUT uclmTFGesi.loa
+OUTPUT Introduccion.aux
+INPUT Introduccion.tex
+INPUT Introduccion.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-ot1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\ntxsy.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmia.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathRM.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txmiaSTbb.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txmiaX.tfm
+OUTPUT Objetivo.aux
+INPUT Objetivo.tex
+INPUT Objetivo.tex
+OUTPUT Metodologia.aux
+INPUT Metodologia.tex
+INPUT Metodologia.tex
+INPUT figs\3_openup.jpg
+INPUT .\figs\3_openup.jpg
+INPUT .\figs\3_openup.jpg
+INPUT .\figs\3_openup.jpg
+INPUT .\figs\3_openup.jpg
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-ts1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT figs\3_tools.png
+INPUT .\figs\3_tools.png
+INPUT .\figs\3_tools.png
+INPUT .\figs\3_tools.png
+INPUT .\figs\3_tools.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+OUTPUT Resultados.aux
+INPUT Resultados.tex
+INPUT Resultados.tex
+INPUT figs\4_mockup-dashboard.png
+INPUT .\figs\4_mockup-dashboard.png
+INPUT .\figs\4_mockup-dashboard.png
+INPUT .\figs\4_mockup-dashboard.png
+INPUT .\figs\4_mockup-dashboard.png
+INPUT figs\4_mockup-recommendations.png
+INPUT .\figs\4_mockup-recommendations.png
+INPUT .\figs\4_mockup-recommendations.png
+INPUT .\figs\4_mockup-recommendations.png
+INPUT .\figs\4_mockup-recommendations.png
+INPUT figs\4_cdu-diagram.pdf
+INPUT .\figs\4_cdu-diagram.pdf
+INPUT .\figs\4_cdu-diagram.pdf
+INPUT .\figs\4_cdu-diagram.pdf
+INPUT figs\4_layered-architecture.pdf
+INPUT .\figs\4_layered-architecture.pdf
+INPUT .\figs\4_layered-architecture.pdf
+INPUT .\figs\4_layered-architecture.pdf
+INPUT figs\4_sample-layers.png
+INPUT .\figs\4_sample-layers.png
+INPUT .\figs\4_sample-layers.png
+INPUT .\figs\4_sample-layers.png
+INPUT .\figs\4_sample-layers.png
+INPUT figs\4_layered-interaction.pdf
+INPUT .\figs\4_layered-interaction.pdf
+INPUT .\figs\4_layered-interaction.pdf
+INPUT .\figs\4_layered-interaction.pdf
+INPUT figs\4_sample-document.png
+INPUT .\figs\4_sample-document.png
+INPUT .\figs\4_sample-document.png
+INPUT .\figs\4_sample-document.png
+INPUT .\figs\4_sample-document.png
+INPUT figs\4_data-model.pdf
+INPUT .\figs\4_data-model.pdf
+INPUT .\figs\4_data-model.pdf
+INPUT .\figs\4_data-model.pdf
+INPUT figs\4_mongodb-atlas.png
+INPUT .\figs\4_mongodb-atlas.png
+INPUT .\figs\4_mongodb-atlas.png
+INPUT .\figs\4_mongodb-atlas.png
+INPUT .\figs\4_mongodb-atlas.png
+INPUT figs\4_first-dashboard.png
+INPUT .\figs\4_first-dashboard.png
+INPUT .\figs\4_first-dashboard.png
+INPUT .\figs\4_first-dashboard.png
+INPUT .\figs\4_first-dashboard.png
+INPUT figs\4_home-page.png
+INPUT .\figs\4_home-page.png
+INPUT .\figs\4_home-page.png
+INPUT .\figs\4_home-page.png
+INPUT .\figs\4_home-page.png
+INPUT figs\4_fence-dashboard.png
+INPUT .\figs\4_fence-dashboard.png
+INPUT .\figs\4_fence-dashboard.png
+INPUT .\figs\4_fence-dashboard.png
+INPUT .\figs\4_fence-dashboard.png
+INPUT figs\4_ta-matrix.pdf
+INPUT .\figs\4_ta-matrix.pdf
+INPUT .\figs\4_ta-matrix.pdf
+INPUT .\figs\4_ta-matrix.pdf
+INPUT figs\4_ta-class.png
+INPUT .\figs\4_ta-class.png
+INPUT .\figs\4_ta-class.png
+INPUT .\figs\4_ta-class.png
+INPUT .\figs\4_ta-class.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1.tfm
+INPUT figs\4_td-matrix.pdf
+INPUT .\figs\4_td-matrix.pdf
+INPUT .\figs\4_td-matrix.pdf
+INPUT .\figs\4_td-matrix.pdf
+INPUT figs\4_td-class.png
+INPUT .\figs\4_td-class.png
+INPUT .\figs\4_td-class.png
+INPUT .\figs\4_td-class.png
+INPUT .\figs\4_td-class.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmi.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathMI.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\NewTXMI.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmi7.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathMI7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\NewTXMI7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\stxscr.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineTB-tlf-t1--base.tfm
+INPUT figs\4_cr-matrix.pdf
+INPUT .\figs\4_cr-matrix.pdf
+INPUT .\figs\4_cr-matrix.pdf
+INPUT .\figs\4_cr-matrix.pdf
+INPUT figs\4_cr-class.png
+INPUT .\figs\4_cr-class.png
+INPUT .\figs\4_cr-class.png
+INPUT .\figs\4_cr-class.png
+INPUT .\figs\4_cr-class.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-ot1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmi5.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathMI5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\NewTXMI5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\stxscr.tfm
+INPUT figs\4_fuzzy-sets-english.png
+INPUT .\figs\4_fuzzy-sets-english.png
+INPUT .\figs\4_fuzzy-sets-english.png
+INPUT .\figs\4_fuzzy-sets-english.png
+INPUT .\figs\4_fuzzy-sets-english.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT figs\4_fuzzy-sets-cultural.png
+INPUT .\figs\4_fuzzy-sets-cultural.png
+INPUT .\figs\4_fuzzy-sets-cultural.png
+INPUT .\figs\4_fuzzy-sets-cultural.png
+INPUT .\figs\4_fuzzy-sets-cultural.png
+INPUT figs\4_fuzzy-sets-time.png
+INPUT .\figs\4_fuzzy-sets-time.png
+INPUT .\figs\4_fuzzy-sets-time.png
+INPUT .\figs\4_fuzzy-sets-time.png
+INPUT .\figs\4_fuzzy-sets-time.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\ntxexx.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txexs.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-ot1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\ntxsy7.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txsys.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txex-bar.tfm
+INPUT figs\4_ca-matrix.pdf
+INPUT .\figs\4_ca-matrix.pdf
+INPUT .\figs\4_ca-matrix.pdf
+INPUT .\figs\4_ca-matrix.pdf
+INPUT figs\4_ca-class.png
+INPUT .\figs\4_ca-class.png
+INPUT .\figs\4_ca-class.png
+INPUT .\figs\4_ca-class.png
+INPUT .\figs\4_ca-class.png
+INPUT figs\4_cg-matrix.pdf
+INPUT .\figs\4_cg-matrix.pdf
+INPUT .\figs\4_cg-matrix.pdf
+INPUT .\figs\4_cg-matrix.pdf
+INPUT figs\4_cg-class.png
+INPUT .\figs\4_cg-class.png
+INPUT .\figs\4_cg-class.png
+INPUT .\figs\4_cg-class.png
+INPUT .\figs\4_cg-class.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\newtx\nxlmia.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\LibertineMathRM.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txmiaSTbb.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\txmiaX.tfm
+INPUT figs\4_stc-measurer.png
+INPUT .\figs\4_stc-measurer.png
+INPUT .\figs\4_stc-measurer.png
+INPUT .\figs\4_stc-measurer.png
+INPUT .\figs\4_stc-measurer.png
+INPUT figs\4_reports.png
+INPUT .\figs\4_reports.png
+INPUT .\figs\4_reports.png
+INPUT .\figs\4_reports.png
+INPUT .\figs\4_reports.png
+INPUT figs\4_controllers-measurement.png
+INPUT .\figs\4_controllers-measurement.png
+INPUT .\figs\4_controllers-measurement.png
+INPUT .\figs\4_controllers-measurement.png
+INPUT .\figs\4_controllers-measurement.png
+INPUT figs\4_services-measurement.png
+INPUT .\figs\4_services-measurement.png
+INPUT .\figs\4_services-measurement.png
+INPUT .\figs\4_services-measurement.png
+INPUT .\figs\4_services-measurement.png
+INPUT figs\4_fuzzy-sets-age.png
+INPUT .\figs\4_fuzzy-sets-age.png
+INPUT .\figs\4_fuzzy-sets-age.png
+INPUT .\figs\4_fuzzy-sets-age.png
+INPUT .\figs\4_fuzzy-sets-age.png
+INPUT figs\4_fuzzy-sets-experience.png
+INPUT .\figs\4_fuzzy-sets-experience.png
+INPUT .\figs\4_fuzzy-sets-experience.png
+INPUT .\figs\4_fuzzy-sets-experience.png
+INPUT .\figs\4_fuzzy-sets-experience.png
+INPUT figs\4_fuzzy-sets-mediator.png
+INPUT .\figs\4_fuzzy-sets-mediator.png
+INPUT .\figs\4_fuzzy-sets-mediator.png
+INPUT .\figs\4_fuzzy-sets-mediator.png
+INPUT .\figs\4_fuzzy-sets-mediator.png
+INPUT figs\4_fuzzy-sets-training.png
+INPUT .\figs\4_fuzzy-sets-training.png
+INPUT .\figs\4_fuzzy-sets-training.png
+INPUT .\figs\4_fuzzy-sets-training.png
+INPUT .\figs\4_fuzzy-sets-training.png
+INPUT figs\4_fuzzy-sets-supervisor.png
+INPUT .\figs\4_fuzzy-sets-supervisor.png
+INPUT .\figs\4_fuzzy-sets-supervisor.png
+INPUT .\figs\4_fuzzy-sets-supervisor.png
+INPUT .\figs\4_fuzzy-sets-supervisor.png
+INPUT figs\4_fuzzy-sets-solution.png
+INPUT .\figs\4_fuzzy-sets-solution.png
+INPUT .\figs\4_fuzzy-sets-solution.png
+INPUT .\figs\4_fuzzy-sets-solution.png
+INPUT .\figs\4_fuzzy-sets-solution.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmtt.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\t1cmtt.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\jknappen\ec\ectt0900.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT figs\4_recommendations-window.png
+INPUT .\figs\4_recommendations-window.png
+INPUT .\figs\4_recommendations-window.png
+INPUT .\figs\4_recommendations-window.png
+INPUT .\figs\4_recommendations-window.png
+INPUT figs\4_settings-window.png
+INPUT .\figs\4_settings-window.png
+INPUT .\figs\4_settings-window.png
+INPUT .\figs\4_settings-window.png
+INPUT .\figs\4_settings-window.png
+INPUT figs\4_heroku-app.png
+INPUT .\figs\4_heroku-app.png
+INPUT .\figs\4_heroku-app.png
+INPUT .\figs\4_heroku-app.png
+INPUT .\figs\4_heroku-app.png
+OUTPUT Conclusiones.aux
+INPUT Conclusiones.tex
+INPUT Conclusiones.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-t1.tfm
+OUTPUT AnexoA.aux
+INPUT AnexoA.tex
+INPUT AnexoA.tex
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\listings\lstlang1.sty
+INPUT code\communications.py
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\utf8.def
+INPUT code\communications.py
+INPUT code\communications.py
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumT-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ot1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmi5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsy5.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexx.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msam7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\nxlmia.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsym.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxsyc.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\newtx\ntxexa.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\ts1linuxbiolinumt-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\tex\latex\libertine\ts1linuxbiolinumt-tlf.fd
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-ts1.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1.tfm
+INPUT figs\annex-com.png
+INPUT .\figs\annex-com.png
+INPUT .\figs\annex-com.png
+INPUT .\figs\annex-com.png
+INPUT .\figs\annex-com.png
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-t1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-t1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinBiolinumTB-tlf-ts1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinBiolinumTB-tlf-ts1--base.tfm
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\vf\public\libertine\LinLibertineT-tlf-ts1.vf
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\tfm\public\libertine\LinLibertineT-tlf-ts1--base.tfm
+INPUT uclmTFGesi.aux
+INPUT Introduccion.aux
+INPUT Introduccion.aux
+INPUT Objetivo.aux
+INPUT Objetivo.aux
+INPUT Metodologia.aux
+INPUT Metodologia.aux
+INPUT Resultados.aux
+INPUT Resultados.aux
+INPUT Conclusiones.aux
+INPUT Conclusiones.aux
+INPUT AnexoA.aux
+INPUT AnexoA.aux
+INPUT .\uclmTFGesi.out
+INPUT .\uclmTFGesi.out
+INPUT uclmTFGesi.run.xml
+OUTPUT uclmTFGesi.run.xml
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_mmutss.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\cm-super\cm-super-t1.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_oexx6f.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_omcwp2.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_tlukpt.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_25tcsq.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_ncsllp.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_7grukw.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_naooyc.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_76gpa5.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\enc\dvips\libertine\lbtn_nh77jq.enc
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\LibertineMathMI.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\LibertineMathMI.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\LibertineMathMI5.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\LibertineMathMI5.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\LibertineMathMI7.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\LibertineMathMI7.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinBiolinumT.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinBiolinumT.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinBiolinumTB.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinBiolinumTB.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinLibertineT.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinLibertineT.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinLibertineTB.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinLibertineTB.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinLibertineTI.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\libertine\LinLibertineTI.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\NewTXMI.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\NewTXMI.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\NewTXMI7.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\NewTXMI7.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\latxfont\lcircle1.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\amsfonts\latxfont\lcircle1.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\cm-super\sftt0900.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\cm-super\sftt0900.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\txexs.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\txexs.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\txmiaX.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\txmiaX.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\txsys.pfb
+INPUT C:\Users\antom\AppData\Local\Programs\MiKTeX 2.9\fonts\type1\public\newtx\txsys.pfb

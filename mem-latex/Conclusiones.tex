@@ -1,0 +1,94 @@
+\chapter{Conclusions}
+\label{cap:conclusions}
+
+In this last chapter, we shall address the conclusions to which the project has led. We shall first look at how the project objectives have been met and how the project has been justified with the intensification competencies. We shall subsequently discuss future work and personal assessments after the completion of the project.
+
+\section{Achievement of the objectives}
+
+The general objectives established at the beginning of this project were: the development of a tool with which to measure STC within an organisation, along with a recommendation system that could be used to improve the organisation's STC levels.
+
+At this point, we can confirm the fulfilment of both objectives and we shall now, therefore, provide details on how they have been achieved by meeting the different specific objectives of the project:
+
+\begin{itemize}
+\item The project began with the development of a dashboard with which to allow the manipulation of the resources required in order to measure STC in an organisation. This was a challenging functional module, as it required training in frontend resources that the student had never previously used. Time constraints prevented the control of inputs and outputs, along with more robust testing, from being carried out to the level desired. Despite this, the functional module fulfils its task and meets the requirements of the tool without major problems.\newline
+
+\item The subsequent implementation of the algorithms required in order to measure STC and its adaptation to GSD was undoubtedly the functionality that required the greatest amount of time. Efforts were also made to attempt to improve their performance and refine the measurement by means of a fuzzy control system. This objective also involved the simulation of communications in order to test the algorithms, the interface corresponding to this functional module and consultations with an expert in order to refine the measurements.\newline
+
+\item One of the principal contributions of FENCE is the use of a fuzzy control system to improve STC measurement. Working with attributes expressed through linguistic labels provided the possibility of using a fuzzy control system to improve the calculation of STC levels. This functionality can also be considered as an original contribution if we compare it with other existing tools used to measure STC \cite{sierra_systematic_2018}, since it allows the system to be more flexible for organizations with different socio-cultural distances that can impact on STC levels.\newline
+
+\item In comparison with the previous modules, the visualization of the STC history levels meant less effort than expected, since the main tasks carried out were training in the use of Chart.js and the adaptation of the data model to the needs of the timelines. The greatest difficulty was, again, the use of frontend technologies not previously employed, although in this case it was not a major challenge.\newline
+
+\item Finally, the implementation of the recommendation system for the improvement of STC levels was another of the most challenging milestones of the project. The complexity of this functional module meant exploring the processes of knowledge engineering and fuzzy logic in greater depth. It was also necessary to study the FCL standard and the jFuzzyLogic library in order to translate the expert knowledge into rules that could be used by the system. It is worth noting that one of the features that emerged while developing the expert system was the customization of threshold weights with which to provide recommendations. This feature, which was not originally intended, was added with the intention of improving the recommendations offered and making FENCE a more flexible tool.
+
+\end{itemize}
+
+As can be seen, the objectives set out at the beginning of the project were achieved. Furthermore, some of them were even expanded in order to improve the tools with features not initially contemplated, and this highlighted the importance of continuous communication with stakeholders throughout the project.
+
+\section{Competencies justification}
+
+This section provides the rationale for the Computation competencies addressed in this project. Let us, therefore, study the competencies covered during the development of FENCE:
+
+\begin{description}
+\item[CM3:]\emph{Ability to evaluate the computational complexity of a problem, discover algorithmic strategies that can lead to its resolution and recommend, develop, and implement that which guarantees the best performance according to requirements}.\newline  
+
+	This project has led to a detailed study and more profound exploration of algorithms already existing in literature, with the objective of measuring STC. The existing algorithms were simultaneously improved and adapted to the specific needs of GSD contexts.\newline
+
+\item[CM4:]\emph{Ability to understand the fundamentals, paradigms, and techniques of intelligent systems and to analyse, design and build computer systems, services and applications using these techniques in any field of application}.\newline 
+
+	The development of FENCE has involved the implementation of an intelligent system for the measurement and improvement of STC. Fuzzy inference systems have been specifically used to achieve this goal.\newline
+
+\item[CM5:]\emph{Ability to acquire, obtain, formalize, and represent human knowledge in a computable manner for problem solving by means of a computer system in any field of application, particularly those related to aspects of computing, perception and performance in environments or intelligent environments}.\newline 
+
+	This competence has been addressed through the development of a knowledge-based system.  Its implementation has involved Knowledge Engineering procedures, in addition to the formalization and representation of knowledge through the use of fuzzy rules.
+
+\end{description}
+
+\section{Lessons learned}
+
+The development of this project has made it possible to relate the importance of STC in organisations, its significant influence in GSD contexts and how useful it is to employ fuzzy logic and knowledge-based systems in order to improve it.
+
+With regard to the STC measurement, various alternatives were initially studied when deciding which algorithms to use for FENCE. The STC measurement method outlined by Cataldo et al. \cite{cataldo_identification_2006, cataldo_socio-technical_2008} was discarded owing to the low flexibility provided by its bivalued-weight matrices. Other metrics, such as that of Valetto et al. \cite{valetto_using_2007} could not be adapted to GSD contexts, as explained in \cite{sierra_systematic_2018}. Only the solutions proposed by Portillo et al. \cite{portillo_2014} and Kwan et al. \cite{kwan_weighted_2009, kwan_does_2011} table for such environments, and the proposal of Kwan et al. was that chosen, since it is a more general procedure and, therefore, more open and adaptable to FENCE requirements.
+
+It was simultaneously necessary to carry out a reformulation of the algorithms presented by Kwan et al. in order to improve their performance as much as possible. This was achieved by replacing the use of matrices with objects stored in the database, thus reducing their complexity and, therefore, execution time.
+
+Furthermore, extracting expert knowledge was not an easy task and it took several meetings to agree on a robust proposal that would serve as the basis for the expert system. The development of this expert system signified the need to make major efforts with the knowledge engineer such as in-depth individual research into unknown topics in order to better extract expert knowledge; the planning of structured interviews that would guarantee the expert's comfort when contributing expertise, or dealing with the ambiguity of human language.
+
+One of the most valuable lessons learned from this project was that going into greater depth throughout its development could lead to the consideration of improvements not initially contemplated but which provided the tool with significant value. As an example, in the early days of FENCE, we did not contemplate the customisation of threshold weights in order to provide recommendations, but after a discussion we agreed that it could be an interesting feature to be added. Any changes agreed with stakeholders that do not involve a major departure from the main objectives of the project should, therefore, be welcomed as long as they add value and are profitable.
+
+Moreover, it is important to emphasize the relevance of carrying out a detailed study of the tools that are being used. It took several days to compare multiple Java fuzzy logic libraries and, once chosen, the development of the fuzzy control system required training time, not only as regards the libraries used in the papers published by their authors, but also as regards the notions of fuzzy logic. This was necessary work that took several weeks, although the time invested was worthwhile and speeded up the process of implementing the system.
+
+In this development, it was also necessary to learn the basic syntax of FCL (structures, variables, functions, etc.). This resulted in a really useful and interesting fuzzy control language, which the author recommends when confronting projects based on fuzzy inference systems.
+
+The development of FENCE using tools such as Spring Boot, HTML, JavaScript, CSS or jQuery together for the first time was also a real challenge, involving a long period of self-teaching and improvement throughout the project.
+
+Finally, planning was essential. Many of the proposed objectives would not have been easily achieved without the proper management of the time invested in each iteration,   anticipating possible problems or the reduction of risks, such as advancing in important aspects of the project without the stakeholders’ prior approval.
+
+\section{Future work}
+
+Concerning the future work that could be derived from this project, many possibilities can be explored.
+
+First, one of the drawbacks of the algorithms needed to measure STC is their low scalability. Their performance is not sufficiently high when input data (users, tasks, teams, assignments, dependencies) grow to more realistic sizes. In fact, improving the performance of these algorithms is a complex task that we intend to confront as further work. As an example, and considering the matrixial nature of these algorithms, an initial proposal that could be addressed is that of increasing parallelization by means of threads.
+
+Focusing on the recommendation of solutions by which to improve STC, the work presented in this project could be the basis of a much more complex system, providing a greater number of solutions that are not only related to communication. In-depth information concerning dependencies, the availability of different employees, or task deadlines are some of the initial proposals that are suggested as improvements to be addressed in the future.
+
+Moreover, if we focus on the use of data to manage STC, one possible future approach could be the implementation of a functional module that would allow the estimation of future STC levels based on historical measurements and the organisation’s current status.
+
+In conclusion, the possibilities of STC are still wide and varied. This makes STC a broad field of study, in which all the proposed solutions should always lead to the benefit of the organisations and those who shape them.
+
+\section{Personal appraisal}
+
+With regard to personally appraising this project, I consider FENCE to be merely the first step in providing a new approach as to how STC can be measured and improved. My view is that it is a particularly useful and valuable tool if it is put to good use, as it is first and foremost capable of raising the awareness of such important human aspects as coordination and communication.
+
+This project has meant many things to me at a personal level. On the one hand, being able to put into practice what I have learnt during all these years has been a considerable source of motivation and pride. On the other, being able to build bridges between my passion for artificial intelligence and research has also been a tremendous stimulus for me.
+
+Moreover, the development of this project has meant perseverance, self-demand, discipline and, above all, creativity, values that I hope to continue improving over time. This work has undoubtedly also allowed me to look at things in perspective and see how, thanks to these principles, I have arrived where I am today.
+
+Thus, after four years of intense work, this period comes to an end. With no interest in stating more than necessary, the completion of this project closes one of the most important periods of my life, which has modelled me as a person and future engineer and which, despite the enormous efforts and sacrifices it has required, has undoubtedly been worthwhile.
+
+\makeatletter		
+\begin{flushright}
+	\vspace{1,5cm}
+	\textit{\@autor}\\
+	Campo de Criptana, June 3rd, 2020.
+\end{flushright}
+\makeatother

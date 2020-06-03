@@ -1,0 +1,105 @@
+\chapter{Introduction}
+\label{cap:introduction}
+
+This project presents FENCE, a tool with which to measure and improve the socio-technical congruence levels of organisations by means of fuzzy logic. In this first chapter we shall specifically address the theoretical foundations set out in literature on which the justification for this project rests. Finally, once the context on which FENCE is based has been presented, the structure of this document will be detailed, providing a brief explanation of the aspects that will be dealt in each of the following chapters.
+
+\section{Global Software Development}
+
+When looking at how the software industry has progressed in recent years, a major trend towards decentralisation and the adoption of distributed development models will be observed. This new approach to software production, known as Global Software Development (GSD), is based on the development of projects on distant sites, usually located in different countries around the world. GSD consequently provides organisations with multiple advantages, such as cost savings, time to market reduction, access to larger multi-skilled workforces or proximity to resources and stakeholders \cite{conchuir_global_2009, agerfalk_benefits_2008}.
+
+These are the best-known benefits for organisations, but there are also other implicit advantages, as GSD also implies organisational benefits associated with greater innovation and the adoption of best practices, improved task modularisation, increased team autonomy, better documentation, or more accurate and traceable asynchronous communication \cite{agerfalk_benefits_2008}.
+
+If we look beyond organisations, then the greatest expression of GSD is currently taking place in the open-source community \cite{peng_collaborative_2014} and in any crowdsourcing environment, in which hundreds or even thousands of people remotely collaborate in software development.
+
+There are not, however, only advantages, since GSD also implies multiple challenges associated with temporal, geographical and socio-cultural distances \cite{saleem_understanding_2019}, given its distributed and multicultural essence. Some of these challenges are related to communication and collaboration among sites, a lack of awareness of the organisational structure or project state, knowledge dissemination difficulties, requirements elicitation, trust improvement, or the need to adapt agile methodologies to distributed environments \cite{niazi_challenges_2013, shameem_systematic_2018, malik_geographical_2018, manjavacas_global_2020}.
+
+Literature generally places considerable emphasis on the importance of communication and coordination in GSD, as they are the key aspects as regards ensuring the success of projects on which multiple virtual teams have to distantly collaborate together \cite{malik_geographical_2018, al-zaidi_global_2017}. Being able to know and evaluate the state of an organisation in terms of its coordination and communication will consequently result in a significant advantage when it comes to mitigating risks and preventing major problems, hence the importance of tools and means that allow this task to be undertaken.
+
+\section{Sociotechnical congruence}
+
+In 1968, Melvin Conway was responsible for "Conway's Law" \cite[p.~31]{conway_how_1968}, which states that "\emph{organizations which design systems [...] are constrained to produce designs which are copies of the communication structures of these organizations}". This principle is still in force \cite{kwan_conways_2012, herbsleb_architectures_1999}, and its interpretation suggests that communication has a significant influence on the development of any physical system. Moreover, software systems can be considered a special case that also applies to this law, since in this case the product structure corresponds to the software architecture, and the organisational structure with the organisational chart \cite{kwan_conways_2012}.
+
+As explained in \cite{sierra_systematic_2018}, in 2006, a new term closely related to Conway’s law and known as Socio-Technical Congruence (hereinafter STC) was introduced by Cataldo and his colleagues \cite{cataldo_identification_2006}. It was initially defined as “\emph{a technique to measure task dependencies among people, and the ‘fit’ between these task dependencies and the coordination activities performed by individuals}” \cite[p.~353]{cataldo_identification_2006}. This has been the basis of the many other definitions of STC that have emerged since the initial one \cite{cataldo_socio-technical_2008, kwan_does_2011, kwan_extending_2011, cataldo_coordination_2013, wagstrom_communication_2010, sarma_challenges_2008}, always emphasising that STC describes the degree of matching between an organisation’s coordination requirements and its current coordination activities.
+
+The main properties of STC are those shown in \cite{sarma_challenges_2008}, in which it is defined as a representation of organisational status in terms of coordination, also emphasizing its multidimensionality and interpretability from the different levels of the organisation. The authors also highlight other aspects, such as the fact that STC is a dynamic and descriptive metric or that it involves advantages and disadvantages that must be balanced in order for it to be truly useful for the organisation as a whole.
+
+Some of the other proven effects of STC are its impact on software quality \cite{cataldo_identification_2006, cataldo_socio-technical_2008, kwan_does_2011, cataldo_coordination_2013, smite_socio-technical_2012, ehrlich_analysis_2008, marczak_investigating_2009} and development time \cite{cataldo_identification_2006, cataldo_socio-technical_2008, kwan_does_2011}. Its relevance for GSD projects has also been studied \cite{cataldo_identification_2006, cataldo_socio-technical_2008, cataldo_coordination_2013, ehrlich_analysis_2008}, including open source environments \cite{wagstrom_communication_2010, syeed_socio-technical_2015, syeed_socio-technical_2014, syeed_socio-technical_2014-1, bolici_coordination_2009} in which work is still pending. As can be seen, the range of influence of STC covers all types of projects and dimensions, thus proving the relevance of this metric and its proper measurement in real contexts.
+
+If we focus on how to measure STC, there is a problem to be considered, since there is no standard measurement method, but rather multiple proposals based on the same idea with visible differences. As explained in \cite{sierra_systematic_2018}, the most generic proposal by Cataldo et al. \cite{cataldo_identification_2006, cataldo_socio-technical_2008} is usually that taken as a reference and to which adaptations and improvements have been made. Despite the fact that multiple proposals with which to measure STC have appeared in literature \cite{cataldo_identification_2006, cataldo_socio-technical_2008, wagstrom_communication_2010, valetto_using_2007, portillo_2014, li_analysis_2012}, in this project we shall take as a reference that provided by Kwan et al. \cite{kwan_weighted_2009, kwan_does_2011}, given its adaptability, scalability and precision when compared to other alternatives. An in-depth study of its implementation will be carried out in Chapter \ref{cap:results}.
+
+Finally, another relevant statement made in \cite{sierra_systematic_2018} is that no specific ranges have been defined in literature that will make it possible to state if the STC levels are good or bad. In this respect, STC is flexible and, its measurement relative to the circumstances of projects and organisations.
+
+\section{Knowledge-based systems}
+
+Artificial intelligence (AI) can be defined as a branch of information science that deals with the implantation of a restricted but defined part of human intelligence \cite{popovic_methods_1994} in computers. There have been many definitions of AI since its origin, which can be grouped according to 4 perspectives, as shown in Table \ref{lb:ai-def}.
+
+\begin{table}[]
+\centering
+\caption{Definitions of AI}
+\label{lb:ai-def}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{c|c|c|}
+\cline{2-3}
+                                                              & \textbf{Human perspective}       & \textbf{Rational perspective}   \\ \hline
+\multicolumn{1}{|c|}{\textbf{Mental processes and reasoning}} & Systems   that think like humans & Systems   that think rationally \\ \hline
+\multicolumn{1}{|c|}{\textbf{Behaviour and performance}}      & Systems   that act like humans   & Systems   that act rationally   \\ \hline
+\end{tabular}%
+}
+\end{table}
+
+AI is a very broad field, and many disciplines are directly or indirectly involved in its definition, from mathematics and programming to psychology, philosophy, or linguistics. This interaction with multiple disciplines has given rise to a great variety of branches within AI, of which we shall focus on that known as Knowledge Engineering.
+
+Knowledge Engineering is a discipline of artificial intelligence focused on the analysis and proposal of methods so as to acquire, represent, store and use knowledge in order to emulate the intelligent reasoning capacities of human beings. One of the main tasks in Knowledge Engineering is to provide systems with the ability to reason on the basis of how this is done by human beings, resulting in Expert Systems.
+
+An Expert System is a computer programme that attempts to emulate the behaviour of an expert in a specific domain when confronted with a certain problem, along with the procedure followed to attain a solution \cite{mate_1998, waterman_guide_1986}. Knowledge engineering, therefore, addresses the specification, analysis and development of expert systems.
+
+The origin of expert systems goes back to the end of the 1960s and beginning of the 1970s, during which time systems such as DENDRAL \cite{lederberg_how_1987}, MYCIN \cite{shortliffe_mycin_1974} or PROSPECTOR \cite{gaschnig_prospector_1982} were some of their most representative examples. These examples make it possible to appreciate the many areas of application of expert systems, of which medicine, teaching, consulting, mathematics, decision making, training, control or planning are just some.
+
+The main objective of expert systems is consequently to help people solve problems, regardless of their experience as regards mastering the problem, in addition to safeguarding knowledge in order to facilitate further training and learning in its domain.
+
+With regard to how these systems perform their tasks, expert systems have different ways of emulating human reasoning, with rule-based reasoning being one of the most widespread. These rule-based systems make use of logical inference (usually supported by fuzzy logic \cite{negoita_expert_1985, kandel_fuzzy_1991} to derive conclusions from a knowledge base and a set of input perceptions. As can be assumed, the use of logical inference in reasoning will involve a prior formalization of expert knowledge by using a logical representation.
+
+As explained in \cite{medsker_fuzzy_1995}, the hybrid combination of fuzzy logic and expert systems is simple and natural, as both have features that complement each other. This has, therefore, led to the appearance of fuzzy expert systems, which, as will be shown in the following section, make it possible to reflect reality in a more human and precise way when compared to conventional rule systems.
+
+\section{Fuzzy logic}
+
+Fuzzy logic has its origins in the first definition of a fuzzy set provided by Lofti A. Zadeh in 1965. As he explains in \cite[p.~339]{zadeh_fuzzy_1965}: “\emph{a fuzzy set A in X is characterized by a membership function fA(x) which associates with each point in X a real number in the interval [0, 1], with the value of fA(x) at x representing the ‘grade of membership’ of x in A}”. It is, therefore, possible to extend traditional set theory to a more extensive domain in which the membership functions of sets are no longer bivalued (0 or 1), but represent a degree of membership between 0 and 1, as shown in Equation \ref{eq:fuzzy-set-def}:
+
+\begin{equation}
+\label{eq:fuzzy-set-def}
+f_a: X \rightarrow [0,1]
+\end{equation}
+
+where $f_A (x) = 1$ if $x$ is totally in $A$, $f_A (x) = 0$ if $x$ is not in $A$ and $0<f_A (x)<1$ if $x$ is partially in $A$.
+
+On this basis, one the main contributions of fuzzy logic is the ability to represent knowledge by means of qualitative quantifiers. This makes it possible to bring the inferences closer to a more humane approach, in which linguistic labels such as "high" or "cold" do not express precise values but are ambiguous and relative to the context in which they are being applied \cite{morcillo_tecnicas_nodate, zadeh_concept_1975, bellman_decision-making_1970}.
+
+Furthermore, after its inception, the applications of fuzzy logic underwent an overwhelming growth, and began to appear in countless fields such as fuzzy control systems, fuzzy databases, expert systems, optimisation problems, and any other domain in which approximate reasoning is required.
+
+In the field of fuzzy control, systems are based on knowledge inferred by an expert or learned autonomously in order to make decisions by means of inference. The inference engines of expert systems that make use of approximate reasoning are similarly able to exploit the advantages of fuzzy logic in order to provide reasoning and solutions that are closer to the human perspective.
+
+With regard to how fuzzy inference systems work, the process carried out is as follows \cite{wikipedia_fuzzy_2020}:
+
+\begin{itemize}
+\item First, the fuzzification of the input values into fuzzy membership functions is performed.
+\item The system then executes those applicable rules, resulting in output values.
+\item Finally, the defuzzification process is carried out on the outputs in order to obtain the resulting "crisp" (conventional set) values.
+\end{itemize}
+
+As will be noted, fuzzy sets provide smoother transitions between the limits of a crisp set. It is, in turn, possible to employ many kinds of fuzzy membership functions (triangular, trapezoidal, gaussian, sigmoidal, etc. \cite{emathteacher_nodate}, and choosing between them will, therefore, depend on the problem to be solved and the decisions made on the basis of experience.
+
+\section{Document structure}
+
+Having explained the motivation of the project and the state of the art,  the phases undertaken to develop FENCE, a tool for the measurement and improvement of STC levels within an organisation by using fuzzy logic, will subsequently be described in the various chapters of this document. A detailed description of these chapters is  provided below:
+
+\begin{itemize}
+\item \textbf{Chapter 1}. The present chapter addresses the motivation of the project, along with the state of the art as regards global software development, socio-technical congruence, knowledge-based systems and fuzzy logic. It has served as an introduction to the work to that will take place and to the context of the problem being confronted.
+\item \textbf{Chapter 2}. The second chapter provides a detailed explanation of the project objectives, both general and specific.
+\item \textbf{Chapter 3}.  This chapter concentrates on the initial planning of the project, which involves both the justification of the working methodology adopted and the technological framework used.
+\item \textbf{Chapter 4}. This chapter shows details of the development of FENCE by describing its multiple phases and iterations. It covers both the planning and definition of the project and the development of its different functional modules.
+\item \textbf{Chapter 5}. This final chapter presents the assessments and conclusions of the project, including future work, lessons learned, and the justification of the competences acquired after its development.
+\end{itemize}
+
+For any enquiry, all of the code referenced in this document is available in the following GitHub repository: \url{https://github.com/manjavacas/fence}.
+
+

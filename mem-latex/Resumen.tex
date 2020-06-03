@@ -1,0 +1,62 @@
+%--- Ajustes del documento.
+\pagestyle{plain}	% Páginas sólo con numeración inferior al pie
+
+% -------------------------
+%
+% RESUMEN:
+% OJO: Si es preciso cambiar manualmente orden Resumen <-> Abstract
+%
+% -------------------------
+
+%--- Resumen en inglés
+% Abstract
+\selectlanguage{english} % Selección de idioma del resumen.
+\cleardoublepage
+\phantomsection % OJO: Necesario con hyperref
+\addcontentsline{toc}{chapter}{Abstract} % Añade al TOC.
+
+\begin{abstract}
+% EDITAR: Abstract (máx. 1 pág.)
+
+The evolution of the software industry that has taken place in recent years has brought with it a considerable trend towards the decentralisation of projects and, therefore, of the work teams involved in their development. This software production model, known as Global Software Development (GSD), provides organisations with multiple benefits, such as a reduction in costs and time to market, innovation, process improvement, continuous development, and proximity to resources and stakeholders.
+
+However, despite the many advantages associated with GSD, there are still many challenges associated with this software development model, most of which are related to collaboration and coordination difficulties owing to the interaction between users who are culturally, temporally, or geographically distant. These distances accentuate communication problems and pose difficulties that, if not properly addressed, can lead to significant drawbacks or even project failure.
+
+Preventing communication problems between users or work teams is, therefore, of particular relevance in distributed environments. To achieve this task, a metric called Socio-Technical Congruence (STC) is proposed, whose objective is to measure the gap between organisations’ coordination requirements and the coordination actions that are currently being performed.
+
+This project addresses the design and development of FENCE, a tool with which to measure and improve organisations’ STC levels, thus providing a new means to measure these levels by taking advantage of the benefits of fuzzy logic and making use of an expert system designed to provide solutions to existing communication problems.
+
+\end{abstract}
+%---
+
+
+%--- Resumen en español
+\selectlanguage{spanish} % Selección de idioma del resumen.
+\cleardoublepage % Se incluye para modificar el contador de página antes de añadir bookmark
+\phantomsection  % OJO: Necesario con hyperref
+\addcontentsline{toc}{chapter}{Resumen} % Añade al TOC.
+
+\begin{abstract}
+% EDITAR: Resumen (máx. 1 pág.)
+%\begin{center}
+%\emph{[... versión del resumen en español ...]}
+%\end{center}
+La evolución de la industria del software en los últimos años permite observar una considerable tendencia a la descentralización de los proyectos y, por tanto, de los equipos de trabajo involucrados en su desarrollo. Este modelo de producción de software, conocido como Desarrollo Global del Software (GSD), supone múltiples beneficios para las organizaciones, tales como reducción de costes y tiempos de desarrollo, innovación y mejora de procesos, desarrollo continuo, así como proximidad a recursos y \emph{stakeholders}.
+
+Sin embargo, a pesar de las múltiples ventajas asociadas al GSD, son aún muchos los retos asociados a este modelo de desarrollo software. La mayoría de ellos se encuentran relacionados con las dificultades de colaboración y coordinación debido a la interacción entre usuarios cultural, temporal y geográficamente distantes. Estas distancias acentúan los problemas de comunicación y suponen dificultes que, en caso de no ser debidamente abordadas, pueden conducir a notables inconvenientes o incluso al fracaso de los proyectos.
+
+De esta forma, la anticipación a los problemas de comunicación entre usuarios o equipos de trabajo se plantea como una acción de especial relevancia en entornos distribuidos. Para lograr este cometido, existe una métrica denominada congruencia sociotécnica (STC) destinada a medir la diferencia entre los requisitos de coordinación de una organización y las medidas de coordinación que actualmente están siendo llevadas a cabo.
+
+Este proyecto aborda el diseño y desarrollo de FENCE, una herramienta orientada a la medición y mejora de los niveles de STC de las organizaciones, ofreciendo una forma novedosa de medirla aprovechando los beneficios de la lógica borrosa y haciendo uso de un sistema experto destinado a ofrecer soluciones a los problemas de comunicación existentes.
+\end{abstract}
+%---
+
+
+
+
+%--- Ajuste del idioma para el resto del documento.
+\ifspanish
+	\selectlanguage{spanish}% Emplea idioma español
+\else
+	\selectlanguage{english}% Emplea idioma inglés
+\fi
