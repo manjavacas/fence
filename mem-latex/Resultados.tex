@@ -1,7 +1,7 @@
 \chapter{Results}
 \label{cap:results}
 
-In accordance with the OpenUP lifecycle described in chaper~\ref{cap:methodology}, the following subsections will detail the development phases of the first version of FENCE, emphasizing the results of each phase and thoroughly explaining the decisions made in the design and development of the tool.
+In accordance with the OpenUP lifecycle described in chapter~\ref{cap:methodology}, the following subsections will detail the development phases of the first version of FENCE, emphasizing the results of each phase and thoroughly explaining the decisions made in the design and development of the tool.
 
 \section{Inception phase}
 
@@ -31,7 +31,7 @@ With clear objectives and an approximate and viable idea of the project to be un
 
 \section{Elaboration phase}
 
-Initially, the objectives pursued in this phase are the formalization of the system requirements, the decision on the architecture to be used, as well as its design and data model. On this basis, it would be possible to establish a project planning, as well as a cost estimate adjusted to the development time and resources used.
+Initially, the objectives pursued in this phase are the formalization of the system requirements, the decision on the architecture to be used, as well as its design and data model. On this basis, it would be possible to establish a project planning, as well as a cost estimation adjusted to the development time and resources used.
 
 Moreover, some key learning aspects were carried out at this stage, such as training in the Spring framework or MongoDB. Thus, further research in these technologies in the early project stages would facilitate future work and ensure more consistent progress.
 
@@ -111,15 +111,15 @@ Functional requirements represent which functionalities should be covered by the
 	\textit{FR12} &
 	  Users STC visualization &
 	  \begin{tabular}[c]{@{}l@{}}The tool should display visual information \\ about the users' STC levels along time.\end{tabular} &
-	  Low \\ \hline
+	  Medium \\ \hline
 	\textit{FR13} &
 	  Teams STC visualization &
 	  \begin{tabular}[c]{@{}l@{}}The tool should display visual information \\ about the teams’ STC levels along time.\end{tabular} &
-	  Low \\ \hline
+	  Medium \\ \hline
 	\textit{FR14} &
 	  Projects STC visualization &
 	  \begin{tabular}[c]{@{}l@{}}The tool should display visual information \\ about the projects' STC levels along time.\end{tabular} &
-	  Low \\ \hline
+	  Medium \\ \hline
 	\textit{FR15} &
 	  Custom project‘s lack of coordination threshold &
 	  \begin{tabular}[c]{@{}l@{}}The tool will allow to customize from which \\ threshold of lack of coordination recommendations \\ should be provided for a given project.\end{tabular} &
@@ -354,7 +354,7 @@ Spring Boot \cite{spring_boot} provides a great simplicity when implementing thi
 \end{figure}
 
 \begin{itemize}
-\item \textbf{Presentation}. It is the layer in charge of the interaction with the user. In this case, it includes the static resources (HTML views and CSS code), as well as the underlying JavaScript code. This layer, conceived as the client side, communicates with the server through GET, POST, PUT or DELETE AJAX requests.
+\item \textbf{Presentation}. It is the layer in charge of the interaction with the user. In this case, it includes the static resources (HTML views and CSS code), as well as the underlying JavaScript code. This layer, conceived as the client side, communicates with the server through GET, POST, PUT or DELETE Ajax requests.
 \item \textbf{Model}. This is the layer where the classes that model real-world entities are found. These classes, making use of the Spring framework integration with MongoDB, are labelled as documents (\textit{@Document}), so that they represent the basic structure of the documents included in the database's collections.
 \item \textbf{Controller}. The controllers are the classes in charge of handling the CRUD requests received from the presentation layer. They make use of the classes defined in the Model layer, are labelled as \textit{@Controller}, and establish, for each of the CRUD operations, a mapping with their methods. In general, this layer covers business logic operations, so we can also find controller classes in charge of performing other transactions besides attending to requests from the presentation layer. Furthermore, when any of these operations requires access to the database, communication with the underlying DAO (Data Access Only) layers will be necessary.
 \item \textbf{Service}. This layer includes the set of DAO classes that interact with the database. They are labelled as \textit{@Service} and include the logic needed to access repositories and handle controller requests.
@@ -419,7 +419,7 @@ Thus, taking as a reference this initial data model and the previously designed 
 	\label{fig:mongodb-cluster}
 \end{figure}
 
-Once the cluster’s database was created and correctly integrated into the system, the main CRUD operations were added for each of the resources, defining the necessary methods in Controllers, Services and Repositories. Following the model provided by Spring framework, each application resource is represented by a class from the Model package, as previously explained. On the other hand, controllers are in charge of the main operations and communication with the interface, while service classes act as DAO entities communicating with the MongoDB repositories (as shown in Figure~\ref{fig:layer_arch}.
+Once the cluster’s database was created and correctly integrated into the system, the main CRUD operations were added for each of the resources, defining the necessary methods in Controllers, Services and Repositories. Following the model provided by Spring framework, each application resource is represented by a class from the Model package, as previously explained. On the other hand, controllers are in charge of the main operations and communication with the interface, while service classes act as DAO entities communicating with the MongoDB repositories (as shown in Figure~\ref{fig:layer_arch}).
 
 Therefore, when the logical skeleton of the application had been created, the two main windows of the system were elaborated. On the one hand, the main control panel that would be gradually completed in the different iterations of the project, whose first version is shown in Figure~\ref{fig:first-dashboard}.
 
@@ -471,7 +471,7 @@ Once the dashboard was implemented and the main application windows were set, so
 
 Up to now, the creation of the main resources of the tool, their storage, and the CRUD interaction with them through the dashboard have been presented. In this stage, the objective pursued was to use these resources to carry out the measurement of the STC at the different levels of the organization under consideration: users, teams, and projects.
 
-As previously explained in chapter \ref{cap:introduction}, the procedure taken as a reference to measure STC was the one exposed by Kwan et al. \cite{kwan_weighted_2009,kwan_does_2011}, given its facility to be adapted to the features and requirements of FENCE. Therefore, in the following subsection we will see gradually how the STC is calculated through the different algorithms implemented in this module:
+As previously explained in chapter \ref{cap:introduction}, the procedure taken as a reference to measure STC was the one exposed by Kwan et al. \cite{kwan_weighted_2009,kwan_does_2011}, given its facility to be adapted to the features and requirements of FENCE. Therefore, in the following subsections we will see gradually how the STC is calculated through the different algorithms implemented in this module:
 
 \subsubsection{TASK ASSIGNMENT MATRIX ($T_A$)}
 
@@ -507,7 +507,7 @@ Both for this case and for the rest of the matrices detailed in the literature, 
         $taMatrix \longleftarrow $\O$ $\;
         $tasks \longleftarrow getPendingTasks(project) $\;
         
-        \ForEach{task $t$ in $tasks$}{
+        \ForEach{$task$ in $tasks$}{
             $users \longleftarrow getUsersAssignedTo(task) $\;
             
             \If{users $\ne$ \O}{
@@ -561,15 +561,15 @@ As in the previous case, the different cells of the $T_D$ matrix are stored as o
         $tdMatrix \longleftarrow $\O$ $\;
         $tasks \longleftarrow getPendingTasksOf(project) $\;
         
-        \ForEach{task $t$ in $tasks$}{
+        \ForEach{$task$ in $tasks$}{
             $taskDependencies \longleftarrow getDependenciesOf(task) $\;
             
             \If{taskDependencies $\ne$ \O}{
                 $sumValues \longleftarrow sumWeights(taskDependencies) $\;
                 
-                \ForEach{taskDependency $td$ in $taskDependencies$}{
-                    $weight \longleftarrow td.weight / sumValues $\;
-                    $tdMatrix \cup T_D(t, td, weight, project)$\;
+                \ForEach{taskDependency in $taskDependencies$}{
+                    $weight \longleftarrow taskDependency.weight / sumValues $\;
+                    $tdMatrix \cup T_D(task, taskDependency, weight, project)$\;
                 }
             }
         }
@@ -618,7 +618,7 @@ As can be shown in Algorithm~\ref{alg:cr}, in the calculation of the weights for
         
         $crMatrix \longleftarrow $\O$ $\;
         
-        \ForEach{ta $t$ in $taMatrix$}{
+        \ForEach{taskAssignment $ta$ in $taMatrix$}{
            
            $user_1 \longleftarrow ta.user $\;
            $dependencies \longleftarrow getDependenciesOf(ta.task) $\;
@@ -765,7 +765,7 @@ The entries taken by the fuzzy control system are the following:
 
 \subsubsection{ACTUAL COMMUNICATION MATRIX ($C_A$)}
 
-When representing how users are trying to coordinate, it is necessary to take into account the communications between them. The actual coordination matrix ($C_A$) makes use of the communications within the organization to represent those pairs of users who have communicated, as shown in Figure~\ref{fig:ca-matrix}. Thus, the different cells of the $C_A$ matrix will represent with their weights how much communication has existed between each pair of users in a given project, being these communications related to concrete tasks (see Figure~\ref{fig:ca-class}.
+When representing how users are trying to coordinate, it is necessary to take into account the communications between them. The actual coordination matrix ($C_A$) makes use of the communications within the organization to represent those pairs of users who have communicated, as shown in Figure~\ref{fig:ca-matrix}. Thus, the different cells of the $C_A$ matrix will represent with their weights how much communication has existed between each pair of users in a given project, being these communications related to concrete tasks (see Figure~\ref{fig:ca-class}).
 
 \begin{figure}
 	\centering
@@ -781,7 +781,7 @@ When representing how users are trying to coordinate, it is necessary to take in
 	\label{fig:ca-class}
 \end{figure}
 
-Before addressing the calculation of the $C_A$ objects stored in the database, it is necessary to clarify how the communications have been obtained to test the algorithm. In order to roughly simulate communications between users in the organization, a Python script was initially used to generate completely random conversations for a given project. However, after multiple iterations it was determined that the generated conversations hardly represented realistic communications, as the number of really useful communications to be generated was simply anecdotal. As a result, the script was consciously modified, giving rise to the one shown in Annex \ref{cap:annexA}, which in this case did provide more realistic and useful results when testing the tool. As can be seen, the script makes use of the existing coordination requirements in $C_R$ matrix and tries to fulfil them with a random amount of conversations between users. These communications would be stored in the database and used by the $C_A$ matrix algorithm detailed in Algorithm~\ref{alg:ca}.
+Before addressing the calculation of the $C_A$ objects stored in the database, it is necessary to clarify how the communications have been obtained to test the algorithm. In order to roughly simulate communications between users in the organization, a Python script was initially used to generate completely random conversations for a given project. However, after multiple iterations it was determined that the generated conversations hardly represented realistic communications, as the number of really useful communications to be generated was simply anecdotal. As a result, the script was consciously modified, giving rise to the one shown in Appendix \ref{cap:annexA}, which in this case did provide more realistic and useful results when testing the tool. As can be seen, the script makes use of the existing coordination requirements in $C_R$ matrix and tries to fulfil them with a random amount of conversations between users. These communications would be stored in the database and used by the $C_A$ matrix algorithm detailed in Algorithm~\ref{alg:ca}.
 
 \begin{algorithm}
     
@@ -892,7 +892,7 @@ The procedure followed to fill in this matrix is relatively simple compared to t
                     $cgMatrix \cup C_G(cr.user_1, cr.user_2, cr.task, weight_{C_G}, cr.project)$\;
                }
             }\Else{
-                $cgMatrix \cup CG(cr.user_1, cr.user_2, cr.task, cr.weight, cr.project)$\;
+                $cgMatrix \cup C_G(cr.user_1, cr.user_2, cr.task, cr.weight, cr.project)$\;
             }
         }
     
@@ -1016,7 +1016,7 @@ Having calculated the STC at user and team level, it only remains to measure it 
         $projectCRsum \longleftarrow sumWeights(C_R)$\;
         $projectCGsum \longleftarrow sumWeights(C_G)$\;
         
-        \uIf{projectCGsumt $\leq$ 0} {
+        \uIf{projectCGsum $\leq$ 0} {
             $stcProject \cup ProjectsSTC(team, 100.0, getCurrentDate())$\;
         }\Else{
             $stcProject \longleftarrow 1 - (projectCGsum / projectCRsum)$\;
@@ -1025,7 +1025,7 @@ Having calculated the STC at user and team level, it only remains to measure it 
         
     \end{algorithm}
 
-Once seen in detail the implementation of the algorithms and their adaptation to the information handled by FENCE, it only remains to illustrate how the information is requested by the user and displayed in the interface (see Figure~\ref{fig:stc-measurer}.
+Once seen in detail the implementation of the algorithms and their adaptation to the information handled by FENCE, it only remains to illustrate how the information is requested by the user and displayed in the interface (see Figure~\ref{fig:stc-measurer}).
 
 \begin{figure}
 	\centering
@@ -1062,7 +1062,7 @@ Looking at the FENCE interface, as can be seen in Figure~\ref{fig:reports}, the 
 	\label{fig:reports}
 \end{figure}
 
-If we go deeper into the construction and operation of the charts beyond the interface, initially the application makes GET-type Ajax requests to the corresponding controllers. Each controller shown in Figure~\ref{fig:measurements-controllers} receives the request and invokes the corresponding method in the associated service object (see Figure~\ref{fig:measurements-services}), which retrieves and returns all the measurements stored in the database. When each AJAX request receives the result of the query, the last 20 measurements performed are extracted and entered as input data to be represented by the \emph{Chart.js} plot.
+If we go deeper into the construction and operation of the charts beyond the interface, initially the application makes GET-type Ajax requests to the corresponding controllers. Each controller shown in Figure~\ref{fig:measurements-controllers} receives the request and invokes the corresponding method in the associated service object (see Figure~\ref{fig:measurements-services}), which retrieves and returns all the measurements stored in the database. When each Ajax request receives the result of the query, the last 20 measurements performed are extracted and entered as input data to be represented by the \emph{Chart.js} plot.
 
 \begin{figure}
 	\centering
@@ -1089,17 +1089,17 @@ This module addressed the development of one of the main and most distinctive fu
 Before starting the development of this system, meetings were held with the different stakeholders:
 
 \subsubsection{TECHNICAL PLANNING}
-Initially, it was discussed through different meetings with José Ángel Olivas how to approach the development of the recommendation system by using the information provided by FENCE. It was agreed that the coordination gap matrix (CG) was ideal for finding out which users were those on whom recommendations should be made. Moreover, the variables and rules to be used by the fuzzy inference system were also studied and initially outlined.
+Initially, it was discussed through different meetings with José Ángel Olivas how to approach the development of the recommendation system by using the information provided by FENCE. It was agreed that the coordination gap matrix ($C_G$) was ideal for finding out which users were those on whom recommendations should be made. Moreover, the variables and rules to be used by the fuzzy inference system were also studied and initially outlined.
 
 After these sessions, multiple alternatives were considered when working with fuzzy logic in Java, being finally jFuzzyLogic \cite{cingolani_jfuzzylogic_2012, cingolani_jfuzzylogic_2013} the library chosen for this task. This library is based on the definition of fuzzy inference systems by means of the standard FCL \cite{FCL}, so it was necessary to learn its syntax in the handling of variables, functions, fuzzy sets, and rules.
 
 The main features of this library that led to its use were: its flexibility and ease of integration with the system developed so far; the use of FCL (a relatively simple fuzzy definition language) as well as being quite updated in relation to other fuzzy logic libraries found.
 
-With this technical base and once familiar with jFuzzyLogic after multiple tests, the knowledge engineering work was carried out together with the Aurora Vizcaíno, who played the role of expert.
+With this technical base and once familiar with jFuzzyLogic after multiple tests, the Knowledge Engineering work was carried out together with the Aurora Vizcaíno, who played the role of expert.
 
 \subsubsection{KNOWLEDGE ENGINEERING}
 
-Knowledge engineering involves the extraction of expert knowledge and its translation into a formalized language in a precise, unambiguous, and exploitable way. On this basis, the knowledge engineering tasks performed would allow us to define the features that should be covered by the recommending system. 
+Knowledge Engineering involves the extraction of expert knowledge and its translation into a formalized language in a precise, unambiguous, and exploitable way. On this basis, the Knowledge Engineering tasks performed would allow us to define the features that should be covered by the recommending system. 
 
 If we consider its scope and limitations, the following ones were considered:
 
@@ -1418,7 +1418,7 @@ With the expert knowledge formalized and translated into rules, the implementati
 \indent \textbf{a) Input variables}
 
 \begin{itemize}
-\item \textbf{Cultural distance}. Average of the distances between socio-cultural factors identified by \cite{hofstede_cultures_2004} according to the nationality of the users. Calculated as already shown in the $C_R$ matrix section of \ref{sec:stc}, with the same fuzzy sets.
+\item \textbf{Cultural distance}. Average of the distances between socio-cultural factors identified by \cite{hofstede_cultures_2004} according to the nationality of the users. Calculated as already shown in the $C_R$ matrix explanation of section \ref{sec:stc}, with the same fuzzy sets.
 \item \textbf{Time overlap}.  Coincidence between employees’ time zones (UTC), calculated as the inverse of their time difference. A greater time overlap will facilitate the use of synchronous means of communication, while the impossibility of temporal coincidence in communication will result in greater use of asynchronous means. As in the previous case, this input parameter was already defined in section \ref{sec:stc}.
 \item \textbf{English level}. Level of English shared by users. The method for obtaining this value and its fuzzy sets was also defined in section \ref{sec:stc}.
 \item \textbf{Age1}, \textbf{Age2}. Age of the evaluated employees, represented by the fuzzy sets in Figure \ref{fig:fs-age}.
@@ -1714,7 +1714,7 @@ Once the system was implemented and ready to be used, it was integrated into the
 
 \subsubsection{EXPERT SYSTEM INTERFACE}
 
-The integration of the expert system with the FENCE interface is quite simple and easy to use. When the user accesses the "Recommendations" window (shown in Figure \ref{fig:recommendations}, the first thing that will be loaded will be the last recommendations generated for the project selected in the dropdown menu. However, if the user wants to recalculate these recommendations to get an up-to-date list, then simply pressing the "Update" button will display the new list of advices.
+The integration of the expert system with the FENCE interface is quite simple and easy to use. When the user accesses the "Recommendations" window (shown in Figure \ref{fig:recommendations}), the first thing that will be loaded will be the last recommendations generated for the project selected in the dropdown menu. However, if the user wants to recalculate these recommendations to get an up-to-date list, then simply pressing the "Update" button will display the new list of advices.
 
 	\begin{figure}
 		\centering
@@ -1723,7 +1723,7 @@ The integration of the expert system with the FENCE interface is quite simple an
 		\label{fig:recommendations}
 	\end{figure}
 
-As indicated at the beginning of this section, whether or not to show recommendations for certain users should depend on the weight of the coordination gap present among them in the CG matrix. On this basis, one of the improvements proposed at the end of this phase was the possibility of customizing from which weight in CG the system would show recommendations for pairs of employees. This feature as well as others related to customization will be covered in the following section.
+As indicated at the beginning of this section, whether or not to show recommendations for certain users should depend on the weight of the coordination gap present among them in the $C_G$ matrix. On this basis, one of the improvements proposed at the end of this phase was the possibility of customizing from which weight in $C_G$ the system would show recommendations for pairs of employees. This feature as well as others related to customization will be covered in the following section.
 
 \subsection{Module 6. Settings and preferences}
 
@@ -1732,22 +1732,22 @@ The last functional module of FENCE is the one related to customization and sett
 After the development of the STC measurement and recommendation modules, it was agreed that the following customisable features may be implemented:
 
 \begin{itemize}
-\item On the one hand, the possibility to generally adjust the weight in the CG matrix considered to provide recommendations between pairs of users. As already explained, when offering recommendations by the expert system, the weight of the cells in CG matrix is taken as a reference to evaluate if there are communication problems between users and, therefore, to know if it is necessary to recommend communication solutions.
-\item On the other hand, it was also considered the possibility of establishing custom thresholds for the CG weights used to provide recommendations among specific employees. To better illustrate the customization of this CG weight threshold, let us consider the following example:\newline
+\item On the one hand, the possibility to generally adjust the weight in the $C_G$ matrix considered to provide recommendations between pairs of users. As already explained, when offering recommendations by the expert system, the weight of the cells in $C_G$ matrix is taken as a reference to evaluate if there are communication problems between users and, therefore, to know if it is necessary to recommend communication solutions.
+\item On the other hand, it was also considered the possibility of establishing custom thresholds for the $C_G$ weights used to provide recommendations among specific employees. To better illustrate the customization of this $C_G$ weight threshold, let us consider the following example:\newline
 
 
-\indent\emph{Suppose that the system provides recommendations for any pair of users with a weight in the CG matrix equal to or greater than 0.4.\newline}
+\indent\emph{Suppose that the system provides recommendations for any pair of users with a weight in the $C_G$ matrix equal to or greater than 0.4.\newline}
 
-\indent\emph{Two users, Alice and Bob, have a lack of coordination reflected in the CG matrix with a value of 0.6, which means that the expert system will offer recommendations to improve their communication.\newline}
+\indent\emph{Two users, Alice and Bob, have a lack of coordination reflected in the $C_G$ matrix with a value of 0.6, which means that the expert system will offer recommendations to improve their communication.\newline}
 
-\indent\emph{However, we know that the communication between Alice and Bob is simple and effective because they are used to working together, so it would be convenient to be able to adjust the CG threshold value to avoid getting unnecessary recommendations, for example, to 0.9.\newline}
+\indent\emph{However, we know that the communication between Alice and Bob is simple and effective because they are used to working together, so it would be convenient to be able to adjust the $C_G$ threshold value to avoid getting unnecessary recommendations, for example, to 0.9.\newline}
 
 \indent\emph{Thus, the user can set the minimum weight required to receive recommendations for the particular case of Alice and Bob to 0.9 through the FENCE settings interface.\newline}
 
 
 \end{itemize}
 
-With these ideas in mind, the development of these customizations was conducted (see Figure \ref{fig:settings}. In turn, the option to restore all weights to the established default value was also included, as well as the possibility of establishing these weights at project level, thus increasing customization and flexibility.
+With these ideas in mind, the development of these customizations was conducted (see Figure \ref{fig:settings}). In turn, the option to restore all weights to the established default value was also included, as well as the possibility of establishing these weights at project level, thus increasing customization and flexibility.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{4_settings-window}
@@ -1770,7 +1770,7 @@ Further graphic information, such as icons and coloured buttons, was also includ
 
 Bugs related to the expert system and the recommendations provided were resolved, as well as attempts were made to further optimize the STC measurement algorithms.
 
-Moreover, security improved were attempted to be added in order to increase the robustness of the tool, such as input control in the database. However, given the time constraints of the project, this aspect was not addressed as deeply as would have been desired, so it is proposed as a future improvement of the tool.
+Moreover, security improvements were attempted to be added in order to increase the robustness of the tool, such as input control in the database. However, given the time constraints of the project, this aspect was not addressed as deeply as would have been desired, so it is proposed as a future improvement of the tool.
 
 \subsection{First release and documentation}
 
