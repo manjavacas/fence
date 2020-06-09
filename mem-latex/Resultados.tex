@@ -7,7 +7,7 @@ In accordance with the OpenUP lifecycle described in chapter~\ref{cap:methodolog
 
 In this first phase, initial meetings with stakeholders took place, where a first contact was established and from which the project objectives would begin to be defined. The idea of the preliminary project was consolidated, and the functionalities and design of FENCE began to be roughly sketched out.
 
-Therefore, this meetings with the stakeholders, Aurora Vizcaíno and José Ángel Olivas, focused on defining, on the one hand, the basic functionalities of the tool (STC measurement, dashboard features, settings and preferences) and, on the other hand, the features that would make FENCE an innovative tool (use of fuzzy control system to improve STC measurement or a recommending system aimed to enhance STC levels). These features were conveniently formalized as requirements, as we will see in the elaboration phase.
+Therefore, this meetings with the stakeholders, Aurora Vizcaíno and José Ángel Olivas, focused on defining, on the one hand, the basic functionalities of the tool (STC measurement, dashboard features, settings and preferences) and, on the other hand, the features that would make FENCE an innovative tool (use of fuzzy inference system to improve STC measurement or a recommending system aimed to enhance STC levels). These features were conveniently formalized as requirements, as we will see in the elaboration phase.
 
 As previously mentioned, the initiation phase in OpenUP involves the definition of the roles of the different stakeholders. In this case, it was decided that Aurora Vizcaíno would supervise the development of the application in general terms, while José Ángel Olivas would monitor the part of the system related to the intensification competencies, such as the implementation of the expert system or the introduction of fuzzy logic into the system.
 
@@ -603,7 +603,7 @@ Initially calculated by means of the operations shown in Equation~\ref{eq:cr}, i
 	C_R = T_A * T_D * T_A^T
 \end{equation}
 
-As can be shown in Algorithm~\ref{alg:cr}, in the calculation of the weights for each coordination requirement, this weight is subsequently adjusted according to different distances present in Global Software Development projects. Thus, a fuzzy control system is used to carry out this adjustment, whose objective is none other than trying to reflect the difficulties or "penalties" to communication that may be caused by socio-cultural, geographical, or temporal distances among users.
+As can be shown in Algorithm~\ref{alg:cr}, in the calculation of the weights for each coordination requirement, this weight is subsequently adjusted according to different distances present in Global Software Development projects. Thus, a fuzzy inference system is used to carry out this adjustment, whose objective is none other than trying to reflect the difficulties or "penalties" to communication that may be caused by socio-cultural, geographical, or temporal distances among users.
 
 \begin{algorithm}
     
@@ -647,7 +647,7 @@ As can be shown in Algorithm~\ref{alg:cr}, in the calculation of the weights for
     
 \end{algorithm}
 
-The entries taken by the fuzzy control system are the following:
+The entries taken by the fuzzy inference system are the following:
 
 \begin{itemize}
 \item \textbf{Common English level}. Level of English shared by users, assuming that communication between them is always in this language despite their country provenance. It can be assumed that even if two users communicate in their native language, the level of English must be considered if the information disseminated by public chats (i.e. Jira, GitHub, Teams, Slack, etc.) should be interpretable by other users. Depending on the individual level of each user, the following weights are assessed:\newline
@@ -717,12 +717,22 @@ The entries taken by the fuzzy control system are the following:
 		\label{fig:fs-time}
 	\end{figure}
 
-	\vspace{16px}
-	In turn, the set of rules defined using FCL and used by the system is displayed in Table~\ref{tb:cr-fuzzy-rules}.\newline
+\end{itemize}
+
+Since the above are the input variables taken by the system, the output is given by the \textbf{Modifier} variable, assigned to the fuzzy sets defined in Figure~\ref{fig:fs-modifier}.
+	
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{4_fuzzy-sets-modifier}
+	\caption[Weight modifier fuzzy sets]{Weight modifier fuzzy sets}
+	\label{fig:fs-modifier}
+\end{figure}
+	
+In turn, the set of rules defined using FCL and used by the system is displayed in Table~\ref{tb:cr-fuzzy-rules}.
 	
 	\begin{table}
 	\centering
-	\caption{$C_R$ fuzzy control system rules}
+	\caption{$C_R$ fuzzy inference system rules}
 	\label{tb:cr-fuzzy-rules}
 	\resizebox{\textwidth}{!}{%
 	\begin{tabular}{|c|l|}
@@ -756,12 +766,10 @@ The entries taken by the fuzzy control system are the following:
 	\end{tabular}%
 	}
 	\end{table}
-	
-	After evaluating the rules, the output produced and conveniently defuzzified by the system will be the value to be added to the original $C_R$ weight. This penalty will attempt to represent the additional communication efforts that must be made between users due to the temporal, geographical and cultural distances between them.\newline
-	
-	Having studied how this fuzzy inference system works, it will be easily noted how the calculation of the $C_A$ matrix will make use of it in a very similar manner.
 
-\end{itemize}
+After evaluating the rules, the output modifier produced and conveniently defuzzified by the system will be the value to be added to the original $C_R$ weight. This penalty will attempt to represent the additional communication efforts that must be made between users due to the temporal, geographical and cultural distances between them.
+
+Having studied how this fuzzy inference system works, it will be easily noted how the calculation of the $C_A$ matrix will make use of it in a very similar manner.
 
 \subsubsection{ACTUAL COMMUNICATION MATRIX ($C_A$)}
 
@@ -1101,7 +1109,7 @@ With this technical base and once familiar with jFuzzyLogic after multiple tests
 
 Knowledge Engineering involves the extraction of expert knowledge and its translation into a formalized language in a precise, unambiguous, and exploitable way. On this basis, the Knowledge Engineering tasks performed would allow us to define the features that should be covered by the recommending system. 
 
-If we consider its scope and limitations, the following ones were considered:
+If we study its scope and limitations, the following ones were considered:
 
 \begin{itemize}
 	\item \textbf{Scope}: given the characteristics of the users that integrate the multiple teams on a given project, as well as the organization's STC levels, the system will offer as output recommendations to improve those STC levels in a clear and traceable way.
@@ -1110,7 +1118,7 @@ If we consider its scope and limitations, the following ones were considered:
 
 Subsequently, once the domain of the system had been established, the choice of the expert willing to transmit her knowledge was made. In this case, as previously stated, it was Aurora Vizcaíno, university professor and researcher in the Computer Science School of Ciudad Real. It was considered that her contributions would be an important source of knowledge given her experience in the field of GSD, as well as her work in multiple research projects related to communication and knowledge management in this domain.
 
-On the other hand, one of the main tasks of the knowledge engineer is the study of the viability of the project to be undertaken. One of the most recognised ways of studying this viability is the Slagel Test \cite{mate_1998}. This test is focused on the study of the plausibility, justification, success, adequacy, and success of expert systems, allowing to determine if the project is viable based on the reasoning over its characteristics:
+On the other hand, one of the main tasks of the knowledge engineer is the study of the viability of the project to be undertaken. An effective method for this purpose is the Slagel Test \cite{mate_1998}, which is focused on the study of the plausibility, justification, success, adequacy, and success of expert systems, allowing to determine if the project is viable based on the reasoning over its characteristics:
 
 \begin{itemize}
 \item \textbf{Plausibility}: determines whether the necessary means to address the problem from the perspective of Knowledge Engineering are available. From this point of view, the characteristics of the expert and the task to be undertaken are analysed.
@@ -1129,10 +1137,14 @@ In this way, the process conducted in order to justify the viability of the reco
 	\item Experts (EX).
 	\item Tasks (TA).
 	\end{itemize}
-	
+
+	\vspace{2mm}
+
 	For each category, the most important features that define that dimension are specified. These features may be essential (E) or desirable (D), considering that essential features must not have a value below a threshold (7 in this case).
-	
-	On this basis, each feature is assigned a weight between 0 and 10, depending on its relative importance. This entire process is summarized in tables Table \ref{tb:plau}, Table \ref{tb:just}, Table \ref{tb:adeq}, and Table \ref{tb:suc}.
+
+	\vspace{2mm}
+
+	On this basis, each feature is assigned a weight between 0 and 10, depending on its relative importance. This entire process is summarized in tables Table \ref{tb:plau}, Table \ref{tb:just}, Table \ref{tb:adeq}, and Table \ref{tb:suc}.\newline
 
 \begin{table}[]
 	\centering
@@ -1415,7 +1427,7 @@ A total of three meetings made it possible to refine the knowledge obtained, and
 
 With the expert knowledge formalized and translated into rules, the implementation of the system was addressed. First, we will see the variables considered and their corresponding fuzzy sets:
 
-\indent \textbf{a) Input variables}
+\paragraph{a) Input variables}
 
 \begin{itemize}
 \item \textbf{Cultural distance}. Average of the distances between socio-cultural factors identified by \cite{hofstede_cultures_2004} according to the nationality of the users. Calculated as already shown in the $C_R$ matrix explanation of section \ref{sec:stc}, with the same fuzzy sets.
@@ -1440,7 +1452,7 @@ With the expert knowledge formalized and translated into rules, the implementati
 		\label{fig:fs-exp}
 	\end{figure}
 
-\indent \textbf{b) Output variables}
+\paragraph{b) Output variables}
 
 \begin{itemize}
 \item \textbf{Mediator}. Indicates whether a mediator is needed if there is a high cultural distance between users. It is a singleton set with singleton centre of gravity (COGS) as defuzzification method, as shown in Figure \ref{fig:fs-mediator}.
@@ -1470,7 +1482,7 @@ With the expert knowledge formalized and translated into rules, the implementati
 		\label{fig:fs-super}
 	\end{figure}
 
-\item \textbf{Solution1}, \textbf{Solution2}, …, \textbf{Solution9}. These variables cover the 9 solutions proposed to reduce communication problems. Each solution shows a series of recommendations and communication means related to user input values. All of them are represented by singleton sets with COGS as defuzzification method (see Figure \ref{fig:fs-solution}). Also note how the proposed communication solution offered as output will be always unique. 
+\item \textbf{Solution1}, \textbf{Solution2}, …, \textbf{Solution9}. These variables cover the 9 solutions proposed to reduce communication problems, where each solution shows a series of recommendations and communication means related to user input values (see Appendix \ref{cap:annexB} for a detailed explanation of these solutions). All of them are represented by singleton sets with COGS as defuzzification method (see Figure \ref{fig:fs-solution}). Also note how the proposed communication solution offered as output will be always unique. 
 \end{itemize}
 
 	\begin{figure}
@@ -1479,6 +1491,8 @@ With the expert knowledge formalized and translated into rules, the implementati
 		\caption[Solutions singleton fuzzy sets]{Solutions singleton fuzzy sets}
 		\label{fig:fs-solution}
 	\end{figure}
+
+Note how these boolean output variables have been represented by singleton sets where 0 expresses  "not recommended" and 1, "recommended". According to its definition, a fuzzy singleton set is the one whose support is a single point $x$ such that $\mu_a(x) = 1$. In this case, two singleton sets are used, representing the previously mentioned values.
 
 With the input and output variables defined, using jFuzzyLogic for the implementation was not difficult after learning how to use it together with FCL. In general, the system is divided into four distinct parts:
 
@@ -1571,7 +1585,9 @@ END_FUZZIFY
 
 \vspace{16px}
 \item In the same way, the output values are defined in the defuzzification block (Listing \ref{lst:defuzzification}), following an inverse process to the preceding one.
-\newpage
+
+\newpage 
+
 \begin{lstlisting}[caption={[Defuzzification block]Defuzzification block}, label=lst:defuzzification]
 DEFUZZIFY mediator // Communication mediator
 	TERM notRecommended := 0;
@@ -1709,7 +1725,6 @@ END_DEFUZZIFY
 
 \end{itemize}
 
-\newpage
 Once the system was implemented and ready to be used, it was integrated into the FENCE interface.
 
 \subsubsection{EXPERT SYSTEM INTERFACE}
@@ -1733,6 +1748,7 @@ After the development of the STC measurement and recommendation modules, it was 
 
 \begin{itemize}
 \item On the one hand, the possibility to generally adjust the weight in the $C_G$ matrix considered to provide recommendations between pairs of users. As already explained, when offering recommendations by the expert system, the weight of the cells in $C_G$ matrix is taken as a reference to evaluate if there are communication problems between users and, therefore, to know if it is necessary to recommend communication solutions.
+
 \item On the other hand, it was also considered the possibility of establishing custom thresholds for the $C_G$ weights used to provide recommendations among specific employees. To better illustrate the customization of this $C_G$ weight threshold, let us consider the following example:\newline
 
 
@@ -1748,12 +1764,14 @@ After the development of the STC measurement and recommendation modules, it was 
 \end{itemize}
 
 With these ideas in mind, the development of these customizations was conducted (see Figure \ref{fig:settings}). In turn, the option to restore all weights to the established default value was also included, as well as the possibility of establishing these weights at project level, thus increasing customization and flexibility.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\linewidth]{4_settings-window}
 	\caption[Settings window]{Settings window}
 	\label{fig:settings}
 \end{figure}
+
 In this way, the main functionalities of FENCE had finally been completed. All that remained to be done was to test and make improvements in the presentation and performance of FENCE, an iterative procedure based on stakeholders' feedback.
 
 \section{Transition phase}
